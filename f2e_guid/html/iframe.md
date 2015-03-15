@@ -16,6 +16,8 @@ iframe 也是html的一个标签，不过不是王页面上添加一个元素那
 	</html>
 
 
+[demo](/demo/iframe.html)
+
 ## 属性
 
 * frameborder：可用值为1和0，规定是否显示框架周围的边框

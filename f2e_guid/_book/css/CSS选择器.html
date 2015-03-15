@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>this | 关于本书</title>
+        <title>选择器 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,6 +19,10 @@
         
     
     
+    <link rel="next" href="../http://www.cnblogs.com/dolphinX/archive/2012/10/13/2722501.html" />
+    
+    
+    <link rel="prev" href="../css/盒模型.html" />
     
 
         
@@ -30,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.11" data-basepath=".." data-revision="1426423558410">
+    <div class="book" data-level="3.4" data-basepath=".." data-revision="1426423558410">
     
 
 <div class="book-summary">
@@ -301,7 +305,7 @@
         </li>
     
         
-        <li class="chapter " data-level="3.4" data-path="css/CSS选择器.html">
+        <li class="chapter active" data-level="3.4" data-path="css/CSS选择器.html">
             
                 
                     <a href="../css/CSS选择器.html">
@@ -499,7 +503,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.11" data-path="js/this.html">
+        <li class="chapter " data-level="4.11" data-path="js/this.html">
             
                 
                     <a href="../js/this.html">
@@ -1424,140 +1428,329 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_11">
                     
-                        <h1 id="whats-this">What&#39;s this?</h1>
-<p>由于运行期绑定的特性，JavaScript 中的 <code>this</code> 含义非常多，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式</p>
-<p>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象</p>
-<h2 id="">作为函数调用</h2>
-<p>在函数被直接调用时<code>this</code>绑定到全局对象。在浏览器中，<code>window</code> 就是该全局对象</p>
-<pre><code>console.log(this);
-
-function fn1(){
-    console.log(this);
-}
-
-fn1();
-</code></pre><h3 id="">内部函数</h3>
-<p>函数嵌套产生的内部函数的<code>this</code>不是其父函数，仍然是全局变量</p>
-<pre><code>function fn0(){
-    function fn(){
-        console.log(this);
-    }
-    fn();
-}
-
-fn0();
-</code></pre><h3 id="settimeoutsetinterval">setTimeout、setInterval</h3>
-<p>这两个方法执行的函数this也是全局对象</p>
-<pre><code>document.addEventListener(&#39;click&#39;, function(e){
-    console.log(this);
-    setTimeout(function(){
-        console.log(this);
-    }, 200);
-}, false);
-</code></pre><h2 id="">作为构造函数调用</h2>
-<p>所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象</p>
-<pre><code>function Person(name){
-    this.name = name;
-}
-Person.prototype.printName = function(){
-    console.log(this.name);
-};
-
-var p1 = new Person(&#39;Byron&#39;);
-var p2 = new Person(&#39;Casper&#39;);
-var p3 = new Person(&#39;Vincent&#39;);
-
-p1.printName();
-p2.printName();
-p3.printName();
-</code></pre><h2 id="">作为对象方法调用</h2>
-<p>在 JavaScript 中，函数也是对象，因此函数可以作为一个对象的属性，此时该函数被称为该对象的方法，在使用这种调用方式时，this 被自然绑定到该对象</p>
-<pre><code>var obj1 = {
-    name: &#39;Byron&#39;,
-    fn : function(){
-        console.log(this);
-    }
-};
-
-obj1.fn();
-</code></pre><h3 id="">小陷阱</h3>
-<pre><code>var fn2 = obj1.fn;
-
-fn2();
-</code></pre><h2 id="dom">DOM对象绑定事件</h2>
-<p>在事件处理程序中<code>this</code>代表事件源DOM对象（低版本IE有bug，指向了window）</p>
-<pre><code>document.addEventListener(&#39;click&#39;, function(e){
-    console.log(this);
-    var _document = this;
-    setTimeout(function(){
-        console.log(this);
-        console.log(_document);
-    }, 200);
-}, false);
-</code></pre><h2 id="functionprototypebind">Function.prototype.bind</h2>
-<p>bind，返回一个新函数，并且使函数内部的this为传入的第一个参数</p>
-<pre><code>var fn3 = obj1.fn.bind(obj1);
-fn3();
-</code></pre><h2 id="callapplythis">使用call和apply设置this</h2>
-<p>call apply，调用一个函数，传入函数执行上下文及参数</p>
-<pre><code>fn.call(context, param1, param2...)
-
-fn.apply(context, paramArray)
-</code></pre><p>语法很简单，第一个参数都是希望设置的<code>this</code>对象，不同之处在于<code>call</code>方法接收参数列表，而<code>apply</code>接收参数数组</p>
-<pre><code>fn2.call(obj1);
-fn2.apply(obj1);
-</code></pre><h2 id="caller">caller</h2>
-<p>在函数<code>A</code>调用函数<code>B</code>时，被调用函数<code>B</code>会自动生成一个<code>caller</code>属性，指向调用它的函数对象，如果函数当前未被调用，或并非被其他函数调用，则caller为null</p>
-<pre><code>function fn4(){
-    console.log(fn4.caller);
-    function fn(){
-        console.log(fn.caller);
-    }
-    fn();
-}
-
-fn4();
-</code></pre><h2 id="arguments">arguments</h2>
+                        <h1 id="css">CSS选择器</h1>
+<h1 id="">选择器类型</h1>
 <ol>
-<li><p>在函数调用时，会自动在该函数内部生成一个名为 arguments的隐藏对象</p>
+<li>基础选择器</li>
+<li>组合选择器</li>
+<li>属性选择器</li>
+<li>伪类选择器</li>
+<li>伪元素选择器</li>
+</ol>
+<h2 id="">基础选择器</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选择器</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">通用元素选择器，匹配页面任何元素（这也就决定了我们很少使用）</td>
+</tr>
+<tr>
+<td style="text-align:left">#id</td>
+<td style="text-align:left">id选择器，匹配特定id的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">.class</td>
+<td style="text-align:left">类选择器，匹配class<strong>包含</strong>(不是等于)特定类的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">element</td>
+<td style="text-align:left">标签选择器</td>
+</tr>
+</tbody>
+</table>
+<pre><code>* {
+    font-family: &#39;微软雅黑&#39;;
+}
+
+#id-selector{
+    color: #333;
+}
+
+.class-selector{
+    background: #f1f1f1;
+}
+
+p {
+    height: 50px;
+    line-height: 50px;
+}
+</code></pre><h2 id="">组合选择器</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选择器</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">E,F</td>
+<td style="text-align:left">多元素选择器，用<code>,</code>分隔，同时匹配元素E或元素F</td>
+</tr>
+<tr>
+<td style="text-align:left">E F</td>
+<td style="text-align:left">后代选择器，用空格分隔，匹配E元素所有的<strong>后代</strong>（不只是子元素、子元素向下递归）元素F</td>
+</tr>
+<tr>
+<td style="text-align:left">E&gt;F</td>
+<td style="text-align:left">子元素选择器，用<code>&gt;</code>分隔，匹配E元素的所有<strong>直接子元素</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">E+F</td>
+<td style="text-align:left">直接相邻选择器，匹配E元素之后的相邻的同级元素F</td>
+</tr>
+<tr>
+<td style="text-align:left">E~F</td>
+<td style="text-align:left">普通相邻选择器（弟弟选择器），匹配E元素之后的同级元素F（无论直接相邻与否）</td>
+</tr>
+<tr>
+<td style="text-align:left">.class1.class2</td>
+<td style="text-align:left">id和class选择器和选择器连写的时候中间没有分隔符，<code>.</code> 和 <code>#</code> 本身充当分隔符的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">element#id</td>
+<td style="text-align:left">id和class选择器和选择器连写的时候中间没有分隔符，<code>.</code> 和 <code>#</code> 本身充当分隔符的元素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="">属性选择器</h2>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E[attr]</td>
+<td>匹配所有具有属性attr的元素，div[id]就能取到所有有id属性的div</td>
+</tr>
+<tr>
+<td>E[attr = value]</td>
+<td>匹配属性attr值为value的元素，div[id=test],匹配id=test的div</td>
+</tr>
+<tr>
+<td>E[attr ~= value]</td>
+<td>匹配所有属性attr具有多个空格分隔、其中一个值等于value的元素</td>
+</tr>
+<tr>
+<td>E[attr \</td>
+<td>= value]</td>
+<td>匹配所有att属性具有多个<code>-</code>分隔、其中一个值以value开头的元素，主要用于lang属性，比如<code>en</code>、<code>en-us</code></td>
+</tr>
+<tr>
+<td>E[attr ^= value]</td>
+<td>匹配属性attr的值以value<strong>开头</strong>的元素</td>
+</tr>
+<tr>
+<td>E[attr $= value]</td>
+<td>匹配属性attr的值以value<strong>结尾</strong>的元素</td>
+</tr>
+<tr>
+<td>E[attr *= value]</td>
+<td>匹配属性attr的值<strong>包含</strong>value的元素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="">伪类选择器</h2>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E:first-child</td>
+<td>匹配元素E的第一个子元素</td>
+</tr>
+<tr>
+<td>E:link</td>
+<td>匹配所有未被点击的链接</td>
+</tr>
+<tr>
+<td>E:visited</td>
+<td>匹配所有已被点击的链接</td>
+</tr>
+<tr>
+<td>E:active</td>
+<td>匹配鼠标已经其上按下、还没有释放的E元素</td>
+</tr>
+<tr>
+<td>E:hover</td>
+<td>匹配鼠标悬停其上的E元素</td>
+</tr>
+<tr>
+<td>E:focus</td>
+<td>匹配获得当前焦点的E元素</td>
+</tr>
+<tr>
+<td>E:lang(c)</td>
+<td>匹配lang属性等于c的E元素</td>
+</tr>
+<tr>
+<td>E:enabled</td>
+<td>匹配表单中可用的元素</td>
+</tr>
+<tr>
+<td>E:disabled</td>
+<td>匹配表单中禁用的元素</td>
+</tr>
+<tr>
+<td>E:checked</td>
+<td>匹配表单中被选中的radio或checkbox元素</td>
+</tr>
+<tr>
+<td>E::selection</td>
+<td>匹配用户当前选中的元素</td>
+</tr>
+<tr>
+<td>E:root</td>
+<td>匹配文档的根元素，对于HTML文档，就是HTML元素</td>
+</tr>
+<tr>
+<td>E:nth-child(n)</td>
+<td>匹配其父元素的第n个子元素，第一个编号为1</td>
+</tr>
+<tr>
+<td>E:nth-last-child(n)</td>
+<td>匹配其父元素的倒数第n个子元素，第一个编号为1</td>
+</tr>
+<tr>
+<td>E:nth-of-type(n)</td>
+<td>与:nth-child()作用类似，但是仅匹配使用同种标签的元素</td>
+</tr>
+<tr>
+<td>E:nth-last-of-type(n)</td>
+<td>与:nth-last-child() 作用类似，但是仅匹配使用同种标签的元素</td>
+</tr>
+<tr>
+<td>E:last-child</td>
+<td>匹配父元素的最后一个子元素，等同于:nth-last-child(1)</td>
+</tr>
+<tr>
+<td>E:first-of-type</td>
+<td>匹配父元素下使用同种标签的第一个子元素，等同于:nth-of-type(1)</td>
+</tr>
+<tr>
+<td>E:last-of-type</td>
+<td>匹配父元素下使用同种标签的最后一个子元素，等同于:nth-last-of-type(1)</td>
+</tr>
+<tr>
+<td>E:only-child</td>
+<td>匹配父元素下仅有的一个子元素，等同于:first-child:last-child或 :nth-child(1):nth-last-child(1)</td>
+</tr>
+<tr>
+<td>E:only-of-type</td>
+<td>匹配父元素下使用同种标签的唯一一个子元素，等同于:first-of-type:last-of-type或 :nth-of-type(1):nth-last-of-type(1)</td>
+</tr>
+<tr>
+<td>E:empty</td>
+<td>匹配一个不包含任何子元素的元素，文本节点也被看作子元素</td>
+</tr>
+<tr>
+<td>E:not(selector)</td>
+<td>匹配不符合当前选择器的任何元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="n">n的取值</h3>
+<ul>
+<li>1，2，3，4，5</li>
+<li>2n+1, 2n, 4n-1</li>
+<li>odd, even</li>
+</ul>
+<h2 id="">伪元素选择器</h2>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E:first-line</td>
+<td>匹配E元素内容的第一行</td>
+</tr>
+<tr>
+<td>E:first-letter</td>
+<td>匹配E元素内容的第一个字母</td>
+</tr>
+<tr>
+<td>E:before</td>
+<td>在E元素之前插入生成的内容</td>
+</tr>
+<tr>
+<td>E:after</td>
+<td>在E元素之后插入生成的内容</td>
+</tr>
+</tbody>
+</table>
+<h1 id="">选择器优先级</h1>
+<p>如果多条规则作用于同一个元素上，切定义的相同属性的不同值，比如</p>
+<pre><code>&lt;style&gt;
+    #test {color: #666;}
+    p {color: #333;}
+&lt;/style&gt;
+
+&lt;p id=&quot;text&quot;&gt;Text&lt;/p&gt;
+</code></pre><p>这种场景下，<code>p</code>元素文本颜色应该是哪个呢？</p>
+<p>这和我们日常生活中一样，连长说打，师长说不打，自然是听师长的，CSS规则同样有优先级</p>
+<h2 id="css">CSS优先级</h2>
+<p><strong>从高到低分别是</strong></p>
+<ol>
+<li><p>在属性后面使用 <code>!important</code> 会覆盖页面内任何位置定义的元素样式</p>
 </li>
-<li><p>该对象类似于数组，可以使用[]操作符获取函数调用时传递的实参</p>
+<li><p>作为style属性写在元素标签上的内联样式</p>
 </li>
-<li><p>只有函数被调用时，arguments对象才会创建，未调用时其值为null</p>
-<p> function fn5(name, age){</p>
-<pre><code> console.log(arguments);
- name = &#39;XXX&#39;;
- console.log(arguments);
- arguments[1] = 30;
- console.log(arguments);
-</code></pre><p> }</p>
-<p> fn5(&#39;Byron&#39;, 20);</p>
+<li><p>id选择器</p>
+</li>
+<li><p>类选择器</p>
+</li>
+<li><p>伪类选择器</p>
+</li>
+<li><p>属性选择器</p>
+</li>
+<li><p>标签选择器</p>
+</li>
+<li><p>通配符选择器</p>
+</li>
+<li><p>浏览器自定义</p>
 </li>
 </ol>
-<h2 id="callee">callee</h2>
-<p>当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用</p>
-<p>由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且解引用它会产生异常</p>
-<pre><code>function fn6(){
-    console.log(arguments.callee);
-}
-fn6();
-</code></pre><p>匿名函数特好用</p>
-<pre><code>var i =0;
-window.onclick = function(){
-    console.log(i);
-    if(i&lt;5){
-        i++;
-        setTimeout(arguments.callee, 200);
-    }
-}
-</code></pre><h2 id="">函数的执行环境</h2>
-<p>JavaScript中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因</p>
-<p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中，构建该执行环境时，JavaScript 首先会创建 <code>arguments</code>变量，其中包含调用函数时传入的参数</p>
-<p>接下来创建作用域链，然后初始化变量。首先初始化函数的形参表，值为 arguments变量中对应的值，如果 arguments变量中没有对应值，则该形参初始化为 undefined。</p>
-<p>如果该函数中含有内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内定义的局部变量，需要注意的是此时这些变量初始化为 <code>undefined</code>，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，这点对于我们理解JavaScript中的变量作用域非常重要，最后为<code>this</code>变量赋值，会根据函数调用方式的不同，赋给<code>this</code>全局对象，当前对象等</p>
-<p>至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取</p>
+<p>这样就可以看出来上面例子肯定使用id选择器的定义了，还有一种复杂的情况，CSS规则由多个选择器组成</p>
+<pre><code>#test p.class1 {...}
+#test .class1.class2 {...}
+</code></pre><p>这种场景该使用那条规则呢？</p>
+<p>这时候我们可以做个简单的加法运算，id选择器的权值为1000，class选择器为100，标签选择器为10，做一下运算（当然只是为了形象这么说，一万个class选择器加起来也不如一个id选择器优先级高）</p>
+<p>这样我们就能得知第二条的规则优先级高一些，但是还有一种情况</p>
+<pre><code>#parent p.class1
+div #child.class1
+
+&lt;div id=&quot;parent&quot;&gt;
+    &lt;p id=&quot;child&quot; class=&quot;class1&quot;&gt;
+        Text
+    &lt;/p&gt;
+&lt;/div&gt;
+</code></pre><p>按照我们刚才的方法计算，两个的权值时相同的，这时候应该用那条规则呢？简单来说一句话谁更具体用谁，也就是权值高的选择器作用的越具体优先级越高</p>
+<p>我们可以看到两个选择器作用的元素都是<code>p</code>标签，id选择器权值最高，第一条规则作用在了父元素上，第二条规则直接作用在了<code>p</code>标签本身上，所以我们认为第二条选择器的优先级高</p>
+<p>如果两个选择器规权值就是一样，我们改怎么判断呢？ 后面的覆盖前面的！</p>
+<pre><code>div {color: #333;}
+....
+div {color: #666;}
+</code></pre><p>这样<code>div</code>文案的颜色明显会是<code>#666</code></p>
+<p>总而言之判断CSS选择器规则优先级很简单，每个选择器本身有优先级，越具体优先级越高</p>
 
                     
                     </section>
@@ -1568,6 +1761,10 @@ window.onclick = function(){
         </div>
 
         
+        <a href="../css/盒模型.html" class="navigation navigation-prev " aria-label="Previous page: 盒模型"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../http://www.cnblogs.com/dolphinX/archive/2012/10/13/2722501.html" class="navigation navigation-next " aria-label="Next page: 定位"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

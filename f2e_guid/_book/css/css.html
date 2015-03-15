@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>this | 关于本书</title>
+        <title>CSS | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,6 +19,10 @@
         
     
     
+    <link rel="next" href="../css/语法.html" />
+    
+    
+    <link rel="prev" href="../http://wowubuntu.com/markdown/" />
     
 
         
@@ -30,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.11" data-basepath=".." data-revision="1426423558410">
+    <div class="book" data-level="3" data-basepath=".." data-revision="1426423558410">
     
 
 <div class="book-summary">
@@ -244,7 +248,7 @@
         </li>
     
         
-        <li class="chapter " data-level="3" data-path="css/css.html">
+        <li class="chapter active" data-level="3" data-path="css/css.html">
             
                 
                     <a href="../css/css.html">
@@ -499,7 +503,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.11" data-path="js/this.html">
+        <li class="chapter " data-level="4.11" data-path="js/this.html">
             
                 
                     <a href="../js/this.html">
@@ -1424,140 +1428,57 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_12">
                     
-                        <h1 id="whats-this">What&#39;s this?</h1>
-<p>由于运行期绑定的特性，JavaScript 中的 <code>this</code> 含义非常多，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式</p>
-<p>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象</p>
-<h2 id="">作为函数调用</h2>
-<p>在函数被直接调用时<code>this</code>绑定到全局对象。在浏览器中，<code>window</code> 就是该全局对象</p>
-<pre><code>console.log(this);
-
-function fn1(){
-    console.log(this);
-}
-
-fn1();
-</code></pre><h3 id="">内部函数</h3>
-<p>函数嵌套产生的内部函数的<code>this</code>不是其父函数，仍然是全局变量</p>
-<pre><code>function fn0(){
-    function fn(){
-        console.log(this);
-    }
-    fn();
-}
-
-fn0();
-</code></pre><h3 id="settimeoutsetinterval">setTimeout、setInterval</h3>
-<p>这两个方法执行的函数this也是全局对象</p>
-<pre><code>document.addEventListener(&#39;click&#39;, function(e){
-    console.log(this);
-    setTimeout(function(){
-        console.log(this);
-    }, 200);
-}, false);
-</code></pre><h2 id="">作为构造函数调用</h2>
-<p>所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象</p>
-<pre><code>function Person(name){
-    this.name = name;
-}
-Person.prototype.printName = function(){
-    console.log(this.name);
-};
-
-var p1 = new Person(&#39;Byron&#39;);
-var p2 = new Person(&#39;Casper&#39;);
-var p3 = new Person(&#39;Vincent&#39;);
-
-p1.printName();
-p2.printName();
-p3.printName();
-</code></pre><h2 id="">作为对象方法调用</h2>
-<p>在 JavaScript 中，函数也是对象，因此函数可以作为一个对象的属性，此时该函数被称为该对象的方法，在使用这种调用方式时，this 被自然绑定到该对象</p>
-<pre><code>var obj1 = {
-    name: &#39;Byron&#39;,
-    fn : function(){
-        console.log(this);
-    }
-};
-
-obj1.fn();
-</code></pre><h3 id="">小陷阱</h3>
-<pre><code>var fn2 = obj1.fn;
-
-fn2();
-</code></pre><h2 id="dom">DOM对象绑定事件</h2>
-<p>在事件处理程序中<code>this</code>代表事件源DOM对象（低版本IE有bug，指向了window）</p>
-<pre><code>document.addEventListener(&#39;click&#39;, function(e){
-    console.log(this);
-    var _document = this;
-    setTimeout(function(){
-        console.log(this);
-        console.log(_document);
-    }, 200);
-}, false);
-</code></pre><h2 id="functionprototypebind">Function.prototype.bind</h2>
-<p>bind，返回一个新函数，并且使函数内部的this为传入的第一个参数</p>
-<pre><code>var fn3 = obj1.fn.bind(obj1);
-fn3();
-</code></pre><h2 id="callapplythis">使用call和apply设置this</h2>
-<p>call apply，调用一个函数，传入函数执行上下文及参数</p>
-<pre><code>fn.call(context, param1, param2...)
-
-fn.apply(context, paramArray)
-</code></pre><p>语法很简单，第一个参数都是希望设置的<code>this</code>对象，不同之处在于<code>call</code>方法接收参数列表，而<code>apply</code>接收参数数组</p>
-<pre><code>fn2.call(obj1);
-fn2.apply(obj1);
-</code></pre><h2 id="caller">caller</h2>
-<p>在函数<code>A</code>调用函数<code>B</code>时，被调用函数<code>B</code>会自动生成一个<code>caller</code>属性，指向调用它的函数对象，如果函数当前未被调用，或并非被其他函数调用，则caller为null</p>
-<pre><code>function fn4(){
-    console.log(fn4.caller);
-    function fn(){
-        console.log(fn.caller);
-    }
-    fn();
-}
-
-fn4();
-</code></pre><h2 id="arguments">arguments</h2>
+                        <h1 id="css">CSS</h1>
+<p>CSS全称是 Cascading Style Sheets，翻译过来就是层叠样式表</p>
+<h2 id="">是什么</h2>
 <ol>
-<li><p>在函数调用时，会自动在该函数内部生成一个名为 arguments的隐藏对象</p>
+<li><p>样式表
+ 所谓样式就是我们看到的HTML长什么样子，比如你我他都是人，人就可以称为我们的结构，但是大家头发有长短，肤色有黑白，相貌有美丑，这就是外观，也就是样式，CSS用来描述HTML长什么样子</p>
 </li>
-<li><p>该对象类似于数组，可以使用[]操作符获取函数调用时传递的实参</p>
-</li>
-<li><p>只有函数被调用时，arguments对象才会创建，未调用时其值为null</p>
-<p> function fn5(name, age){</p>
-<pre><code> console.log(arguments);
- name = &#39;XXX&#39;;
- console.log(arguments);
- arguments[1] = 30;
- console.log(arguments);
-</code></pre><p> }</p>
-<p> fn5(&#39;Byron&#39;, 20);</p>
+<li><p>层叠
+ 层叠指的是样式的优先级，当作用于相同元素的CSS规则产生冲突时以优先级高的为准</p>
+<blockquote>
+<p>CSS层叠是指CSS样式在针对同一元素配置同一属性时，依据层叠规则（权重）来处理冲突，选择应用权重高的CSS选择器所指定的属性，一般也被描述为权重高的覆盖权重低的，因此也称作层叠。每个CSS选择器都会有一个权重（行内1000，id100，class10，tag1、可以这样认为），当两个选择器同时配置同一元素的同一属性时（比如一个设置color：red，另一个color：black），就会产生冲突，而解决冲突的方案就是CSS选择器的权重，权重高的来覆盖权重低的。</p>
+</blockquote>
 </li>
 </ol>
-<h2 id="callee">callee</h2>
-<p>当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用</p>
-<p>由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且解引用它会产生异常</p>
-<pre><code>function fn6(){
-    console.log(arguments.callee);
-}
-fn6();
-</code></pre><p>匿名函数特好用</p>
-<pre><code>var i =0;
-window.onclick = function(){
-    console.log(i);
-    if(i&lt;5){
-        i++;
-        setTimeout(arguments.callee, 200);
-    }
-}
-</code></pre><h2 id="">函数的执行环境</h2>
-<p>JavaScript中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因</p>
-<p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中，构建该执行环境时，JavaScript 首先会创建 <code>arguments</code>变量，其中包含调用函数时传入的参数</p>
-<p>接下来创建作用域链，然后初始化变量。首先初始化函数的形参表，值为 arguments变量中对应的值，如果 arguments变量中没有对应值，则该形参初始化为 undefined。</p>
-<p>如果该函数中含有内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内定义的局部变量，需要注意的是此时这些变量初始化为 <code>undefined</code>，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，这点对于我们理解JavaScript中的变量作用域非常重要，最后为<code>this</code>变量赋值，会根据函数调用方式的不同，赋给<code>this</code>全局对象，当前对象等</p>
-<p>至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取</p>
+<h2 id="">意义</h2>
+<p>把页面的结构和样式分离</p>
+<p>以前的页面HTML和CSS是没有区分的，都是HTML，这样的后果是有甚多标签并没有任何语义，只是表示特殊的样式，同时标签为了样式的规定的属性层出不穷，这就是<strong>内容</strong>和<strong>表现</strong>的杂糅</p>
+<p>在新式的页面中HTML只表示结构和内容，样式部分交给CSS控制，做到了内容和表现分离，方便维护</p>
+<blockquote>
+<p>网页的读者和作者都可以使用CSS来决定文件的颜色、字体、排版等显示特性。CSS最主要的目的是将文件的内容与显示分隔开来。这有许多好处：</p>
+<ol>
+<li>文件的可读性加强</li>
+<li>文件的结构更加灵活</li>
+<li>作者和读者可以自己决定文件的显示</li>
+<li>文件的结构简化了</li>
+</ol>
+<p>另外，在HTML中：一个整个网站或其中一部分网页的显示信息被集中在一个地方，要改变它们很方便
+不同的读者可以有不同的样式，比如有的读者需要字体比较大
+HTML文件本身的范围变小了，它的结构简单了，它不需要包含显示的信息
+CSS还可以控制其他参数，例如声音（假如浏览器有阅读功能的话）或给视障者用的感受装置</p>
+</blockquote>
+<h2 id="">引入方式</h2>
+<p>CSS的引入一般有三种</p>
+<h3 id="">外部资源引入</h3>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;xxx.css&quot;&gt;
+</code></pre><h3 id="style">style标签</h3>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+   div{
+    color: red;
+    font-size:12px;
+   }
+&lt;/style&gt;
+</code></pre><h3 id="style">内联style属性</h3>
+<pre><code>&lt;div style=&quot;color:red; font-size:12px;&quot;&gt;123&lt;/div&gt;
+</code></pre><h2 id="">分辨率和像素</h2>
+<p>像素即<code>px</code>，是屏幕中最小的点。像素不是物理长度，在不同分辨率的设备上物理长度不同</p>
+<pre><code>    分辨率 = 屏幕X轴上像素值 * Y轴上的像素值
+</code></pre><p> 屏幕如果是1024×768，也就是说水平方向上有1024个像素点，垂直方向上有768个像素点</p>
+<p>在同一台设备上，保证可视画面尺寸不变的情况下，像素点的大小，会随着分辨率的调整而改变。分辨率降低，像素点就变大，图片质量越低。分辨率降高，像素点就变小，图片也越清晰</p>
 
                     
                     </section>
@@ -1568,6 +1489,10 @@ window.onclick = function(){
         </div>
 
         
+        <a href="../http://wowubuntu.com/markdown/" class="navigation navigation-prev " aria-label="Previous page: Markdown"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../css/语法.html" class="navigation navigation-next " aria-label="Next page: 语法"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
