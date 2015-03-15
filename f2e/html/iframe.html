@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="2.6" data-basepath=".." data-revision="1426388258825">
+    <div class="book" data-level="2.6" data-basepath=".." data-revision="1426400429491">
     
 
 <div class="book-summary">
@@ -1379,6 +1379,36 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="page-inner">
                 
+                
+                    <section class="normal" id="section-gitbook_2">
+                    
+                        <h1 id="iframe">iframe</h1>
+<p>iframe 也是html的一个标签，不过不是王页面上添加一个元素那么简单，iframe 会创建包含另外一个文档的内联框架（即行内框架）</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;下面放置一个iframe&lt;/p&gt;
+
+    &lt;iframe src=&quot;./inner.html&quot; width=&quot;500&quot; height=&quot;300&quot; frameborder=&quot;1&quot;&gt;&lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="">属性</h2>
+<ul>
+<li>frameborder：可用值为1和0，规定是否显示框架周围的边框</li>
+<li>width：frame的宽度</li>
+<li>height：frame的高度</li>
+<li>src：引入的资源（页面、图片等）url</li>
+</ul>
+<h2 id="">父子关系</h2>
+<p>在父窗体中，Iframe是document对象的一个子对象，可以直接在脚本中访问子窗体中的对象</p>
+<p>在子窗体内<code>parent</code>对象就代表父窗体，要在子窗体中访问父窗体中的对象，无一例外都通过parent对象来进行</p>
+
+                    
+                    </section>
                 
                 
                 </div>

@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="2.5" data-basepath=".." data-revision="1426388258825">
+    <div class="book" data-level="2.5" data-basepath=".." data-revision="1426400429491">
     
 
 <div class="book-summary">
@@ -1379,6 +1379,34 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="page-inner">
                 
+                
+                    <section class="normal" id="section-gitbook_5">
+                    
+                        <h1 id="">外部资源引入</h1>
+<p>除了HTML本身，有时候我们需要在页面上引入外部资源，加载外部资源涉及到常见的属性</p>
+<ul>
+<li>href:  hypertext reference</li>
+<li>src:  source</li>
+</ul>
+<h2 id="src-">src 用于替换标签内容</h2>
+<pre><code>&lt;img src=&quot;xxx.jpg&quot;/&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;xxx.js&quot;&gt;&lt;/script&gt;&gt;
+</code></pre><p>即使在script标签中间写了内容也会被替换掉</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;aaa.js&quot;&gt;
+    alert(123);
+&lt;/script&gt;
+</code></pre><h2 id="href-">href 用于标示资源和文档关系</h2>
+<pre><code>&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;
+</code></pre><h2 id="-stylesrc">为什么 style不用src</h2>
+<blockquote>
+<p>至于说为什么当初就决定外部样式表用link href来链接，而不是用style src来载入，可能是因为先贤们认为样式表更符合外部链接资源的特征，它更接近附属的资源，而不是内嵌的内容。比如考虑alternate stylesheets，在同一时间只需要链接一组样式表，而不是载入所有。当然你可以简单的归结为历史遗留（也就是当初某个浏览器开发者的一个偶然决定导致）。</p>
+</blockquote>
+<h2 id="">参考</h2>
+<p><a href="http://stackoverflow.com/questions/3395359/difference-between-src-and-href" target="_blank">Difference between SRC and HREF</a></p>
+<p><a href="http://www.zhihu.com/question/19708137" target="_blank">为什么加载 JavaScript 使用 &quot;src&quot;，CSS 使用 &quot;href&quot;？</a></p>
+
+                    
+                    </section>
                 
                 
                 </div>
