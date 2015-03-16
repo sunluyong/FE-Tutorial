@@ -11,7 +11,7 @@
 	* [Markdown](http://wowubuntu.com/markdown/)
 * [CSS](css/css.md)
 	* [语法](css/语法.md)
-	* [常用属性]()
+	* [常用属性](css/常用属性.md)
 	* [盒模型](css/盒模型.md)
 	* [选择器](css/CSS选择器.md)
 	* [定位](http://www.cnblogs.com/dolphinX/archive/2012/10/13/2722501.html)

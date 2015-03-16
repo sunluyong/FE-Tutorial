@@ -19,6 +19,8 @@
         
     
     
+    <link rel="next" href="../css/常用属性.html" />
+    
     
     <link rel="prev" href="../css/css.html" />
     
@@ -32,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.1" data-basepath=".." data-revision="1426423558410">
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="1426531274082">
     
 
 <div class="book-summary">
@@ -279,9 +281,17 @@
         </li>
     
         
-        <li class="chapter " data-level="3.2" >
+        <li class="chapter " data-level="3.2" data-path="css/常用属性.html">
             
-            <span><b>3.2.</b> 常用属性</span>
+                
+                    <a href="../css/常用属性.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         常用属性
+                    </a>
+                
             
             
         </li>
@@ -1426,7 +1436,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_14">
+                    <section class="normal" id="section-gitbook_15">
                     
                         <h1 id="css">CSS语法</h1>
 <p>CSS由多组<code>规则</code>组成，每个规则由“选择器”（selector）、“属性”（property）和“值”（value）组成：</p>
@@ -1436,6 +1446,21 @@
 <li><code>值</code>（value）:指属性接受的设置值，多个关键字时大都以空格隔开。</li>
 </ol>
 <p>属性和值之间用半角冒号<code>：</code>隔开，属性和值合称为“特性”。多个特性间用<code>；</code>隔开，前后用<code>{}</code>括起来</p>
+<p>对于重复属性设置，优先级高的覆盖优先级低的，相同的优先级后面的覆盖前面的</p>
+<h2 id="">前缀</h2>
+<pre><code>有些新式的CSS样式并不是所有的浏览器都支持，一些浏览器率先支持了，或者不是所有的浏览器支持情况都一样，我们需要前缀写法
+
+* Firefox: -moz-
+* Safari/Chrome: -webkit-
+* Opera: -o-box-
+* IE: -ms-box-
+</code></pre><p>书写顺序要注意，先写私有的CSS3属性，再写标准的CSS3属性，这样以后不需要前缀了，能保证我们使用标准的</p>
+<pre><code>    -webkit-transform:rotate(-3deg);
+    -moz-transform:rotate(-3deg);
+    -ms-transform:rotate(-3deg);
+    -o-transform:rotate(-3deg);
+    transform:rotate(-3deg);
+</code></pre><p>当一个属性成为标准，并且被Firefox、Chrome等浏览器的最新版普遍兼容的时候。</p>
 <h2 id="">缩写</h2>
 <p>使用CSS缩写可以减少CSS文件的大小，并使其更为易读[5]，例如：</p>
 <ol>
@@ -1458,9 +1483,11 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 0 0;
-</code></pre><p>可以缩写为一句：</p>
-<pre><code>  background: #F00 url(background.gif) no-repeat fixed 0 0;
 </code></pre></li>
+</ol>
+<p>可以缩写为一句：</p>
+<pre><code>     background: #F00 url(background.gif) no-repeat fixed 0 0;
+</code></pre><ol>
 <li><p>文字缩写</p>
 <pre><code> font-weight: bold;
  font-size: 12px;
@@ -1480,8 +1507,11 @@
 <li>块内容缩进</li>
 <li>属性名冒号后面添加一个空格</li>
 </ol>
-<p><a href="http://docs.kissyui.com/1.4/docs/html/tutorials/style-guide/css-coding-style.html" target="_blank">CSS 编码规范-kissy</a>
-<a href="https://github.com/fex-team/styleguide/blob/master/css.md" target="_blank">CSS编码规范</a></p>
+<h1 id="">参考</h1>
+<ol>
+<li><a href="http://docs.kissyui.com/1.4/docs/html/tutorials/style-guide/css-coding-style.html" target="_blank">CSS 编码规范-kissy</a></li>
+<li><a href="https://github.com/fex-team/styleguide/blob/master/css.md" target="_blank">CSS编码规范</a></li>
+</ol>
 
                     
                     </section>
@@ -1492,8 +1522,10 @@
         </div>
 
         
-        <a href="../css/css.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: CSS"><i class="fa fa-angle-left"></i></a>
+        <a href="../css/css.html" class="navigation navigation-prev " aria-label="Previous page: CSS"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="../css/常用属性.html" class="navigation navigation-next " aria-label="Next page: 常用属性"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

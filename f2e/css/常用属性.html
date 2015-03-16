@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>CSS | 关于本书</title>
+        <title>常用属性 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../css/语法.html" />
+    <link rel="next" href="../css/盒模型.html" />
     
     
-    <link rel="prev" href="../http://wowubuntu.com/markdown/" />
+    <link rel="prev" href="../css/语法.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3" data-basepath=".." data-revision="1426531274082">
+    <div class="book" data-level="3.2" data-basepath=".." data-revision="1426531274082">
     
 
 <div class="book-summary">
@@ -248,7 +248,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3" data-path="css/css.html">
+        <li class="chapter " data-level="3" data-path="css/css.html">
             
                 
                     <a href="../css/css.html">
@@ -281,7 +281,7 @@
         </li>
     
         
-        <li class="chapter " data-level="3.2" data-path="css/常用属性.html">
+        <li class="chapter active" data-level="3.2" data-path="css/常用属性.html">
             
                 
                     <a href="../css/常用属性.html">
@@ -1436,68 +1436,189 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_12">
+                    <section class="normal" id="section-gitbook_13">
                     
-                        <h1 id="css">CSS</h1>
-<p>CSS全称是 Cascading Style Sheets，翻译过来就是层叠样式表</p>
-<h2 id="">是什么</h2>
+                        <h1 id="css-">CSS 常用属性</h1>
+<h2 id="widthheight">width、height</h2>
+<p>这两个属性用来定义元素的宽度和高度，使用很简单</p>
+<pre><code>&lt;div style=&quot;width:300px;&quot;&gt; 123 &lt;/div&gt;
+&lt;img src=&quot;https://www.baidu.com/img/bdlogo.png&quot; style=&quot;height:100px;&quot;/&gt;
+</code></pre><p>但这两个属性并不是所有的元素都生效</p>
+<p>对于<code>p</code>、<code>div</code>等独占一行的块元素是可以随意使用的，但是对于<code>span</code>等行内元素是不生效的，行内元素空间靠内容撑开</p>
+<h2 id="font">font、文本</h2>
 <ol>
-<li><p>样式表
- 所谓样式就是我们看到的HTML长什么样子，比如你我他都是人，人就可以称为我们的结构，但是大家头发有长短，肤色有黑白，相貌有美丑，这就是外观，也就是样式，CSS用来描述HTML长什么样子</p>
-</li>
-<li><p>层叠
- 层叠指的是样式的优先级，当作用于相同元素的CSS规则产生冲突时以优先级高的为准</p>
-<blockquote>
-<p>CSS层叠是指CSS样式在针对同一元素配置同一属性时，依据层叠规则（权重）来处理冲突，选择应用权重高的CSS选择器所指定的属性，一般也被描述为权重高的覆盖权重低的，因此也称作层叠。每个CSS选择器都会有一个权重（行内1000，id100，class10，tag1、可以这样认为），当两个选择器同时配置同一元素的同一属性时（比如一个设置color：red，另一个color：black），就会产生冲突，而解决冲突的方案就是CSS选择器的权重，权重高的来覆盖权重低的。</p>
+<li>font-size：字体大小</li>
+<li>font-family：字体，宋体、微软雅黑、Arial等</li>
+<li>font-weight：文字粗度，常用的就是默认值<code>regular</code>和粗体<code>bold</code></li>
+<li>line-height：行高，可以用百分比、倍数或者固定尺寸</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>span{
+  line-height: 1.5;
+  font-size: 14px;
+  font-family: Arial,&#39;微软雅黑&#39;,&#39;宋体&#39;;
+  font-weight:bold;
+}
+</code></pre><blockquote>
+<p>Chrome等浏览器规定汉字的最小尺寸是<code>12px</code>，所以设置更小的尺寸都显示为12px</p>
 </blockquote>
+<ol>
+<li>text-align：文本对其方式 <code>left</code>、<code>center</code>、<code>right</code>、<code>justify</code></li>
+<li>text-indent：文案第一行缩进距离</li>
+<li>text-decoration： <code>none</code>、<code>underline</code>、<code>line-through</code>、<code>overline</code></li>
+<li>color：文字颜色</li>
+<li>text-transform：改变文字大小写<code>none</code>、<code>uppercase</code>、<code>lowercase</code>、<code>capitalize</code></li>
+<li>direction：文本方向，<code>ltr</code>、<code>rtl</code></li>
+<li>word-spacing：可以改变字（单词）之间的标准间隔</li>
+<li>letter-spacing：字母间隔修改的是字符或字母之间的间隔</li>
+<li>white-space<ol>
+<li>normal：多个空白符会变为一个，换行变为空格</li>
+<li>pre：空白符不被忽略</li>
+<li>nowrap：防止元素中的文本换行，除非使用了一个 <code>br</code> 元素</li>
+</ol>
 </li>
 </ol>
-<h2 id="">意义</h2>
-<p>把页面的结构和样式分离</p>
-<p>以前的页面HTML和CSS是没有区分的，都是HTML，这样的后果是有甚多标签并没有任何语义，只是表示特殊的样式，同时标签为了样式的规定的属性层出不穷，这就是<strong>内容</strong>和<strong>表现</strong>的杂糅</p>
-<p>在新式的页面中HTML只表示结构和内容，样式部分交给CSS控制，做到了内容和表现分离，方便维护</p>
-<blockquote>
-<p>网页的读者和作者都可以使用CSS来决定文件的颜色、字体、排版等显示特性。CSS最主要的目的是将文件的内容与显示分隔开来。这有许多好处：</p>
-<ol>
-<li>文件的可读性加强</li>
-<li>文件的结构更加灵活</li>
-<li>作者和读者可以自己决定文件的显示</li>
-<li>文件的结构简化了</li>
-</ol>
-<p>另外，在HTML中：一个整个网站或其中一部分网页的显示信息被集中在一个地方，要改变它们很方便
-不同的读者可以有不同的样式，比如有的读者需要字体比较大
-HTML文件本身的范围变小了，它的结构简单了，它不需要包含显示的信息
-CSS还可以控制其他参数，例如声音（假如浏览器有阅读功能的话）或给视障者用的感受装置</p>
-</blockquote>
-<h2 id="">引入方式</h2>
-<p>CSS的引入一般有三种</p>
-<h3 id="">外部资源引入</h3>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;xxx.css&quot;&gt;
-</code></pre><h3 id="style">style标签</h3>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-</code></pre><p>   div{
-        color: red;
-        font-size:12px;
-     }
-    </style></p>
-<h3 id="style">内联style属性</h3>
-<pre><code>&lt;div style=&quot;color:red; font-size:12px;&quot;&gt;123&lt;/div&gt;
-</code></pre><h2 id="">分辨率和像素</h2>
-<p>像素即<code>px</code>，是屏幕中最小的点。像素不是物理长度，在不同分辨率的设备上物理长度不同</p>
-<pre><code>    分辨率 = 屏幕X轴上像素值 * Y轴上的像素值
-</code></pre><p> 屏幕如果是1024×768，也就是说水平方向上有1024个像素点，垂直方向上有768个像素点</p>
-<p>在同一台设备上，保证可视画面尺寸不变的情况下，像素点的大小，会随着分辨率的调整而改变。分辨率降低，像素点就变大，图片质量越低。分辨率降高，像素点就变小，图片也越清晰</p>
-<h2 id="">单位</h2>
-<ol>
-<li>px：像素</li>
-<li>pt：物理单位，1/72英寸，几乎没人用了</li>
-<li>em：即％，是相对单位，最初是指字母M的宽度，故名em，按照默认的字体大小16px，1em = 16px，0.5em = 8px</li>
-</ol>
-<p><a href="http://www.cnblogs.com/dolphinX/p/3237054.html" target="_blank">Html 字体大小单位 px em pt</a></p>
-<h2 id="">继承特性</h2>
-<p>CSS的一个主要特征就是继承，它是依赖于祖先-后代的关系的。继承是一种机制，它允许样式不仅可以应用于某个特定的元素，还可以应用于它的后代。例如一个BODY定义了的颜色值也会应用到段落的文本中</p>
-<p>首先，有些属性是不能继承的。这没有任何原因，只是因为它就是这么设置的。举个例子来说：border属性，大家都知道，border属性是用来设置元素的边框的，它就没有继承性。多数边框类属性，比如象Padding（补白），Margin（边界），背景和边框的属性都是不能继承的</p>
-<p><a href="http://www.cnphp.info/css-style-inheritance.html" target="_blank">CSS样式表继承详解</a></p>
+<p>&nbsp;</p>
+<pre><code>    font:bold 12px/1.8em Arial;
+</code></pre><p>可以缩写为一句： 但文字缩写一定要具有字号、字体样式这两个属性。行高用<code>/</code>分隔</p>
+<h2 id="background">background</h2>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>background</td>
+<td>简写属性，作用是将背景属性设置在一个声明中</td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>背景图像是否固定或者随着页面的其余部分滚动</td>
+</tr>
+<tr>
+<td>background-color</td>
+<td>设置元素的背景颜色</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>把图像设置为背景</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>设置背景图像的起始位置</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>设置背景图像是否及如何重复</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>background-position：默认左上角</p>
+<ul>
+<li>x y</li>
+<li>x% y%</li>
+<li>[top | center | bottom] [left | center | right]</li>
+</ul>
+</li>
+<li><p>background-repeat</p>
+<ul>
+<li>no-repeat：背景图片在规定位置</li>
+<li>repeat-x：图片横向重复</li>
+<li>repeat-y：图片纵向重复</li>
+<li>repeat：全部重复</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<pre><code>background-color: #F00;
+background-image: url(background.gif);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: 0 0;
+</code></pre><p>可以缩写为一句：</p>
+<pre><code>  background: #F00 url(background.gif) no-repeat fixed 0 0;
+</code></pre><h2 id="border">border</h2>
+<ul>
+<li>border-width：边框宽度</li>
+<li>border-color：边框颜色</li>
+<li>border-style：边框样式（<code>solid</code>、<code>dashed</code>）</li>
+</ul>
+<p>支持合写</p>
+<pre><code>border: solid 1px #333;
+</code></pre><p><strong>边框与三角形</strong></p>
+<pre><code>.t0{
+  margin:30px;
+  height:200px;
+  width:200px;
+  border-top:solid 100px red;
+  border-left:solid 100px green;
+  border-right:solid 100px orange;
+  border-bottom:solid 100px blue;
+}
+</code></pre><p>通过demo可以看到border的相交的地方在45deg平分，当元素的width、和height属性呗设置为0的时候</p>
+<pre><code>.t1{
+  margin:30px;
+  height:0px;
+  width:0px;
+  border-top:solid 100px red;
+  border-left:solid 100px green;
+  border-right:solid 100px orange;
+  border-bottom:solid 100px blue;
+}
+</code></pre><p>这样我们就可以看到三角形了，尝试一下去掉两个边框，值保留上边和左边</p>
+<pre><code>.t2{
+  margin:30px;
+  height:0px;
+  width:0px;
+  border-top:solid 100px red;
+  border-left:solid 100px green;
+}
+</code></pre><p>这时候做三角形好像简单了，只要我们保留两个相邻边，把另外的一个设置为透明就可以了</p>
+<pre><code>.t3{
+  margin:30px;
+  height:0px;
+  width:0px;
+  border-top:solid 100px red;
+  border-right:solid 100px rgba(0,0,0,0);
+}
+</code></pre><p><a href="http://www.cnblogs.com/dolphinX/p/4068894.html" target="_blank">使用border做三角形</a></p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_boxmodel_example.gif" alt=""></p>
+<h2 id="padding">padding</h2>
+<p>padding代表内边距，有四个方向的值，可以合写</p>
+<ul>
+<li>padding-top</li>
+<li>padding-right</li>
+<li>padding-bottom</li>
+<li>padding-left</li>
+</ul>
+<p>值可以是数值也可以是百分比（相对于父容器、不是自身）</p>
+<pre><code>padding: 20px; /* padding: 20px 20px 20px 20px; */
+padding: 10px 20px; /* padding: 10px 20px 10px 20px; */
+padding: 10px 20px 30px; /* padding: 10px 20px 30px 20px; */
+</code></pre><h2 id="margin">margin</h2>
+<p>外边距，规则和padding一样，但是数值可以是负数，而且父边距在布局中十分有用处</p>
+<p><strong>外边距合并</strong></p>
+<p>边距合并（叠加）是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。
+简单地说，外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。
+当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_1.gif" alt=""></p>
+<p>当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_2.gif" alt=""></p>
+<p>假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_3.gif" alt=""></p>
+<p>如果这个外边距遇到另一个元素的外边距，它还会发生合并</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_4.gif" alt=""></p>
+<p>为什么</p>
+<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing.gif" alt=""></p>
+<p><strong>水平对齐</strong></p>
+<p>对于宽度固定的块元素，设置左右margin值为<code>auto</code>可以达到元素水平对齐的效果</p>
+<pre><code>&lt;div style=&quot;width:600px;margin:0 auto;&quot;&gt;&lt;/div&gt;
+</code></pre><h2 id="">参考</h2>
+<p><a href="http://www.w3school.com.cn/css/css_margin_collapsing.asp" target="_blank">w3School</a></p>
 
                     
                     </section>
@@ -1508,10 +1629,10 @@ CSS还可以控制其他参数，例如声音（假如浏览器有阅读功能�
         </div>
 
         
-        <a href="../http://wowubuntu.com/markdown/" class="navigation navigation-prev " aria-label="Previous page: Markdown"><i class="fa fa-angle-left"></i></a>
+        <a href="../css/语法.html" class="navigation navigation-prev " aria-label="Previous page: 语法"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../css/语法.html" class="navigation navigation-next " aria-label="Next page: 语法"><i class="fa fa-angle-right"></i></a>
+        <a href="../css/盒模型.html" class="navigation navigation-next " aria-label="Next page: 盒模型"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
