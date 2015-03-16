@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>CSS | 关于本书</title>
+        <title>负边距 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../css/语法.html" />
     
-    
-    <link rel="prev" href="../http://wowubuntu.com/markdown/" />
+    <link rel="prev" href="../css/浮动.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="3" data-basepath=".." data-revision="1426532866938">
+    <div class="book" data-level="3.8" data-basepath=".." data-revision="1426532866938">
     
 
 <div class="book-summary">
@@ -248,7 +246,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3" data-path="css/css.html">
+        <li class="chapter " data-level="3" data-path="css/css.html">
             
                 
                     <a href="../css/css.html">
@@ -377,7 +375,7 @@
         </li>
     
         
-        <li class="chapter " data-level="3.8" data-path="css/负边距.html">
+        <li class="chapter active" data-level="3.8" data-path="css/负边距.html">
             
                 
                     <a href="../css/负边距.html">
@@ -1452,68 +1450,307 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_12">
+                    <section class="normal" id="section-gitbook_18">
                     
-                        <h1 id="css">CSS</h1>
-<p>CSS全称是 Cascading Style Sheets，翻译过来就是层叠样式表</p>
-<h2 id="">是什么</h2>
+                        <h1 id="">负边距</h1>
+<p>负边距即<code>margin</code>属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现</p>
 <ol>
-<li><p>样式表
- 所谓样式就是我们看到的HTML长什么样子，比如你我他都是人，人就可以称为我们的结构，但是大家头发有长短，肤色有黑白，相貌有美丑，这就是外观，也就是样式，CSS用来描述HTML长什么样子</p>
+<li><p>当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同</p>
 </li>
-<li><p>层叠
- 层叠指的是样式的优先级，当作用于相同元素的CSS规则产生冲突时以优先级高的为准</p>
-<blockquote>
-<p>CSS层叠是指CSS样式在针对同一元素配置同一属性时，依据层叠规则（权重）来处理冲突，选择应用权重高的CSS选择器所指定的属性，一般也被描述为权重高的覆盖权重低的，因此也称作层叠。每个CSS选择器都会有一个权重（行内1000，id100，class10，tag1、可以这样认为），当两个选择器同时配置同一元素的同一属性时（比如一个设置color：red，另一个color：black），就会产生冲突，而解决冲突的方案就是CSS选择器的权重，权重高的来覆盖权重低的。</p>
-</blockquote>
+<li><p>当margin-bottom、margin-right设为负值的时候，元素本身没有位置变化，后面的元素会下移、右移</p>
 </li>
 </ol>
-<h2 id="">意义</h2>
-<p>把页面的结构和样式分离</p>
-<p>以前的页面HTML和CSS是没有区分的，都是HTML，这样的后果是有甚多标签并没有任何语义，只是表示特殊的样式，同时标签为了样式的规定的属性层出不穷，这就是<strong>内容</strong>和<strong>表现</strong>的杂糅</p>
-<p>在新式的页面中HTML只表示结构和内容，样式部分交给CSS控制，做到了内容和表现分离，方便维护</p>
-<blockquote>
-<p>网页的读者和作者都可以使用CSS来决定文件的颜色、字体、排版等显示特性。CSS最主要的目的是将文件的内容与显示分隔开来。这有许多好处：</p>
-<ol>
-<li>文件的可读性加强</li>
-<li>文件的结构更加灵活</li>
-<li>作者和读者可以自己决定文件的显示</li>
-<li>文件的结构简化了</li>
-</ol>
-<p>另外，在HTML中：一个整个网站或其中一部分网页的显示信息被集中在一个地方，要改变它们很方便
-不同的读者可以有不同的样式，比如有的读者需要字体比较大
-HTML文件本身的范围变小了，它的结构简单了，它不需要包含显示的信息
-CSS还可以控制其他参数，例如声音（假如浏览器有阅读功能的话）或给视障者用的感受装置</p>
-</blockquote>
-<h2 id="">引入方式</h2>
-<p>CSS的引入一般有三种</p>
-<h3 id="">外部资源引入</h3>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;xxx.css&quot;&gt;
-</code></pre><h3 id="style">style标签</h3>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-</code></pre><p>   div{
-        color: red;
-        font-size:12px;
-     }
-    </style></p>
-<h3 id="style">内联style属性</h3>
-<pre><code>&lt;div style=&quot;color:red; font-size:12px;&quot;&gt;123&lt;/div&gt;
-</code></pre><h2 id="">分辨率和像素</h2>
-<p>像素即<code>px</code>，是屏幕中最小的点。像素不是物理长度，在不同分辨率的设备上物理长度不同</p>
-<pre><code>    分辨率 = 屏幕X轴上像素值 * Y轴上的像素值
-</code></pre><p> 屏幕如果是1024×768，也就是说水平方向上有1024个像素点，垂直方向上有768个像素点</p>
-<p>在同一台设备上，保证可视画面尺寸不变的情况下，像素点的大小，会随着分辨率的调整而改变。分辨率降低，像素点就变大，图片质量越低。分辨率降高，像素点就变小，图片也越清晰</p>
-<h2 id="">单位</h2>
-<ol>
-<li>px：像素</li>
-<li>pt：物理单位，1/72英寸，几乎没人用了</li>
-<li>em：即％，是相对单位，最初是指字母M的宽度，故名em，按照默认的字体大小16px，1em = 16px，0.5em = 8px</li>
-</ol>
-<p><a href="http://www.cnblogs.com/dolphinX/p/3237054.html" target="_blank">Html 字体大小单位 px em pt</a></p>
-<h2 id="">继承特性</h2>
-<p>CSS的一个主要特征就是继承，它是依赖于祖先-后代的关系的。继承是一种机制，它允许样式不仅可以应用于某个特定的元素，还可以应用于它的后代。例如一个BODY定义了的颜色值也会应用到段落的文本中</p>
-<p>首先，有些属性是不能继承的。这没有任何原因，只是因为它就是这么设置的。举个例子来说：border属性，大家都知道，border属性是用来设置元素的边框的，它就没有继承性。多数边框类属性，比如象Padding（补白），Margin（边界），背景和边框的属性都是不能继承的</p>
-<p><a href="http://www.cnphp.info/css-style-inheritance.html" target="_blank">CSS样式表继承详解</a></p>
+<p>看几个应用场景</p>
+<h2 id="">绝对定位元素</h2>
+<p>当元素被设置为绝对定位的时候其top、right、bottom、left值是指离最近的非static元素的距离，经典的垂直居中的一种方式正是利用的绝对定位元素的负边距实现的</p>
+<pre><code>&lt;style&gt;
+.wrap4{
+    position:relative;
+    margin:10px;
+    width:200px;
+    height:200px;
+    border:dashed 1px orange;
+}
+
+.wrap4 .content{
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+    background:orange;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;wrap4&quot;&gt;
+    &lt;div class=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>把元素设置为绝对定位，然后设置top和left为50%，这时候元素的上边、左边就到了父元素的50%处，再对元素设置其自身高度、长度一般的负边距，使元素中心移动到父元素中心，实现居中对齐</p>
+<style>
+.wrap4{
+    position:relative;
+    margin:10px;
+    width:200px;
+    height:200px;
+    border:dashed 1px orange;
+}
+
+.wrap4 .content{
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+    background:orange;
+}
+</style>
+
+<div style="position:relative;
+    margin:10px;
+    width:200px;
+    height:200px;
+    border:dashed 1px orange;">
+    <div style="    position:absolute;
+    width:100px;
+    height:100px;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+    background:orange;"></div>
+</div>
+
+<h2 id="float">float元素</h2>
+<p>负边距对float元素的影响也是按照上面说的，不过有其特殊性，我们看个例子就很清楚了</p>
+<pre><code>&lt;style&gt;
+.float{
+    overflow:hidden;
+    width:280px;
+    border:dashed 1px orange;
+}
+
+.float .item{
+    width:100px;
+    height:100px;
+    float:left;
+}
+
+.float .item:nth-child(1){
+    background:red;
+}
+.float .item:nth-child(2){
+    background:grey;
+}
+.float .item:nth-child(3){
+    background:blue;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;float&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>在一个宽度为280px的div中右3个float:left的子元素，宽度为100px，由于一排放不下，最后一个陪移动到了下一行</p>
+<div style="overflow:hidden;width:280px;border:dashed 1px orange;">
+    <div style="width:100px;height:100px;float:left;background:red;"></div>
+    <div style="width:100px;height:100px;float:left; background:grey;"></div>
+    <div style="width:100px;height:100px;float:left;background:blue;"></div>
+</div>
+
+<p>我们对代码稍作修改</p>
+<pre><code>.float .item:nth-child(3){
+    background:blue;
+    margin-left:-20px;
+}
+</code></pre><div style="overflow:hidden;width:280px;border:dashed 1px orange;">
+    <div style="width:100px;height:100px;float:left;background:red;"></div>
+    <div style="width:100px;height:100px;float:left; background:grey;"></div>
+    <div style="width:100px;height:100px;float:left;background:blue;margin-left:-20px;"></div>
+</div>
+
+<p>这时候发现第三个元素移上去了，并且覆盖了第二个元素20px，经典的多列布局正是利用此原理</p>
+<h2 id="">多列布局</h2>
+<pre><code>&lt;style&gt;
+.body{
+    width:500px;
+    margin:10px;
+    border:dashed 1px orange;
+    overflow:hidden;
+}
+
+.wrap3{
+    float:left;
+    width:100%;
+}
+
+.wrap3 .content{
+    height:200px;
+    margin-right:100px;
+    background:rgba(255,0,0,0.5);
+}
+
+.body .right{
+    width:100px;
+    height:200px;
+    float:left;
+    margin-left:-100px;
+    background:rgba(0,255,0,0.5);
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;body&quot;&gt;
+    &lt;div class=&quot;wrap3&quot;&gt;
+        &lt;div class=&quot;content&quot;&gt;
+            Content Content Content Content Content Content Content
+            Content Content Content Content Content Content Content Content
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>代码很简单</p>
+<ul>
+<li>为<code>content</code>元素添加父元素，设置左浮动，宽度100%</li>
+<li>content元素设置右边距，值等于<code>right</code>的宽度</li>
+<li><code>right</code>左浮动，然后设置其宽度的负边距</li>
+</ul>
+<p>本来right应该在第二行显示了，但是其宽度的左浮动使它到了第一行的最右边，覆盖了wrap的一部分，但是content有right宽度的右边距，覆盖区域没有内容，这样就实现了经典的右侧固定宽度，左侧充满剩余部分的两列布局</p>
+<div style="width:500px;margin:10px;border:dashed 1px orange;overflow:hidden;">
+    <div style="float:left;width:100%;">
+        <div style="height:200px;margin-right:100px;background:rgba(255,0,0,0.5);">
+            Content Content Content Content Content Content Content
+            Content Content Content Content Content Content Content Content
+        </div>
+    </div>
+    <div style="width:100px; height:200px;float:left;margin-left:-100px;background:rgba(0,255,0,0.5)">Right</div>
+</div>
+
+
+<p>PS. 其它此类更复杂的布局原理类似，感兴趣的同学可以看<a href="http://blog.html.it/layoutgala/" target="_blank">这里</a>学40种。。。</p>
+<h2 id="">普通元素</h2>
+<p>负边距对不同块元素的影响很有意思，我们通过几个例子来看一下</p>
+<pre><code>&lt;style&gt;
+li{
+    line-height:2em;
+}
+
+.col2{
+    margin-left:150px;
+}
+
+.col3{
+    margin-left:300px;
+}
+
+li.top{
+    margin-top:-6em;
+}
+&lt;/style&gt;
+
+&lt;ul&gt;
+    &lt;li class=&quot;col1&quot;&gt;aaa&lt;/li&gt;
+    &lt;li class=&quot;col1&quot;&gt;bbb&lt;/li&gt;
+    &lt;li class=&quot;col1&quot;&gt;ccc&lt;/li&gt;
+    &lt;li class=&quot;col2 top&quot;&gt;ddd&lt;/li&gt;
+    &lt;li class=&quot;col2&quot;&gt;eee&lt;/li&gt;
+    &lt;li class=&quot;col2&quot;&gt;fff&lt;/li&gt;
+    &lt;li class=&quot;col3 top&quot;&gt;ggg&lt;/li&gt;
+    &lt;li class=&quot;col3&quot;&gt;hhh&lt;/li&gt;
+    &lt;li class=&quot;col3&quot;&gt;iii&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>定义一个列表，三列显示</p>
+<ul>
+    <li style="line-height:2em;">aaa</li>
+    <li style="col1">bbb</li>
+    <li style="col1">ccc</li>
+    <li style="margin-left:150px; margin-top:-5em;">ddd</li>
+    <li style="margin-left:150px;">eee</li>
+    <li style="margin-left:150px;">fff</li>
+    <li style="margin-left:300px; margin-top:-5em;">ggg</li>
+    <li style="margin-left:300px;">hhh</li>
+    <li style="margin-left:300px;">iii</li>
+</ul>
+
+
+<p>普通的做法我们肯定是通过浮动实现，通过刚才介绍的知识应该不难理解为什么这样也行。看起来在普通元素上没什么稀奇的</p>
+<h2 id="">放大元素</h2>
+<p>什么？负边距还可以放大元素！！！</p>
+<pre><code>&lt;style&gt;
+.wrap{
+    width:300px;
+    border:dashed 5px orange;
+}
+
+.wrap .inner{
+    height:50px;
+    margin:0 -50px;
+    background:blue;
+    opacity:0.5;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;wrap&quot;&gt;
+  &lt;div class=&quot;inner&quot;&gt;
+      inner inner inner inner inner inner inner inner inner inner inner inner
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>这个例子看起来平淡无奇，效果却很惊人，内层的div设置了水平的负边距后竟然变大了</p>
+<div style=" width:300px;border:dashed 5px orange;margin:20px 100px;">
+  <div style="height:50px;margin:0 -50px;background:blue;opacity:0.5;">
+      inner inner inner inner inner inner inner inner inner inner inner inner
+  </div>
+</div>
+
+<p>PS. 效果能实现的前提是元素的宽度不能设置为auto以外的值</p>
+<h2 id="">带有右边距的浮动子元素列表</h2>
+<div style="width:320px;border:dashed 1px orange;">
+    <div style="overflow:hidden;margin-right:-10px;">
+        <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
+         <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
+          <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
+           <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
+            <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
+             <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
+  </div>
+</div>
+
+
+<p>看到这种效果你第一想法是什么？会不会是子元素设置margin-right，在遍历的时候nth-child(3n)还要设置为0，看看利用上面知识我们可以怎样处理</p>
+<pre><code>&lt;style&gt;
+.wrap2{
+    width:320px;
+    border:dashed 1px orange;
+}
+
+.wrap2 .inner{
+  overflow:hidden;
+  margin-right:-10px;
+}
+
+.wrap2 .item{
+    float:left;
+    width:100px;
+    height:100px;
+    margin:10px 10px 10px 0;
+    background:blue;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;wrap2&quot;&gt;
+    &lt;div class=&quot;inner&quot;&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>我们没有设置nth-child(3n)的边距为0，而是通过负边距使父元素“变大”</p>
 
                     
                     </section>
@@ -1524,10 +1761,8 @@ CSS还可以控制其他参数，例如声音（假如浏览器有阅读功能�
         </div>
 
         
-        <a href="../http://wowubuntu.com/markdown/" class="navigation navigation-prev " aria-label="Previous page: Markdown"><i class="fa fa-angle-left"></i></a>
+        <a href="../css/浮动.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 浮动"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../css/语法.html" class="navigation navigation-next " aria-label="Next page: 语法"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
