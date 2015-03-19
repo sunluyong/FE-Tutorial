@@ -10,8 +10,8 @@ META标签可分为两大部分：HTTP-EQUIV和NAME变量
 * Content-Type
 	&nbsp;
 
-		<meta http-equiv="Content-Type" content="text/html";charset=gb_2312-80">
-		<meta http equiv="Content-Language" content="zh-CN">
+		<meta http-equiv="Content-Type" content="text/html;charset=gb_2312-80">
+		<meta http-equiv="Content-Language" content="zh-CN">
 用以说明主页制作所使用的文字以及语言；又如英文是ISO-8859-1字符集，还有BIG5、utf-8、shift-Jis、Euc、Koi8-2等字符集；
 * Refresh
 &nbsp;

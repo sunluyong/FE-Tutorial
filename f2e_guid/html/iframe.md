@@ -1,6 +1,6 @@
 # iframe
 
-iframe 也是html的一个标签，不过不是王页面上添加一个元素那么简单，iframe 会创建包含另外一个文档的内联框架（即行内框架）
+iframe 也是html的一个标签，不过不是往页面上添加一个元素那么简单，iframe 会创建包含另外一个文档的内联框架（即行内框架）
 
 	<!DOCTYPE html>
 	<html lang="en">
