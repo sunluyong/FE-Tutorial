@@ -1,0 +1,183 @@
+# CSS 布局
+
+## 边距三列等高
+
+
+	.container{
+      position: relative;
+      overflow:hidden;
+    }
+
+    .item{
+      float:left;
+      width:100px;
+      margin-right:10px;
+      padding-bottom:10000px;
+      margin-bottom:-10000px;
+      background:#808080;
+    }
+
+
+&nbsp;
+
+    <div class="container">
+      <div class="item">
+        123
+      </div>
+      <div class="item">
+        123<br/>
+        456<br/>
+        123
+      </div>
+      <div class="item">
+        456
+      </div>
+    </div>
+
+
+[demo](http://js.jirengu.com/tow/1/edit?html,css,output)
+
+**原理**
+
+利用超大内边距和相同的负外边距
+
+**优势**
+
+纯CSS实现，比较简单
+
+**不足**
+
+无法看到下边，不适用于一些需要border的场景
+
+## 嵌套移动三列等高
+
+	.container{
+	  width: 620px;
+	  margin: 0 auto;
+	}
+
+	.wrap{
+	  width:100%;
+	  float:left;
+	  position:relative;
+	}
+
+	.right-wrap{
+	  overflow:hidden;
+	  background:green;
+	}
+
+	.content-wrap{
+	  right: 120px;
+	  background: orange;
+	}
+
+	.left-wrap{
+	  background: blue;
+	  right: 300px;
+	}
+
+	.item{
+	  float:left;
+	  overflow:hidden;
+	  position: relative;
+	  left:420px;
+	}
+
+	.left{
+	  width: 200px;
+	}
+
+	.content{
+	  width: 300px;
+	}
+
+	.right{
+	  width:120px;
+	}
+
+
+&nbsp;
+
+
+	<div class="container">
+		<div class="right-wrap wrap">
+			<div class="content-wrap wrap">
+				<div class="left-wrap wrap">
+					<div class="left item">1<br>2</div>
+					<div class="content item">aaaa</div>
+					<div class="right item ">3<br>2<br>2<br>2<br>2<br>2<br>2<br>2</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+[demo](http://js.jirengu.com/ley/1/edit?html,css,output)
+
+**原理**
+
+三层嵌套，右移，作为背景层；子元素左移，最高的撑开高度，因为有之前的嵌套做背景，所以看起来一样高
+
+**优势**
+
+纯CSS实现
+
+**不足**
+
+1. 嵌套复杂，DOM结构繁琐，不易理解
+2. 无法控制边框等问题
+
+## 负边距三列布局
+
+	  .container{
+	    overflow: hidden;
+	  }
+
+	  .wrap{
+	    float: left;
+	    width:100%;
+	  }
+
+	  .left{
+	    float:left;
+	    width:120px;
+	    margin-left: -100%;
+	    background: red;
+	  }
+
+	  .right{
+	    float:left;
+	    width: 150px;
+	    margin-left: -150px;
+	    background: green;
+	  }
+
+	  .main{
+	    margin-left: 120px;
+	    margin-right: 150px;
+	    background: blue;
+	  }
+
+&nbsp;
+
+	 <div class="container">
+	   <div class="wrap">
+	     <div class="main">center
+	     </div>
+	   </div>
+	   <div class="left">left
+	   </div>
+	   <div class="right">right
+	   </div>
+	 </div>
+
+[demo](http://js.jirengu.com/lod/1/edit?html,css,output)
+
+**原理**
+
+负边距
+
+**优点**
+
+纯CSS实现，DOM结构不复杂
