@@ -19,7 +19,7 @@
 	* [浮动](css/浮动.md)
 	* [负边距](css/负边距.md)
 	* [布局](css/布局.md)
-	* [CSS hack](http://browserhacks.com/)
+	* [CSS hack与条件注释](css/条件注释和CSS hack.md)
 	* [性能优化](css/CSS性能优化.md)
 * [JavaScript]()
 	* [语法]()

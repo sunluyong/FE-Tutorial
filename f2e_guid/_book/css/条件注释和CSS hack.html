@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>走进前端工程师的世界 | 关于本书</title>
+        <title>CSS hack与条件注释 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../html/html.html" />
+    <link rel="next" href="../css/CSS性能优化.html" />
     
     
-    <link rel="prev" href="../index.html" />
+    <link rel="prev" href="../css/布局.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="1" data-basepath=".." data-revision="1426926072957">
+    <div class="book" data-level="3.10" data-basepath=".." data-revision="1426926072957">
     
 
 <div class="book-summary">
@@ -66,7 +66,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="1" data-path="summary/走进前端工程师的世界.html">
+        <li class="chapter " data-level="1" data-path="summary/走进前端工程师的世界.html">
             
                 
                     <a href="../summary/走进前端工程师的世界.html">
@@ -409,7 +409,7 @@
         </li>
     
         
-        <li class="chapter " data-level="3.10" data-path="css/条件注释和CSS hack.html">
+        <li class="chapter active" data-level="3.10" data-path="css/条件注释和CSS hack.html">
             
                 
                     <a href="../css/条件注释和CSS hack.html">
@@ -1492,154 +1492,90 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_22">
+                    <section class="normal" id="section-gitbook_16">
                     
-                        <h1 id="">走进前端工程师的世界</h1>
-<h2 id="">页面是怎么上线的</h2>
-<p><img src="http://lsly1989.qiniudn.com/150307flow.png" alt="image"></p>
-<h2 id="">前端开发工程师</h2>
-<p>前端开发工程师是Web前端开发工程师的简称，是近五年才真正开始受到重视的一个新兴职业。</p>
-<p>Web前端开发技术是一个先易后难的过程，主要包括三个要素：HTML（标准通用标记语言下的一个应用）、CSS（级联样式表）和JavaScript。</p>
-<p>这就要求前端开发工程师不仅要掌握基本的Web前端开发技术，网站性能优化、SEO和服务器端的基础知识，而且要学会运用各种工具进行辅助开发以及理论层面的知识，包括代码的可维护性、组件的易用性、分层语义模板和浏览器分级支持等。</p>
-<p>前端开发工程师是一个很新的职业，在国内乃至国际上真正开始受到重视的时间是从2005年开始的，是指Web前端开发工程师的简称。</p>
-<p>Web前端开发是从美工演变而来的，名称上有很明显的时代特征。在互联网的演化进程中，Web 1.0时代，网站的主要内容都是静态的，用户使用网站的行为也以浏览为主。</p>
-<p>2005年以后，互联网进入Web 2.0时代，各种类似桌面软件的Web应用大量涌现，网站的前端由此发生了翻天覆地的变化。网页不再只是承载单一的文字和图片，各种富媒体让网页的内容更加生动，网页上软件化的交互形式为用户提供了更好的使用体验，这些都是基于前端技术实现的。</p>
-<h2 id="htmlcssjavascript">HTML、CSS、JavaScript</h2>
-<ul>
-<li><code>HTML</code>：骨架</li>
-<li><code>CSS</code>：皮肤</li>
-<li><code>JavaScript</code>：动作</li>
-</ul>
-<h2 id="">前端技能</h2>
-<p>前端开发的入门门槛其实非常低，与服务器端语言先慢后快的学习曲线相比，前端开发的学习曲线是先快后慢。所以，对于从事IT工作的人来说，前端开发是个不错的切入点。</p>
-<p>也正因为如此，前端开发领域有很多自学成“才”的同行，但大多数人都停留在会用的阶段，因为后面的学习曲线越来越陡峭，每前进一步都很难。</p>
-<p>另一方面，正如前面所说，前端开发是个非常新的职业，对一些规范和最佳实践的研究都处于探索阶段。总有新的灵感和技术不时闪现出来，例如CSS sprite、悬浮定位、负边距布局、栅格布局等；各种JavaScript框架层出不穷，为整个前端开发领域注入了巨大的活力；浏览器大战也越来越白热化，跨浏览器兼容方案依然是五花八门。为了满足“高可维护性”的需要，需要更深入、更系统地去掌握前端知识，这样才可能创建一个好的前端架构，保证代码的质量。</p>
-<ul>
-<li>搭建页面的能力<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>常见的前端组件、库（jQuery、Bootstrap）</li>
-<li>PS常用功能</li>
-<li>常用开发工具(Sublime、WebStorm)</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>优化页面的能力<ul>
-<li>了解HTTP协议</li>
-<li>了解主流浏览器特性</li>
-<li>深入学习CSS、JavaScript语法特性</li>
-<li>调试技巧</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>提高生产力的能力<ul>
-<li>前端组件编写</li>
-<li>前端工具开发</li>
-<li>前端特定领域解决方案</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>站点维护的能力<ul>
-<li>至少熟悉一门后端语言，并且有过应用</li>
-<li>了解HTTP</li>
-</ul>
-</li>
-</ul>
-<h2 id="">前端工程化</h2>
-<ul>
-<li><p>模块化</p>
-<ul>
-<li><strong>AMD</strong> (Asynchronous Module Definition) <code>RequireJS</code></li>
-<li><strong>CMD</strong> (Common Module Definition) <code>SeaJS</code>、<code>NodeJS</code></li>
-</ul>
-</li>
-<li><p>框架化</p>
-<ul>
-<li><code>underscore</code>、<code>jQuery</code>、<code>BootStrap</code></li>
-<li><strong>MV*</strong> (MVC、MVVM) <code>Backbone</code>、<code>Vue.js</code>、<code>AngularJS</code></li>
-<li><code>Web Components</code>、<code>Flux</code></li>
-</ul>
-</li>
-<li><p>自动化</p>
-<ul>
-<li>CoffeeScript、TypeScript</li>
-<li>Sass、Less</li>
-<li>模板引擎</li>
-<li>Grunt、Gulp</li>
-</ul>
-</li>
-</ul>
-<h2 id="">入行要求</h2>
-<ul>
-<li><p>兴趣</p>
-<ul>
-<li>日新月异的技术，快速学习</li>
-<li>始终向往光明</li>
-</ul>
-</li>
-<li><p>创造价值</p>
-<ul>
-<li>成就感的来源</li>
-<li>涨工资</li>
-</ul>
-</li>
-<li><p>写博客</p>
-<ul>
-<li>总结归纳知识点，把知识从点到线然后成知识面</li>
-<li>得到别人认同、批评，催促自己进步</li>
-<li>面试的时候让面试官快速全面了解自己，为自己加分</li>
-</ul>
-</li>
-<li><p>英语</p>
-</li>
-</ul>
-<h2 id="">如何学习前端</h2>
-<ul>
-<li>培养兴趣，多动手，创造成就感</li>
-<li>读好书</li>
-<li>写博客</li>
-</ul>
-<h2 id="">小问题</h2>
-<ul>
-<li><p>如何搭建个人博客？
-  一开始真心没必要折腾这个，还不如在主流博客网站上注册个账号写博客，简单而且有访问量，可以看看大家对你意见如何</p>
-<p>  真喜欢动手的话先从免费的开始：<a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></p>
-</li>
-<li><p>工具推荐</p>
+                        <h1 id="css-hack">条件注释与CSS hack</h1>
+<h2 id="">条件注释</h2>
+<p>条件注释 (conditional comment) 是于HTML源码中被IE有条件解释的语句。条件注释可被用来向IE提供及隐藏代码。</p>
+<pre><code>    &lt;!--[if IE 6]&gt;
+    &lt;p&gt;You are using Internet Explorer 6.&lt;/p&gt;
+    &lt;![endif]--&gt;
+    &lt;!--[if !IE]&gt;&lt;!--&gt;
+    &lt;script&gt;alert(1);&lt;/script&gt;
+    &lt;!--&lt;![endif]--&gt;
+    &lt;!--[if IE 8]&gt;
+    &lt;link href=&quot;ie8only.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;![endif]--&gt;
+</code></pre><blockquote>
+<p>为了提高与 HTML5 的可互操作性和兼容性，Internet Explorer 10 标准模式和 Quirks 模式中删除了对条件注释的支持。 这意味着，与在其他浏览器中相同，条件注释将被视作一般注释。 使用了条件注释的页面在 Windows Internet Explorer 9 中可正常工作，但在 Internet Explorer 10 中无法正常工作。 <a href="https://msdn.microsoft.com/zh-cn/library/ie/hh801214(v=vs.85" target="_blank">不再支持条件注释</a>.aspx)</p>
+</blockquote>
+<table style="width: 98%;" border="2" align="center">
+<tbody>
+<tr><th width="50">项目</th><th width="150">范例</th><th>说明</th></tr>
+<tr>
+<td align="middle">!</td>
+<td>[if !IE]</td>
+<td>The NOT operator. This is placed immediately in front of the&nbsp;<em>feature</em>,&nbsp;<em>operator</em>, or&nbsp;<em>subexpression</em>&nbsp;to reverse the Boolean meaning of the expression.<br>NOT运算符。这是摆立即在前面的<em>功能</em>，<em>操作员</em>，或<em>子表达式</em>扭转布尔表达式的意义。</td>
+</tr>
+<tr>
+<td align="middle">lt</td>
+<td>[if lt IE 5.5]</td>
+<td>The less-than operator. Returns true if the first argument is less than the second argument.<br>小于运算符。如果第一个参数小于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">lte</td>
+<td>[if lte IE 6]</td>
+<td>The less-than or equal operator. Returns true if the first argument is less than or equal to the second argument.<br>小于或等于运算。如果第一个参数是小于或等于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">gt</td>
+<td>[if gt IE 5]</td>
+<td>The greater-than operator. Returns true if the first argument is greater than the second argument.<br>大于运算符。如果第一个参数大于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">gte</td>
+<td>[if gte IE 7]</td>
+<td>The greater-than or equal operator. Returns true if the first argument is greater than or equal to the second argument.<br>大于或等于运算。如果第一个参数是大于或等于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">( )</td>
+<td>[if !(IE 7)]</td>
+<td>Subexpression operators. Used in conjunction with boolean operators to create more complex expressions.<br>子表达式运营商。在与布尔运算符用于创建更复杂的表达式。</td>
+</tr>
+<tr>
+<td align="middle">&amp;</td>
+<td>[if (gt IE 5)&amp;(lt IE 7)]</td>
+<td>The AND operator. Returns true if all subexpressions evaluate to true<br>AND运算符。如果所有的子表达式计算结果为true，返回true</td>
+</tr>
+<tr>
+<td align="middle">|</td>
+<td>[if (IE 6)|(IE 7)]</td>
+<td>The OR operator. Returns true if any of the subexpressions evaluates to true.<br>OR运算符。返回true，如果子表达式计算结果为true。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="css-hack">CSS hack</h2>
+<p>CSS hack由于不同厂商的浏览器，比如Internet Explorer,Safari,Mozilla Firefox,Chrome等，或者是同一厂商的浏览器的不同版本，如IE6和IE7，对CSS的解析认识不完全一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。</p>
+<p>这个时候我们就需要针对不同的浏览器去写不同的CSS，让它能够同时兼容不同的浏览器，能在不同的浏览器中也能得到我们想要的页面效果。
+简单的说，CSS hack的目的就是使你的CSS代码兼容不同的浏览器。当然，我们也可以反过来利用CSS hack为不同版本的浏览器定制编写不同的CSS效果。</p>
+<h3 id="css-hack">CSS hack分类</h3>
+<p>CSS Hack大致有3种表现形式，<code>CSS属性前缀法</code>、<code>选择器前缀法</code>以及<code>IE条件注释法</code>（即HTML头部引用if IE）Hack，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。</p>
 <ol>
-<li>Sublime Text</li>
-<li>Chrome（尤其是开发者工具）</li>
+<li><p>属性前缀法(即类内部Hack)：例如 IE6能识别下划线&quot;<em>&quot;和星号&quot; <em> &quot;，IE7能识别星号&quot; </em> &quot;，但不能识别下划线&quot;</em>&quot;，IE6~IE10都认识&quot;\9&quot;，但firefox前述三个都不能认识</p>
+</li>
+<li><p>选择器前缀法(即选择器Hack)：例如 IE6能识别<em>html .class{}，IE7能识别</em>+html .class{}或者*:first-child+html .class{}</p>
+</li>
+<li><p>IE条件注释法(即HTML条件注释Hack)：针对所有IE(注：IE10+已经不再支持条件注释)： <!--[if IE]>IE浏览器显示的内容 <![endif]-->，针对IE6及以下版本： <!--[if lt IE 6]>只在IE6-显示的内容 <![endif]-->。这类Hack不仅对CSS生效，对写在判断语句里面的所有代码都会生效</p>
+</li>
 </ol>
-</li>
-<li><p><code>.htm</code>、<code>.html</code> 是怎么回事儿？</p>
-<p> 历史原因，DOS系统不支持三个字母以上拓展名，现在就用<code>html</code>好了</p>
-</li>
-<li><p><code>Java</code> 和 <code>JavaScript</code> 关系？</p>
-<p> 以前爱开玩笑所雷峰塔和雷锋的关系，细说也不皆然</p>
-<ol>
-<li>JavaScript名字已开始叫<code>liveScript</code>，为了跟风当时如日中天的Java于是改名，就像朱元璋说自己是朱熹后代一样</li>
-<li>两个最起码都算是计算机语言，而且都是<code>类C</code>风格的</li>
-</ol>
-</li>
-<li><p><code>w3c</code> 是什么样的存在？</p>
-<p> W3C(World Wide Web Consortium) 最重要的工作是发展 Web 规范（称为推荐，Recommendations），这些规范描述了 Web 的通信协议（比如 HTML 和 XHTML）和其他的构建模块。</p>
-</li>
-<li><p><code>DTD</code>、<code>DOCTYPE</code> 是什么？</p>
-<p> 文档类型定义是一套关于标记符的语法规则，是文档的验证机制。文档类型定义是一种保证标准通用标记语言、可扩展标记语言文档格式正确的有效方法，可通过比较文档和文档类型定义文件来看文档是否符合规范，元素和标签使用是否正确。</p>
-</li>
-</ul>
-<pre><code>HTML 4.01 规定了叁种文档类型：严格、过渡以及框架集
+<p>死活记不住？</p>
+<p><a href="http://browserhacks.com/" target="_blank">browserhacks</a></p>
+<h2 id="">参考</h2>
+<p><a href="http://zh.wikipedia.org/wiki/%E6%9D%A1%E4%BB%B6%E6%B3%A8%E9%87%8A" target="_blank">条件注释</a>
+<a href="http://blog.csdn.net/freshlover/article/details/12132801" target="_blank">史上最全的CSS hack方式一览</a></p>
 
-    &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//en&quot; &quot;http://www.w3. org/TR/html4/strict.dtd&quot;&gt;
-
-    &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//en&quot; &quot;http://www.w3. org/TR/html4/loose.dtd&quot;&gt;
-
-    &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//en&quot; &quot;http://www.w3. org/TR/html4/frameset.dtd&quot;&gt;
-</code></pre>
                     
                     </section>
                 
@@ -1649,10 +1585,10 @@
         </div>
 
         
-        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        <a href="../css/布局.html" class="navigation navigation-prev " aria-label="Previous page: 布局"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../html/html.html" class="navigation navigation-next " aria-label="Next page: HTML"><i class="fa fa-angle-right"></i></a>
+        <a href="../css/CSS性能优化.html" class="navigation navigation-next " aria-label="Next page: 性能优化"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
