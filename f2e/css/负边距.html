@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="3.8" data-basepath=".." data-revision="1426533172574">
+    <div class="book" data-level="3.8" data-basepath=".." data-revision="1426914059948">
     
 
 <div class="book-summary">
@@ -1356,6 +1356,38 @@
             
         </li>
     
+        
+        <li class="chapter " data-level="12.9" >
+            
+                
+                    <a target="_blank" href="http://git.oschina.net/progit/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.9.</b>
+                        
+                         Pro Git
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.10" >
+            
+                
+                    <a target="_blank" href="http://rogerdudler.github.io/git-guide/index.zh.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.10.</b>
+                        
+                         git 简明教程
+                    </a>
+                
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -1450,14 +1482,14 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_17">
+                    <section class="normal" id="section-gitbook_18">
                     
                         <h1 id="">负边距</h1>
 <p>负边距即<code>margin</code>属性的值设为负值，在CSS布局中时一个很有用的技巧。值为正的场景很常见，大家都很熟悉其表现</p>
 <ol>
-<li><p>当margin-top、margin-left为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与position:relative的元素设置top、left后元素还占据原来位置不同</p>
+<li><p>当<code>margin-top</code>、<code>margin-left</code>为负值的时候，会把元素上移、左移，同时文档流中的位置也发生相应变化,这点与<code>position:relative</code>的元素设置top、left后元素还占据原来位置不同</p>
 </li>
-<li><p>当margin-bottom、margin-right设为负值的时候，元素本身没有位置变化，后面的元素会下移、右移</p>
+<li><p>当<code>margin-bottom</code>、<code>margin-right</code>设为负值的时候，元素本身没有位置变化，后面的元素会上移、左移</p>
 </li>
 </ol>
 <p>看几个应用场景</p>
@@ -1565,12 +1597,12 @@
 <p>我们对代码稍作修改</p>
 <pre><code>.float .item:nth-child(3){
     background:blue;
-    margin-left:-20px;
+    margin-left:-40px;
 }
 </code></pre><div style="overflow:hidden;width:280px;border:dashed 1px orange;">
     <div style="width:100px;height:100px;float:left;background:red;"></div>
     <div style="width:100px;height:100px;float:left; background:grey;"></div>
-    <div style="width:100px;height:100px;float:left;background:blue;margin-left:-20px;"></div>
+    <div style="width:100px;height:100px;float:left;background:blue;margin-left:-40px;"></div>
 </div>
 
 <p>这时候发现第三个元素移上去了，并且覆盖了第二个元素20px，经典的多列布局正是利用此原理</p>
@@ -1707,7 +1739,7 @@ li.top{
 
 <p>PS. 效果能实现的前提是元素的宽度不能设置为auto以外的值</p>
 <h2 id="">带有右边距的浮动子元素列表</h2>
-<div style="width:320px;border:dashed 1px orange;">
+<div style="width:322px;border:dashed 1px orange;">
     <div style="overflow:hidden;margin-right:-10px;">
         <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
          <div style="float:left; width:100px;height:100px;margin:10px 10px 10px 0;background:blue;"></div>
@@ -1722,7 +1754,7 @@ li.top{
 <p>看到这种效果你第一想法是什么？会不会是子元素设置margin-right，在遍历的时候nth-child(3n)还要设置为0，看看利用上面知识我们可以怎样处理</p>
 <pre><code>&lt;style&gt;
 .wrap2{
-    width:320px;
+    width:322px;
     border:dashed 1px orange;
 }
 

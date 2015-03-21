@@ -121,3 +121,5 @@
 	* [Browser Hacks](http://browserhacks.com/)
 	* [PHP在线执行](http://www.mcqyy.com/RunCode/php/)
 	* [Sass在线编译](http://sassmeister.com/)
+	* [Pro Git](http://git.oschina.net/progit/)
+	* [git 简明教程](http://rogerdudler.github.io/git-guide/index.zh.html)
