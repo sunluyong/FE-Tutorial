@@ -1,0 +1,74 @@
+body{
+	margin: 0;
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4;
+	background: #eaeaea url('../image/bg.png');
+}
+
+.todo-container{
+	width: 550px;
+	margin: 50px auto;
+}
+
+h1{
+	font-size: 70px;
+	font-weight: bold;
+	text-align: center;
+	color: #b3b3b3;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.todo-items-wrap{
+	background: #fff;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid #ccc;
+}
+
+.todo-items-wrap-before{
+	height: 15px;
+	border-bottom: 1px solid #6c615c;
+	background: #8d7d77;
+}
+
+#new-todo{
+	width: 100%;
+	padding: 16px 16px 16px 60px;
+	font-size: 24px;
+	border: none;
+	outline: none;
+	background: rgba(0, 0, 0, 0.05);
+	box-sizing: border-box;
+}
+
+.todo-item{
+	display: inline-block;
+	padding: 15px 60px 15px 15px;
+	color: #a9a9a9;
+	font-size: 20px;
+	border-bottom: dashed 1px #ccc;
+}
+
+.todo-item-wrap::before{
+	content: '✔';
+	font-size: 20px;
+	padding-left: 20px;
+	color: #d9d9d9;
+}
+
+.todo-item:last-child{
+	border-bottom: none;
+}
+
+.todo-item.done{
+	text-decoration: line-through;
+}
+
+.footer{
+	margin-top: 70px;
+}
+
+.footer, .footer a{
+	font-size: 12px;
+	text-align: center;
+	color: #a6a6a6;
+}
