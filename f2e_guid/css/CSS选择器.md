@@ -98,10 +98,10 @@ E:not(selector)			|	匹配不符合当前选择器的任何元素
 
 选择器			|	含义
 ---				|	---
-E:first-line	|	匹配E元素内容的第一行
-E:first-letter	|	匹配E元素内容的第一个字母
-E:before		|	在E元素之前插入生成的内容
-E:after			|	在E元素之后插入生成的内容
+E::first-line	|	匹配E元素内容的第一行
+E::first-letter	|	匹配E元素内容的第一个字母
+E::before		|	在E元素之前插入生成的内容
+E::after			|	在E元素之后插入生成的内容
 
 #	选择器优先级
 
