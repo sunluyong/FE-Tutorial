@@ -30,6 +30,11 @@ h1{
 	background: #8d7d77;
 }
 
+.todo-items{
+	list-style: none;
+	padding-left: 0;
+}
+
 #new-todo{
 	width: 100%;
 	padding: 16px 16px 16px 60px;

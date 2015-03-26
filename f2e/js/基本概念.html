@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>布局 | 关于本书</title>
+        <title>基本概念 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../css/条件注释和CSS hack.html" />
     
-    
-    <link rel="prev" href="../css/负边距.html" />
+    <link rel="prev" href="../js/js.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="3.9" data-basepath=".." data-revision="1427368216190">
+    <div class="book" data-level="4.1" data-basepath=".." data-revision="1427368216190">
     
 
 <div class="book-summary">
@@ -393,7 +391,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.9" data-path="css/布局.html">
+        <li class="chapter " data-level="3.9" data-path="css/布局.html">
             
                 
                     <a href="../css/布局.html">
@@ -479,7 +477,7 @@
                 
     
         
-        <li class="chapter " data-level="4.1" data-path="js/基本概念.html">
+        <li class="chapter active" data-level="4.1" data-path="js/基本概念.html">
             
                 
                     <a href="../js/基本概念.html">
@@ -1530,170 +1528,14 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
-                    
-                        <h1 id="css-">CSS 布局</h1>
-<h2 id="">边距三列等高</h2>
-<pre><code>.container{
-  position: relative;
-  overflow:hidden;
-}
-
-.item{
-  float:left;
-  width:100px;
-  margin-right:10px;
-  padding-bottom:10000px;
-  margin-bottom:-10000px;
-  background:#808080;
-}
-</code></pre><p>&nbsp;</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;item&quot;&gt;
-    123
-  &lt;/div&gt;
-  &lt;div class=&quot;item&quot;&gt;
-    123&lt;br/&gt;
-    456&lt;br/&gt;
-    123
-  &lt;/div&gt;
-  &lt;div class=&quot;item&quot;&gt;
-    456
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p><a href="http://js.jirengu.com/tow/1/edit?html,css,output" target="_blank">demo</a></p>
-<p><strong>原理</strong></p>
-<p>利用超大内边距和相同的负外边距</p>
-<p><strong>优势</strong></p>
-<p>纯CSS实现，比较简单</p>
-<p><strong>不足</strong></p>
-<p>无法看到下边，不适用于一些需要border的场景</p>
-<h2 id="">嵌套移动三列等高</h2>
-<pre><code>.container{
-  width: 620px;
-  margin: 0 auto;
-}
-
-.wrap{
-  width:100%;
-  float:left;
-  position:relative;
-}
-
-.right-wrap{
-  overflow:hidden;
-  background:green;
-}
-
-.content-wrap{
-  right: 120px;
-  background: orange;
-}
-
-.left-wrap{
-  background: blue;
-  right: 300px;
-}
-
-.item{
-  float:left;
-  overflow:hidden;
-  position: relative;
-  left:420px;
-}
-
-.left{
-  width: 200px;
-}
-
-.content{
-  width: 300px;
-}
-
-.right{
-  width:120px;
-}
-</code></pre><p>&nbsp;</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;
-    &lt;div class=&quot;right-wrap wrap&quot;&gt;
-        &lt;div class=&quot;content-wrap wrap&quot;&gt;
-            &lt;div class=&quot;left-wrap wrap&quot;&gt;
-                &lt;div class=&quot;left item&quot;&gt;1&lt;br&gt;2&lt;/div&gt;
-                &lt;div class=&quot;content item&quot;&gt;aaaa&lt;/div&gt;
-                &lt;div class=&quot;right item &quot;&gt;3&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p><a href="http://js.jirengu.com/ley/1/edit?html,css,output" target="_blank">demo</a></p>
-<p><strong>原理</strong></p>
-<p>三层嵌套，右移，作为背景层；子元素左移，最高的撑开高度，因为有之前的嵌套做背景，所以看起来一样高</p>
-<p><strong>优势</strong></p>
-<p>纯CSS实现</p>
-<p><strong>不足</strong></p>
-<ol>
-<li>嵌套复杂，DOM结构繁琐，不易理解</li>
-<li>无法控制边框等问题</li>
-</ol>
-<h2 id="">负边距三列布局</h2>
-<pre><code>  .container{
-    overflow: hidden;
-  }
-
-  .wrap{
-    float: left;
-    width:100%;
-  }
-
-  .left{
-    float:left;
-    width:120px;
-    margin-left: -100%;
-    background: red;
-  }
-
-  .right{
-    float:left;
-    width: 150px;
-    margin-left: -150px;
-    background: green;
-  }
-
-  .main{
-    margin-left: 120px;
-    margin-right: 150px;
-    background: blue;
-  }
-</code></pre><p>&nbsp;</p>
-<pre><code> &lt;div class=&quot;container&quot;&gt;
-   &lt;div class=&quot;wrap&quot;&gt;
-     &lt;div class=&quot;main&quot;&gt;center
-     &lt;/div&gt;
-   &lt;/div&gt;
-   &lt;div class=&quot;left&quot;&gt;left
-   &lt;/div&gt;
-   &lt;div class=&quot;right&quot;&gt;right
-   &lt;/div&gt;
- &lt;/div&gt;
-</code></pre><p><a href="http://js.jirengu.com/lod/1/edit?html,css,output" target="_blank">demo</a></p>
-<p><strong>原理</strong></p>
-<p>负边距</p>
-<p><strong>优点</strong></p>
-<p>纯CSS实现，DOM结构不复杂</p>
-
-                    
-                    </section>
-                
                 
                 </div>
             </div>
         </div>
 
         
-        <a href="../css/负边距.html" class="navigation navigation-prev " aria-label="Previous page: 负边距"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/js.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: JavaScript"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../css/条件注释和CSS hack.html" class="navigation navigation-next " aria-label="Next page: CSS hack与条件注释"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

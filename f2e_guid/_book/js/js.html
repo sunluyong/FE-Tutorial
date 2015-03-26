@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>布局 | 关于本书</title>
+        <title>JavaScript | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../css/条件注释和CSS hack.html" />
+    <link rel="next" href="../js/基本概念.html" />
     
     
-    <link rel="prev" href="../css/负边距.html" />
+    <link rel="prev" href="../css/CSS性能优化.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.9" data-basepath=".." data-revision="1427368216190">
+    <div class="book" data-level="4" data-basepath=".." data-revision="1427368216190">
     
 
 <div class="book-summary">
@@ -393,7 +393,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.9" data-path="css/布局.html">
+        <li class="chapter " data-level="3.9" data-path="css/布局.html">
             
                 
                     <a href="../css/布局.html">
@@ -462,7 +462,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4" data-path="js/js.html">
+        <li class="chapter active" data-level="4" data-path="js/js.html">
             
                 
                     <a href="../js/js.html">
@@ -1530,156 +1530,52 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_22">
                     
-                        <h1 id="css-">CSS 布局</h1>
-<h2 id="">边距三列等高</h2>
-<pre><code>.container{
-  position: relative;
-  overflow:hidden;
-}
-
-.item{
-  float:left;
-  width:100px;
-  margin-right:10px;
-  padding-bottom:10000px;
-  margin-bottom:-10000px;
-  background:#808080;
-}
-</code></pre><p>&nbsp;</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;item&quot;&gt;
-    123
-  &lt;/div&gt;
-  &lt;div class=&quot;item&quot;&gt;
-    123&lt;br/&gt;
-    456&lt;br/&gt;
-    123
-  &lt;/div&gt;
-  &lt;div class=&quot;item&quot;&gt;
-    456
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p><a href="http://js.jirengu.com/tow/1/edit?html,css,output" target="_blank">demo</a></p>
-<p><strong>原理</strong></p>
-<p>利用超大内边距和相同的负外边距</p>
-<p><strong>优势</strong></p>
-<p>纯CSS实现，比较简单</p>
-<p><strong>不足</strong></p>
-<p>无法看到下边，不适用于一些需要border的场景</p>
-<h2 id="">嵌套移动三列等高</h2>
-<pre><code>.container{
-  width: 620px;
-  margin: 0 auto;
-}
-
-.wrap{
-  width:100%;
-  float:left;
-  position:relative;
-}
-
-.right-wrap{
-  overflow:hidden;
-  background:green;
-}
-
-.content-wrap{
-  right: 120px;
-  background: orange;
-}
-
-.left-wrap{
-  background: blue;
-  right: 300px;
-}
-
-.item{
-  float:left;
-  overflow:hidden;
-  position: relative;
-  left:420px;
-}
-
-.left{
-  width: 200px;
-}
-
-.content{
-  width: 300px;
-}
-
-.right{
-  width:120px;
-}
-</code></pre><p>&nbsp;</p>
-<pre><code>&lt;div class=&quot;container&quot;&gt;
-    &lt;div class=&quot;right-wrap wrap&quot;&gt;
-        &lt;div class=&quot;content-wrap wrap&quot;&gt;
-            &lt;div class=&quot;left-wrap wrap&quot;&gt;
-                &lt;div class=&quot;left item&quot;&gt;1&lt;br&gt;2&lt;/div&gt;
-                &lt;div class=&quot;content item&quot;&gt;aaaa&lt;/div&gt;
-                &lt;div class=&quot;right item &quot;&gt;3&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;br&gt;2&lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p><a href="http://js.jirengu.com/ley/1/edit?html,css,output" target="_blank">demo</a></p>
-<p><strong>原理</strong></p>
-<p>三层嵌套，右移，作为背景层；子元素左移，最高的撑开高度，因为有之前的嵌套做背景，所以看起来一样高</p>
-<p><strong>优势</strong></p>
-<p>纯CSS实现</p>
-<p><strong>不足</strong></p>
+                        <h1 id="javascript">JavaScript</h1>
+<blockquote>
+<p>JavaScript，一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML网页上使用，用来给HTML网页增加动态功能。然而现在JavaScript也可被用于网络服务器，如Node.js</p>
+</blockquote>
+<h2 id="">作用</h2>
+<p>JavaScript的发明目的，就是作为浏览器的内置脚本语言，是页面不再是纯粹的静态页面，可以喝用户交互，更具用户行为，产生某些动作。它是目前唯一一种通用的浏览器脚本语言，所有主流浏览器全部支持。它可以让网页呈现各种特殊效果，为用户提供良好的互动体验</p>
+<h2 id="">组成</h2>
+<p>一般来说，完整的JavaScript包括以下几个部分：</p>
 <ol>
-<li>嵌套复杂，DOM结构繁琐，不易理解</li>
-<li>无法控制边框等问题</li>
+<li>ECMAScript，描述了该语言的语法和基本对象</li>
+<li>文档对象模型（DOM），描述处理网页内容的方法和接口</li>
+<li>浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口</li>
 </ol>
-<h2 id="">负边距三列布局</h2>
-<pre><code>  .container{
-    overflow: hidden;
-  }
-
-  .wrap{
-    float: left;
-    width:100%;
-  }
-
-  .left{
-    float:left;
-    width:120px;
-    margin-left: -100%;
-    background: red;
-  }
-
-  .right{
-    float:left;
-    width: 150px;
-    margin-left: -150px;
-    background: green;
-  }
-
-  .main{
-    margin-left: 120px;
-    margin-right: 150px;
-    background: blue;
-  }
-</code></pre><p>&nbsp;</p>
-<pre><code> &lt;div class=&quot;container&quot;&gt;
-   &lt;div class=&quot;wrap&quot;&gt;
-     &lt;div class=&quot;main&quot;&gt;center
-     &lt;/div&gt;
-   &lt;/div&gt;
-   &lt;div class=&quot;left&quot;&gt;left
-   &lt;/div&gt;
-   &lt;div class=&quot;right&quot;&gt;right
-   &lt;/div&gt;
- &lt;/div&gt;
-</code></pre><p><a href="http://js.jirengu.com/lod/1/edit?html,css,output" target="_blank">demo</a></p>
-<p><strong>原理</strong></p>
-<p>负边距</p>
-<p><strong>优点</strong></p>
-<p>纯CSS实现，DOM结构不复杂</p>
+<h2 id="">特征</h2>
+<p>JavaScript脚本语言具有以下特点:</p>
+<ol>
+<li><p>脚本语言。JavaScript是一种解释型的脚本语言,C、C++等语言语言现先编译后执行,而JavaScript是在程序的运行过程中逐行进行解释</p>
+</li>
+<li><p>基于对象。JavaScript是一种基于对象的脚本语言,它不仅可以创建对象,也能使用现有的对象</p>
+</li>
+<li><p>简单。JavaScript语言中采用的是弱类型的变量类型,对使用的数据类型未做出严格的要求,是基于Java基本语句和控制的脚本语言,其设计简单紧凑</p>
+</li>
+<li><p>动态性。JavaScript是一种采用事件驱动的脚本语言,它不需要经过Web服务器就可以对用户的输入做出相应。在访问一个网页时,鼠标在网页中进行鼠标点击或上下移、窗口移动等操作JavaScript都可直接对这些事件给出相应的响应</p>
+</li>
+<li><p>跨平台性。JavaScript脚本语言不依赖于操作系统,仅需要浏览器的支持。因此一个JavaScript脚本在编写后可以带到任意机器上使用,前提上机器上的浏览器支 持JavaScript脚本语言,目前JavaScript已被大多数的浏览器所支持</p>
+</li>
+</ol>
+<h2 id="">页面引入</h2>
+<ul>
+<li><p>直接写在DOM结构中</p>
+<pre><code>  &lt;div onclick=&quot;alert(123);&quot;&gt;点击&lt;/dov&gt;
+</code></pre></li>
+<li><p>通过<code>script</code>标签内嵌在HTML</p>
+<pre><code>  &lt;script type=&quot;text/javascript&quot;&gt;
+      alert(123);
+  &lt;/script&gt;
+</code></pre></li>
+<li><p>通过<code>script</code>标签引入外部文件</p>
+<pre><code>  &lt;script type=&quot;text/javascript&quot; src=&quot;http://xxx/xxx/xxx.js&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+</ul>
+<h2 id="">参考</h2>
+<p><a href="http://zh.wikipedia.org/wiki/JavaScript" target="_blank">维基百科 JavaScript</a></p>
+<p><a href="http://baike.baidu.com/view/16168.htm" target="_blank">百度百科 javascript</a></p>
 
                     
                     </section>
@@ -1690,10 +1586,10 @@
         </div>
 
         
-        <a href="../css/负边距.html" class="navigation navigation-prev " aria-label="Previous page: 负边距"><i class="fa fa-angle-left"></i></a>
+        <a href="../css/CSS性能优化.html" class="navigation navigation-prev " aria-label="Previous page: 性能优化"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../css/条件注释和CSS hack.html" class="navigation navigation-next " aria-label="Next page: CSS hack与条件注释"><i class="fa fa-angle-right"></i></a>
+        <a href="../js/基本概念.html" class="navigation navigation-next " aria-label="Next page: 基本概念"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
