@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>常见标签及其属性 | 关于本书</title>
+        <title>Array | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,6 @@
         
     
     
-    <link rel="next" href="../html/全局属性.html" />
-    
-    
-    <link rel="prev" href="../html/语法.html" />
     
 
         
@@ -34,7 +30,7 @@
 
 
         
-    <div class="book" data-level="2.2" data-basepath=".." data-revision="1427429330838">
+    <div class="book" data-level="4.6.2" data-basepath=".." data-revision="1427429330838">
     
 
 <div class="book-summary">
@@ -115,7 +111,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="2.2" data-path="html/标签及属性.html">
+        <li class="chapter " data-level="2.2" data-path="html/标签及属性.html">
             
                 
                     <a href="../html/标签及属性.html">
@@ -544,7 +540,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.6.2" data-path="js/数组.html">
+        <li class="chapter active" data-level="4.6.2" data-path="js/数组.html">
             
                 
                     <a href="../js/数组.html">
@@ -1554,138 +1550,191 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_25">
                     
-                        <h1 id="html">HTML常见标签及其属性</h1>
-<p>HTML 为由一对尖括号（<code>&lt;&gt;</code>）所括起来的内容以特定含义. 这样的标识称为一个 标签
-<strong>开始</strong>标签可能包含一些信息，这些信息叫做元素的属性，包括两部分:</p>
-<ol>
-<li>属性名</li>
-<li>属性值</li>
-</ol>
-<p>（html5中一些元素可以只有元素名没有元素值。它们的元素名类似“是非”，“有或没有”，所以可以省略元素值）</p>
-<h2 id="">换行</h2>
-<pre><code>&lt;br/&gt;
-</code></pre><h2 id="">横线</h2>
-<pre><code>&lt;hr/&gt;
-</code></pre><h2 id="-h1h6">标题 h1~h6</h2>
-<pre><code>&lt;h1&gt;h1&lt;/h1&gt;
-&lt;h4&gt;h4&lt;/h4&gt;
-&lt;h6&gt;h6&lt;/h6&gt;
-</code></pre><h2 id="">文本突出</h2>
-<h3 id="mark">mark</h3>
-<p>几乎和内容无关，就是为了标示（匹配搜索项，拼写错误等）</p>
-<h3 id="strong">strong</h3>
-<p>表示强调标签文本内容，不改变其含义</p>
-<h3 id="em">em</h3>
-<p>表示感情上的强调，增强了语气</p>
-<pre><code>&lt;mark&gt;Text&lt;/mark&gt;
-&lt;strong&gt;Text&lt;/strong&gt;
-&lt;em&gt;Text&lt;/em&gt;
-</code></pre><p><a href="http://stackoverflow.com/questions/14741262/when-to-use-strong-em-or-mark" target="_blank">When to use strong, em or mark?</a></p>
-<h2 id="">段落和块</h2>
-<pre><code>&lt;p&gt;Text&lt;/p&gt;
-&lt;div&gt;Text&lt;/div&gt;
-</code></pre><p>区别</p>
-<ol>
-<li>div就是普通的块标签，多用于布局；p是语义化的段落标签，用于文章分段</li>
-<li>div默认没有边距，p标签为了表示文章分段，有默认的间距</li>
-</ol>
-<h2 id="">行内书写</h2>
-<pre><code>&lt;span&gt;Text&lt;/span&gt;
-</code></pre><p>使用 <code>&lt;span&gt;</code> 来组合行内元素，以便通过样式来格式化它们</p>
-<h2 id="">图片</h2>
-<pre><code>&lt;img width=&quot;60%&quot; src=&quot;xxx.jpg&quot; alt=&quot;图片替代文案&quot;/&gt;
-</code></pre><p>属性</p>
-<ol>
-<li>src：图片地址</li>
-<li>alt： 图片因为网络等原因未成功加载时候的显示文案内容</li>
-<li>width/height：可以是像素值或者相对于父容器的百分比，两个属性仅设置一个，另外一个值会按相应等比缩放</li>
-</ol>
-<h2 id="">有序列表</h2>
-<pre><code>&lt;ol&gt;
-    &lt;li&gt;Coffee&lt;/li&gt;
-    &lt;li&gt;Tea&lt;/li&gt;
-    &lt;li&gt;Milk&lt;/li&gt;
-&lt;/ol&gt;
-</code></pre><p>属性</p>
-<ol>
-<li>start：规定起始值，默认1</li>
-<li>type：1、A、a、I、i，默认是数字</li>
-<li>reversed：降序（h5新加）</li>
-</ol>
-<h2 id="">无序列表</h2>
-<pre><code>&lt;ul&gt;
-  &lt;li&gt;Coffee&lt;/li&gt;
-  &lt;li&gt;Tea&lt;/li&gt;
-  &lt;li&gt;Milk&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><p>属性：type（不推荐使用，使用css）</p>
-<ol>
-<li>disc：实心原点</li>
-<li>square：方块</li>
-<li>circle：空心圆圈</li>
-</ol>
-<h2 id="a">a</h2>
-<p>超链接</p>
-<pre><code>&lt;a target=&quot;_blank&quot; href=&quot;http://www.baidu.com/&quot;&gt;百度&lt;/a&gt;
-&lt;a href=&quot;mailto:xxx@qq.com&quot;&gt;联系我们&lt;/a&gt;
-&lt;a href=&quot;#menu1&quot;&gt;联系我们&lt;/a&gt;
-</code></pre><p>target: 打开页面方式</p>
-<ol>
-<li>_self： 默认，在当前选项卡打开，替换当前页面</li>
-<li>_blank：新的选项卡打开</li>
-<li>_parent：在父框架中打开</li>
-<li>_top: 在最顶层打开</li>
-<li>framename</li>
-</ol>
-<h2 id="">按钮</h2>
-<pre><code>&lt;button&gt;按钮&lt;/button&gt;
-</code></pre><h2 id="table">table</h2>
-<pre><code>&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;10&quot; border=&quot;1&quot; width=&quot;100%&quot;&gt;
-    &lt;thead&gt;
-        &lt;caption&gt;Table&lt;/caption&gt;
-        &lt;colgroup&gt;
-        &lt;col span=&quot;2&quot; align=&quot;left&quot;&gt;
-        &lt;col align=&quot;right&quot;&gt;
-      &lt;/colgroup&gt;
-        &lt;th&gt;A&lt;/th&gt;
-        &lt;th&gt;B&lt;/th&gt;
-        &lt;th&gt;C&lt;/th&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td align=&quot;right&quot;&gt;00&lt;/td&gt;
-            &lt;td valign=&quot;bottom&quot;&gt;01&lt;/td&gt;
-            &lt;td&gt;02&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;10&lt;/td&gt;
-            &lt;td&gt;11&lt;/td&gt;
-            &lt;td&gt;12&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;tfoot&gt;
-        &lt;td&gt;20&lt;/td&gt;
-        &lt;td&gt;21&lt;/td&gt;
-        &lt;td&gt;22&lt;/td&gt;
-    &lt;/tfoot&gt;
-&lt;/table&gt;
-</code></pre><p><strong>table属性</strong></p>
-<ol>
-<li>border：边框</li>
-<li>cellpadding：td的内边距</li>
-<li>cellspacing：td的外边距</li>
-<li>width：table宽度</li>
-</ol>
-<p><strong>td属性</strong></p>
-<ol>
-<li>align：水平对其方式</li>
-<li>valign：垂直对齐方式</li>
-<li>width：宽度，默认自动分布</li>
-</ol>
-<h2 id="">参考</h2>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" target="_blank">HTML 元素参考</a></p>
+                        <h1 id="">数组</h1>
+<p>在程序语言中数组的重要性不言而喻，JavaScript中数组也是最常使用的对象之一，数组是值的有序集合，由于弱类型的原因，JavaScript中数组十分灵活、强大，不像是Java等强类型高级语言数组只能存放同一类型或其子类型元素，JavaScript在同一个数组中可以存放多种类型的元素，而且是长度也是可以动态调整的，可以随着数据增加或减少自动对数组长度做更改。</p>
+<h2 id="">创建数组</h2>
+<p>在JavaScript多种方式创建数组</p>
+<h3 id="">构造函数</h3>
+<p>1.无参构造函数，创建一空数组</p>
+<pre><code>var a1 = new Array();
+</code></pre><p>2.一个数字参数构造函数，指定数组长度（由于数组长度可以动态调整，作用并不大），创建指定长度的数组</p>
+<pre><code>var a2 = new Array(5);
+</code></pre><p>3.带有初始化数据的构造函数，创建数组并初始化参数数据</p>
+<pre><code>var a3 = new Array(4, &#39;hello&#39;, new Date());
+</code></pre><h3 id="">字面量</h3>
+<p>1.使用方括号，创建空数组，等同于调用无参构造函数</p>
+<pre><code>var a4 = [];
+</code></pre><p>2.使用中括号，并传入初始化数据，等同于调用调用带有初始化数据的构造函数</p>
+<pre><code>var a5 = [10];
+</code></pre><h3 id="">注意点</h3>
+<p>1.在使用构造函数创建数组时如果传入一个<strong>数字</strong>参数，则会创建一个长度为参数的数组，如果传入多个，则创建一个数组，参数作为初始化数据加到数组中</p>
+<pre><code>var a1 = new Array(5);
+   console.log(a1.length);//5
+   console.log(a1); //[] ,数组是空的
+
+   var a2 = new Array(5,6);
+   console.log(a2.length);//2
+   console.log(a2); //[5,6]
+</code></pre><p>但是使用字面量方式，无论传入几个参数，都会把参数当作初始化内容</p>
+<pre><code>var a1 = [5];
+console.log(a1.length);//1
+console.log(a1); //[5]
+
+var a2 = [5,6];
+console.log(a2.length);//2
+console.log(a2); //[5,6]
+</code></pre><p>2.使用带初始化参数的方式创建数组的时候，最好最后不要带多余的”,”，在不同的浏览器下对此处理方式不一样</p>
+<pre><code>var a1 = [1,2,3,];
+console.log(a1.length);
+console.log(a1);
+</code></pre><p>这段脚本在现代浏览器上运行结果和我们设想一样，长度是3，但是在低版本IE下确实长度为4的数组，最后一条数据是<code>undefined</code></p>
+<h2 id="">数组的索引与长度</h2>
+<p>数组的值可以通过自然数索引访问进行读写操作，下标也可以是一个得出非负整数的变量或表达式</p>
+<pre><code>var a1 = [1,2,3,4];
+console.log(a1[0]); //1
+var i=1;
+console.log(a1[i]); //2
+console.log(a1[++i]); //3
+</code></pre><p>数组也是对象，我们可以使用索引的奥秘在于，数组会把索引值转换为对应字符串（1=&gt;”1”）作为对象属性名</p>
+<pre><code>console.log(1 in a1);//true，确实是一个属性
+</code></pre><p>索引特殊性在于数组会自动更新length属性，当然因为JavaScript语法规定数字不能作为变量名，所以我们不能显示使用<code>array.1</code>这样的格式。由此可见其实负数，甚至非数字”索引“都是允许的，只不过这些会变成数组的属性，而不是索引</p>
+<pre><code>var a = new Array(1,2,3);
+a[-10]=&quot;a[-10]&quot;;
+a[&quot;sss&quot;]=&quot;sss&quot;;
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201310/06135346-7b4744b595824611a7ed13dc94335acb.png" alt=""></p>
+<p>这样我们可以看出所有的索引都是属性名，但只有自然数（有最大值）才是索引，一般我们在使用数组的时候不会出现数组越界错误也正是因为此，数组的索引可以不是连续的，访问index不存在的元素的时候返回<code>undefined</code></p>
+<pre><code>var a = new Array(1,2,3);
+a[100] = 100;
+console.log(a.length); //101
+console.log(a[3]); //undefined
+console.log(a[99]); //undefined
+console.log(a[100]); 100
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201310/06135347-49abae561e214528ada3f1028a860ac3.png" alt=""></p>
+<p>上面的例子中，虽然直接对<code>a[100]</code>赋值不会影响<code>a[4]</code>或<code>a[99]</code>,但数组的长度却受到影响，数组<code>length</code>属性等于数组中最大的<code>index+1</code>，我们知道数组的length属性同样是个可写的属性，当强制把数组的length属性值设置为小于等于最大index值时，数组会自动删除indexd大于等于length的数据，在刚才代码中追加几句</p>
+<pre><code>a.length = 2
+console.log(a);//[1,2]
+</code></pre><p>这时候会发现a[2]和a[100]被自动删除了，同理，如果把length设置为大于最大index+1的值的时候，数组也会自动扩张，但是不会为数组添加新元素，只是在尾部追加空空间</p>
+<pre><code>a.length=5;
+console.log(a); //[1,2] //后面没有3个undefined
+</code></pre><h2 id="">元素添加/删除</h2>
+<h3 id="">基本方法</h3>
+<p>上面例子已经用到向数组内添加元素方法，直接使用索引就可以（index没必要连续）</p>
+<pre><code>var a=new Array(1,2,3);
+a[3]=4;
+console.log(a);//[1, 2, 3, 4]
+</code></pre><p>前面提到数组也是对象，索引只是特殊的属性，所以我们可以使用删除对象属性的方法,使用delete 删除数组元素</p>
+<pre><code>delete a[2];
+</code></pre><p>  console.log(a[2]); //undefined</p>
+<p>这样和直接把a[2]赋值为undefined类似，不会改变数组长度，也不会改变其他数据的index和value对应关系</p>
+<p><img src="http://images.cnitblog.com/blog/349217/201310/06135348-047ee03a804645889517e6b347062c9d.png" alt=""></p>
+<h3 id="">栈方法</h3>
+<p>上面例子总有同学就发现了，尤其是其删除方法，并不是我们希望的表现形式，我们很多时候希望删除中间一个元素后，后面元素的index都自动减一，数组length同时减一，就好像在一个堆栈中拿去的一个，数组已经帮我们做好了这种操作方式，<code>pop</code>和<code>push</code>能够让我们使用堆栈那样先入后出使用数组</p>
+<pre><code>var a = new Array(1,2,3);
+a.push(4);
+console.log(a);//[1, 2, 3, 4]
+console.log(a.length);//4
+console.log(a.pop(a));//4
+console.log(a); //[1, 2, 3]
+console.log(a.length);//3
+</code></pre><h3 id="">队列方法</h3>
+<p>既然栈方法都实现了，先入先出的队列怎么能少，<code>shift</code>方法可以删除数组index最小元素，并使后面元素index都减一，length也减一，这样使用shift/push就可以模拟队列了，当然与shift方法对应的有一个<code>unshift</code>方法，用于向数组头部添加一个元素</p>
+<pre><code>var a=new Array(1,2,3);
+a.unshift(4);
+console.log(a);//[4, 1, 2, 3]
+console.log(a.length);//4
+console.log(a.shift(a));//4
+console.log(a); //[1, 2, 3]
+console.log(a.length);//3
+</code></pre><h3 id="">终极神器</h3>
+<p>JavaScript提供了一个<code>splice</code>方法用于一次性解决数组添加、删除（这两种方法一结合就可以达到替换效果），方法有三个参数</p>
+<p>1.开始索引</p>
+<p>2.删除元素的位移</p>
+<p>3.插入的新元素，当然也可以写多个</p>
+<p>splice方法返回一个由删除元素组成的新数组，没有删除则返回空数组</p>
+<pre><code>var a = new Array(1,2,3,4,5);
+</code></pre><h4 id="">删除</h4>
+<p>指定前两个参数，可以使用splice删除数组元素，同样会带来索引调整及length调整</p>
+<pre><code>var a = new Array(1,2,3,4,5);
+console.log(a.splice(1,3));//[2, 3, 4]
+console.log(a.length);//2
+console.log(a);//[1,5]
+</code></pre><p>如果数组索引不是从0开始的，那么结果会很有意思，有一这样数组</p>
+<pre><code>var a = new Array();
+a[2]=2;
+a[3]=3;
+a[7]=4;
+a[8]=5;
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201310/06135348-631f739497ed4498acc5f71321d118e8.png" alt=""></p>
+<pre><code>console.log(a.splice(3,4)); //[3]
+console.log(a.length); //5
+console.log(a); //[2: 2, 3: 4, 4: 5]
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201310/06135349-df8fe9bb08884890b469124f2b3bae26.png" alt=""></p>
+<p>上面例子可以看到，splice的第一个参数是绝对索引值，而不是相对于数组索引，第二个参数并不是删除元素的个数，而是删除动作执行多少次，并不是按数组实际索引移动，而是连续移动。同时调整后面元素索引，前面索引不理会</p>
+<h4 id="">插入与替换</h4>
+<p>只要方法第二个参数，也就是删除动作执行的次数设为0，第三个参数及以后填写要插入内容就splice就能执行插入操作，而如果第二个参数不为0则变成了先在该位置删除再插入，也就是替换效果</p>
+<pre><code>var a = new Array(1,2,3,4,5);
+a.splice(1,0,9,99,999);
+console.log(a.length); //8
+console.log(a);//[1, 9, 99, 999, 2, 3, 4, 5]
+a.splice(1,3,8,88,888);
+console.log(a.length);//8
+console.log(a);//[1, 8, 88, 888, 2, 3, 4, 5]
+</code></pre><h2 id="">常用操作</h2>
+<h3 id="joinchar">join(char)</h3>
+<p>这个方法在C#等语言中也有，作用是把数组元素（对象调用其toString()方法）使用参数作为连接符连接成一字符串，不会修改原数组内容</p>
+<pre><code>var a = new Array(1,2,3,4,5);
+console.log(a.join(&#39;,&#39;)); //1,2,3,4,5
+console.log(a.join(&#39; &#39;)); //1 2 3 4 5
+</code></pre><h3 id="slicestartend">slice(start,end)</h3>
+<p>不要和splice方法混淆，slice方法用于返回数组中一个片段或子数组，如果只写一个参数返回参数到数组结束部分，如果参数出现负数，则从数组尾部计数（-3意思是数组倒第三个，一般人不会这么干，但是在不知道数组长度，想舍弃后n个的时候有些用，不过数组长度很好知道。。。。，好纠结的用法），如果start大于end返回空数组，值得注意的一点是slice不会改变原数组，而是返回一个新的数组</p>
+<pre><code>var a = new Array(1,2,3,4,5);
+console.log(a); //[1, 2, 3, 4, 5]
+console.log(a.slice(1,2));//2
+console.log(a.slice(1,-1));//[2, 3, 4]
+console.log(a.slice(3,2));//[]
+console.log(a); //[1, 2, 3, 4, 5]
+</code></pre><h3 id="concatarray">concat(array)</h3>
+<p>看起来像是剪切，但这个真不是形声字，concat方法用于拼接数组，a.concat(b)返回一个a和b共同组成的新数组，同样不会修改任何一个原始数组，也不会递归连接数组内部数组</p>
+<pre><code>var a = new Array(1,2,3,4,5);
+var b = new Array(6,7,8,9);
+console.log(a.concat(b));//[1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(a); //[1, 2, 3, 4, 5]
+console.log(b); //[6, 7, 8, 9]
+</code></pre><h3 id="reverse">reverse()</h3>
+<p>方法用于将数组逆序，与之前不同的是它会修改原数组</p>
+<pre><code>var a = new Array(1,2,3,4,5);
+a.reverse();
+console.log(a); //[5, 4, 3, 2, 1]
+</code></pre><p>同样，当数组索引不是连续或以0开始，结果需要注意</p>
+<pre><code>var a = new Array();
+a[2]=2;
+a[3]=3;
+a[7]=4;
+a[8]=5;
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201310/06135348-631f739497ed4498acc5f71321d118e8.png" alt=""></p>
+<pre><code>a.reverse();
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201310/06135350-b3bc84e3c9e144bcaed6faf4c60d7ebf.png" alt=""></p>
+<h3 id="sort">sort</h3>
+<p>sort方法用于对数组进行排序，当没有参数的时候会按字母表升序排序，如果含有undefined会被排到最后面，对象元素则会调用其toString方法，如果想按照自己定义方式排序，可以传一个排序方法进去，很典型的策略模式，同样sort会改变原数组。</p>
+<pre><code>var a=new Array(5,4,3,2,1);
+a.sort();
+console.log(a);//[1, 2, 3, 4, 5]
+</code></pre><p>但是。。。</p>
+<pre><code>var a=new Array(7,8,9,10,11);
+a.sort();
+console.log(a);//[10, 11, 7, 8, 9]
+</code></pre><p>因为按照字母表排序，7就比10大了，这时候我们需要传入自定义排序函数</p>
+<pre><code>var a = new Array(7,8,9,10,11);
+
+a.sort(function(v1,v2){
+    return v1-v2;
+});
+console.log(a);//[7, 8, 9, 10, 11]
+</code></pre><p>ort内部使用快速排序，每次比较两个元素大小的时候如果没有参数，则直接判断字母表，如果有参数，则把正在比较的两个参数传入自定义方法并调用（正在比较的两个数会传给自定义方法的v1、v2），如果返回值大于0表示<code>v1 &gt; v2</code>，如果等于0，表示<code>v1 = v2</code>，如果小于0，表示<code>v1 &lt; v2</code>，其实我们传入的方法就是告诉sort怎么比较两个元素谁大谁小，至于排序移动元素过程人家写好了</p>
+<h2 id="">最后</h2>
+<p>了解了这些看看数组真的很了不得啊，即强大有灵活，但是在遍历元素，及获取元素位置等也有一定的不便，这些在ECMAScript中已经得到解决，熟练使用可以让我们的JavaScript优雅而高效。</p>
 
                     
                     </section>
@@ -1696,10 +1745,6 @@
         </div>
 
         
-        <a href="../html/语法.html" class="navigation navigation-prev " aria-label="Previous page: 语法"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../html/全局属性.html" class="navigation navigation-next " aria-label="Next page: 全局属性"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

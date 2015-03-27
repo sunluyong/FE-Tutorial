@@ -30,7 +30,7 @@
 	* [函数]()
 	* 内置对象
 		* [Object]()
-		* [Array]()
+		* [Array](js/数组.md)
 		* [Boolean、Number、String]()
 		* [Math]()
 		* [Date]()
@@ -38,6 +38,7 @@
 		* [JSON]()
 	* [面向对象]()
 	* [this](js/this.md)
+	* [逗号、冒号与括号](js/逗号、冒号与括号.md)
 	* [模块化]()
 	* [DOM]()
 	* [BOM]()
