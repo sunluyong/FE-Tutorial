@@ -75,3 +75,18 @@ AAA<span style="display:none;">BBB</span>CCC
 AAA<span>BBB</span>CCC
 <br/>
 AAA<span style="visibility:hidden;">BBB</span>CCC
+
+## display
+
+display出了控制隐藏显示，还可以控制元素类型
+
+1. inline：行内元素
+2. block：块元素
+3. inline-block，表现上和行内元素一样，但是支持height、width等属性的设置
+4. table、table-cell
+
+我们可以通过改变元素的display属性，改变其表现
+
+	<span style="display: block;">123</span>
+
+这时候span表现的酒喝块元素一样了
