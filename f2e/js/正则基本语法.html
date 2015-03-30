@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>this | 关于本书</title>
+        <title>RegExp 基本语法 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,6 +19,10 @@
         
     
     
+    <link rel="next" href="../js/正则相关方法.html" />
+    
+    
+    <link rel="prev" href="../js/json.html" />
     
 
         
@@ -30,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.9.1" data-basepath=".." data-revision="1427718070708">
+    <div class="book" data-level="4.8.6" data-basepath=".." data-revision="1427718070708">
     
 
 <div class="book-summary">
@@ -698,7 +702,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.8.6" data-path="js/正则基本语法.html">
+        <li class="chapter active" data-level="4.8.6" data-path="js/正则基本语法.html">
             
                 
                     <a href="../js/正则基本语法.html">
@@ -744,7 +748,7 @@
                 
     
         
-        <li class="chapter active" data-level="4.9.1" data-path="js/this.html">
+        <li class="chapter " data-level="4.9.1" data-path="js/this.html">
             
                 
                     <a href="../js/this.html">
@@ -1746,140 +1750,278 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_25">
+                    <section class="normal" id="section-gitbook_33">
                     
-                        <h1 id="whats-this">What&#39;s this?</h1>
-<p>由于运行期绑定的特性，JavaScript 中的 <code>this</code> 含义非常多，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式</p>
-<p>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是，调用函数的那个对象</p>
-<h2 id="">作为函数调用</h2>
-<p>在函数被直接调用时<code>this</code>绑定到全局对象。在浏览器中，<code>window</code> 就是该全局对象</p>
-<pre><code>console.log(this);
-
-function fn1(){
-    console.log(this);
-}
-
-fn1();
-</code></pre><h3 id="">内部函数</h3>
-<p>函数嵌套产生的内部函数的<code>this</code>不是其父函数，仍然是全局变量</p>
-<pre><code>function fn0(){
-    function fn(){
-        console.log(this);
-    }
-    fn();
-}
-
-fn0();
-</code></pre><h3 id="settimeoutsetinterval">setTimeout、setInterval</h3>
-<p>这两个方法执行的函数this也是全局对象</p>
-<pre><code>document.addEventListener(&#39;click&#39;, function(e){
-    console.log(this);
-    setTimeout(function(){
-        console.log(this);
-    }, 200);
-}, false);
-</code></pre><h2 id="">作为构造函数调用</h2>
-<p>所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象</p>
-<pre><code>function Person(name){
-    this.name = name;
-}
-Person.prototype.printName = function(){
-    console.log(this.name);
-};
-
-var p1 = new Person(&#39;Byron&#39;);
-var p2 = new Person(&#39;Casper&#39;);
-var p3 = new Person(&#39;Vincent&#39;);
-
-p1.printName();
-p2.printName();
-p3.printName();
-</code></pre><h2 id="">作为对象方法调用</h2>
-<p>在 JavaScript 中，函数也是对象，因此函数可以作为一个对象的属性，此时该函数被称为该对象的方法，在使用这种调用方式时，this 被自然绑定到该对象</p>
-<pre><code>var obj1 = {
-    name: &#39;Byron&#39;,
-    fn : function(){
-        console.log(this);
-    }
-};
-
-obj1.fn();
-</code></pre><h3 id="">小陷阱</h3>
-<pre><code>var fn2 = obj1.fn;
-
-fn2();
-</code></pre><h2 id="dom">DOM对象绑定事件</h2>
-<p>在事件处理程序中<code>this</code>代表事件源DOM对象（低版本IE有bug，指向了window）</p>
-<pre><code>document.addEventListener(&#39;click&#39;, function(e){
-    console.log(this);
-    var _document = this;
-    setTimeout(function(){
-        console.log(this);
-        console.log(_document);
-    }, 200);
-}, false);
-</code></pre><h2 id="functionprototypebind">Function.prototype.bind</h2>
-<p>bind，返回一个新函数，并且使函数内部的this为传入的第一个参数</p>
-<pre><code>var fn3 = obj1.fn.bind(obj1);
-fn3();
-</code></pre><h2 id="callapplythis">使用call和apply设置this</h2>
-<p>call apply，调用一个函数，传入函数执行上下文及参数</p>
-<pre><code>fn.call(context, param1, param2...)
-
-fn.apply(context, paramArray)
-</code></pre><p>语法很简单，第一个参数都是希望设置的<code>this</code>对象，不同之处在于<code>call</code>方法接收参数列表，而<code>apply</code>接收参数数组</p>
-<pre><code>fn2.call(obj1);
-fn2.apply(obj1);
-</code></pre><h2 id="caller">caller</h2>
-<p>在函数<code>A</code>调用函数<code>B</code>时，被调用函数<code>B</code>会自动生成一个<code>caller</code>属性，指向调用它的函数对象，如果函数当前未被调用，或并非被其他函数调用，则caller为null</p>
-<pre><code>function fn4(){
-    console.log(fn4.caller);
-    function fn(){
-        console.log(fn.caller);
-    }
-    fn();
-}
-
-fn4();
-</code></pre><h2 id="arguments">arguments</h2>
+                        <h1 id="">正则表达式——基本语法</h1>
+<p>正则表达式(Regular Expression)是计算机科学的一个概念。正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。在很多文本编辑器里，正则表达式通常被用来检索、替换那些符合某个模式的文本。</p>
+<h2 id="">创建</h2>
+<p>JavaScript通过内置对象<code>RegExp</code>支持正则表达式，有两种方式创建正则表达式对象，如果我们想匹配字符串中<code>%xxx%</code>两个百分号分割的字符串可以这么写</p>
 <ol>
-<li><p>在函数调用时，会自动在该函数内部生成一个名为 arguments的隐藏对象</p>
-</li>
-<li><p>该对象类似于数组，可以使用[]运算符获取函数调用时传递的实参</p>
-</li>
-<li><p>只有函数被调用时，arguments对象才会创建，未调用时其值为null</p>
-<p> function fn5(name, age){</p>
-<pre><code> console.log(arguments);
- name = &#39;XXX&#39;;
- console.log(arguments);
- arguments[1] = 30;
- console.log(arguments);
-</code></pre><p> }</p>
-<p> fn5(&#39;Byron&#39;, 20);</p>
-</li>
+<li><p>构造函数</p>
+<pre><code> var reg=new RegExp(&#39;&lt;%[^%&gt;]+%&gt;&#39;,&#39;g&#39;);
+</code></pre></li>
+<li><p>字面量</p>
+<pre><code> var reg=/&lt;%[^%&gt;]%&gt;/g;
+</code></pre></li>
 </ol>
-<h2 id="callee">callee</h2>
-<p>当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用</p>
-<p>由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且解引用它会产生异常</p>
-<pre><code>function fn6(){
-    console.log(arguments.callee);
-}
-fn6();
-</code></pre><p>匿名函数特好用</p>
-<pre><code>var i =0;
-window.onclick = function(){
-    console.log(i);
-    if(i&lt;5){
-        i++;
-        setTimeout(arguments.callee, 200);
-    }
-}
-</code></pre><h2 id="">函数的执行环境</h2>
-<p>JavaScript中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因</p>
-<p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中，构建该执行环境时，JavaScript 首先会创建 <code>arguments</code>变量，其中包含调用函数时传入的参数</p>
-<p>接下来创建作用域链，然后初始化变量。首先初始化函数的形参表，值为 arguments变量中对应的值，如果 arguments变量中没有对应值，则该形参初始化为 undefined。</p>
-<p>如果该函数中含有内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内定义的局部变量，需要注意的是此时这些变量初始化为 <code>undefined</code>，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，这点对于我们理解JavaScript中的变量作用域非常重要，最后为<code>this</code>变量赋值，会根据函数调用方式的不同，赋给<code>this</code>全局对象，当前对象等</p>
-<p>至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取</p>
+<p>最后的g代表全局，还有几个修饰符</p>
+<ol>
+<li>g：global，全文搜索，不添加的话搜索到第一个结果停止搜索</li>
+<li>i：ingore case，忽略大小写，默认大小写敏感</li>
+<li>m：multiple lines，多行搜索</li>
+</ol>
+<h2 id="">元字符</h2>
+<p>正则表达式让人望而却步以一个重要原因就是转义字符太多了，组合非常多，但是正则表达式的元字符（在正则表达式中具有特殊意义的专用字符，可以用来规定其前导字符）并不多</p>
+<pre><code>( [ { \ ^ $ | ) ? * + .
+</code></pre><p>并不是每个元字符都有特定的意义，在不同的组合中元字符有不同的意义，分类看一下</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页符</td>
+</tr>
+<tr>
+<td>\cX</td>
+<td>与<code>X</code>对应的控制字符（<code>Ctrl+X</code>）</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>空字符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="">字符类</h2>
+<p>一般情况下正则表达式一个字符（转义字符算一个）对应字符串一个字符，表达式 <code>ab\t</code> 的含义是</p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22170925-c407955edac64a3c866bf516eb99de14.png" alt="image"></p>
+<p>但是我们可以使用元字符<code>[]</code>来构建一个简单的<strong>类</strong>，所谓类是指，符合某些特征的对象，是一个泛指，而不是特指某个字符了，我们可以使用表达式 <code>[abc]</code> 把字符a或b或c归为一类，表达式可以匹配这类的字符</p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22171404-eb03cac8e56f4e54a5ddfb2a6ca590cd.png" alt="image"></p>
+<h3 id="">取反</h3>
+<p>元字符<code>[]</code>组合可以创建一个类，我们还可以使用元字符<code>^</code>创建<strong>反向类/负向类</strong>，反向类的意思是不属于XXX类的内容，表达式 <code>[^abc]</code> 表示不是字符a或b或c的内容</p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22171749-8e1e82acb09d4570a741b0ff4803579b.png" alt="image"></p>
+<h2 id="">范围类</h2>
+<p>按照上面的说明如果希望匹配单个数字那么表达式是这样的</p>
+<pre><code>[0123456789]
+</code></pre><p>如果是字母那么。。。，好麻烦，正则表达式还提供了<strong>范围类</strong>，我们可以使用 <code>x-y</code>来连接两个字符表示从x到y的任意字符，这是个<strong>闭区间</strong>，也就是说包含x和y本身，这样匹配小写字母就很简单了</p>
+<pre><code>[a-z]
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/22172809-4e611fbc512a4569a87ee934931a569a.png" alt="image"></p>
+<p>要是想匹配所有字母呢？在[]组成的类内部是可以连写的，我们还可以这样写 <code>[a-zA-Z]</code></p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22173032-31642481efd44312886806a4c8e51e76.png" alt="image"></p>
+<h2 id="">预定义类</h2>
+<p>刚才使用正则我们创建了几个类，来表示数字，字母等，但这样写也很是麻烦，正则表达式为我们提供了几个常用的预定义类来匹配常见的字符</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>等价类</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td><sup><a href="#fn_\r\n" id="reffn_\r\n">\r\n</a></sup></td>
+<td>除了回车符和换行符之外的所有字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>[0-9]</td>
+<td>数字字符</td>
+</tr>
+<tr>
+<td>\D</td>
+<td><sup><a href="#fn_0-9" id="reffn_0-9">0-9</a></sup></td>
+<td>非数字字符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>[\t\n\x0B\f\r]</td>
+<td>空白符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td><sup><a href="#fn_\t\n\x0B\f\r" id="reffn_\t\n\x0B\f\r">\t\n\x0B\f\r</a></sup></td>
+<td>非空白符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>[a-zA-Z_0-9]</td>
+<td>单词字符，字母、数字下划线</td>
+</tr>
+<tr>
+<td>\W</td>
+<td><sup><a href="#fn_a-zA-Z_0-9" id="reffn_a-zA-Z_0-9">a-zA-Z_0-9</a></sup></td>
+<td>非单词字符</td>
+</tr>
+</tbody>
+</table>
+<p>有了这些预定义类，写一些正则就很方便了，比如我们希望匹配一个 <code>ab+数字+任意字符</code> 的字符串，就可以这样写了 <code>ab\d.</code></p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22174429-6636dc941e194ce6b2037313b159e58b.png" alt="image"></p>
+<h2 id="">边界</h2>
+<p>正则表达式还提供了几个常用的边界匹配字符</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>以xxx开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>以xxx结尾</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>单词边界</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>非单词边界</td>
+</tr>
+</tbody>
+</table>
+<p>看个不负责任的邮箱正则匹配（切勿模仿，小括号后面会讲到）<code>\w+@\w+\.(com)$</code></p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22184716-639dc46360ce4f27b6df4f0a9257a73a.png" alt="image"></p>
+<h2 id="">量词</h2>
+<p>之前我们介绍的方法都是一一匹配的，如果我们希望匹配一个连续出现20次数字的字符串难道我们需要写成这样</p>
+<pre><code>\d\d\d\d...
+</code></pre><p>为此正则表达式引入了一些量词</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>出现零次或一次（最多出现一次）</td>
+</tr>
+<tr>
+<td>+</td>
+<td>出现一次或多次（至少出现一次）</td>
+</tr>
+<tr>
+<td>*</td>
+<td>出现零次或多次（任意次）</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>出现n次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>出现n到m次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>至少出现n次</td>
+</tr>
+<tr>
+<td>{,m}</td>
+<td>最多出现m次</td>
+</tr>
+</tbody>
+</table>
+<p>看几个使用量词的例子，<code>\w+\bByron</code> 匹配 单词＋边界＋Byron</p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22175749-a088f39d016847cbaeb196005141ceb9.png" alt="image"></p>
+<pre><code>(/\w+\bByron).test(&#39;Hi Byron&#39;); //true
+
+(/\w+\bByron).test(&#39;Welcome Byron&#39;); //true
+
+(/\w+\bByron).test(&#39;Byron&#39;); //false
+</code></pre><p><code>\d+\.\d{1,3}</code> 匹配三位小数的数字</p>
+<p><img src="http://images.cnitblog.com/blog/349217/201312/22180101-fcffa3e319314165aacf09acf95f51a4.png" alt="image"></p>
+<h2 id="">贪婪模式与非贪婪模式</h2>
+<p>看了上面介绍的量词，也许爱思考的同学会想到关于匹配原则的一些问题，比如<code>{3,5}</code>这个量词，要是在句子中出现了十次，那么他是每次匹配三个还是五个，反正3、4、5都满足3～5的条件</p>
+<p>量词在默认下是尽可能多的匹配的，也就是大家常说的贪婪模式</p>
+<pre><code>&#39;123456789&#39;.match(/\d{3,5}/g); //[&quot;12345&quot;, &quot;6789&quot;]
+</code></pre><p>既然有贪婪模式，那么肯定会有非贪婪模式，让正则表达式尽可能少的匹配，也就是说一旦成功匹配不再继续尝试，做法很简单，在量词后加上<code>?</code>即可</p>
+<pre><code>&#39;123456789&#39;.match(/\d{3,5}?/g); //[&quot;123&quot;, &quot;456&quot;, &quot;789&quot;]
+</code></pre><h2 id="">分组</h2>
+<p>有时候我们希望使用量词的时候匹配多个字符，而不是像上面例子只是匹配一个，比如希望匹配Byron出现20次的字符串，我们如果写成 Byron{20} 的话匹配的是Byro＋n出现20次</p>
+<pre><code>Byron{20}
+</code></pre><p><img src="http://lsly1989.qiniudn.com/20150330QQ20150330-1.png" alt="image"></p>
+<p>怎么把Byron作为一个整体呢？使用<code>()</code>就可以达到次目的，我们称为分组</p>
+<pre><code>(Byron){20}
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/22182142-6b1688e29b584aa28af938a079a793d0.png" alt="image"></p>
+<h3 id="">或</h3>
+<p>如果希望匹配Byron或Casper出现20次该怎么办呢？可以使用字符<code>｜</code>达到或的功效</p>
+<pre><code>(Byron|Casper){20}
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/22182815-593022d45eba482aaddd936f3b24beb4.png" alt="image"></p>
+<p>我们看到图中有个<code>＃1</code>的东东，那是什么？使用分组的正则表达式会把匹配项也放到分组中，默认就是按数字编号分发的，可以根据编号获得捕获的分组内容，这在一些希望具体操作第几个匹配项的函数中很有用</p>
+<pre><code>(Byron).(ok)
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/22183347-1db4325c096a43f3a5796b7d25c74b77.png" alt="image"></p>
+<h3 id="">分组嵌套</h3>
+<p>如果有分组嵌套的情况，外面的组的编号靠前</p>
+<pre><code>((^|%&gt;)[^\t]*)
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/23222603-20a2c64f182a4b49b05a83ef6a3d414d.png" alt="image"></p>
+<h3 id="">忽略分组</h3>
+<p>有时候我们不希望捕获某些分组，只需要在分组内加上 <code>?:</code>就可以了，这并不意味着该分组内容不属于正则表达式，只是不会给这个分组加编号了而已</p>
+<pre><code>(?:Byron).(ok)
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/22183600-8865bffe0f1e48e3829aad75461f9bc8.png" alt="image"></p>
+<p> 其实在C#等语言中分组还可以起名字，不过JavaScript不支持</p>
+<h2 id="">前瞻</h2>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exp1(?=exp2)</td>
+<td>匹配后面是exp2的exp1</td>
+</tr>
+<tr>
+<td>exp1(?!exp2)</td>
+<td>匹配后面不是exp2的exp1</td>
+</tr>
+</tbody>
+</table>
+<p>有些抽象，看个例子</p>
+<pre><code>good(?=Byron)
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/22191434-fc2c05f77d2b4002a91032e44e49815c.png" alt="image"></p>
+<pre><code>(/good(?=Byron)/).exec(&#39;goodByron123&#39;); //[&#39;good&#39;]
+(/good(?=Byron)/).exec(&#39;goodCasper123&#39;); //null
+(/bad(?=Byron)/).exec(&#39;goodCasper123&#39;);//null
+</code></pre><p>通过上面例子可以看出 <code>exp1(?=exp2)</code> 表达式会匹配<code>exp1</code>表达式，但只有其后面内容是exp2的时候才会匹配，也就是两个条件，exp1(?!exp2) 比较类似</p>
+<pre><code>good(?!Byron)
+</code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/22191951-c13dc0c8696a4021a016496b556e3545.png" alt="image"></p>
+<pre><code>(/good(?!Byron)/).exec(&#39;goodByron123&#39;); //null
+(/good(?!Byron)/).exec(&#39;goodCasper123&#39;); //[&#39;good&#39;]
+(/bad(?!Byron)/).exec(&#39;goodCasper123&#39;);//null
+</code></pre><h2 id="">参考</h2>
+<p><a href="http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html" target="_blank">司徒正美 JavaScript正则表达式</a></p>
+<p><a href="http://www.regexper.com/" target="_blank">Regexper</a></p>
 
                     
                     </section>
@@ -1890,6 +2032,10 @@ window.onclick = function(){
         </div>
 
         
+        <a href="../js/json.html" class="navigation navigation-prev " aria-label="Previous page: JSON"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../js/正则相关方法.html" class="navigation navigation-next " aria-label="Next page: RegExp 相关方法"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
