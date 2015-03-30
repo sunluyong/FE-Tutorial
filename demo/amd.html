@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AMD</title>
+	<script src="js/require.js"></script>
+</head>
+<body>
+	<script>
+		require(['js/amd_module1', 'js/amd_module2'], function(m1, m2){
+			m1.printName('Byron');
+			console.log(m2.add(3));
+		});
+	</script>
+</body>
+</html>

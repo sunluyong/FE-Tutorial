@@ -33,9 +33,9 @@
 
 # 参考
 
-在具体章节末尾
+[JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
 
-
+其它在具体章节末尾
 <script>
 	window.addEventListener('load', function(){
 		$(function(){

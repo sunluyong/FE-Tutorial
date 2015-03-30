@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CMD</title>
+	<script src="js/sea.js"></script>
+</head>
+<body>
+	<script>
+	seajs.use(['cmd_module1', 'cmd_module2'], function(m1, m2){
+		m1.printName('Byron');
+		console.log(m2.add(3));
+	});
+	</script>
+</body>
+</html>
