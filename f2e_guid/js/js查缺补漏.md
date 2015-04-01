@@ -7,3 +7,5 @@
 ## console.log
 
 ## {}+[]
+
+## encodeURI 和 encodeURIComponent

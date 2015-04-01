@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>语法 | 关于本书</title>
+        <title>理解对象 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,6 @@
         
     
     
-    <link rel="next" href="../css/常用属性.html" />
-    
-    
-    <link rel="prev" href="../css/css.html" />
     
 
         
@@ -34,7 +30,7 @@
 
 
         
-    <div class="book" data-level="3.1" data-basepath=".." data-revision="1427866458704">
+    <div class="book" data-level="4.7.1" data-basepath=".." data-revision="1427866458704">
     
 
 <div class="book-summary">
@@ -265,7 +261,7 @@
                 
     
         
-        <li class="chapter active" data-level="3.1" data-path="css/语法.html">
+        <li class="chapter " data-level="3.1" data-path="css/语法.html">
             
                 
                     <a href="../css/语法.html">
@@ -584,7 +580,7 @@
                 
     
         
-        <li class="chapter " data-level="4.7.1" data-path="js/对象.html">
+        <li class="chapter active" data-level="4.7.1" data-path="js/对象.html">
             
                 
                     <a href="../js/对象.html">
@@ -1742,90 +1738,171 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_20">
+                    <section class="normal" id="section-gitbook_29">
                     
-                        <h1 id="css">CSS语法</h1>
-<p>CSS由多组<code>规则</code>组成，每个规则由“选择器”（selector）、“属性”（property）和“值”（value）组成：</p>
+                        <h1 id="">对象</h1>
+<p>对象这个词如雷贯耳，同样出名的一句话：XXX语言中一切皆为对象！</p>
+<p>对象究竟是什么？什么叫面向对象编程？</p>
+<blockquote>
+<p>对象（object），台湾译作物件，是面向对象（Object Oriented）中的术语，既表示客观世界问题空间（Namespace）中的某个具体的事物，又表示软件系统解空间中的基本元素。</p>
+<p>在软件系统中，对象具有唯一的标识符，对象包括属性（Properties）和方法（Methods），属性就是需要记忆的信息，方法就是对象能够提供的服务。在面向对象（Object Oriented）的软件中，对象（Object）是某一个类（Class）的实例（Instance）。 —— 维基百科</p>
+</blockquote>
+<p>对象是从我们现实生活中抽象出来的一个概念，俗话说物以类聚，人以群分，我们也经常说有一类人，他们专业给隔壁家制造惊喜，也就是我们说的老王</p>
+<p>这里面就有两个重要概念</p>
 <ol>
-<li><code>选择器</code>（Selector）:多个选择器可以半角逗号（,）隔开。</li>
-<li><code>属性</code>（property）:CSS1、CSS2、CSS3规定了许多的属性，目的在控制选择器的样式。</li>
-<li><code>值</code>（value）:指属性接受的设置值，多个关键字时大都以空格隔开。</li>
+<li>类：无论是物以类聚，还是有一类人，这里说的类并不是实际存在的事物，是一些特征、是一些规则等</li>
+<li>老王：这是个实物，是现实存在，和类的关系就是符合类的描述</li>
 </ol>
-<p>属性和值之间用半角冒号<code>：</code>隔开，属性和值合称为“特性”。多个特性间用<code>；</code>隔开，前后用<code>{}</code>括起来</p>
-<p>对于重复属性设置，优先级高的覆盖优先级低的，相同的优先级后面的覆盖前面的</p>
-<h2 id="">前缀</h2>
-<pre><code>有些新式的CSS样式并不是所有的浏览器都支持，一些浏览器率先支持了，或者不是所有的浏览器支持情况都一样，我们需要前缀写法
-
-* Firefox: -moz-
-* Safari/Chrome: -webkit-
-* Opera: -o-
-* IE: -ms-
-</code></pre><p>书写顺序要注意，先写私有的CSS3属性，再写标准的CSS3属性，这样以后不需要前缀了，能保证我们使用标准的</p>
-<pre><code>    -webkit-transform:rotate(-3deg);
-    -moz-transform:rotate(-3deg);
-    -ms-transform:rotate(-3deg);
-    -o-transform:rotate(-3deg);
-    transform:rotate(-3deg);
-</code></pre><p>当一个属性成为标准，并且被Firefox、Chrome等浏览器的最新版普遍兼容的时候。</p>
-<h2 id="">注释语句</h2>
-<pre><code>/*
-
-color: red;
-font-size: 12px;
-
-*/
-</code></pre><h2 id="">缩写</h2>
-<p>使用CSS缩写可以减少CSS文件的大小，并使其更为易读[5]，例如：</p>
+<p>对应到计算机术语，类就是class，定义了一些特点（属性 property）和行为（方法 method），比如说给隔壁制造惊喜的这类人有几个特征</p>
 <ol>
-<li><p>颜色缩写：16进制的色彩值，如果每两位的值相同，可以进行缩写，例如：</p>
-<p> <code>＃000000</code>可以缩写为<code>#000</code>，<code>#336699</code>可以缩写为<code>#369</code>;</p>
+<li>长相文质彬彬，为人和善</li>
+<li>姓王</li>
+</ol>
+<p>同时这些人还有技能（行为）</p>
+<ol>
+<li>帮隔壁修下水道</li>
+<li>亲切问候对方儿子</li>
+</ol>
+<p>我们刚才就描述了一个类，用代码表示就是</p>
+<pre><code>class LaoWang{
+    string name;
+    string familyNmae = &quot;wang&quot;;
+    bool isKind = true;
+
+    LaoWang(string name){
+        this.name = name;
+    }
+
+    void fixPipe(){
+        statement
+    } 
+
+    void greetSon(){
+        statement
+    }
+}
+</code></pre><p>符合这些特点并且有上述行为能力的，我们称之为老王，从描述我们就可以看出来<code>LaoWang</code>不是指某个人，而是指一类人，符合上述描述的都可能是老王！用计算机术语说就是没个活蹦乱跳的老王都是类<code>LaoWang</code>的<strong>实例</strong>。用代码描述就是</p>
+<pre><code>LaoWang lw1 = new LaoWang(&quot;yi&quot;);
+LaoWang lw2 = new LaoWang(&quot;er&quot;);
+...
+LaoWang lw1000000 = new LaoWang(&quot;baiwan&quot;);    
+</code></pre><p>可以看出我们能够根据类<code>LaoWang</code>实例化出成千百万个老王来，老王不是一个人在战斗！</p>
+<h2 id="">封装</h2>
+<p>刚才我们说的已经涉及到了对象的一个重要特性——封装</p>
+<p>以前我们可能会有这样的描述</p>
+<pre><code>王一长相文质彬彬，为人和善，姓王，有技能帮隔壁修下水道、亲切问候对方儿子
+王二长相文质彬彬，为人和善，姓王，有技能帮隔壁修下水道、亲切问候对方儿子
+王三长相文质彬彬，为人和善，姓王，有技能帮隔壁修下水道、亲切问候对方儿子
+王四长相文质彬彬，为人和善，姓王，有技能帮隔壁修下水道、亲切问候对方儿子
+...
+王百万长相文质彬彬，为人和善，姓王，有技能帮隔壁修下水道、亲切问候对方儿子
+</code></pre><p>有了对象的思想我们可以这样说了，首先定义一类人</p>
+<pre><code>有那么一类人
+
+1. 长相文质彬彬，为人和善
+2. 姓王
+
+同时这些人还有技能（行为）
+
+1. 帮隔壁修下水道
+2. 亲切问候对方儿子
+</code></pre><p>然后是实例化，也就是对号入座</p>
+<pre><code>王一是老王
+王二是老王
+...
+王百万是老王
+</code></pre><p>也就是我们通过类来描述一套规则，其中包括</p>
+<ol>
+<li>属性</li>
+<li>行为</li>
+</ol>
+<p>对于这个类实例化出的对象，也就是副歌这个类描述的对象，不用去关心对象细节，我们认为符合类的描述，就会有类规定的属性和方法，至于每个方法具体实现细节不去关注，比如老王怎么给人修水管，我知道他有修水管的技能，然后用的时候让他去修就好了（只要不修我家的）</p>
+<p>我们称这种隐藏细节的特征叫做封装</p>
+<h2 id="javascript-">JavaScript 对象</h2>
+<p>因为JavaScript是基于原型（prototype）的，没有类的概念（ES6有了，这个暂且不谈），我们能接触到的都是对象，真正做到了一切皆为对象</p>
+<p>所以我们再说对象就有些模糊了，很多同学会搞混类型的对象和对象本身这个概念，我们在接下来的术语中不提对象，我们使用和Java类似的方式，方便理解</p>
+<pre><code>function People(name){
+    this.name = name;
+
+    this.printName = function(){
+        console.log(name);
+    };
+}
+</code></pre><p>这是一个函数，也是对象，我们称之为<code>类</code></p>
+<pre><code>var p1 = new People(&#39;Byron&#39;);
+</code></pre><p>p1是People类new出来的对象，我们称之为<code>实例</code></p>
+<p>类和实例的关系用我们码农的专业眼光看起来是这样的</p>
+<p><img src="http://lsly1989.qiniudn.com/20150401QQ20150401-2.png" alt="image"></p>
+<p>类就是搬砖的模具，实例就是根据模具印出来的砖块，一个模具可以印出（实例化）多个实例，每个实例都符合类的特征，这个例子和我们JavaScript中概念很像</p>
+<p>在Java中<strong>类</strong>不能称之为对象，如同<code>老王</code>是一个概念、规则的集合，但是在JavaScript中，本身没有类的概念，我们需要用对象模拟出类，然后用类去创建对象</p>
+<p>我们的例子中模具虽然是<strong>“类”</strong>，但同时也是个存在的实物，是个对象，我们为了方便理解，称之为<code>类</code></p>
+<h2 id="object">Object</h2>
+<p>我们知道JavaScript有<code>null</code>、<code>undefined</code>、<code>number</code>、<code>boolean</code>、<code>string</code>五种简单类型，<code>null</code>和<code>undefined</code>分别表示没有声明和声明后没有初始化的变量、对象，是两个简单的值，其余三个有对应的包装对象<code>Number</code>、<code>Boolean</code>、<code>String</code></p>
+<p>其它的就都是<code>object</code>类型了，比如常用的<code>Array</code>、<code>Date</code>、<code>RegExp</code>等，我们最常用的<code>Function</code>也是个对象，虽然</p>
+<pre><code>typeof function(){}; // &quot;function&quot;
+</code></pre><p>但是Function实例和其它类型的实例没有什么区别，都是对象，只不过<code>typeof</code>操作符对其做了特殊处理</p>
+<h2 id="">构造对象</h2>
+<p>我们可以抛开类，使用字面量来构造一个对象</p>
+<pre><code>var obj1 = {
+    nick: &#39;Byron&#39;,
+    age: 20,
+    printName: function(){
+        console.log(this.nick);
+    }
+}
+var obj2 = {
+    nick: &#39;Casper&#39;,
+    age: 25,
+    printName: function(){
+        console.log(this.nick);
+    }
+}
+</code></pre><h3 id="">问题</h3>
+<p>这样构造有两个明显问题</p>
+<ol>
+<li>太麻烦了，每次都是复制一遍代码</li>
+<li>如果想个性化，只能通过手工赋值，使用者必需了解对象详细</li>
+</ol>
+<p>这两个问题其实也是我们不能抛开类的重要原因，也是类的作用</p>
+<h2 id="">使用函数做自动化</h2>
+<pre><code>function createObj(nick, age){
+  var obj = {
+      nick: nick,
+      age: age,
+      printName: function(){
+            console.log(this.nick);
+        }        
+  };
+  return obj;
+}
+
+var obj3 = createObj(&#39;Byron&#39;, 30);
+obj3.printName();
+</code></pre><p>我们通过创建一个函数来实现自动创建对象的过程，至于个性化通过参数实现，开发者不必关注细节，只需要传入指定参数即可</p>
+<h3 id="">问题</h3>
+<p>这种方法解决了构造过程复杂，需要了解细节的问题，但是构造出来的对象类型都是Object，没有识别度</p>
+<pre><code>obj3.constructor); //Object
+</code></pre><h2 id="">有型一些</h2>
+<p>要想让我们构造出的函数有型一些，我们需要了解一些额外知识</p>
+<ul>
+<li><p>function作为构造函数（通过new操作符调用）的时候会返回一个类型为function的name的对象</p>
 </li>
-<li><p>盒尺寸缩写：Property: Value1 Value2 Value3 Value4；四个值依次表示Top，Right，Bottom，Left</p>
+<li><p>function可以接受参数，可以根据参数来创建相同类型不同值的对象</p>
 </li>
-<li><p>边框缩写</p>
-<p> 边框的属性如下：</p>
-<pre><code>  border-width: 1px;
-  border-style: solid;
-  border-color: #000;
-</code></pre><p> 可以缩写为一句：</p>
-<pre><code>  border: 1px solid #000;
-</code></pre></li>
-<li><p>背景缩写</p>
-<pre><code>  background-color: #F00;
-  background-image: url(background.gif);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 0 0;
-</code></pre></li>
-</ol>
-<p>可以缩写为一句：</p>
-<pre><code>     background: #F00 url(background.gif) no-repeat fixed 0 0;
-</code></pre><ol>
-<li><p>文字缩写</p>
-<pre><code> font-weight: bold;
- font-size: 12px;
- line-height: 1.8em;
- font-family: Arial;
-</code></pre><p> 可以缩写为一句： 但文字缩写一定要具有字号、字体样式这两个属性。行高用/分隔</p>
-<pre><code>  font:bold 12px/1.8em Arial;
-</code></pre></li>
-</ol>
-<h2 id="">书写风格</h2>
-<ol>
-<li>语法不区分大小写，但建议统一使用小写</li>
-<li>不使用内联的style属性定义样式</li>
-<li>id和class使用有意义的单词，分隔符建议使用<code>-</code></li>
-<li>有可能就是用缩写</li>
-<li>属性值是<code>0</code>的省略单位</li>
-<li>块内容缩进</li>
-<li>属性名冒号后面添加一个空格</li>
-</ol>
-<h1 id="">参考</h1>
-<ol>
-<li><a href="http://docs.kissyui.com/1.4/docs/html/tutorials/style-guide/css-coding-style.html" target="_blank">CSS 编码规范-kissy</a></li>
-<li><a href="https://github.com/fex-team/styleguide/blob/master/css.md" target="_blank">CSS编码规范</a></li>
-</ol>
-
+<li><p>function实例作用域内有一个constructor属性，这个属性就可以指示其构造器</p>
+</li>
+</ul>
+<p>根据这几个特性，我们可以改造一下创建对象的方式</p>
+<pre><code>function Person(nick, age){
+    this.nick = nick;
+    this.age = age;
+    this.sayName = function(){
+            console.log(this.nick);
+    }
+}
+var p1 = new Person();
+console.log(p1.constructor); //Person
+</code></pre>
                     
                     </section>
                 
@@ -1835,10 +1912,6 @@ font-size: 12px;
         </div>
 
         
-        <a href="../css/css.html" class="navigation navigation-prev " aria-label="Previous page: CSS"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../css/常用属性.html" class="navigation navigation-next " aria-label="Next page: 常用属性"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
