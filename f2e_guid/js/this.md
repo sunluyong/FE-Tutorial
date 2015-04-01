@@ -45,6 +45,14 @@
 
 所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象
 
+new 运算符接受一个函数 F 及其参数：new F(arguments...)。这一过程分为三步：
+
+1. 创建类的实例。这步是把一个空的对象的 __proto__ 属性设置为 F.prototype 。
+2. 初始化实例。函数 F 被传入参数并调用，关键字 this 被设定为该实例。
+3. 返回实例。
+
+看例子
+
 	function Person(name){
 		this.name = name;
 	}
@@ -182,3 +190,29 @@ JavaScript中的函数既可以被当作普通函数执行，也可以作为对�
 如果该函数中含有内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内定义的局部变量，需要注意的是此时这些变量初始化为 `undefined`，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，这点对于我们理解JavaScript中的变量作用域非常重要，最后为`this`变量赋值，会根据函数调用方式的不同，赋给`this`全局对象，当前对象等
 
 至此函数的执行环境（ExecutionContext）创建成功，函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取
+
+## 三种变量
+
+* 实例变量：（this）类的实例才能访问到的变量
+
+* 静态变量：（属性）直接类型对象能访问到的变量
+
+* 私有变量：（局部变量）当前作用域内有效的变量
+
+看个例子
+
+	function ClassA(){
+		var a = 1; //私有变量，只有函数内部可以访问
+		this.b = 2; //实例变量，只有实例可以访问
+	}
+
+	ClassA.c = 3; // 静态变量，也就是属性，类型访问
+
+	console.log(a); // error
+	console.log(ClassA.b) // undefined
+	console.log(ClassA.c) //3
+
+	var classa = new ClassA();
+	console.log(classa.a);//undefined
+	console.log(classa.b);// 2
+	console.log(classa.c);//undefined
