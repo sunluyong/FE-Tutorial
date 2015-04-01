@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>表达式 | 关于本书</title>
+        <title>构造对象 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,8 +19,10 @@
         
     
     
+    <link rel="next" href="../js/this.html" />
     
-    <link rel="prev" href="../js/闭包.html" />
+    
+    <link rel="prev" href="../js/理解对象.html" />
     
 
         
@@ -32,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.7" data-basepath=".." data-revision="1427894187009">
+    <div class="book" data-level="4.8.2" data-basepath=".." data-revision="1427894187009">
     
 
 <div class="book-summary">
@@ -573,7 +575,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.7" data-path="js/表达式.html">
+        <li class="chapter " data-level="4.7" data-path="js/表达式.html">
             
                 
                     <a href="../js/表达式.html">
@@ -614,7 +616,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.8.2" data-path="js/构造对象.html">
+        <li class="chapter active" data-level="4.8.2" data-path="js/构造对象.html">
             
                 
                     <a href="../js/构造对象.html">
@@ -1726,112 +1728,119 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_37">
+                    <section class="normal" id="section-gitbook_32">
                     
-                        <h1 id="">表达式</h1>
-<blockquote>
-<p>表达式是由数字、运算符、数字分组符号（如括号）、自由变量和约束变量等以能求得数值的有意义排列方法所得的组合。~~约束变量在表达式中已被指定数值，而自由变量则可以在表达式之外另行指定数值。一个表达式代表一个函数，其输入为自由变量的定值，而其输出则为表达式因之后所产生出的数值。 ——维基百科</p>
-</blockquote>
-<p>看起来很不接地气的赶脚，表达式是JavaScript中的一个短语，JavaScript会将其计算出一个结果，常量如<code>1</code>、<code>hello</code>、<code>null</code>这些都是表达式；</p>
-<p>变量名也是表达式，JavaScript计算出的结果就是赋值给变量的值，这些都是简单的表达式</p>
-<p>几个简单的表达式可以组合为复杂的表达式，<code>[3,4,5,6]</code>这也是一个表达式，计算结果是数组，我们也可以通过运算符将简单表达式组合位复杂表达式，<code>8+9</code>这样,JavaScript表达式有几种形式</p>
+                        <h1 id="">构造对象</h1>
+<p>我们可以抛开类，使用字面量来构造一个对象</p>
+<pre><code>var obj1 = {
+    nick: &#39;Byron&#39;,
+    age: 20,
+    printName: function(){
+        console.log(obj1.nick);
+    }
+}
+var obj2 = {
+    nick: &#39;Casper&#39;,
+    age: 25,
+    printName: function(){
+        console.log(obj2.nick);
+    }
+}
+</code></pre><h3 id="">问题</h3>
+<p>这样构造有两个明显问题</p>
 <ol>
-<li><p>原始表达式</p>
-<p> 常量、变量、保留字</p>
-</li>
-<li><p>对象、数组初始化表达式</p>
-<pre><code> var obj = {a:1,b:2};
- var a = [1,2,3];
-</code></pre></li>
-<li><p>函数定义表达式</p>
-<pre><code> var fn = function(){}
-</code></pre></li>
-<li><p>属性访问表达式</p>
-<pre><code> Math.abs
-</code></pre></li>
-<li><p>调用表达式</p>
-<pre><code> alert(&#39;hello&#39;);
-</code></pre></li>
-<li><p>对象创建表达式</p>
-<p> new object();</p>
-</li>
+<li>太麻烦了，每次构建一个对象都是复制一遍代码</li>
+<li>如果想个性化，只能通过手工赋值，使用者必需了解对象详细</li>
 </ol>
-<h2 id="">函数定义</h2>
-<p>我们想使用一个函数的时候通常有几种做法</p>
+<p>这两个问题其实也是我们不能抛开类的重要原因，也是类的作用</p>
+<h2 id="">使用函数做自动化</h2>
+<pre><code>function createObj(nick, age){
+  var obj = {
+      nick: nick,
+      age: age,
+      printName: function(){
+            console.log(this.nick);
+        }
+  };
+  return obj;
+}
+
+var obj3 = createObj(&#39;Byron&#39;, 30);
+obj3.printName();
+</code></pre><p>我们通过创建一个函数来实现自动创建对象的过程，至于个性化通过参数实现，开发者不必关注细节，只需要传入指定参数即可</p>
+<h3 id="">问题</h3>
+<p>这种方法解决了构造过程复杂，需要了解细节的问题，但是构造出来的对象类型都是Object，没有识别度</p>
+<h2 id="">有型一些</h2>
+<p>要想让我们构造出的函数有型一些，我们需要了解一些额外知识</p>
+<ul>
+<li><p>function作为构造函数（通过new操作符调用）的时候会返回一个类型为function的name的对象</p>
+</li>
+<li><p>function可以接受参数，可以根据参数来创建相同类型不同值的对象</p>
+</li>
+<li><p>function实例作用域内有一个constructor属性，这个属性就可以指示其构造器</p>
+</li>
+</ul>
+<h3 id="new">new</h3>
+<p>new 运算符接受一个函数 F 及其参数：new F(arguments...)。这一过程分为三步：</p>
 <ol>
-<li><p>函数表达式</p>
-<pre><code> var fn = function(n) { console.log(n) };
-</code></pre></li>
-<li><p>函数声明</p>
-<pre><code> function fn(n){ console.log(n);}
-</code></pre></li>
-<li><p>使用Function构造函数</p>
-<pre><code>  var fn = new Function(&#39;n&#39;,&quot;console.log(n);&quot;);
-</code></pre></li>
+<li>创建类的实例。这步是把一个空的对象的 <strong>proto</strong> 属性设置为 F.prototype 。</li>
+<li>初始化实例。函数 F 被传入参数并调用，关键字 this 被设定为该实例。</li>
+<li>返回实例。</li>
 </ol>
-<p>这几种做法都很好理解，但是如果函数表达式使用了名字呢，我们看个题目</p>
-<pre><code>var f = function g(){ console.log(g);};
-f();//function g(){ console.log(g);};
-typeof g();//g is not defined
-</code></pre><p>不知道结果和同学们的预期是否一致，但看起来这种结果似乎互相矛盾，当我们使用函数声明的方式定义一个函数的时候，实际上声明了一个变量，在上面例子中就是<code>f</code>，并把函数赋值给这个变量，普通的函数表达式没有创建该变量，也就是我们所说的创建了一个匿名函数</p>
-<p>但是如果函数表达式包含名称，也就是上面例子的<code>g</code>，那么函数的局部作用域将包含将包含该名称，并且把创建的函数绑定到该名称上</p>
-<p>在上面例子中<code>g</code>变成了函数的局部变量，变量指向函数本身，所以我们调用f的时候会把其本身打印出来。但是g只作为函数的局部变量存在，我们在外部调用g的时候就会报错了。</p>
-<blockquote>
-<p>命名函数表达式在创建的时候，会在当前作用域最前段添加一个新的对象<code>{func_name:refer_function_expression}</code>,然后，将作用域链添加到
-函数表达式的<code>[[scope]]</code>中，接着在删除该对象。</p>
-</blockquote>
-<pre><code>var x=1;
-if(function f(){}){
-    x+=typeof f;
+<p>根据这几个特性，我们可以改造一下创建对象的方式</p>
+<pre><code>function Person(nick, age){
+    this.nick = nick;
+    this.age = age;
+    this.sayName = function(){
+            console.log(this.nick);
+    }
 }
-console.log(x);//&#39;1undefined&#39;
-</code></pre><p>是不是很简单</p>
-<h2 id="">立即执行函数</h2>
-<p>初学JavaScript的同学很容易被类似这样的东西唬住</p>
-<pre><code>(function(){})();
-</code></pre><p>其实我们了解了表达式就能很清楚的看明白这是什么结构了</p>
-<pre><code>(函数定义表达式)函数调用表达式
-</code></pre><p>也就是说先创建了一个匿名函数，然后不传入参数调用它，这就变成了<code>立即执行函数</code>，知道了这些看个传入参数调用的立即执行函数题目</p>
-<pre><code>(function f(f){
-    return typeof f();// &quot;number&quot;
-})(function(){return 1;});
-</code></pre><p>这个题目事实上还涉及了一些其它的知识，立即执行函数不再是以空括号<code>()</code>来调用了，同时传入了一个function作为参数传入调用。</p>
-<p>再一个疑惑就是typeof f() 中的f究竟指谁，这个知识我们后面会介绍道，简单说一下，当函数执行有命名冲突的时候，函数依次填入 变量＝》函数＝》参数，所以最后被填入的参数f会覆盖函数定义f，typeof f()是对参数的调用，参数是立即执行函数传入的function参数，返回数字1，typeof 1是 &quot;number&quot;。</p>
-<h2 id="">表达式返回值</h2>
-<p>表达式看明白了，我们却经常忽略其计算结果，也就是我们常说的返回值，对于原始表达式、对象数组初始化表达式、属性访问表达式很简单不会有什么问题。</p>
-<p><strong>函数定义表达式返回的是函数对象本身</strong>，我们在调用alert或者console.log的时候会调用其toString方法</p>
-<pre><code>console.log(function(){alert(&#39;a&#39;);}) //function (){alert(&#39;a&#39;);}
-</code></pre><p><strong>函数调用表达式自然是返回函数的return结果</strong>，但在JavaScript中并不是所有的函数都有return语句，对于没有return语句的function，其调用表达式返回undefined，对于只写个return的坑爹做法同样也是返回undefined</p>
-<pre><code>(function(){})(); //undefined
-(function(){return;})();//undefined
-</code></pre><p>对象创建表达式本来也应该很简单，返回new的对象就可以了</p>
-<pre><code>typeof new Date(); //&quot;object&quot;
-</code></pre><p>但是总有特殊的，看个题目</p>
-<pre><code>function Test(){
-    return new Date();
+var p1 = new Person();
+</code></pre><h3 id="instanceof">instanceof</h3>
+<p>instanceof是一个操作符，可以判断<strong>对象</strong>是否为某个类型的实例</p>
+<pre><code>p1 instanceof Person; // true
+p1 instanceof Object;// true
+</code></pre><p>instanceof判断的是对象</p>
+<pre><code>1 instanceof Number; // false
+</code></pre><h3 id="">问题</h3>
+<p>构造函数在解决了上面所有问题，同时为实例带来了类型，但可以注意到每个实例<code>printName</code>方法实际上作用一样，但是每个实例要重复一遍，大量对象存在的时候是浪费内存</p>
+<h2 id="">构造函数</h2>
+<ul>
+<li><p>任何函数使用new表达式就是构造函数</p>
+</li>
+<li><p>每个<strong>函数</strong>都自动添加一个名称为<code>prototype</code>属性，这是一个对象</p>
+</li>
+<li><p>每个<strong>对象</strong>都有一个内部属性 <code>__proto__</code>(规范中没有指定这个名称，但是浏览器都这么实现的) 指向其类型的prototype属性，类的实例也是对象，其<strong><strong>proto</strong></strong>属性指向“类”的prototype</p>
+</li>
+</ul>
+<h3 id="prototype">prototype</h3>
+<p><img src="http://lsly1989.qiniudn.com/201504012QQ20150401-4.png" alt="image"></p>
+<p>通过图示我们可以看出一些端倪，实例可以通过<code>__prop__</code>访问到其类型的prototype属性，这就意味着类的prototype对象可以作为一个公共容器，供所有实例访问。</p>
+<h2 id="">抽象重复</h2>
+<p>我们刚才的问题可以通过这个手段解决</p>
+<ul>
+<li><p>所有实例都会通过原型链引用到类型的prototype</p>
+</li>
+<li><p>prototype相当于特定类型所有实例都可以访问到的一个公共容器</p>
+</li>
+<li><p>重复的东西移动到公共容器里放一份就可以了</p>
+</li>
+</ul>
+<p>看下代码</p>
+<pre><code>function Person(nick, age){
+    this.nick = nick;
+    this.age = age;
 }
-var test=new Test();
-console.log(test instanceof Test);//false
-console.log(test);//Sat Jan 18 2014 14:57:08 GMT+0800 (CST) 
-</code></pre><p>很奇怪啊，new Test()没有返回Test的实例对象，返回的却是Date对象，这是为什么呢？是不是有返回值的function使用构造函数的时候就会返回return指令的结果呢？看个例子</p>
-<pre><code>function Test(){
-    return new Date();
+Person.prototype.sayName = function(){
+    console.log(this.nick);
 }
-function Test2(){
-    return 2;
-}
-typeof new Test();
-new Test2() instanceof Test2;//true，竟然是true
-</code></pre><p>刚才的推测明显不正确，Test2有返回值，new test2() 返回的是Test2的实例，但是我们已经可以看出一丝端倪了</p>
-<blockquote>
-<p>当使用function的构造函数创建对象（new XXX）的时候，如果函数return基本类型或者没有return（其实就是return undefined）的时候， new 返回的是对象的实例；如果 函数return的是一个对象，那么new 将返回这个对象而不是函数实例。</p>
-</blockquote>
-<p>这里千万别把构造函数（使用new）和普通函数调用混淆了，普通函数调用还是该返回什么返回什么的。看个题目</p>
-<pre><code>foo&#39; == new function(){ return String(&#39;foo&#39;); }; //false
-&#39;foo&#39; == new function(){ return new String(&#39;foo&#39;); };//true
-</code></pre><h2 id="">正则表达式</h2>
-<pre><code>这个看我们专门章节的课程就好了
-</code></pre>
+
+var p1 = new Person();
+p1.sayName();
+</code></pre><p>这时候我们对应的关系是这样的</p>
+<p><img src="http://lsly1989.qiniudn.com/201504012QQ20150401-3.png" alt="image"></p>
+<p>终于有个靠谱的构建对象的方式了</p>
+
                     
                     </section>
                 
@@ -1841,8 +1850,10 @@ new Test2() instanceof Test2;//true，竟然是true
         </div>
 
         
-        <a href="../js/闭包.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 闭包"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/理解对象.html" class="navigation navigation-prev " aria-label="Previous page: 理解对象"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="../js/this.html" class="navigation navigation-next " aria-label="Next page: this"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

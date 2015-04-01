@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>表达式 | 关于本书</title>
+        <title>原型链和继承 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -20,7 +20,7 @@
     
     
     
-    <link rel="prev" href="../js/闭包.html" />
+    <link rel="prev" href="../js/this.html" />
     
 
         
@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.7" data-basepath=".." data-revision="1427894187009">
+    <div class="book" data-level="4.8.4" data-basepath=".." data-revision="1427894187009">
     
 
 <div class="book-summary">
@@ -573,7 +573,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.7" data-path="js/表达式.html">
+        <li class="chapter " data-level="4.7" data-path="js/表达式.html">
             
                 
                     <a href="../js/表达式.html">
@@ -646,7 +646,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.8.4" data-path="js/原型链和继承.html">
+        <li class="chapter active" data-level="4.8.4" data-path="js/原型链和继承.html">
             
                 
                     <a href="../js/原型链和继承.html">
@@ -1726,111 +1726,168 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_37">
+                    <section class="normal" id="section-gitbook_29">
                     
-                        <h1 id="">表达式</h1>
-<blockquote>
-<p>表达式是由数字、运算符、数字分组符号（如括号）、自由变量和约束变量等以能求得数值的有意义排列方法所得的组合。~~约束变量在表达式中已被指定数值，而自由变量则可以在表达式之外另行指定数值。一个表达式代表一个函数，其输入为自由变量的定值，而其输出则为表达式因之后所产生出的数值。 ——维基百科</p>
-</blockquote>
-<p>看起来很不接地气的赶脚，表达式是JavaScript中的一个短语，JavaScript会将其计算出一个结果，常量如<code>1</code>、<code>hello</code>、<code>null</code>这些都是表达式；</p>
-<p>变量名也是表达式，JavaScript计算出的结果就是赋值给变量的值，这些都是简单的表达式</p>
-<p>几个简单的表达式可以组合为复杂的表达式，<code>[3,4,5,6]</code>这也是一个表达式，计算结果是数组，我们也可以通过运算符将简单表达式组合位复杂表达式，<code>8+9</code>这样,JavaScript表达式有几种形式</p>
+                        <h1 id="">原型链和继承</h1>
+<p>在一切开始之前回顾一下<code>类</code>、<code>实例</code>、<code>prototype</code>、<code>__proto__</code>的关系</p>
+<pre><code>function Person(nick, age){
+    this.nick = nick;
+    this.age = age;
+}
+Person.prototype.sayName = function(){
+    console.log(this.nick);
+}
+
+var p1 = new Person();
+p1.sayName();
+</code></pre><p><img src="http://lsly1989.qiniudn.com/201504012QQ20150401-3.png" alt="image"></p>
 <ol>
-<li><p>原始表达式</p>
-<p> 常量、变量、保留字</p>
+<li>我们通过函数定义了类<code>Person</code>，类（函数）自动获得属性<code>prototype</code></li>
+<li>每个类的实例都会有一个内部属性<code>__proto__</code>，指向类的<code>prototype</code>属性</li>
+</ol>
+<h2 id="">有趣的现象</h2>
+<p>我们定义一个数组，调用其<code>valueOf</code>方法</p>
+<pre><code>[1, 2, 3].valueOf(); // [1, 2, 3]
+</code></pre><p>很奇怪的是我们在数组的类型Array中并不能找到<code>valueOf</code>的定义，根据之前的理论那么极有可能定义在了Array的<code>prototype</code>中用于实例共享方法，查看一下</p>
+<p><img src="http://lsly1989.qiniudn.com/201504013QQ20150401-1.png" alt="image"></p>
+<p>我们发现<code>Array</code>的<code>prototype</code>里面并未包含<code>valueOf</code>等定义，那么valueOf是哪里来的呢？</p>
+<p>一个有趣的现象是我们在Object实例的<code>__proto__</code>属性（也就是Object的prototype属性）中找到了找到了这个方法</p>
+<p><img src="http://lsly1989.qiniudn.com/201504013QQ20150401-2.png" alt="image"></p>
+<p>那么Array的实例为什么同样可以查找到Object的prototype里面定义的方法呢？</p>
+<h2 id="valueof">查找valueOf过程</h2>
+<p>因为任何类的<code>prototype</code>属性本质上都是个类<code>Object</code>的实例，所以<code>prototype</code>也和其它实例一样也有个<code>__proto__</code>内部属性，指向其类型<code>Object</code>的prototype</p>
+<p>我们大概可以知道为什么了，自己的类的prototype找不到的话，还会找prototypr的类型的prototype属性，这样层层向上查找</p>
+<p>大概过程是这样的</p>
+<ol>
+<li><p>记当前对象位obj，查找obj属性、方法，找到后返回</p>
 </li>
-<li><p>对象、数组初始化表达式</p>
-<pre><code> var obj = {a:1,b:2};
- var a = [1,2,3];
-</code></pre></li>
-<li><p>函数定义表达式</p>
-<pre><code> var fn = function(){}
-</code></pre></li>
-<li><p>属性访问表达式</p>
-<pre><code> Math.abs
-</code></pre></li>
-<li><p>调用表达式</p>
-<pre><code> alert(&#39;hello&#39;);
-</code></pre></li>
-<li><p>对象创建表达式</p>
-<p> new object();</p>
+<li><p>没有找到，通过obj的<code>__proto__</code>属性，找到其类型<code>Array</code>的<code>prototype</code>属性（记为prop）继续查找，找到后返回</p>
+</li>
+<li><p>没有找到，把prop记为obj做递归重复步骤一，通过类似方法找到prop的类型<code>Object</code>的 prototype进行查找，找到返回</p>
 </li>
 </ol>
-<h2 id="">函数定义</h2>
-<p>我们想使用一个函数的时候通常有几种做法</p>
+<p><img src="http://lsly1989.qiniudn.com/201504013QQ20150401-3.png" alt="image"></p>
+<p>画的比较丑，看个大师的手笔</p>
+<p><img src="http://www.benben.cc/uploads/2010/10/07_1286435107.jpg" alt="image"></p>
+<p><a href="http://mollypages.org/" target="_blank">图片来源</a></p>
+<p>这就是传说中的原型链，层层向上查找，最后还没有就返回<code>undefined</code></p>
+<h2 id="">类型</h2>
+<p>我们之前介绍过<code>instanceof</code>操作符，判断一个对象是不是某个类型的实例</p>
+<pre><code>[1, 2, 3] instanceof Array; //true
+</code></pre><p>可以看到<code>[1, 2, 3]</code>是类型<code>Array</code>的实例</p>
+<pre><code>[1, 2, 3] instanceof Object; //true
+</code></pre><p>这个结果有些非议所思，怎么又是Array的实例，又是Object的实例，这不是乱套了</p>
+<p>其实这个现象在日常生活中很常见其实，比如我们有两种类型</p>
 <ol>
-<li><p>函数表达式</p>
-<pre><code> var fn = function(n) { console.log(n) };
-</code></pre></li>
-<li><p>函数声明</p>
-<pre><code> function fn(n){ console.log(n);}
-</code></pre></li>
-<li><p>使用Function构造函数</p>
-<pre><code>  var fn = new Function(&#39;n&#39;,&quot;console.log(n);&quot;);
-</code></pre></li>
+<li>类人猿</li>
+<li>动物</li>
 </ol>
-<p>这几种做法都很好理解，但是如果函数表达式使用了名字呢，我们看个题目</p>
-<pre><code>var f = function g(){ console.log(g);};
-f();//function g(){ console.log(g);};
-typeof g();//g is not defined
-</code></pre><p>不知道结果和同学们的预期是否一致，但看起来这种结果似乎互相矛盾，当我们使用函数声明的方式定义一个函数的时候，实际上声明了一个变量，在上面例子中就是<code>f</code>，并把函数赋值给这个变量，普通的函数表达式没有创建该变量，也就是我们所说的创建了一个匿名函数</p>
-<p>但是如果函数表达式包含名称，也就是上面例子的<code>g</code>，那么函数的局部作用域将包含将包含该名称，并且把创建的函数绑定到该名称上</p>
-<p>在上面例子中<code>g</code>变成了函数的局部变量，变量指向函数本身，所以我们调用f的时候会把其本身打印出来。但是g只作为函数的局部变量存在，我们在外部调用g的时候就会报错了。</p>
+<p>我们发现黑猩猩即是类人猿这个类的物种（实例），也是动物的实例</p>
+<p>是不是悟出其中的门道了，类人猿是动物的一种，也就是说我们的两个类型之间有一种父子关系</p>
+<p>这就是传说中的继承，JavaScript正是通过原型链实现继承机制的</p>
+<h2 id="">继承</h2>
 <blockquote>
-<p>命名函数表达式在创建的时候，会在当前作用域最前段添加一个新的对象<code>{func_name:refer_function_expression}</code>,然后，将作用域链添加到
-函数表达式的<code>[[scope]]</code>中，接着在删除该对象。</p>
+<p>继承是指一个对象直接使用另一对象的属性和方法。</p>
 </blockquote>
-<pre><code>var x=1;
-if(function f(){}){
-    x+=typeof f;
+<p>JavaScript并不提供原生的继承机制，我们自己实现的方式很多，介绍一种最为通用的</p>
+<p>通过上面定义我们可以看出我们如果实现了两点的话就可以说我们实现了继承</p>
+<ol>
+<li>得到一个类的属性</li>
+<li>得到一个类的方法</li>
+</ol>
+<p>我们分开讨论一下，先定义两个个类</p>
+<pre><code>function Person(name, sex){
+    this.name = name;
+    this.sex = sex;
 }
-console.log(x);//&#39;1undefined&#39;
-</code></pre><p>是不是很简单</p>
-<h2 id="">立即执行函数</h2>
-<p>初学JavaScript的同学很容易被类似这样的东西唬住</p>
-<pre><code>(function(){})();
-</code></pre><p>其实我们了解了表达式就能很清楚的看明白这是什么结构了</p>
-<pre><code>(函数定义表达式)函数调用表达式
-</code></pre><p>也就是说先创建了一个匿名函数，然后不传入参数调用它，这就变成了<code>立即执行函数</code>，知道了这些看个传入参数调用的立即执行函数题目</p>
-<pre><code>(function f(f){
-    return typeof f();// &quot;number&quot;
-})(function(){return 1;});
-</code></pre><p>这个题目事实上还涉及了一些其它的知识，立即执行函数不再是以空括号<code>()</code>来调用了，同时传入了一个function作为参数传入调用。</p>
-<p>再一个疑惑就是typeof f() 中的f究竟指谁，这个知识我们后面会介绍道，简单说一下，当函数执行有命名冲突的时候，函数依次填入 变量＝》函数＝》参数，所以最后被填入的参数f会覆盖函数定义f，typeof f()是对参数的调用，参数是立即执行函数传入的function参数，返回数字1，typeof 1是 &quot;number&quot;。</p>
-<h2 id="">表达式返回值</h2>
-<p>表达式看明白了，我们却经常忽略其计算结果，也就是我们常说的返回值，对于原始表达式、对象数组初始化表达式、属性访问表达式很简单不会有什么问题。</p>
-<p><strong>函数定义表达式返回的是函数对象本身</strong>，我们在调用alert或者console.log的时候会调用其toString方法</p>
-<pre><code>console.log(function(){alert(&#39;a&#39;);}) //function (){alert(&#39;a&#39;);}
-</code></pre><p><strong>函数调用表达式自然是返回函数的return结果</strong>，但在JavaScript中并不是所有的函数都有return语句，对于没有return语句的function，其调用表达式返回undefined，对于只写个return的坑爹做法同样也是返回undefined</p>
-<pre><code>(function(){})(); //undefined
-(function(){return;})();//undefined
-</code></pre><p>对象创建表达式本来也应该很简单，返回new的对象就可以了</p>
-<pre><code>typeof new Date(); //&quot;object&quot;
-</code></pre><p>但是总有特殊的，看个题目</p>
-<pre><code>function Test(){
-    return new Date();
+
+Person.prototype.printName = function(){
+    console.log(this.name);
+};
+
+function Male(age){
+    this.age = age;
 }
-var test=new Test();
-console.log(test instanceof Test);//false
-console.log(test);//Sat Jan 18 2014 14:57:08 GMT+0800 (CST) 
-</code></pre><p>很奇怪啊，new Test()没有返回Test的实例对象，返回的却是Date对象，这是为什么呢？是不是有返回值的function使用构造函数的时候就会返回return指令的结果呢？看个例子</p>
-<pre><code>function Test(){
-    return new Date();
+
+Male.prototype.printAge = function(){
+    console.log(this.age);
+};
+</code></pre><h3 id="">属性获取</h3>
+<p>对象属性的获取是通过构造函数的执行，我们在一个类中执行另外一个类的构造函数，就可以把属性赋值到自己内部，但是我们需要把环境改到自己的作用域内，这就要借助我们讲过的函数<code>call</code>了</p>
+<p>改造一些<code>Male</code></p>
+<pre><code>function Male(name, sex, age){
+    Person.call(this, name, sex);
+    this.age = age;
 }
-function Test2(){
-    return 2;
+
+Male.prototype.printAge = function(){
+    console.log(this.age);
+};
+</code></pre><p>实例化看看结果</p>
+<pre><code>var m = new Male(&#39;Byron&#39;, &#39;male&#39;, 26);
+console.log(m.sex); // &quot;male&quot;
+</code></pre><h3 id="">方法获取</h3>
+<p>我们知道类的方法都定义在了prototype里面，所以只要我们把子类的prototype改为父类的prototype的备份就好了</p>
+<pre><code>Male.prototype = Object.create(Person.prototype);
+</code></pre><p>这里我们通过<code>Object.create</code>clone了一个新的prototype而不是直接把Person.prtotype直接赋值，因为引用关系，这样会导致后续修改子类的prototype也修改了父类的prototype，因为修改的是一个值</p>
+<p>另外<code>Object.create</code>是ES5方法，之前版本通过遍历属性也可以实现浅拷贝</p>
+<p>这样做需要注意一点就是对子类添加方法，必须在修改其prototype之后，如果在之前会被覆盖掉</p>
+<pre><code>Male.prototype.printAge = function(){
+    console.log(this.age);
+};
+
+Male.prototype = Object.create(Person.prototype);
+</code></pre><p>这样的话，<code>printAge</code>方法在赋值后就没了，因此得这么写</p>
+<pre><code>function Male(name, sex, age){
+    Person.call(this, name, sex);
+    this.age = age;
 }
-typeof new Test();
-new Test2() instanceof Test2;//true，竟然是true
-</code></pre><p>刚才的推测明显不正确，Test2有返回值，new test2() 返回的是Test2的实例，但是我们已经可以看出一丝端倪了</p>
-<blockquote>
-<p>当使用function的构造函数创建对象（new XXX）的时候，如果函数return基本类型或者没有return（其实就是return undefined）的时候， new 返回的是对象的实例；如果 函数return的是一个对象，那么new 将返回这个对象而不是函数实例。</p>
-</blockquote>
-<p>这里千万别把构造函数（使用new）和普通函数调用混淆了，普通函数调用还是该返回什么返回什么的。看个题目</p>
-<pre><code>foo&#39; == new function(){ return String(&#39;foo&#39;); }; //false
-&#39;foo&#39; == new function(){ return new String(&#39;foo&#39;); };//true
-</code></pre><h2 id="">正则表达式</h2>
-<pre><code>这个看我们专门章节的课程就好了
+
+Male.prototype = Object.create(Person.prototype);
+
+Male.prototype.printAge = function(){
+    console.log(this.age);
+};
+</code></pre><p>这样写貌似没问题了，但是有个问题就是我们知道prototype对象有一个属性<code>constructor</code>指向其类型，因为我们复制的父元素的prototype，这时候<code>constructor</code>属性指向是不对的，导致我们判断类型出错</p>
+<pre><code>Male.prototype.constructor; //Person
+</code></pre><p>因此我们需要再重新指定一下constructor属性到自己的类型</p>
+<h3 id="">最终方案</h3>
+<p>我们可以通过一个函数实现刚才说的内容</p>
+<pre><code>function inherit(superType, subType){
+    var _prototype  = Object.create(superType.prototype);
+    _prototype.constructor = subType;
+    subType.prototype = _prototype;
+}
+</code></pre><h3 id="">使用方式</h3>
+<pre><code>function Person(name, sex){
+    this.name = name;
+    this.sex = sex;
+}
+
+Person.prototype.printName = function(){
+    console.log(this.name);
+};    
+
+function Male(name, sex, age){
+    Person.call(this, name, sex);
+    this.age = age;
+}
+inherit(Person, Male);
+
+// 在继承函数之后写自己的方法，否则会被覆盖
+Male.prototype.printAge = function(){
+    console.log(this.age);
+};
+
+var m = new Male(&#39;Byron&#39;, &#39;m&#39;, 26);
+m.printName();
+</code></pre><p>这样我们就在JavaScript中实现了继承</p>
+<h2 id="hasownproperty">hasOwnProperty</h2>
+<p>有同学可能会问一个问题，继承之后Male的实例也有了Person的方法，那么怎么判断某个是自己的还是父类的？</p>
+<p><code>hasOwnPerperty</code>是Object.prototype的一个方法，可以判断一个对象是否包含自定义属性而不是原型链上的属性，<code>hasOwnProperty</code>是JavaScript中唯一一个处理属性但是不查找原型链的函数</p>
+<pre><code>m.hasOwnProperty(&#39;name&#39;); // true
+m.hasOwnProperty(&#39;printName&#39;); // false
+Male.prototype.hasOwnProperty(&#39;printAge&#39;); // true
 </code></pre>
                     
                     </section>
@@ -1841,7 +1898,7 @@ new Test2() instanceof Test2;//true，竟然是true
         </div>
 
         
-        <a href="../js/闭包.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 闭包"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/this.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: this"><i class="fa fa-angle-left"></i></a>
         
         
     </div>
