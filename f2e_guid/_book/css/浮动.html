@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.7" data-basepath=".." data-revision="1427894187009">
+    <div class="book" data-level="3.7" data-basepath=".." data-revision="1427972956652">
     
 
 <div class="book-summary">
@@ -1728,7 +1728,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_17">
+                    <section class="normal" id="section-gitbook_18">
                     
                         <h1 id="">浮动</h1>
 <h2 id="">基本概念</h2>
@@ -1808,7 +1808,7 @@
 </div>
 
 
-<p>如果包含块儿太窄无法容纳水平排列的三个浮动元素,那么其它浮动块儿向下移动,,直到有足够的扣减,如果浮动元素的高度不同,那么下下移动的时候可能被卡住</p>
+<p>如果包含块儿太窄无法容纳水平排列的三个浮动元素,那么其它浮动块儿向下移动,直到有足够的空间,如果浮动元素的高度不同,那么向下移动的时候可能被卡住</p>
 <p><strong>没有足够水平空间</strong></p>
 <pre><code>&lt;div style=&quot;border: solid 5px #0e0; width:250px;&quot;&gt;
     &lt;div style=&quot;height: 100px; width: 100px; background-color: Red;  float:left;&quot;&gt;
@@ -1923,7 +1923,7 @@
 </div>
 </div>
 
-<p>如果我们想让父元素在视觉上包围浮动元素可以向下面这样处理,在最后添加一个空div，对它清理</p>
+<p>如果我们想让父元素在视觉上包围浮动元素可以像下面这样处理,在最后添加一个空div，对它清理</p>
 <pre><code>&lt;div style=&quot;border: solid 5px #0e0; width:300px;&quot;&gt;
     &lt;div style=&quot;height: 100px; width: 100px; background-color: Red;  float:left;&quot;&gt;
     &lt;/div&gt;
@@ -1978,7 +1978,7 @@
 <h3 id="">局限性</h3>
 <p>上面提到使用BFC使用float的时候会使父容器长度缩短，而且还有个重要缺陷——父容器float解决了其塌陷问题，那么父容器的父容器怎么办？难道要全部使用folat吗（确实有这种布局方式倒是）。BFC的几种方式都有各自的问题，overflow属性会影响滚动条和绝对定位的元素；position会改变元素的定位方式，这是我们不希望的，display这几种方式依然没有解决低版本IE问题。。。</p>
 <h3 id="haslayout">hasLayout</h3>
-<p>我们知道在IE6、7内有个<code>hasLayout</code>的概念，很多bug正式由hasLayout导致的</p>
+<p>我们知道在IE6、7内有个<code>hasLayout</code>的概念，很多bug正是由hasLayout导致的</p>
 <ul>
 <li>当元素的hasLayout属性值为false的时候，元素的尺寸和位置由最近拥有布局的祖先元素控制</li>
 <li>当元素的hasLayout属性值为true的时候会达到和BFC类似的效果，元素负责本身及其子元素的尺寸设置和定位</li>

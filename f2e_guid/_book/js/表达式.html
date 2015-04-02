@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.7" data-basepath=".." data-revision="1427894187009">
+    <div class="book" data-level="4.7" data-basepath=".." data-revision="1427972956652">
     
 
 <div class="book-summary">
@@ -1734,7 +1734,7 @@
 </blockquote>
 <p>看起来很不接地气的赶脚，表达式是JavaScript中的一个短语，JavaScript会将其计算出一个结果，常量如<code>1</code>、<code>hello</code>、<code>null</code>这些都是表达式；</p>
 <p>变量名也是表达式，JavaScript计算出的结果就是赋值给变量的值，这些都是简单的表达式</p>
-<p>几个简单的表达式可以组合为复杂的表达式，<code>[3,4,5,6]</code>这也是一个表达式，计算结果是数组，我们也可以通过运算符将简单表达式组合位复杂表达式，<code>8+9</code>这样,JavaScript表达式有几种形式</p>
+<p>几个简单的表达式可以组合为复杂的表达式，<code>[3,4,5,6]</code>这也是一个表达式，计算结果是数组，我们也可以通过运算符将简单表达式组合为复杂表达式，<code>8+9</code>这样，JavaScript表达式有几种形式</p>
 <ol>
 <li><p>原始表达式</p>
 <p> 常量、变量、保留字</p>
@@ -1778,7 +1778,7 @@ typeof g();//g is not defined
 <p>在上面例子中<code>g</code>变成了函数的局部变量，变量指向函数本身，所以我们调用f的时候会把其本身打印出来。但是g只作为函数的局部变量存在，我们在外部调用g的时候就会报错了。</p>
 <blockquote>
 <p>命名函数表达式在创建的时候，会在当前作用域最前段添加一个新的对象<code>{func_name:refer_function_expression}</code>,然后，将作用域链添加到
-函数表达式的<code>[[scope]]</code>中，接着在删除该对象。</p>
+函数表达式的<code>[[scope]]</code>中，接着再删除该对象。</p>
 </blockquote>
 <pre><code>var x=1;
 if(function f(){}){
@@ -1793,10 +1793,10 @@ console.log(x);//&#39;1undefined&#39;
 <pre><code>(函数定义表达式)函数调用表达式
 </code></pre><p>也就是说先创建了一个匿名函数，然后不传入参数调用它，这就变成了<code>立即执行函数</code>，知道了这些看个传入参数调用的立即执行函数题目</p>
 <pre><code>(function f(f){
-    return typeof f();// &quot;number&quot;
-})(function(){return 1;});
+    return typeof f();
+})(function(){return 1;});// &quot;number&quot;
 </code></pre><p>这个题目事实上还涉及了一些其它的知识，立即执行函数不再是以空括号<code>()</code>来调用了，同时传入了一个function作为参数传入调用。</p>
-<p>再一个疑惑就是typeof f() 中的f究竟指谁，这个知识我们后面会介绍道，简单说一下，当函数执行有命名冲突的时候，函数依次填入 变量＝》函数＝》参数，所以最后被填入的参数f会覆盖函数定义f，typeof f()是对参数的调用，参数是立即执行函数传入的function参数，返回数字1，typeof 1是 &quot;number&quot;。</p>
+<p>再一个疑惑就是typeof f() 中的f究竟指谁，这个知识我们后面会介绍到，简单说一下，当函数执行有命名冲突的时候，函数依次填入 变量＝》函数＝》参数，所以最后被填入的参数f会覆盖函数定义f，typeof f()是对参数的调用，参数是立即执行函数传入的function参数，返回数字1，typeof 1是 &quot;number&quot;。</p>
 <h2 id="">表达式返回值</h2>
 <p>表达式看明白了，我们却经常忽略其计算结果，也就是我们常说的返回值，对于原始表达式、对象数组初始化表达式、属性访问表达式很简单不会有什么问题。</p>
 <p><strong>函数定义表达式返回的是函数对象本身</strong>，我们在调用alert或者console.log的时候会调用其toString方法</p>
@@ -1827,7 +1827,7 @@ new Test2() instanceof Test2;//true，竟然是true
 <p>当使用function的构造函数创建对象（new XXX）的时候，如果函数return基本类型或者没有return（其实就是return undefined）的时候， new 返回的是对象的实例；如果 函数return的是一个对象，那么new 将返回这个对象而不是函数实例。</p>
 </blockquote>
 <p>这里千万别把构造函数（使用new）和普通函数调用混淆了，普通函数调用还是该返回什么返回什么的。看个题目</p>
-<pre><code>foo&#39; == new function(){ return String(&#39;foo&#39;); }; //false
+<pre><code>&#39;foo&#39; == new function(){ return String(&#39;foo&#39;); }; //false
 &#39;foo&#39; == new function(){ return new String(&#39;foo&#39;); };//true
 </code></pre><h2 id="">正则表达式</h2>
 <pre><code>这个看我们专门章节的课程就好了

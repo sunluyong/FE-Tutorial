@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.5" data-basepath=".." data-revision="1427894187009">
+    <div class="book" data-level="4.5" data-basepath=".." data-revision="1427972956652">
     
 
 <div class="book-summary">
@@ -1728,7 +1728,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_26">
+                    <section class="normal" id="section-gitbook_27">
                     
                         <h1 id="">函数和作用域</h1>
 <p>JavaScript函数是指一个特定代码块，可能包含多条语句，可以通过名字来供其它语句调用以执行函数包含的代码语句。</p>
@@ -1736,13 +1736,13 @@
 <pre><code>statement1;
 statement2;
 statement3;
-</code></pre><p>那么每次想实现这个功能的时候就需要写着三句话，很麻烦，我们可以把这三条语句打包为一个函数</p>
+</code></pre><p>那么每次想实现这个功能的时候就需要写这三句话，很麻烦，我们可以把这三条语句打包为一个函数</p>
 <pre><code>function doSomething(){
     statement1;
     statement2;
     statement3;
 }
-</code></pre><p>这样每次想实现功能的时候我们就<strong>调用</strong>一下函数就可以了，调用函数通过<code>函数名称()</code>的当时调用</p>
+</code></pre><p>这样每次想实现功能的时候我们就<strong>调用</strong>一下函数就可以了，调用函数通过<code>函数名称()</code>的形式调用</p>
 <pre><code>doSomething();
 </code></pre><h2 id="">声明函数</h2>
 <p>ECMAScript规定了三种声明函数方式</p>
@@ -1765,7 +1765,7 @@ printName();
     console.log(&#39;Byron&#39;);
 };
 </code></pre><h2 id="">参数</h2>
-<p>上面定义的函数有一个缺陷，就是过于僵化，只能打印<code>Byron</code>，当我们希望打印<code>Casper</code>的时候就需要一个新的函数，这也是很复杂的，我们可以通过参数的方式来让函数领灵活一些</p>
+<p>上面定义的函数有一个缺陷，就是过于僵化，只能打印<code>Byron</code>，当我们希望打印<code>Casper</code>的时候就需要一个新的函数，这也是很复杂的，我们可以通过参数的方式来让函数能灵活一些</p>
 <pre><code>function printName(name){
     console.log(name);
 }
@@ -1773,7 +1773,7 @@ printName();
 printName(&#39;Byron&#39;);
 printName(&#39;Casper);
 </code></pre><p>可以看出我们在定义函数的时候在括号内写了个<code>name</code>做<strong>占位符</strong>，也就是在定义函数的时候也不知道要输出什么，用个占位符代替，在函数实际执行的时候，用真实的值替代占位符</p>
-<p>我们说的占位符在术语上叫做<code>形参</code>，也是是形式参数，而在调用函数的时候传入的值叫做<code>实参</code>，也就是实际的参数</p>
+<p>我们说的占位符在术语上叫做<code>形参</code>，也就是形式参数，而在调用函数的时候传入的值叫做<code>实参</code>，也就是实际的参数</p>
 <p>函数在定义的时候可以写多个参数</p>
 <pre><code>function printPersonInfo(name, age, sex){
     console.log(name);
@@ -1791,7 +1791,7 @@ printName(&#39;Casper);
 </code></pre><h2 id="">重载</h2>
 <p>重载是很多面向对象语言实现多态的手段之一，在静态语言中确定一个函数的手段是靠方法签名——函数名+参数列表，也就是说相同名字的函数参数个数不同或者顺序不同都被认为是不同的函数，称为函数重载</p>
 <p>在JavaScript中没有函数重载的概念，函数通过名字确定唯一性，参数不同也被认为是相同的函数，后面的覆盖前面的，这是不是意味着JavaScript不能通过重载功能实现一个函数，参数不同功能不同呢？</p>
-<p>在JavaScript中，函数调用没必要把所有函数都传入，只要你函数体内做好处理就行，但前提是传的参数永远被当做前几个</p>
+<p>在JavaScript中，函数调用没必要把所有参数都传入，只要你函数体内做好处理就行，但前提是传的参数永远被当做前几个</p>
 <pre><code>function printPeopleInfo(name, age, sex){
     if(name){
         console.log(name);
@@ -1838,7 +1838,7 @@ function fn(){
 function fn(){}
 
 console.log(fn); // 3
-</code></pre><p>当函数执行有命名冲突的时候，函数执行是载入顺序是 <code>变量、函数、参数</code> 看个例子</p>
+</code></pre><p>当函数执行有命名冲突的时候，函数执行时载入顺序是 <code>变量、函数、参数</code> 看个例子</p>
 <pre><code>function fn(fn){
   console.log(fn);
 
@@ -1875,12 +1875,9 @@ a++; //报错，a不存在
 fn(); // undefined
 
 console.log(a); // &quot;ReferenceError: a is not defined
-
-### var
-
-在声明变量的时候需要`var`，这样声明的变量作用域才符合我们上面提到的规则，那么不写var会怎么样呢
-
-    function fn(){
+</code></pre><h3 id="var">var</h3>
+<p>在声明变量的时候需要<code>var</code>，这样声明的变量作用域才符合我们上面提到的规则，那么不写var会怎么样呢</p>
+<pre><code>    function fn(){
       a = 1;
     }
 

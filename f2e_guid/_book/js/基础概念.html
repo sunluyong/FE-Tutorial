@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.1" data-basepath=".." data-revision="1427894187009">
+    <div class="book" data-level="4.1" data-basepath=".." data-revision="1427972956652">
     
 
 <div class="book-summary">
@@ -1728,7 +1728,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="">基础概念</h1>
 <h2 id="">标识符</h2>
@@ -1759,7 +1759,7 @@
 <p>在JavaScript中变量是用来保存值的占位符，定义变量的时候要使用<code>var</code>运算符， 后面跟一个作为名称的标识符即可</p>
 <pre><code>var message;
 </code></pre><h3 id="">弱类型</h3>
-<p>在一些编译语言（C、Java、C#）等变量的类型是固定的，在声明变量的时候就要标识起类型，在程序执行前编译阶段变量的类型就确定了，而且不能改变，我们称之为强类型</p>
+<p>在一些编译语言（C、Java、C#）等变量的类型是固定的，在声明变量的时候就要标识其类型，在程序执行前编译阶段变量的类型就确定了，而且不能改变，我们称之为强类型</p>
 <pre><code>int a = 2;
 string b = &quot;hello&quot;;
 </code></pre><p>一些常见的解释型语言（PHP、JavaScript）等变量的类型是松散的，一个变量可以用来保存任何类型的数据，变量的类型不是由声明时决定（声明的时候只是用了var运算符），而是在程序执行阶段由其值的类型决定，随着程序运行其值类型改变，变量类型也会发生改变</p>
@@ -1780,7 +1780,7 @@ var diff = 3 - 4;
 <p>JavaScript引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升</p>
 <p>我们写了一个赋值语句</p>
 <pre><code>var a = 2;
-</code></pre><p>实际上执行过程是解释器再未执行的时候先解析出变量声明，然后给他初始值<code>undefined</code>，然后才逐句执行程序</p>
+</code></pre><p>实际上执行过程是解释器在未执行的时候先解析出变量声明，然后给他初始值<code>undefined</code>，然后才逐句执行程序</p>
 <pre><code>var a;
 a = 2;
 </code></pre><p>这样看起来没什么区别，但是在多语句的情况下会有差别，我们知道一个变量如果不存在我们就使用会报错</p>

@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.11" data-basepath=".." data-revision="1427894187009">
+    <div class="book" data-level="3.11" data-basepath=".." data-revision="1427972956652">
     
 
 <div class="book-summary">
@@ -1772,9 +1772,9 @@
 
 <h2 id="display-none--visibility-hidden">display: none 与 visibility: hidden</h2>
 <p>这两个属性看起来都是让元素隐藏，有什么区别呢？</p>
-<p>从文档角度而言，<code>display:none</code>表示把该元素从文档中删除，当作起不存在，自然“隐藏”了，实际上是删除了</p>
+<p>从文档角度而言，<code>display:none</code>表示把该元素从文档中删除，当作其不存在，自然“隐藏”了，实际上是删除了</p>
 <p><code>visibility: hidden</code>意思是元素本来在文档哪里就放在哪里，浏览器一样去渲染，但是视觉上不表现出来</p>
-<p>这样我们就知道两个的浏览器层面的区别了，前者根本不渲染，后者还会渲染，只不过不可见。也就是说前者不占据空间，后者虽然不可见，蛋仍然占据空间</p>
+<p>这样我们就知道两个的浏览器层面的区别了，前者根本不渲染，后者还会渲染，只不过不可见。也就是说前者不占据空间，后者虽然不可见，但仍然占据空间</p>
 <pre><code>AAA&lt;span style=&quot;display:none;&quot;&gt;BBB&lt;/span&gt;CCC
   &lt;br/&gt;
   AAA&lt;span&gt;BBB&lt;/span&gt;CCC
@@ -1786,7 +1786,7 @@ AAA<span>BBB</span>CCC
 <br/>
 AAA<span style="visibility:hidden;">BBB</span>CCC</p>
 <h2 id="display">display</h2>
-<p>display出了控制隐藏显示，还可以控制元素类型</p>
+<p>display除了控制隐藏显示，还可以控制元素类型</p>
 <ol>
 <li>inline：行内元素</li>
 <li>block：块元素</li>
@@ -1795,7 +1795,7 @@ AAA<span style="visibility:hidden;">BBB</span>CCC</p>
 </ol>
 <p>我们可以通过改变元素的display属性，改变其表现</p>
 <pre><code>&lt;span style=&quot;display: block;&quot;&gt;123&lt;/span&gt;
-</code></pre><p>这时候span表现的酒喝块元素一样了</p>
+</code></pre><p>这时候span表现的就和块元素一样了</p>
 
                     
                     </section>
