@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.2" data-basepath=".." data-revision="1427972956652">
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="1428023175143">
     
 
 <div class="book-summary">
@@ -1728,7 +1728,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_31">
                     
                         <h1 id="">数据类型</h1>
 <p>JavaScript是弱类型语言，但不是没有数据类型，ECMAScript规定了5种简单的数据类型</p>
@@ -1763,8 +1763,8 @@ vat c = 0xf3; //十六进制
 <p>浮点数是指数字包含小数点，小数点后至少有一位数字(没有或者是0会转为整数)，前面可以没有</p>
 <pre><code>var a = 0.27;
 var b = .45;
-</code></pre><p>对于极大活极小的数字可以使用科学计数法</p>
-<pre><code>var a = 3.1e5; //314000 
+</code></pre><p>对于极大或极小的数字可以使用科学计数法</p>
+<pre><code>var a = 3.1e5; //310000
 </code></pre><p>浮点数最高精度是17位，但是在计算的时候精度不如整数</p>
 <pre><code>1 - 0.9; // 0.09999999999999998
 0.1 + 0.2; //0.30000000000000004
@@ -1792,14 +1792,14 @@ var b = .45;
 <li>忽略字符串前面的空白字符，找到第一个非空白字符</li>
 <li>如果第一个字符不是<code>-</code>或者数字返回<code>NaN</code></li>
 <li>如果是继续解析，直到非数值模式为止</li>
-<li><p><code>0</code>开头会当做八进制，<code>0x</code>开头会当做十六进制，但是可以指定第二个参数指定基数</p>
-<p> parseInt(&#39;blue&#39;); //NaN
- parseInt(&#39;-23ABS&#39;); // -23
- parseInt(&#39;0xf1&#39;); // 241
- parseInt(&#39;101&#39;, 2); // 5</p>
-</li>
+<li><code>0</code>开头会当做八进制，<code>0x</code>开头会当做十六进制，但是可以指定第二个参数指定基数</li>
 </ol>
-<h2 id="string">String</h2>
+<p>&nbsp;</p>
+<pre><code>parseInt(&#39;blue&#39;); //NaN
+parseInt(&#39;-23ABS&#39;); // -23
+parseInt(&#39;0xf1&#39;); // 241
+parseInt(&#39;101&#39;, 2); // 5
+</code></pre><h2 id="string">String</h2>
 <p>String是Unicode字符组成的序列，俗称字符串，可以用双引号或者单引号表示，没有区别，匹配即可</p>
 <p>字符串也有一些转义字符</p>
 <ul>
