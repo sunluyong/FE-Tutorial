@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.2" data-basepath=".." data-revision="1428023175143">
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="1428025465718">
     
 
 <div class="book-summary">
@@ -1775,8 +1775,16 @@ var b = .45;
 <li>Number.MAX_VALUE: 1.7976931348623157e+308</li>
 </ul>
 <p>如果超过这个范围数字会被转为特殊的<code>Infinity</code>值表示无穷，<code>-Infinity</code>表示负无穷</p>
-<p>可以通过函数<code>isFinite</code>判断是否可以表示</p>
+<p>可以通过函数<code>isFinite</code>判断数字是否是无穷</p>
 <pre><code>isFinite(Number.MAX_VALUE + 1); // true
+isFinite(Infinity);  // false
+isFinite(NaN);       // false
+isFinite(-Infinity); // false
+
+isFinite(0);         // true
+isFinite(2e64);      // true
+
+isFinite(&quot;0&quot;);       // true
 </code></pre><h3 id="nan">NaN</h3>
 <p>NaN含义是Not a Number，表示非数字，NaN和任何值都不相等，包括自己</p>
 <pre><code>NaN == NaN; //false
