@@ -1,1100 +1,1818 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
-  width: 45em;
-  border: 1px solid #ddd;
-  outline: 1300px solid #fff;
-  margin: 16px auto;
-}
-
-body .markdown-body
-{
-  padding: 30px;
-}
-
-@font-face {
-  font-family: fontawesome-mini;
-  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAzUABAAAAAAFNgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABwAAAAcZMzaOEdERUYAAAGIAAAAHQAAACAAOQAET1MvMgAAAagAAAA+AAAAYHqhde9jbWFwAAAB6AAAAFIAAAFa4azkLWN2dCAAAAI8AAAAKAAAACgFgwioZnBnbQAAAmQAAAGxAAACZVO0L6dnYXNwAAAEGAAAAAgAAAAIAAAAEGdseWYAAAQgAAAFDgAACMz7eroHaGVhZAAACTAAAAAwAAAANgWEOEloaGVhAAAJYAAAAB0AAAAkDGEGa2htdHgAAAmAAAAAEwAAADBEgAAQbG9jYQAACZQAAAAaAAAAGgsICJBtYXhwAAAJsAAAACAAAAAgASgBD25hbWUAAAnQAAACZwAABOD4no+3cG9zdAAADDgAAABsAAAAmF+yXM9wcmVwAAAMpAAAAC4AAAAusPIrFAAAAAEAAAAAyYlvMQAAAADLVHQgAAAAAM/u9uZ4nGNgZGBg4ANiCQYQYGJgBEJuIGYB8xgABMMAPgAAAHicY2Bm42OcwMDKwMLSw2LMwMDQBqGZihmiwHycoKCyqJjB4YPDh4NsDP+BfNb3DIuAFCOSEgUGRgAKDgt4AAB4nGNgYGBmgGAZBkYGEAgB8hjBfBYGCyDNxcDBwMTA9MHhQ9SHrA8H//9nYACyQyFs/sP86/kX8HtB9UIBIxsDXICRCUgwMaACRoZhDwA3fxKSAAAAAAHyAHABJQB/AIEAdAFGAOsBIwC/ALgAxACGAGYAugBNACcA/wCIeJxdUbtOW0EQ3Q0PA4HE2CA52hSzmZDGe6EFCcTVjWJkO4XlCGk3cpGLcQEfQIFEDdqvGaChpEibBiEXSHxCPiESM2uIojQ7O7NzzpkzS8qRqnfpa89T5ySQwt0GzTb9Tki1swD3pOvrjYy0gwdabGb0ynX7/gsGm9GUO2oA5T1vKQ8ZTTuBWrSn/tH8Cob7/B/zOxi0NNP01DoJ6SEE5ptxS4PvGc26yw/6gtXhYjAwpJim4i4/plL+tzTnasuwtZHRvIMzEfnJNEBTa20Emv7UIdXzcRRLkMumsTaYmLL+JBPBhcl0VVO1zPjawV2ys+hggyrNgQfYw1Z5DB4ODyYU0rckyiwNEfZiq8QIEZMcCjnl3Mn+pED5SBLGvElKO+OGtQbGkdfAoDZPs/88m01tbx3C+FkcwXe/GUs6+MiG2hgRYjtiKYAJREJGVfmGGs+9LAbkUvvPQJSA5fGPf50ItO7YRDyXtXUOMVYIen7b3PLLirtWuc6LQndvqmqo0inN+17OvscDnh4Lw0FjwZvP+/5Kgfo8LK40aA4EQ3o3ev+iteqIq7wXPrIn07+xWgAAAAABAAH//wAPeJyFlctvG1UUh+/12DPN1B7P3JnYjj2Ox4/MuDHxJH5N3UdaEUQLqBIkfQQioJWQ6AMEQkIqsPGCPwA1otuWSmTBhjtps2ADWbJg3EpIXbGouqSbCraJw7kzNo2dRN1cnXN1ZvT7zuuiMEI7ncizyA0URofRBJpCdbQuIFShYY+GZRrxMDVtih5TwQPHtXDFFSIKoWIbuREBjLH27Ny4MsbVx+uOJThavebgVrNRLAiYx06rXsvhxLgWx9xpfHdrs/ekc2Pl2cpPCVEITQpwbj8VQhfXSq2m+Wxqaq2D73Kne5e3NjHqQNj3CRYlJlgUl/jRNP+2Gs2pNYRQiOnmUaQDqm30KqKiTTWPWjboxnTWpvgxjXo0KrtZXAHt7hwIz0YVcj88JnKlJKi3NPAwLyDwZudSmJSMMJFDYaOkaol6XtESx3Gt1VTytdZJ3DCLeaVhVnCBH1fycHTxFXwPX+l2e3d6H/TufGGmMTLTnbSJUdo00zuBswMO/nl3YLeL/wnu9/limCuD3vC54h5NBVz6Li414AI8Vx3iiosKcQXUbrvhFFiYb++HN4DaF4XzFW0fIN4XDWJ3a3XQoq9V8WiyRmdsatV9xUcHims1JloH0YUa090G3Tro3mC6c01f+YwCPquINr1PTaCP6rVTOOmf0GE2dBc7zWIhji3/5MchSuBHgDbU99RMWt3YUNMZMJmx92YP6NsHx/5/M1yvInpnkIOM3Z8fA3JQ2lW1RFC1KaBPDFXNAHYYvGy73aYZZZ3HifbeuiVZCpwA3oQBs0wGPYJbJfg60xrKEbKiNtTe1adwrpBRwlAuQ3q3VRaX0QmQ9a49BTSCuF1MLfQ6+tinOubRBZuWPNoMevGMT+V41KitO1is3D/tpMcq1JHZqDHGs8DoYGDkxJgKjHROeTCmhZvzPm9pod+ltKm4PN7Dyvvldlpsg8D+4AUJZ3F/JBstZz7cbFRxsaAGV6yX/dkcycWf8eS3QlQea+YLjdm3yrOnrhFpUyKVvFE4lpv4bO3Svx/6F/4xmiDu/RT5iI++lko18mY1oX+5UGKR6kmVjM/Zb76yfHtxy+h/SyQ0lLdpdKy/lWB6szatetQJ8nZ80A2Qt6ift6gJeavU3BO4gtxs/KCtNPVibCtYCWY3SIlSBPKXZALXiIR9oZeJ1AuMyxLpHIy/yO7vSiSE+kZvk0ihJ30HgHfzZtEMmvV58x6dtqns0XTAW7Vdm4HJ04OCp/crOO7rd9SGxQAE/mVA9xRN+kVSMRFF6S9JFGUtthkjBA5tFCWc2l4V43Ex9GmUP3SI37Jjmir9KqlaDJ4S4JB3vuM/jzyH1+8MuoZ+QGzfnvPoJb96cZlWjMcKLfgDwB7E634JTY+asjsPzS5CiVnEWY+KsrsIN5rn3mAPjqmQBxGjcGKB9f9ZxY3mYC2L85CJ2FXIxKKyHk+dg0FHbuEc7D5NzWUX32WxFcWNGRAbvwSx0RmIXVDuYySafluQBmzA/ssqJAMLnli+WIC90Gw4lm85wcp0qjArEDPJJV/sSx4P9ungTpgMw5gVC1XO4uULq0s3v1rqLi0vX/z65vlH50f8T/RHmSPTk5xxWBWOluMT6WiOy+tdvWxlV/XQb3o3c6Ssr+r6I708GsX9/nzp1tKFh0s3v7m4vAy/Hnb/KMOvc1wump6Il48K6mGDy02X9Yd65pa+nQIjk76lWxCkG8NBCP0HQS9IpAAAeJxjYGRgYGBhcCrq214Qz2/zlUGenQEEzr/77oug/zewFbB+AHI5GJhAogBwKQ0qeJxjYGRgYH3/P46BgZ0BBNgKGBgZUAEPAE/7At0AAAB4nGNngAB2IGYjhBsYBAAIYADVAAAAAAAAAAAAAFwAyAEeAaACCgKmAx4DggRmAAAAAQAAAAwAagAEAAAAAAACAAEAAgAWAAABAAChAAAAAHiclZI7bxQxFIWPd/JkUYQChEhIyAVKgdBMskm1QkKrRETpQiLRUczueB/K7HhlOxttg8LvoKPgP9DxFxANDR0tHRWi4NjrPIBEgh1p/dm+vufcawNYFWsQmP6e4jSyQB2fI9cwj++RE9wTjyPP4LYoI89iWbyLPIe6+Bh5Hs9rryMv4GbtW+RF3EhuRa7jbrIbeQkPkjdUETOLnL0Kip4FVvAhco1RXyMnSPEz8gzWxE7kWTwUp5HnsCLeR57HW/El8gJWa58iL+JO7UfkOh4l9yMv4UnyEtvQGGECgwF66MNBooF1bGCL1ELB/TYU+ZBRlvsKQ44Se6jQ4a7hef+fh72Crv25kp+8lNWGmeKoOI5jJLb1aGIGvb6TjfWNLdkqdFvJw4l1amjlXtXRZqRN7lSRylZZyhBqpVFWmTEXgWfUrpi/hZOQXdOd4rKuXOtEWT3k5IArPRzTUU5tHKjecZkTpnVbNOnt6jzN8240GD4xtikvZW56043rPMg/dS+dlOceXoR+WPbJ55Dsekq1lJpnypsMUsYOdCW30o103Ytu/lvh+5RWFLfBjm9/N8hJntPhvx92rnoE/kyHdGasGy754kw36vsVf/lFeBi+0COu+cfgQr42G3CRpeLoZ53gmfe3X6rcKt5oVxnptHR9JS8ehVUd5wvvahN2uqxOOpMXapibI5k7Zwbt4xBSaTfoKBufhAnO/uqNcfK8OTs0OQ6l7JIqFjDhYj5WcjevCnI/1DDiI8j4ndWb/5YzDZWh79yomWXeXj7Nnw70/2TIeFPTrlSh89k1ObOSRVZWZfgF0r/zJQB4nG2JUQuCQBCEd07TTg36fb2IyBaLd3vWaUh/vmSJnvpgmG8YcmS8X3Shf3R7QA4OBUocUKHGER5NNbOOEvwc1txnuWkTRb/aPjimJ5vXabI+3VfOiyS15UWvyezM2xiGOPyuMohOH8O8JiO4Af+FsAGNAEuwCFBYsQEBjlmxRgYrWCGwEFlLsBRSWCGwgFkdsAYrXFhZsBQrAAA=) format('woff');
-}
-
-@font-face {
-  font-family: octicons-anchor;
-  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
-}
-
-.markdown-body {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  color: #333333;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  word-wrap: break-word;
-}
-
-.markdown-body a {
-  background: transparent;
-}
-
-.markdown-body a:active,
-.markdown-body a:hover {
-  outline: 0;
-}
-
-.markdown-body b,
-.markdown-body strong {
-  font-weight: bold;
-}
-
-.markdown-body mark {
-  background: #ff0;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body sub,
-.markdown-body sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-.markdown-body sup {
-  top: -0.5em;
-}
-.markdown-body sub {
-  bottom: -0.25em;
-}
-
-.markdown-body h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-.markdown-body img {
-  border: 0;
-}
-
-.markdown-body hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-}
-
-.markdown-body pre {
-  overflow: auto;
-}
-
-.markdown-body code,
-.markdown-body kbd,
-.markdown-body pre,
-.markdown-body samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-.markdown-body input {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-.markdown-body html input[disabled] {
-  cursor: default;
-}
-
-.markdown-body input {
-  line-height: normal;
-}
-
-.markdown-body input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.markdown-body table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.markdown-body td,
-.markdown-body th {
-  padding: 0;
-}
-
-.markdown-body .codehilitetable {
-  border: 0;
-  border-spacing: 0;
-}
-
-.markdown-body .codehilitetable tr {
-  border: 0;
-}
-
-.markdown-body .codehilitetable pre,
-.markdown-body .codehilitetable div.codehilite {
-  margin: 0;
-}
-
-.markdown-body .linenos,
-.markdown-body .code,
-.markdown-body .codehilitetable td {
-  border: 0;
-  padding: 0;
-}
-
-.markdown-body td:not(.linenos) .linenodiv {
-  padding: 0 !important;
-}
-
-.markdown-body .code {
-  width: 100%;
-}
-
-.markdown-body .linenos div pre,
-.markdown-body .linenodiv pre,
-.markdown-body .linenodiv {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-topleft: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.markdown-body .code div pre,
-.markdown-body .code div {
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.markdown-body * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.markdown-body input {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.4;
-}
-
-.markdown-body a {
-  color: #4183c4;
-  text-decoration: none;
-}
-
-.markdown-body a:hover,
-.markdown-body a:focus,
-.markdown-body a:active {
-  text-decoration: underline;
-}
-
-.markdown-body hr {
-  height: 0;
-  margin: 15px 0;
-  overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.markdown-body hr:before,
-.markdown-body hr:after {
-  display: table;
-  content: " ";
-}
-
-.markdown-body hr:after {
-  clear: both;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  line-height: 1.1;
-}
-
-.markdown-body h1 {
-  font-size: 30px;
-}
-
-.markdown-body h2 {
-  font-size: 21px;
-}
-
-.markdown-body h3 {
-  font-size: 16px;
-}
-
-.markdown-body h4 {
-  font-size: 14px;
-}
-
-.markdown-body h5 {
-  font-size: 12px;
-}
-
-.markdown-body h6 {
-  font-size: 11px;
-}
-
-.markdown-body blockquote {
-  margin: 0;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body ol ol,
-.markdown-body ul ol {
-  list-style-type: lower-roman;
-}
-
-.markdown-body ul ul ol,
-.markdown-body ul ol ol,
-.markdown-body ol ul ol,
-.markdown-body ol ol ol {
-  list-style-type: lower-alpha;
-}
-
-.markdown-body dd {
-  margin-left: 0;
-}
-
-.markdown-body code,
-.markdown-body pre,
-.markdown-body samp {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
-}
-
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body kbd {
-  background-color: #e7e7e7;
-  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
-  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
-  background-image: linear-gradient(#fefefe, #e7e7e7);
-  background-repeat: repeat-x;
-  border-radius: 2px;
-  border: 1px solid #cfcfcf;
-  color: #000;
-  padding: 3px 5px;
-  line-height: 10px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  display: inline-block;
-}
-
-.markdown-body>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-.markdown-body .headeranchor-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  padding-right: 6px;
-  padding-left: 30px;
-  margin-left: -30px;
-}
-
-.markdown-body .headeranchor-link:focus {
-  outline: none;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  position: relative;
-  margin-top: 1em;
-  margin-bottom: 16px;
-  font-weight: bold;
-  line-height: 1.4;
-}
-
-.markdown-body h1 .headeranchor,
-.markdown-body h2 .headeranchor,
-.markdown-body h3 .headeranchor,
-.markdown-body h4 .headeranchor,
-.markdown-body h5 .headeranchor,
-.markdown-body h6 .headeranchor {
-  display: none;
-  color: #000;
-  vertical-align: middle;
-}
-
-.markdown-body h1:hover .headeranchor-link,
-.markdown-body h2:hover .headeranchor-link,
-.markdown-body h3:hover .headeranchor-link,
-.markdown-body h4:hover .headeranchor-link,
-.markdown-body h5:hover .headeranchor-link,
-.markdown-body h6:hover .headeranchor-link {
-  height: 1em;
-  padding-left: 8px;
-  margin-left: -30px;
-  line-height: 1;
-  text-decoration: none;
-}
-
-.markdown-body h1:hover .headeranchor-link .headeranchor,
-.markdown-body h2:hover .headeranchor-link .headeranchor,
-.markdown-body h3:hover .headeranchor-link .headeranchor,
-.markdown-body h4:hover .headeranchor-link .headeranchor,
-.markdown-body h5:hover .headeranchor-link .headeranchor,
-.markdown-body h6:hover .headeranchor-link .headeranchor {
-  display: inline-block;
-}
-
-.markdown-body h1 {
-  padding-bottom: 0.3em;
-  font-size: 2.25em;
-  line-height: 1.2;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h2 {
-  padding-bottom: 0.3em;
-  font-size: 1.75em;
-  line-height: 1.225;
-  border-bottom: 1px solid #eee;
-}
-
-.markdown-body h3 {
-  font-size: 1.5em;
-  line-height: 1.43;
-}
-
-.markdown-body h4 {
-  font-size: 1.25em;
-}
-
-.markdown-body h5 {
-  font-size: 1em;
-}
-
-.markdown-body h6 {
-  font-size: 1em;
-  color: #777;
-}
-
-.markdown-body p,
-.markdown-body blockquote,
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body dl,
-.markdown-body table,
-.markdown-body pre,
-.markdown-body .admonition {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.markdown-body hr {
-  height: 4px;
-  padding: 0;
-  margin: 16px 0;
-  background-color: #e7e7e7;
-  border: 0 none;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 2em;
-}
-
-.markdown-body ul ul,
-.markdown-body ul ol,
-.markdown-body ol ol,
-.markdown-body ol ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown-body li>p {
-  margin-top: 16px;
-}
-
-.markdown-body dl {
-  padding: 0;
-}
-
-.markdown-body dl dt {
-  padding: 0;
-  margin-top: 16px;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.markdown-body dl dd {
-  padding: 0 16px;
-  margin-bottom: 16px;
-}
-
-.markdown-body blockquote {
-  padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
-}
-
-.markdown-body blockquote>:first-child {
-  margin-top: 0;
-}
-
-.markdown-body blockquote>:last-child {
-  margin-bottom: 0;
-}
-
-.markdown-body table {
-  display: block;
-  width: 100%;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
-}
-
-.markdown-body table th {
-  font-weight: bold;
-}
-
-.markdown-body table th,
-.markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
-}
-
-.markdown-body table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.markdown-body table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-
-.markdown-body img {
-  max-width: 100%;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.markdown-body code,
-.markdown-body samp {
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 3px;
-}
-
-.markdown-body code:before,
-.markdown-body code:after {
-  letter-spacing: -0.2em;
-  content: "\00a0";
-}
-
-.markdown-body pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
-  word-break: normal;
-  white-space: pre;
-  background: transparent;
-  border: 0;
-}
-
-.markdown-body .codehilite {
-  margin-bottom: 16px;
-}
-
-.markdown-body .codehilite pre,
-.markdown-body pre {
-  padding: 16px;
-  overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f7f7f7;
-  border-radius: 3px;
-}
-
-.markdown-body .codehilite pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-
-.markdown-body pre {
-  word-wrap: normal;
-}
-
-.markdown-body pre code {
-  display: inline;
-  max-width: initial;
-  padding: 0;
-  margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0;
-}
-
-.markdown-body pre code:before,
-.markdown-body pre code:after {
-  content: normal;
-}
-
-/* Admonition */
-.markdown-body .admonition {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  position: relative;
-  border-radius: 3px;
-  border: 1px solid #e0e0e0;
-  border-left: 6px solid #333;
-  padding: 10px 10px 10px 30px;
-}
-
-.markdown-body .admonition table {
-  color: #333;
-}
-
-.markdown-body .admonition p {
-  padding: 0;
-}
-
-.markdown-body .admonition-title {
-  font-weight: bold;
-  margin: 0;
-}
-
-.markdown-body .admonition>.admonition-title {
-  color: #333;
-}
-
-.markdown-body .attention>.admonition-title {
-  color: #a6d796;
-}
-
-.markdown-body .caution>.admonition-title {
-  color: #d7a796;
-}
-
-.markdown-body .hint>.admonition-title {
-  color: #96c6d7;
-}
-
-.markdown-body .danger>.admonition-title {
-  color: #c25f77;
-}
-
-.markdown-body .question>.admonition-title {
-  color: #96a6d7;
-}
-
-.markdown-body .note>.admonition-title {
-  color: #d7c896;
-}
-
-.markdown-body .admonition:before,
-.markdown-body .attention:before,
-.markdown-body .caution:before,
-.markdown-body .hint:before,
-.markdown-body .danger:before,
-.markdown-body .question:before,
-.markdown-body .note:before {
-  font: normal normal 16px fontawesome-mini;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  line-height: 1.5;
-  color: #333;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 10px;
-  padding-left: 10px;
-}
-
-.markdown-body .admonition:before {
-  content: "\f056\00a0";
-  color: 333;
-}
-
-.markdown-body .attention:before {
-  content: "\f058\00a0";
-  color: #a6d796;
-}
-
-.markdown-body .caution:before {
-  content: "\f06a\00a0";
-  color: #d7a796;
-}
-
-.markdown-body .hint:before {
-  content: "\f05a\00a0";
-  color: #96c6d7;
-}
-
-.markdown-body .danger:before {
-  content: "\f057\00a0";
-  color: #c25f77;
-}
-
-.markdown-body .question:before {
-  content: "\f059\00a0";
-  color: #96a6d7;
-}
-
-.markdown-body .note:before {
-  content: "\f040\00a0";
-  color: #d7c896;
-}
-
-.markdown-body .admonition::after {
-  content: normal;
-}
-
-.markdown-body .attention {
-  border-left: 6px solid #a6d796;
-}
-
-.markdown-body .caution {
-  border-left: 6px solid #d7a796;
-}
-
-.markdown-body .hint {
-  border-left: 6px solid #96c6d7;
-}
-
-.markdown-body .danger {
-  border-left: 6px solid #c25f77;
-}
-
-.markdown-body .question {
-  border-left: 6px solid #96a6d7;
-}
-
-.markdown-body .note {
-  border-left: 6px solid #d7c896;
-}
-
-.markdown-body .admonition>*:first-child {
-  margin-top: 0 !important;
-}
-
-.markdown-body .admonition>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* progress bar*/
-.markdown-body .progress {
-  display: block;
-  width: 300px;
-  margin: 10px 0;
-  height: 24px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #ededed;
-  position: relative;
-  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
-}
-
-.markdown-body .progress-label {
-  position: absolute;
-  text-align: center;
-  font-weight: bold;
-  width: 100%; margin: 0;
-  line-height: 24px;
-  color: #333;
-  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
-  -webkit-font-smoothing: antialiased !important;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.markdown-body .progress-bar {
-  height: 24px;
-  float: left;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #96c6d7;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
-  background-size: 30px 30px;
-  background-image: -webkit-linear-gradient(
-    135deg, rgba(255, 255, 255, .4) 27%,
-    transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%,
-    transparent 77%, transparent
-  );
-  background-image: -moz-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -ms-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: -o-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .4) 27%, transparent 27%,
-    transparent 52%, rgba(255, 255, 255, .4) 52%,
-    rgba(255, 255, 255, .4) 77%, transparent 77%,
-    transparent
-  );
-}
-
-.markdown-body .progress-100plus .progress-bar {
-  background-color: #a6d796;
-}
-
-.markdown-body .progress-80plus .progress-bar {
-  background-color: #c6d796;
-}
-
-.markdown-body .progress-60plus .progress-bar {
-  background-color: #d7c896;
-}
-
-.markdown-body .progress-40plus .progress-bar {
-  background-color: #d7a796;
-}
-
-.markdown-body .progress-20plus .progress-bar {
-  background-color: #d796a6;
-}
-
-.markdown-body .progress-0plus .progress-bar {
-  background-color: #c25f77;
-}
-
-.markdown-body .candystripe-animate .progress-bar{
-  -webkit-animation: animate-stripes 3s linear infinite;
-  -moz-animation: animate-stripes 3s linear infinite;
-  animation: animate-stripes 3s linear infinite;
-}
-
-@-webkit-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@-moz-keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-.markdown-body .gloss .progress-bar {
-  box-shadow:
-    inset 0 4px 12px rgba(255, 255, 255, .7),
-    inset 0 -12px 0 rgba(0, 0, 0, .05);
-}
-
-/* Multimarkdown Critic Blocks */
-.markdown-body .critic_mark {
-  background: #ff0;
-}
-
-.markdown-body .critic_delete {
-  color: #c82829;
-  text-decoration: line-through;
-}
-
-.markdown-body .critic_insert {
-  color: #718c00 ;
-  text-decoration: underline;
-}
-
-.markdown-body .critic_comment {
-  color: #8e908c;
-  font-style: italic;
-}
-
-.markdown-body .headeranchor {
-  font: normal normal 16px octicons-anchor;
-  line-height: 1;
-  display: inline-block;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.headeranchor:before {
-  content: '\f05c';
-}
-
-.markdown-body .task-list-item {
-  list-style-type: none;
-}
-
-.markdown-body .task-list-item+.task-list-item {
-  margin-top: 3px;
-}
-
-.markdown-body .task-list-item input {
-  margin: 0 4px 0.25em -20px;
-  vertical-align: middle;
-}
-
-/* Media */
-@media only screen and (min-width: 480px) {
-  .markdown-body {
-    font-size:14px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .markdown-body {
-    font-size:16px;
-  }
-}
-
-@media print {
-  .markdown-body * {
-    background: transparent !important;
-    color: black !important;
-    filter:none !important;
-    -ms-filter: none !important;
-  }
-
-  .markdown-body {
-    font-size:12pt;
-    max-width:100%;
-    outline:none;
-    border: 0;
-  }
-
-  .markdown-body a,
-  .markdown-body a:visited {
-    text-decoration: underline;
-  }
-
-  .markdown-body .headeranchor-link {
-    display: none;
-  }
-
-  .markdown-body a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  .markdown-body abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  .markdown-body .ir a:after,
-  .markdown-body a[href^="javascript:"]:after,
-  .markdown-body a[href^="#"]:after {
-    content: "";
-  }
-
-  .markdown-body pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
-  .markdown-body pre,
-  .markdown-body blockquote {
-    border: 1px solid #999;
-    padding-right: 1em;
-    page-break-inside: avoid;
-  }
-
-  .markdown-body .progress,
-  .markdown-body .progress-bar {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-
-  .markdown-body .progress {
-    border: 1px solid #ddd;
-  }
-
-  .markdown-body .progress-bar {
-    height: 22px;
-    border-right: 1px solid #ddd;
-  }
-
-  .markdown-body tr,
-  .markdown-body img {
-    page-break-inside: avoid;
-  }
-
-  .markdown-body img {
-    max-width: 100% !important;
-  }
-
-  .markdown-body p,
-  .markdown-body h2,
-  .markdown-body h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  .markdown-body h2,
-  .markdown-body h3 {
-    page-break-after: avoid;
-  }
-}
-</style><title>dom</title></head><body><article class="markdown-body"><h1 id="dom"><a name="user-content-dom" href="#dom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>DOM</h1>
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>DOM | 关于本书</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    
+    <link rel="prev" href="../js/逗号、冒号与括号.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="4.11" data-basepath=".." data-revision="1428412041365">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="summary/走进前端工程师的世界.html">
+            
+                
+                    <a href="../summary/走进前端工程师的世界.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         走进前端工程师的世界
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="html/html.html">
+            
+                
+                    <a href="../html/html.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         HTML
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="html/语法.html">
+            
+                
+                    <a href="../html/语法.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         语法
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="html/标签及属性.html">
+            
+                
+                    <a href="../html/标签及属性.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         常见标签及其属性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="html/全局属性.html">
+            
+                
+                    <a href="../html/全局属性.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         全局属性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="html/表单.html">
+            
+                
+                    <a href="../html/表单.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         表单
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="html/外部资源.html">
+            
+                
+                    <a href="../html/外部资源.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         外部资源引入
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="html/iframe.html">
+            
+                
+                    <a href="../html/iframe.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         iframe
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="html/meta.html">
+            
+                
+                    <a href="../html/meta.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         meta
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.8" >
+            
+                
+                    <a target="_blank" href="http://tool.oschina.net/commons?type=2">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                         转义字符
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.9" >
+            
+                
+                    <a target="_blank" href="http://wowubuntu.com/markdown/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                         Markdown
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="css/css.html">
+            
+                
+                    <a href="../css/css.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         CSS
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="css/语法.html">
+            
+                
+                    <a href="../css/语法.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         语法
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="css/常用属性.html">
+            
+                
+                    <a href="../css/常用属性.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         常用属性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="css/盒模型.html">
+            
+                
+                    <a href="../css/盒模型.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         盒模型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="css/CSS选择器.html">
+            
+                
+                    <a href="../css/CSS选择器.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         选择器
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.5" data-path="css/定位.html">
+            
+                
+                    <a href="../css/定位.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                         定位
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.6" >
+            
+                
+                    <a target="_blank" href="http://www.cnblogs.com/dolphinX/p/3262469.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                         z-index
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.7" data-path="css/浮动.html">
+            
+                
+                    <a href="../css/浮动.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                         浮动
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.8" data-path="css/负边距.html">
+            
+                
+                    <a href="../css/负边距.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                         负边距
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.9" data-path="css/布局.html">
+            
+                
+                    <a href="../css/布局.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                         布局
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.10" data-path="css/条件注释和CSS hack.html">
+            
+                
+                    <a href="../css/条件注释和CSS hack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                         CSS hack与条件注释
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.11" data-path="css/css查缺补漏.html">
+            
+                
+                    <a href="../css/css查缺补漏.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.11.</b>
+                        
+                         CSS查缺补漏
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.12" data-path="css/CSS性能优化.html">
+            
+                
+                    <a href="../css/CSS性能优化.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.12.</b>
+                        
+                         性能优化
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="js/js.html">
+            
+                
+                    <a href="../js/js.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         JavaScript
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="js/基础概念.html">
+            
+                
+                    <a href="../js/基础概念.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         基本概念
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="js/数据类型.html">
+            
+                
+                    <a href="../js/数据类型.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         数据类型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="js/运算符.html">
+            
+                
+                    <a href="../js/运算符.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         运算符
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="js/语句.html">
+            
+                
+                    <a href="../js/语句.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         流程控制语句
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="js/函数和作用域.html">
+            
+                
+                    <a href="../js/函数和作用域.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         函数和作用域
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.6" data-path="js/闭包.html">
+            
+                
+                    <a href="../js/闭包.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                         闭包
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.7" data-path="js/表达式.html">
+            
+                
+                    <a href="../js/表达式.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                         表达式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.8" >
+            
+            <span><b>4.8.</b> 面向对象</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.8.1" data-path="js/理解对象.html">
+            
+                
+                    <a href="../js/理解对象.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.1.</b>
+                        
+                         理解对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.8.2" data-path="js/构造对象.html">
+            
+                
+                    <a href="../js/构造对象.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.2.</b>
+                        
+                         构造对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.8.3" data-path="js/this.html">
+            
+                
+                    <a href="../js/this.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.3.</b>
+                        
+                         this
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.8.4" data-path="js/原型链和继承.html">
+            
+                
+                    <a href="../js/原型链和继承.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.4.</b>
+                        
+                         原型链和继承
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9" >
+            
+            <span><b>4.9.</b> 内置对象</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.9.1" data-path="js/包装对象.html">
+            
+                
+                    <a href="../js/包装对象.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.1.</b>
+                        
+                         包装对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9.2" data-path="js/数组.html">
+            
+                
+                    <a href="../js/数组.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.2.</b>
+                        
+                         Array
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9.3" data-path="js/math.html">
+            
+                
+                    <a href="../js/math.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.3.</b>
+                        
+                         Math
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9.4" data-path="js/date.html">
+            
+                
+                    <a href="../js/date.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.4.</b>
+                        
+                         Date
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9.5" data-path="js/json.html">
+            
+                
+                    <a href="../js/json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.5.</b>
+                        
+                         JSON
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9.6" data-path="js/正则基本语法.html">
+            
+                
+                    <a href="../js/正则基本语法.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.6.</b>
+                        
+                         RegExp 基本语法
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9.7" data-path="js/正则相关方法.html">
+            
+                
+                    <a href="../js/正则相关方法.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.7.</b>
+                        
+                         RegExp 相关方法
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.10" data-path="js/逗号、冒号与括号.html">
+            
+                
+                    <a href="../js/逗号、冒号与括号.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.10.</b>
+                        
+                         逗号、冒号与括号
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="4.11" data-path="js/dom.html">
+            
+                
+                    <a href="../js/dom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.11.</b>
+                        
+                         DOM
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.12" >
+            
+            <span><b>4.12.</b> BOM</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.13" >
+            
+            <span><b>4.13.</b> 事件</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.14" data-path="js/模块化.html">
+            
+                
+                    <a href="../js/模块化.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.14.</b>
+                        
+                         模块化
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.15" >
+            
+            <span><b>4.15.</b> 性能优化</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" >
+            
+            <span><b>5.</b> jQuery</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" >
+            
+            <span><b>5.1.</b> 选择器</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.2" >
+            
+            <span><b>5.2.</b> DOM操作</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.3" >
+            
+            <span><b>5.3.</b> 工具函数</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.4" >
+            
+            <span><b>5.4.</b> 动画</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.5" >
+            
+            <span><b>5.5.</b> 异步和Ajax</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.6" >
+            
+            <span><b>5.6.</b> jQuery简单实现</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" >
+            
+            <span><b>6.</b> HTTP</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="6.1" >
+            
+            <span><b>6.1.</b> URL</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.2" >
+            
+            <span><b>6.2.</b> 方法</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.3" >
+            
+            <span><b>6.3.</b> 状态码</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.4" >
+            
+            <span><b>6.4.</b> 缓存</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" >
+            
+            <span><b>7.</b> 综合练习</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" >
+            
+            <span><b>7.1.</b> 轮播</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.2" >
+            
+            <span><b>7.2.</b> Dialog</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.3" >
+            
+            <span><b>7.3.</b> 懒加载</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4" >
+            
+            <span><b>7.4.</b> 瀑布流</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.5" >
+            
+            <span><b>7.5.</b> 表单</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.6" >
+            
+            <span><b>7.6.</b> Todo List</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" >
+            
+            <span><b>8.</b> HTML5</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" >
+            
+            <span><b>8.1.</b> 新元素和标签</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" >
+            
+            <span><b>8.2.</b> 自定义属性</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" >
+            
+            <span><b>8.3.</b> 本地存储</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" >
+            
+            <span><b>8.4.</b> PostMessage</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.5" >
+            
+            <span><b>8.5.</b> 表单</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.6" >
+            
+            <span><b>8.6.</b> Web Sockets</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.7" >
+            
+            <span><b>8.7.</b> Server Send Events</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.8" >
+            
+            <span><b>8.8.</b> File API</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.9" >
+            
+            <span><b>8.9.</b> Web Workers</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.10" >
+            
+            <span><b>8.10.</b> 拖放API</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.11" >
+            
+            <span><b>8.11.</b> 多媒体</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.12" >
+            
+            <span><b>8.12.</b> Canvas</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.13" >
+            
+            <span><b>8.13.</b> 地理API</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.14" >
+            
+            <span><b>8.14.</b> Application Cache</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9" >
+            
+            <span><b>9.</b> CSS3</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="9.1" >
+            
+            <span><b>9.1.</b> 文本</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.2" >
+            
+            <span><b>9.2.</b> 边框</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.3" >
+            
+            <span><b>9.3.</b> 背景</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.4" >
+            
+            <span><b>9.4.</b> 渐变</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.5" >
+            
+            <span><b>9.5.</b> 变形</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.6" >
+            
+            <span><b>9.6.</b> 过渡</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.7" >
+            
+            <span><b>9.7.</b> 动画</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.8" >
+            
+            <span><b>9.8.</b> 媒体查询</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.9" >
+            
+            <span><b>9.9.</b> 字体</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.10" >
+            
+            <span><b>9.10.</b> 布局</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10" >
+            
+            <span><b>10.</b> ES6</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="10.1" >
+            
+            <span><b>10.1.</b> ES5新增</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.2" >
+            
+            <span><b>10.2.</b> let和const</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.3" >
+            
+            <span><b>10.3.</b> 变量解构赋值</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.4" >
+            
+            <span><b>10.4.</b> 字符串拓展</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.5" >
+            
+            <span><b>10.5.</b> 数值拓展</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.6" >
+            
+            <span><b>10.6.</b> 数组拓展</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.7" >
+            
+            <span><b>10.7.</b> 对象拓展</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.8" >
+            
+            <span><b>10.8.</b> 函数拓展</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.9" >
+            
+            <span><b>10.9.</b> Set和Map</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.10" >
+            
+            <span><b>10.10.</b> Iterator</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.11" >
+            
+            <span><b>10.11.</b> Generator</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.12" >
+            
+            <span><b>10.12.</b> Promise</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.13" >
+            
+            <span><b>10.13.</b> Class和Module</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" >
+            
+            <span><b>11.</b> NodeJS</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="11.1" >
+            
+            <span><b>11.1.</b> 介绍和安装</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.2" >
+            
+            <span><b>11.2.</b> CommonJS和模块</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.3" >
+            
+            <span><b>11.3.</b> 异步和事件</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.4" >
+            
+            <span><b>11.4.</b> 文件操作</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.5" >
+            
+            <span><b>11.5.</b> Buffer</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.6" >
+            
+            <span><b>11.6.</b> 流</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.7" >
+            
+            <span><b>11.7.</b> 网络编程</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.8" >
+            
+            <span><b>11.8.</b> 一步步写个web server</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.9" >
+            
+            <span><b>11.9.</b> 进程</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.10" >
+            
+            <span><b>11.10.</b> 使用Koa</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12" >
+            
+            <span><b>12.</b> 工具</span>
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="12.1" >
+            
+                
+                    <a target="_blank" href="http://www.sublimetext.com/3">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.1.</b>
+                        
+                         Sublime Text
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.2" >
+            
+                
+                    <a target="_blank" href="https://github.com/CN-Chrome-DevTools/CN-Chrome-DevTools">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.2.</b>
+                        
+                         Chrome开发者工具
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.3" >
+            
+                
+                    <a target="_blank" href="http://docs.emmet.io/cheat-sheet/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.3.</b>
+                        
+                         Emmet
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.4" >
+            
+                
+                    <a target="_blank" href="http://regexper.com/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.4.</b>
+                        
+                         正则表达式可视化
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.5" >
+            
+                
+                    <a target="_blank" href="http://caniuse.com/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.5.</b>
+                        
+                         Can I Use
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.6" >
+            
+                
+                    <a target="_blank" href="http://browserhacks.com/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.6.</b>
+                        
+                         Browser Hacks
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.7" >
+            
+                
+                    <a target="_blank" href="http://www.mcqyy.com/RunCode/php/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.7.</b>
+                        
+                         PHP在线执行
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.8" >
+            
+                
+                    <a target="_blank" href="http://sassmeister.com/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.8.</b>
+                        
+                         Sass在线编译
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.9" >
+            
+                
+                    <a target="_blank" href="http://git.oschina.net/progit/">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.9.</b>
+                        
+                         Pro Git
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.10" >
+            
+                
+                    <a target="_blank" href="http://rogerdudler.github.io/git-guide/index.zh.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.10.</b>
+                        
+                         git 简明教程
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >关于本书</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_32">
+                    
+                        <h1 id="dom">DOM</h1>
 <p>文档对象模型 (DOM) 是HTML和XML文档的编程接口。它给文档（结构树）提供了一个结构化的表述并且定义了一种方式—程序可以对结构树进行访问，以改变文档的结构，样式和内容。</p>
 <p>DOM 提供了一种表述形式将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将web 页面和脚本或编程语言连接起来了。</p>
-<p><img alt="" src="http://c.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=a6d6d3097bcb0a46912f836b0a0a9d41/810a19d8bc3eb13599df8648a61ea8d3fd1f442c.jpg" /></p>
+<p><img src="http://www.w3school.com.cn/i/ct_htmltree.gif" alt=""></p>
 <p>要改变页面的某个东西，JavaScript就需要获得对HTML文档中所有元素进行访问的入口。这个入口，连同对 HTML 元素进行添加、移动、改变或移除的方法和属性，都是通过DOM来获得的</p>
-<h3 id="document"><a name="user-content-document" href="#document" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>document 对象</h3>
+<h3 id="document-">document 对象</h3>
 <p>每个载入浏览器的HTML文档都会成为<code>document</code>对象。document对象包含了文档大基本信息，我们可以通过JavaScript对HTML页面中的所有元素进行访问、修改。</p>
-<h2 id="document_1"><a name="user-content-document_1" href="#document_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>document对象常用属性</h2>
+<h2 id="document">document对象常用属性</h2>
 <p>document对象有很多属性来描述文档信息，介绍几个常用的</p>
-<h3 id="doctype"><a name="user-content-doctype" href="#doctype" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>doctype</h3>
+<h3 id="doctype">doctype</h3>
 <p>在书写HTML文档的时候第一句一般都是<code>doctype</code>声明，可以通过document对象获取，没有则返回<code>null</code></p>
 <pre><code>document.doctype; // &lt;!DOCTYPE html&gt;
-document.doctype.name; // "html"
-</code></pre>
-<h3 id="headbody"><a name="user-content-headbody" href="#headbody" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>head、body</h3>
+document.doctype.name; // &quot;html&quot;
+</code></pre><h3 id="headbody">head、body</h3>
 <pre><code>document.head;
 document.body;
-</code></pre>
-<p>通过这两个属性何以分别获取文档的<code>head</code>，<code>body</code>节点</p>
-<h3 id="activeelement"><a name="user-content-activeelement" href="#activeelement" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>activeElement</h3>
+</code></pre><p>通过这两个属性何以分别获取文档的<code>head</code>，<code>body</code>节点</p>
+<h3 id="activeelement">activeElement</h3>
 <p>activeElement属性返回当前文档中获得焦点的那个元素。</p>
 <p>用户通常可以使用tab键移动焦点，使用空格键激活焦点，比如如果焦点在一个链接上，此时按一下空格键，就会跳转到该链接</p>
-<h3 id="documenturidomainlastmodified"><a name="user-content-documenturidomainlastmodified" href="#documenturidomainlastmodified" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>documentURI、domain、lastModified</h3>
+<h3 id="documenturidomainlastmodified">documentURI、domain、lastModified</h3>
 <ol>
 <li>documentURI属性返回当前文档的网址</li>
 <li>domain属性返回文档域名</li>
 <li>lastModified返回当前文档的最后修改时间</li>
 </ol>
-<h3 id="location"><a name="user-content-location" href="#location" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>location</h3>
+<h3 id="location">location</h3>
 <p>location属性返回一个只读对象，提供了当前文档的URL信息</p>
 <pre><code>// 假定当前网址为http://user:passwd@www.example.com:4097/path/a.html?x=111#part1
 
-document.location.href // "http://user:passwd@www.example.com:4097/path/a.html?x=111#part1"
-document.location.protocol // "http:"
-document.location.host // "www.example.com:4097"
-document.location.hostname // "www.example.com"
-document.location.port // "4097"
-document.location.pathname // "/path/a.html"
-document.location.search // "?x=111"
-document.location.hash // "#part1"
-document.location.user // "user"
-document.location.password // "passed"
+document.location.href // &quot;http://user:passwd@www.example.com:4097/path/a.html?x=111#part1&quot;
+document.location.protocol // &quot;http:&quot;
+document.location.host // &quot;www.example.com:4097&quot;
+document.location.hostname // &quot;www.example.com&quot;
+document.location.port // &quot;4097&quot;
+document.location.pathname // &quot;/path/a.html&quot;
+document.location.search // &quot;?x=111&quot;
+document.location.hash // &quot;#part1&quot;
+document.location.user // &quot;user&quot;
+document.location.password // &quot;passed&quot;
 
 // 跳转到另一个网址
-document.location.assign('http://www.google.com')
+document.location.assign(&#39;http://www.google.com&#39;)
 // 优先从服务器重新加载
 document.location.reload(true)
 // 优先从本地缓存重新加载（默认值）
 document.location.reload(false)
 // 跳转到另一个网址，但当前文档不保留在history对象中，
 // 即无法用后退按钮，回到当前文档
-document.location.assign('http://www.google.com')
+document.location.assign(&#39;http://www.google.com&#39;)
 // 将location对象转为字符串，等价于document.location.href
 document.location.toString()
-</code></pre>
-<p>虽然location属性返回的对象是只读的，但是可以将URL赋值给这个属性，网页就会自动跳转到指定网址。</p>
-<pre><code>document.location = 'http://www.example.com';
+</code></pre><p>虽然location属性返回的对象是只读的，但是可以将URL赋值给这个属性，网页就会自动跳转到指定网址。</p>
+<pre><code>document.location = &#39;http://www.example.com&#39;;
 // 等价于
-document.location.href = 'http://www.example.com';
-</code></pre>
-<h3 id="titlecharacterset"><a name="user-content-titlecharacterset" href="#titlecharacterset" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>title、characterSet</h3>
+document.location.href = &#39;http://www.example.com&#39;;
+</code></pre><h3 id="titlecharacterset">title、characterSet</h3>
 <ol>
 <li>title属性返回当前文档的标题，该属性是可写的</li>
 <li>characterSet属性返回渲染当前文档的字符集</li>
 </ol>
-<h3 id="readystate"><a name="user-content-readystate" href="#readystate" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>readyState</h3>
+<h3 id="readystate">readyState</h3>
 <p>readyState属性返回当前文档的状态，共有三种可能的值</p>
 <ol>
 <li>loading：加载HTML代码阶段，尚未完成解析</li>
 <li>interactive：加载外部资源阶段</li>
 <li>complete：全部加载完成</li>
 </ol>
-<h3 id="compatmode"><a name="user-content-compatmode" href="#compatmode" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>compatMode</h3>
+<h3 id="compatmode">compatMode</h3>
 <p>compatMode属性返回浏览器处理文档的模式，可能的值为</p>
 <ol>
 <li>BackCompat：向后兼容模式，也就是没有添加DOCTYPE</li>
 <li>CSS1Compat：严格模式，添加了DOCTYPE</li>
 </ol>
-<h3 id="cookie"><a name="user-content-cookie" href="#cookie" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>cookie</h3>
+<h3 id="cookie">cookie</h3>
 <p>cookie是存储在客户端的文本，后续在客户端存储章节会介绍到</p>
-<h3 id="innertext"><a name="user-content-innertext" href="#innertext" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>innerText</h3>
+<h3 id="innertext">innerText</h3>
 <p>innerText是一个可写属性，返回元素内包含的文本内容，在多层次的时候会按照元素由浅到深的顺序拼接其内容</p>
 <pre><code>&lt;div&gt;
     &lt;p&gt;
@@ -1102,9 +1820,8 @@ document.location.href = 'http://www.example.com';
         &lt;span&gt;456&lt;/span&gt;
     &lt;/p&gt;
 &lt;/div&gt;
-</code></pre>
-<p>外层div的innerText返回内容是 <code>"123456"</code></p>
-<h3 id="innerhtmlouterhtml"><a name="user-content-innerhtmlouterhtml" href="#innerhtmlouterhtml" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>innerHTML、outerHTML</h3>
+</code></pre><p>外层div的innerText返回内容是 <code>&quot;123456&quot;</code></p>
+<h3 id="innerhtmlouterhtml">innerHTML、outerHTML</h3>
 <p>innerHTML属性作用和innerText类似，但是不是返回元素的文本内容，而是返回元素的HTML结构，在写入的时候也会自动构建DOM</p>
 <pre><code>&lt;div&gt;
     &lt;p&gt;
@@ -1112,12 +1829,217 @@ document.location.href = 'http://www.example.com';
         &lt;span&gt;456&lt;/span&gt;
     &lt;/p&gt;
 &lt;/div&gt;
-</code></pre>
-<p>外层div的innerHTML返回内容是 <code>"&lt;p&gt;123&lt;span&gt;456&lt;/span&gt;&lt;/p&gt;"</code></p>
+</code></pre><p>外层div的innerHTML返回内容是 <code>&quot;&lt;p&gt;123&lt;span&gt;456&lt;/span&gt;&lt;/p&gt;&quot;</code></p>
 <p>outerHTML 返回内容还包括本身</p>
-<h2 id="htmlcollection"><a name="user-content-htmlcollection" href="#htmlcollection" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>HTMLCollection</h2>
-<h2 id="document_2"><a name="user-content-document_2" href="#document_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>document对象常用方法</h2>
-<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>参考</h2>
-<p><a href="https://css-tricks.com/dom/">What is the DOM?</a><br />
-<a href="http://w3help.org/zh-cn/causes/SD9004">各浏览器中的 NodeList 接口存在差异</a><br />
-<a href=""></a></p></article></body></html>
+<h2 id="document">document对象常用方法</h2>
+<h3 id="openclose">open()、close()</h3>
+<p>document.open方法用于新建一个文档，供write方法写入内容。它实际上等于清除当前文档，重新写入内容</p>
+<p>document.close方法用于关闭open方法所新建的文档。一旦关闭，write方法就无法写入内容了。</p>
+<h3 id="write">write()</h3>
+<p>document.write方法用于向当前文档写入内容。只要当前文档还没有用close方法关闭，它所写入的内容就会追加在已有内容的后面。</p>
+<pre><code>document.open();
+document.write(&quot;hello&quot;);
+document.write(&quot;world&quot;);
+document.close();
+</code></pre><ol>
+<li><p>如果页面已经渲染完成再调用write方法，它会先调用open方法，擦除当前文档所有内容，然后再写入。</p>
+</li>
+<li><p>如果在页面渲染过程中调用write方法，并不会调用open方法。</p>
+</li>
+</ol>
+<p>需要注意的是，虽然调用close方法之后，无法再用write方法写入内容，但这时当前页面的其他DOM节点还是会继续加载。</p>
+<p>除了某些特殊情况，应该尽量避免使用document.write这个方法。</p>
+<h2 id="element">Element</h2>
+<p>除了document对象，在DOM中最常用的就是Element对象了，Element对象表示HTML元素。</p>
+<p>Element 对象可以拥有类型为元素节点、文本节点、注释节点的子节点，DOM提供了一系列的方法可以进行元素的增、删、改、查操作</p>
+<p>Element有几个重要属性</p>
+<ol>
+<li>nodeName：元素标签名，还有个类似的tagName</li>
+<li>nodeType：元素类型</li>
+<li>className：类名</li>
+<li>id：元素id</li>
+<li>children：子元素列表（HTMLCollection）</li>
+<li>childNodes：子元素列表（NodeList）</li>
+<li>firstChild：第一个子元素</li>
+<li>lastChild：最后一个子元素</li>
+<li>nextSibling：下一个兄弟元素</li>
+<li>previousSibling：上一个兄弟元素</li>
+<li>parentNode、parentElement：父元素</li>
+</ol>
+<h3 id="">查询元素</h3>
+<h4 id="getelementbyid">getElementById()</h4>
+<p>getElementById方法返回匹配指定ID属性的元素节点。如果没有发现匹配的节点，则返回null。这也是获取一个元素最快的方法</p>
+<pre><code>var elem = document.getElementById(&quot;test&quot;);
+</code></pre><h4 id="getelementsbyclassname">getElementsByClassName()</h4>
+<p>getElementsByClassName方法返回一个类似数组的对象（HTMLCollection类型的对象），包括了所有class名字符合指定条件的元素（搜索范围包括本身），元素的变化实时反映在返回结果中。这个方法不仅可以在document对象上调用，也可以在任何元素节点上调用。</p>
+<pre><code>var elements = document.getElementsByClassName(names);
+</code></pre><p>getElementsByClassName方法的参数，可以是多个空格分隔的class名字，返回同时具有这些节点的元素。</p>
+<pre><code>document.getElementsByClassName(&#39;red test&#39;);
+</code></pre><h4 id="getelementsbytagname">getElementsByTagName()</h4>
+<p>getElementsByTagName方法返回所有指定标签的元素（搜索范围包括本身）。返回值是一个HTMLCollection对象，也就是说，搜索结果是一个动态集合，任何元素的变化都会实时反映在返回的集合中。这个方法不仅可以在document对象上调用，也可以在任何元素节点上调用。</p>
+<pre><code>var paras = document.getElementsByTagName(&quot;p&quot;);
+</code></pre><p>上面代码返回当前文档的所有p元素节点。注意，getElementsByTagName方法会将参数转为小写后，再进行搜索。</p>
+<h4 id="getelementsbyname">getElementsByName()</h4>
+<p>getElementsByName方法用于选择拥有name属性的HTML元素，比如form、img、frame、embed和object，返回一个NodeList格式的对象，不会实时反映元素的变化。</p>
+<pre><code>// 假定有一个表单是&lt;form name=&quot;x&quot;&gt;&lt;/form&gt;
+var forms = document.getElementsByName(&quot;x&quot;);
+forms[0].tagName // &quot;FORM&quot;
+</code></pre><p>注意，在IE浏览器使用这个方法，会将没有name属性、但有同名id属性的元素也返回，所以name和id属性最好设为不一样的值。</p>
+<h4 id="queryselector">querySelector()</h4>
+<p>querySelector方法返回匹配指定的CSS选择器的元素节点。如果有多个节点满足匹配条件，则返回第一个匹配的节点。如果没有发现匹配的节点，则返回null。</p>
+<pre><code>var el1 = document.querySelector(&quot;.myclass&quot;);
+var el2 = document.querySelector(&#39;#myParent &gt; [ng-click]&#39;);
+</code></pre><p>querySelector方法无法选中CSS伪元素。</p>
+<h4 id="queryselectorall">querySelectorAll()</h4>
+<p>querySelectorAll方法返回匹配指定的CSS选择器的所有节点，返回的是NodeList类型的对象。NodeList对象不是动态集合，所以元素节点的变化无法实时反映在返回结果中。</p>
+<pre><code>elementList = document.querySelectorAll(selectors);
+</code></pre><p>querySelectorAll方法的参数，可以是逗号分隔的多个CSS选择器，返回所有匹配其中一个选择器的元素。</p>
+<pre><code>var matches = document.querySelectorAll(&quot;div.note, div.alert&quot;);
+</code></pre><p>上面代码返回class属性是note或alert的div元素。</p>
+<h4 id="elementfrompoint">elementFromPoint()</h4>
+<p>elementFromPoint方法返回位于页面指定位置的元素。</p>
+<pre><code>var element = document.elementFromPoint(x, y);
+</code></pre><p>上面代码中，elementFromPoint方法的参数x和y，分别是相对于当前窗口左上角的横坐标和纵坐标，单位是CSS像素。</p>
+<p>elementFromPoint方法返回位于这个位置的DOM元素，如果该元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）。如果坐标值无意义（比如负值），则返回null。</p>
+<h3 id="">创建元素</h3>
+<h4 id="createelement">createElement()</h4>
+<p>createElement方法用来生成HTML元素节点。</p>
+<pre><code>var newDiv = document.createElement(&quot;div&quot;);
+</code></pre><p>createElement方法的参数为元素的标签名，即元素节点的tagName属性。如果传入大写的标签名，会被转为小写。如果参数带有尖括号（即&lt;和&gt;）或者是null，会报错。</p>
+<h4 id="createtextnode">createTextNode()</h4>
+<p>createTextNode方法用来生成文本节点，参数为所要生成的文本节点的内容。</p>
+<pre><code>var newDiv = document.createElement(&quot;div&quot;);
+var newContent = document.createTextNode(&quot;Hello&quot;);
+</code></pre><p>上面代码新建一个div节点和一个文本节点</p>
+<h4 id="createdocumentfragment">createDocumentFragment()</h4>
+<p>createDocumentFragment方法生成一个DocumentFragment对象。</p>
+<pre><code>var docFragment = document.createDocumentFragment();
+</code></pre><p>DocumentFragment对象是一个存在于内存的DOM片段，但是不属于当前文档，常常用来生成较复杂的DOM结构，然后插入当前文档。这样做的好处在于，因为DocumentFragment不属于当前文档，对它的任何改动，都不会引发网页的重新渲染，比直接修改当前文档的DOM有更好的性能表现。</p>
+<h3 id="">修改元素</h3>
+<h4 id="appendchild">appendChild()</h4>
+<p>在元素末尾添加元素</p>
+<pre><code>var newDiv = document.createElement(&quot;div&quot;);
+var newContent = document.createTextNode(&quot;Hello&quot;);
+newDiv.appendChild(newContent);
+</code></pre><h4 id="insertbefore">insertBefore()</h4>
+<p>在某个元素之前插入元素</p>
+<pre><code>var newDiv = document.createElement(&quot;div&quot;);
+var newContent = document.createTextNode(&quot;Hello&quot;);
+newDiv.appendChild(newContent, newDiv.firstChild);
+</code></pre><h4 id="replacechild">replaceChild()</h4>
+<p>replaceChild()接受两个参数：要插入的元素和要替换的元素</p>
+<pre><code>newDiv.replaceChild(newElement, oldElement);
+</code></pre><h3 id="">删除元素</h3>
+<p>删除元素使用removeChild()方法即可</p>
+<pre><code>parentNode.removeChild(childNode);
+</code></pre><h3 id="clone">clone元素</h3>
+<p>cloneChild()方法用于克隆元素，方法有一个布尔值参数，传入true的时候会深复制，也就是会复制元素及其子元素（IE还会复制其事件），false的时候只复制元素本身</p>
+<pre><code>node.cloneNode(true);
+</code></pre><h2 id="">属性操作</h2>
+<h3 id="getattribute">getAttribute()</h3>
+<p>getAttribute()用于获取元素的attribute值</p>
+<pre><code>node.getAttribute(&#39;id&#39;);
+</code></pre><h3 id="createattribute">createAttribute()</h3>
+<p>createAttribute()方法生成一个新的属性对象节点，并返回它。</p>
+<pre><code>attribute = document.createAttribute(name);
+</code></pre><p>createAttribute方法的参数name，是属性的名称。</p>
+<h3 id="setattribute">setAttribute()</h3>
+<p>setAttribute()方法用于设置元素属性</p>
+<pre><code>var node = document.getElementById(&quot;div1&quot;);
+node.setAttribute(&quot;my_attrib&quot;, &quot;newVal&quot;);
+</code></pre><p>等同于</p>
+<pre><code>var node = document.getElementById(&quot;div1&quot;);
+var a = document.createAttribute(&quot;my_attrib&quot;);
+a.value = &quot;newVal&quot;;
+node.setAttributeNode(a);
+</code></pre><h3 id="romoveattribute">romoveAttribute()</h3>
+<p>romoveAttribute()用于删除元素属性</p>
+<pre><code>node.romoveAttribute(&#39;id&#39;);
+</code></pre><h3 id="elementattributes">element.attributes</h3>
+<p>当然上面的方法做的事情也可以通过类操作数组属性element.attributes来实现</p>
+<h3 id="htmlcollectionnodelist">HTMLCollection和NodeList</h3>
+<p>我们知道Element对象表示元素，那么多个元素的集合一般有两种数据类型</p>
+<p>NodeList 对象代表一个有顺序的节点列表，HTMLCollection 是一个接口，表示 HTML 元素的集合，它提供了可以遍历列表的方法和属性</p>
+<p>以下方法获取的为HTMLCollection对象</p>
+<pre><code>document.images //所有img元素
+document.links //所有带href属性的a元素和area元素
+document.anchors //所有带name属性的a元素
+document.forms //所有form元素
+document.scripts //所有script元素
+document.applets //所有applet元素
+document.embeds //所有embed元素
+document.plugins //document.与embeds相同
+document.getElementById(&quot;table&quot;).children
+document.getElementById(&quot;table&quot;).tBodies
+document.getElementById(&quot;table&quot;).rows
+document.getElementById(&quot;row&quot;).cells
+document.getElementById(&quot;Map&quot;).areas
+document.getElementById(&quot;f2&quot;).elements //HTMLFormControlsCollection extends HTMLCollection
+document.getElementById(&quot;s&quot;).options //HTMLOptionsCollection extends HTMLCollection
+</code></pre><p>以下方法获取的为NodeList对象</p>
+<pre><code>document.getElementsByName(&quot;name1&quot;)
+document.getElementsByClassName(&quot;class1&quot;)
+document.getElementsByTagName(&quot;a&quot;)
+document.querySelectorAll(&quot;a&quot;)
+document.getElementById(&quot;table&quot;).childNodes
+document.styleSheets //StyleSheetList，与NodeList类似
+</code></pre><p>HTMLCollection与NodeList有很大部分相似性</p>
+<ol>
+<li><p>都是类数组对象，都有length属性，可以通过for循环迭代</p>
+</li>
+<li><p>都是只读的</p>
+</li>
+<li><p>都是实时的，即文档的更改会立即反映到相关对象上面(有一个例外，document.querySelectorAll返回的NodeList不是实时的)</p>
+</li>
+<li><p>都有item()方法，可以通过item(index)或item(&quot;id&quot;)获取元素</p>
+</li>
+</ol>
+<p>不同点在于</p>
+<ol>
+<li><p>HTMLCollection对象具有namedItem()方法，可以传递id或name获得元素</p>
+</li>
+<li><p>HTMLCollection的item()方法和通过属性获取元素(document.forms.f1)可以支持id和name，而NodeList对象只支持id</p>
+</li>
+</ol>
+<h2 id="">参考</h2>
+<p><a href="https://css-tricks.com/dom/" target="_blank">What is the DOM?</a></p>
+<p><a href="http://w3help.org/zh-cn/causes/SD9004" target="_blank">各浏览器中的 NodeList 接口存在差异</a></p>
+<p><a href="http://stackoverflow.com/questions/15763358/difference-between-htmlcollection-nodelists-and-arrays-of-objects" target="_blank">Difference between HTMLCollection, NodeLists, and arrays of objects</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../js/逗号、冒号与括号.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 逗号、冒号与括号"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

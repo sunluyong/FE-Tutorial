@@ -4,7 +4,7 @@
 
 DOM 提供了一种表述形式将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将web 页面和脚本或编程语言连接起来了。
 
-![](http://c.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=a6d6d3097bcb0a46912f836b0a0a9d41/810a19d8bc3eb13599df8648a61ea8d3fd1f442c.jpg)
+![](http://www.w3school.com.cn/i/ct_htmltree.gif)
 
 要改变页面的某个东西，JavaScript就需要获得对HTML文档中所有元素进行访问的入口。这个入口，连同对 HTML 元素进行添加、移动、改变或移除的方法和属性，都是通过DOM来获得的
 
