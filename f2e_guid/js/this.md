@@ -47,7 +47,7 @@
 
 new 运算符接受一个函数 F 及其参数：new F(arguments...)。这一过程分为三步：
 
-1. 创建类的实例。这步是把一个空的对象的 __proto__ 属性设置为 F.prototype 。
+1. 创建类的实例。这步是把一个空的对象的 `__proto__` 属性设置为 F.prototype 。
 2. 初始化实例。函数 F 被传入参数并调用，关键字 this 被设定为该实例。
 3. 返回实例。
 
@@ -146,21 +146,20 @@ call apply，调用一个函数，传入函数执行上下文及参数
 
 3. 只有函数被调用时，arguments对象才会创建，未调用时其值为null
 
-	function fn5(name, age){
-		console.log(arguments);
-		name = 'XXX';
-		console.log(arguments);
-		arguments[1] = 30;
-		console.log(arguments);
-	}
-
-	fn5('Byron', 20);
+        function fn5(name, age){
+		    console.log(arguments);
+		    name = 'XXX';
+		    console.log(arguments);
+		    arguments[1] = 30;
+		    console.log(arguments);
+	    }
+        fn5('Byron', 20);
 
 ## callee
 
 当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用
 
-由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且解引用它会产生异常
+由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且引用它会产生异常
 
 	function fn6(){
 		console.log(arguments.callee);
