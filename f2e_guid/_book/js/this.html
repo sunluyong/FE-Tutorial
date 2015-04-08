@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.8.3" data-basepath=".." data-revision="1428496872330">
+    <div class="book" data-level="4.8.3" data-basepath=".." data-revision="1428497028506">
     
 
 <div class="book-summary">
@@ -1768,7 +1768,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="whats-this">What&#39;s this?</h1>
 <p>由于运行期绑定的特性，JavaScript 中的 <code>this</code> 含义非常多，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式</p>
@@ -1804,7 +1804,7 @@ fn0();
 <p>所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象</p>
 <p>new 运算符接受一个函数 F 及其参数：new F(arguments...)。这一过程分为三步：</p>
 <ol>
-<li>创建类的实例。这步是把一个空的对象的 <strong>proto</strong> 属性设置为 F.prototype 。</li>
+<li>创建类的实例。这步是把一个空的对象的 <code>__proto__</code> 属性设置为 F.prototype 。</li>
 <li>初始化实例。函数 F 被传入参数并调用，关键字 this 被设定为该实例。</li>
 <li>返回实例。</li>
 </ol>
@@ -1877,19 +1877,19 @@ fn4();
 <li><p>该对象类似于数组，可以使用[]运算符获取函数调用时传递的实参</p>
 </li>
 <li><p>只有函数被调用时，arguments对象才会创建，未调用时其值为null</p>
-<p> function fn5(name, age){</p>
-<pre><code> console.log(arguments);
- name = &#39;XXX&#39;;
- console.log(arguments);
- arguments[1] = 30;
- console.log(arguments);
-</code></pre><p> }</p>
-<p> fn5(&#39;Byron&#39;, 20);</p>
-</li>
+<pre><code> function fn5(name, age){
+     console.log(arguments);
+     name = &#39;XXX&#39;;
+     console.log(arguments);
+     arguments[1] = 30;
+     console.log(arguments);
+ }
+ fn5(&#39;Byron&#39;, 20);
+</code></pre></li>
 </ol>
 <h2 id="callee">callee</h2>
 <p>当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用</p>
-<p>由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且解引用它会产生异常</p>
+<p>由于arguments在函数被调用时才有效，因此arguments.callee在函数未调用时是不存在的（即null.callee），且引用它会产生异常</p>
 <pre><code>function fn6(){
     console.log(arguments.callee);
 }

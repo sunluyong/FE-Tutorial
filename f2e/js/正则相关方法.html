@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.9.8" data-basepath=".." data-revision="1428496872330">
+    <div class="book" data-level="4.9.8" data-basepath=".." data-revision="1428497028506">
     
 
 <div class="book-summary">
@@ -1804,7 +1804,7 @@ reg.test(&#39;34.5678&#39;); //false
 <li>input 属性则存放的是被检索的字符串string</li>
 </ol>
 <h3 id="">非全局调用</h3>
-<p>调用<strong>非全局</strong>的RegExp对象的<code>exec()</code>时，返回数组的第一个元素是与正则表达式相匹配的文本，第二个元素是与 RegExpObject的第一个子表达式相匹配的文本（如果有的话），第三个个元素是与RegExp对象的第二个子表达式相匹配的文本（如果有的话），以此类推。</p>
+<p>调用<strong>非全局</strong>的RegExp对象的<code>exec()</code>时，返回数组的第一个元素是与正则表达式相匹配的文本，第二个元素是与 RegExpObject的第一个子表达式相匹配的文本（如果有的话），第三个元素是与RegExp对象的第二个子表达式相匹配的文本（如果有的话），以此类推。</p>
 <h3 id="">全局调用</h3>
 <p>调用全局的RegExp对象的<code>exec()</code>时，它会在RegExp实例的<code>lastIndex</code>属性指定的字符处开始检索字符串string</p>
 <ol>
@@ -1858,9 +1858,9 @@ while(r=reg.exec(&#39;a1b2c3&#39;)){
 <pre><code>var r = &#39;aaa123456&#39;.match(/\d/g);
 </code></pre><p><img src="http://images.cnitblog.com/blog/349217/201312/23124543-7e1cabd1f0b74de2826bebbf089fd3af.png" alt="image"></p>
 <h2 id="stringprototypereplacereg-replacestr">String.prototype.replace(reg, replaceStr)</h2>
-<p>关于strng对象的<code>replace</code>方法，我们最常用的时传入两个字符串的做法，但这种做法有个缺陷，只能replace一次</p>
+<p>关于string对象的<code>replace</code>方法，我们最常用的是传入两个字符串的做法，但这种做法有个缺陷，只能replace一次</p>
 <pre><code>&#39;abcabcabc&#39;.replace(&#39;bc&#39;,&#39;X&#39;); //aXabcabc
-</code></pre><p>replace方法的第一个参数还可以传入RegExp对象，传入正则表达式可以时replace方法更加强大灵活</p>
+</code></pre><p>replace方法的第一个参数还可以传入RegExp对象，传入正则表达式可以使replace方法更加强大灵活</p>
 <pre><code>&#39;abcabcabc&#39;.replace(/bc/g,&#39;X&#39;); //aXaXaX
 &#39;abcaBcabC&#39;.replace(/bc/gi,&#39;X&#39;); //aXaXaX
 </code></pre><p>如果replace方法的第一个参数传入的是带分组的正则表达式，我们在第二个参数中可以使用<code>$1...$9</code>来获取相应分组内容，比如希望把字符串 <code>1&lt;%2%&gt;34&lt;%567%&gt;89</code> 的<code>&lt;%x%&gt;</code>换为<code>$#x#$</code>，我们可以这样</p>
