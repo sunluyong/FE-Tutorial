@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.9.2" data-basepath=".." data-revision="1428496872330">
+    <div class="book" data-level="4.9.2" data-basepath=".." data-revision="1428497028506">
     
 
 <div class="book-summary">
@@ -1771,7 +1771,7 @@
                     <section class="normal" id="section-gitbook_34">
                     
                         <h1 id="">数组</h1>
-<p>在程序语言中数组的重要性不言而喻，JavaScript中数组也是最常使用的对象之一，数组是值的有序集合，由于弱类型的原因，JavaScript中数组十分灵活、强大，不像是Java等强类型高级语言数组只能存放同一类型或其子类型元素，JavaScript在同一个数组中可以存放多种类型的元素，而且是长度也是可以动态调整的，可以随着数据增加或减少自动对数组长度做更改。</p>
+<p>在程序语言中数组的重要性不言而喻，JavaScript中数组也是最常使用的对象之一，数组是值的有序集合，由于弱类型的原因，JavaScript中数组十分灵活、强大，不像是Java等强类型高级语言数组只能存放同一类型或其子类型元素，JavaScript在同一个数组中可以存放多种类型的元素，而且长度也是可以动态调整的，可以随着数据增加或减少自动对数组长度做更改。</p>
 <h2 id="">创建数组</h2>
 <p>在JavaScript多种方式创建数组</p>
 <h3 id="">构造函数</h3>
@@ -1784,7 +1784,7 @@
 </code></pre><h3 id="">字面量</h3>
 <p>1.使用方括号，创建空数组，等同于调用无参构造函数</p>
 <pre><code>var a4 = [];
-</code></pre><p>2.使用中括号，并传入初始化数据，等同于调用调用带有初始化数据的构造函数</p>
+</code></pre><p>2.使用中括号，并传入初始化数据，等同于调用带有初始化数据的构造函数</p>
 <pre><code>var a5 = [10];
 </code></pre><h3 id="">注意点</h3>
 <p>1.在使用构造函数创建数组时如果传入一个<strong>数字</strong>参数，则会创建一个长度为参数的数组，如果传入多个，则创建一个数组，参数作为初始化数据加到数组中</p>
@@ -1817,7 +1817,7 @@ console.log(a1[i]); //2
 console.log(a1[++i]); //3
 </code></pre><p>数组也是对象，我们可以使用索引的奥秘在于，数组会把索引值转换为对应字符串（1=&gt;”1”）作为对象属性名</p>
 <pre><code>console.log(1 in a1);//true，确实是一个属性
-</code></pre><p>索引特殊性在于数组会自动更新length属性，当然因为JavaScript语法规定数字不能作为变量名，所以我们不能显示使用<code>array.1</code>这样的格式。由此可见其实负数，甚至非数字”索引“都是允许的，只不过这些会变成数组的属性，而不是索引</p>
+</code></pre><p>索引特殊性在于数组会自动更新length属性，当然因为JavaScript语法规定数字不能作为变量名，所以我们不能显式使用<code>array.1</code>这样的格式。由此可见其实负数，甚至非数字”索引“都是允许的，只不过这些会变成数组的属性，而不是索引</p>
 <pre><code>var a = new Array(1,2,3);
 a[-10]=&quot;a[-10]&quot;;
 a[&quot;sss&quot;]=&quot;sss&quot;;
@@ -1853,7 +1853,7 @@ console.log(a);//[1, 2, 3, 4]
 a.push(4);
 console.log(a);//[1, 2, 3, 4]
 console.log(a.length);//4
-console.log(a.pop(a));//4
+console.log(a.pop());//4
 console.log(a); //[1, 2, 3]
 console.log(a.length);//3
 </code></pre><h3 id="">队列方法</h3>
@@ -1862,7 +1862,7 @@ console.log(a.length);//3
 a.unshift(4);
 console.log(a);//[4, 1, 2, 3]
 console.log(a.length);//4
-console.log(a.shift(a));//4
+console.log(a.shift());//4
 console.log(a); //[1, 2, 3]
 console.log(a.length);//3
 </code></pre><h3 id="">终极神器</h3>
@@ -1950,9 +1950,9 @@ a.sort(function(v1,v2){
     return v1-v2;
 });
 console.log(a);//[7, 8, 9, 10, 11]
-</code></pre><p>ort内部使用快速排序，每次比较两个元素大小的时候如果没有参数，则直接判断字母表，如果有参数，则把正在比较的两个参数传入自定义方法并调用（正在比较的两个数会传给自定义方法的v1、v2），如果返回值大于0表示<code>v1 &gt; v2</code>，如果等于0，表示<code>v1 = v2</code>，如果小于0，表示<code>v1 &lt; v2</code>，其实我们传入的方法就是告诉sort怎么比较两个元素谁大谁小，至于排序移动元素过程人家写好了</p>
+</code></pre><p>sort内部使用快速排序，每次比较两个元素大小的时候如果没有参数，则直接判断字母表，如果有参数，则把正在比较的两个参数传入自定义方法并调用（正在比较的两个数会传给自定义方法的v1、v2），如果返回值大于0表示<code>v1 &gt; v2</code>，如果等于0，表示<code>v1 = v2</code>，如果小于0，表示<code>v1 &lt; v2</code>，其实我们传入的方法就是告诉sort怎么比较两个元素谁大谁小，至于排序移动元素过程人家写好了</p>
 <h2 id="">最后</h2>
-<p>了解了这些看看数组真的很了不得啊，即强大有灵活，但是在遍历元素，及获取元素位置等也有一定的不便，这些在ECMAScript中已经得到解决，熟练使用可以让我们的JavaScript优雅而高效。</p>
+<p>了解了这些看看数组真的很了不得啊，既强大又灵活，但是在遍历元素，及获取元素位置等也有一定的不便，这些在ECMAScript中已经得到解决，熟练使用可以让我们的JavaScript优雅而高效。</p>
 
                     
                     </section>

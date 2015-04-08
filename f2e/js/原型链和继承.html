@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.8.4" data-basepath=".." data-revision="1428496872330">
+    <div class="book" data-level="4.8.4" data-basepath=".." data-revision="1428497028506">
     
 
 <div class="book-summary">
@@ -1796,10 +1796,10 @@ p1.sayName();
 <p>那么Array的实例为什么同样可以查找到Object的prototype里面定义的方法呢？</p>
 <h2 id="valueof">查找valueOf过程</h2>
 <p>因为任何类的<code>prototype</code>属性本质上都是个类<code>Object</code>的实例，所以<code>prototype</code>也和其它实例一样也有个<code>__proto__</code>内部属性，指向其类型<code>Object</code>的prototype</p>
-<p>我们大概可以知道为什么了，自己的类的prototype找不到的话，还会找prototypr的类型的prototype属性，这样层层向上查找</p>
+<p>我们大概可以知道为什么了，自己的类的prototype找不到的话，还会找prototype的类型的prototype属性，这样层层向上查找</p>
 <p>大概过程是这样的</p>
 <ol>
-<li><p>记当前对象位obj，查找obj属性、方法，找到后返回</p>
+<li><p>记当前对象为obj，查找obj属性、方法，找到后返回</p>
 </li>
 <li><p>没有找到，通过obj的<code>__proto__</code>属性，找到其类型<code>Array</code>的<code>prototype</code>属性（记为prop）继续查找，找到后返回</p>
 </li>
@@ -1816,13 +1816,13 @@ p1.sayName();
 <pre><code>[1, 2, 3] instanceof Array; //true
 </code></pre><p>可以看到<code>[1, 2, 3]</code>是类型<code>Array</code>的实例</p>
 <pre><code>[1, 2, 3] instanceof Object; //true
-</code></pre><p>这个结果有些非议所思，怎么又是Array的实例，又是Object的实例，这不是乱套了</p>
+</code></pre><p>这个结果有些匪夷所思，怎么又是Array的实例，又是Object的实例，这不是乱套了</p>
 <p>其实这个现象在日常生活中很常见其实，比如我们有两种类型</p>
 <ol>
 <li>类人猿</li>
 <li>动物</li>
 </ol>
-<p>我们发现黑猩猩即是类人猿这个类的物种（实例），也是动物的实例</p>
+<p>我们发现黑猩猩既是类人猿这个类的物种（实例），也是动物的实例</p>
 <p>是不是悟出其中的门道了，类人猿是动物的一种，也就是说我们的两个类型之间有一种父子关系</p>
 <p>这就是传说中的继承，JavaScript正是通过原型链实现继承机制的</p>
 <h2 id="">继承</h2>
@@ -1835,7 +1835,7 @@ p1.sayName();
 <li>得到一个类的属性</li>
 <li>得到一个类的方法</li>
 </ol>
-<p>我们分开讨论一下，先定义两个个类</p>
+<p>我们分开讨论一下，先定义两个类</p>
 <pre><code>function Person(name, sex){
     this.name = name;
     this.sex = sex;

@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.9.1" data-basepath=".." data-revision="1428496872330">
+    <div class="book" data-level="4.9.1" data-basepath=".." data-revision="1428497028506">
     
 
 <div class="book-summary">
@@ -1819,7 +1819,7 @@ alert(s.indexOf(&#39;is&#39;));
 <h2 id="">包装对象</h2>
 <p>除了上面三个对象，JavaScript还拥有Date、Array、Math等内置对象，这三个经常显示使用，所以非常熟悉，知道了内置对象就可以看看上面例子是怎么回事儿了。</p>
 <p>只要是引用了字符串的属性和方法，JavaScript就会将字符串值通过<code>new String(s)</code>的方式转为内置对象String，一旦引用结束，这个对象就会销毁。所以上面代码在使用的实际上是String对象的length属性和indexOf方法。</p>
-<p>同样的道理，数字和布尔值的处理也类似。，null和undefined没有对应对象。既然有对象生成，能不能这样</p>
+<p>同样的道理，数字和布尔值的处理也类似。null和undefined没有对应对象。既然有对象生成，能不能这样</p>
 <pre><code>var s=&#39;this is a string&#39;;
 s.len=10;
 alert(s.len);
