@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>函数和作用域 | 关于本书</title>
+        <title>ES5 数组拓展 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../js/闭包.html" />
+    <link rel="next" href="../js/math.html" />
     
     
-    <link rel="prev" href="../js/语句.html" />
+    <link rel="prev" href="../js/数组.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.5" data-basepath=".." data-revision="1428496872330">
+    <div class="book" data-level="4.9.3" data-basepath=".." data-revision="1428496872330">
     
 
 <div class="book-summary">
@@ -543,7 +543,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.5" data-path="js/函数和作用域.html">
+        <li class="chapter " data-level="4.5" data-path="js/函数和作用域.html">
             
                 
                     <a href="../js/函数和作用域.html">
@@ -710,7 +710,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.9.3" data-path="js/es5array.html">
+        <li class="chapter active" data-level="4.9.3" data-path="js/es5array.html">
             
                 
                     <a href="../js/es5array.html">
@@ -1768,182 +1768,93 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_29">
+                    <section class="normal" id="section-gitbook_24">
                     
-                        <h1 id="">函数和作用域</h1>
-<p>JavaScript函数是指一个特定代码块，可能包含多条语句，可以通过名字来供其它语句调用以执行函数包含的代码语句。</p>
-<p>比如我们有一个特定的功能需要三条语句实现</p>
-<pre><code>statement1;
-statement2;
-statement3;
-</code></pre><p>那么每次想实现这个功能的时候就需要写这三句话，很麻烦，我们可以把这三条语句打包为一个函数</p>
-<pre><code>function doSomething(){
-    statement1;
-    statement2;
-    statement3;
-}
-</code></pre><p>这样每次想实现功能的时候我们就<strong>调用</strong>一下函数就可以了，调用函数通过<code>函数名称()</code>的形式调用</p>
-<pre><code>doSomething();
-</code></pre><h2 id="">声明函数</h2>
-<p>ECMAScript规定了三种声明函数方式</p>
-<h3 id="">构造函数</h3>
-<p>首先函数也是对象的一种，我们可以通过其构造函数，使用<code>new</code>来创建一个函数对象</p>
-<pre><code>var printName = new Function(&quot;console.log(&#39;Byron&#39;);&quot;);
-</code></pre><p>这种创建对象的方式按理来说应该是最正规的方式，但是因为性能原因极少使用</p>
-<h3 id="">函数声明</h3>
-<pre><code>function functionName(){
-    statement;
-}
-</code></pre><p>使用<code>function</code>关键字可以声明一个函数，看个例子</p>
-<pre><code>function printName(){
-    console.log(&#39;Byron&#39;);
-}
+                        <h1 id="es5-">ES5 数组拓展</h1>
+<p>ES5为Array对象做了大幅拓展</p>
+<h2 id="arrayisarrayobj">Array.isArray(obj)</h2>
+<p>这是Array对象的一个静态函数，用来判断一个对象是不是数组</p>
+<pre><code>var a = new Array(123);
+var b = new Date();
+console.log(Array.isArray(a)); //true
+console.log(Array.isArray(b)); //false
+</code></pre><h2 id="indexofelement--lastindexofelement">.indexOf(element) / .lastIndexOf(element)</h2>
+<p>盼了好久的indexOf也来了</p>
+<p>顾名思义，这两个方法用于查找数组内指定元素位置，查找到第一个后返回其索引，没有查找到返回-1，indexOf从头至尾搜索，lastIndexOf反向搜索。</p>
+<pre><code>var a = new Array(1,2,3,3,2,1);
+console.log(a.indexOf(2)); //1
+console.log(a.lastIndexOf(2)); //4
+</code></pre><h2 id="foreachelement-index-array">.forEach(element, index, array)</h2>
+<p>遍历数组，参数为一个回调函数，回调函数有三个参数：</p>
+<ol>
+<li>当前元素</li>
+<li>当前元素索引值</li>
+<li>整个数组</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>var a = new Array(1,2,3,4,5,6);
 
-printName();
-</code></pre><h3 id="">函数表达式</h3>
-<pre><code>var printName = function(){
-    console.log(&#39;Byron&#39;);
-};
-</code></pre><h2 id="">参数</h2>
-<p>上面定义的函数有一个缺陷，就是过于僵化，只能打印<code>Byron</code>，当我们希望打印<code>Casper</code>的时候就需要一个新的函数，这也是很复杂的，我们可以通过参数的方式来让函数能灵活一些</p>
-<pre><code>function printName(name){
-    console.log(name);
-}
+a.forEach(function(e,i,array){
+    array[i]= e + 1;
+});
 
-printName(&#39;Byron&#39;);
-printName(&#39;Casper);
-</code></pre><p>可以看出我们在定义函数的时候在括号内写了个<code>name</code>做<strong>占位符</strong>，也就是在定义函数的时候也不知道要输出什么，用个占位符代替，在函数实际执行的时候，用真实的值替代占位符</p>
-<p>我们说的占位符在术语上叫做<code>形参</code>，也就是形式参数，而在调用函数的时候传入的值叫做<code>实参</code>，也就是实际的参数</p>
-<p>函数在定义的时候可以写多个参数</p>
-<pre><code>function printPersonInfo(name, age, sex){
-    console.log(name);
-    console.log(age);
-    console.log(sex);
-}
-</code></pre><h3 id="auguments">auguments</h3>
-<p>在函数内部,你可以使用<code>arguments</code>对象获取到该函数的所有传入参数</p>
-<pre><code>function printPersonInfo(name, age, sex){
-    console.log(name);
-    console.log(age);
-    console.log(sex);
-    console.log(arguments);
-}
-</code></pre><h2 id="">重载</h2>
-<p>重载是很多面向对象语言实现多态的手段之一，在静态语言中确定一个函数的手段是靠方法签名——函数名+参数列表，也就是说相同名字的函数参数个数不同或者顺序不同都被认为是不同的函数，称为函数重载</p>
-<p>在JavaScript中没有函数重载的概念，函数通过名字确定唯一性，参数不同也被认为是相同的函数，后面的覆盖前面的，这是不是意味着JavaScript不能通过重载功能实现一个函数，参数不同功能不同呢？</p>
-<p>在JavaScript中，函数调用没必要把所有参数都传入，只要你函数体内做好处理就行，但前提是传的参数永远被当做前几个</p>
-<pre><code>function printPeopleInfo(name, age, sex){
-    if(name){
-        console.log(name);
-    }
+console.log(a); //[2, 3, 4, 5, 6, 7]
+</code></pre><h2 id="everyfunctionelement-index-array--somefunctionelement-index-array">.every(function(element, index, array)) / .some(function(element, index, array))</h2>
+<p>这两个函数类似于离散数学中的逻辑判定，回调函数返回一个<strong>布尔值</strong></p>
+<ol>
+<li><p>every是<code>所有</code>函数的每个回调函数都返回true的时候才会返回true，当遇到false的时候终止执行，返回false</p>
+</li>
+<li><p>some函数是“存在”有一个回调函数返回true的时候终止执行并返回true，否则返回false</p>
+</li>
+</ol>
+<p>在空数组上调用every返回true，some返回false</p>
+<pre><code>var a=new Array(1,2,3,4,5,6);
 
-    if(age){
-        console.log(age);
-    }
+console.log(a.every(function(e, i, arr){
+return e &lt; 5;
+}));
 
-    if(sex){
-        console.log(sex);
-    }
-}
+console.log(a.some(function(e,i,arr){
+  return e &gt; 4;
+</code></pre><p>  }));</p>
+<h2 id="mapfunctionelement">.map(function(element))</h2>
+<p> 与forEach类似，遍历数组，回调函数返回值组成一个新数组返回，新数组索引结构和原数组一致，原数组不变</p>
+<pre><code>var a = new Array(1,2,3,4,5,6);
 
+console.log(a.map(function(e){
+  return e * e;
+}));  // [1, 4, 9, 16, 25, 36]
 
-printPeopleInfo(&#39;Byron&#39;, 26);
-printPeopleInfo(&#39;Byron&#39;, 26, &#39;male&#39;);
-</code></pre><h2 id="">返回值</h2>
-<p>有时候我们希望在函数执行后给我们一个反馈，就像表达式一样，给我们个结果，我们可以通过<code>return</code>来实现</p>
-<pre><code>function fn(a, b){
-    a++;
-    b++;
-    return a + b;
-}
+console.log(a); //[1, 2, 3, 4, 5, 6]
+</code></pre><h2 id="filterfunctionelement">.filter(function(element))</h2>
+<p>返回数组的一个子集，回调函数用于逻辑判断是否返回，返回true则把当前元素加入到返回数组中，false则不加</p>
+<p>新数组只包含返回true的值，索引缺失的不包括，原数组保持不变</p>
+<pre><code>var a = new Array(1,2,3,4,5,6);
 
-var result = fn(2, 3);
-conslole.log(result);
-</code></pre><p>这样我们就能拿到函数希望给我的反馈了，调用return后，函数立即中断并返回结果，即使后面还有语句也不再执行</p>
-<p>其实我们不写return语句，函数也会默认给我们返回<code>undefined</code></p>
-<h2 id="">声明提前</h2>
-<p>和变量的声明会前置一样，函数声明同样会前置，如果我们使用函数表达式那么规则和变量一样</p>
-<pre><code>console.log(fn); //undefined
+console.log(a.filter(function(e){
+  return e % 2 == 0;
+})); // [2, 4, 6]
 
-var fn = function(){}
-</code></pre><p>如果我们使用函数声明的方式，那么即使函数写在最后也可以在前面语句调用，前提是函数声明部分已经被下载到本地</p>
-<pre><code>fn(); // &quot;1&quot;
+console.log(a); //[1, 2, 3, 4, 5, 6]
+</code></pre><h2 id="reducefunctionv1-v2-value--reducerightfunctionv1-v2-value">.reduce(function(v1, v2), value) / .reduceRight(function(v1, v2), value)</h2>
+<p>遍历数组，调用回调函数，将数组元素组合成一个值，reduce从索引最小值开始，reduceRight反向，方法有两个参数</p>
+<ol>
+<li><p>回调函数：把两个值合为一个，返回结果</p>
+</li>
+<li><p>value，一个初始值,可选</p>
+</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>var a = new Array(1,2,3,4,5,6);
 
-function fn(){
-    console.log(&#39;1&#39;);
-}
-</code></pre><h2 id="">命名冲突</h2>
-<p>当在同一个作用域内定义了名字相同的变量和方法的话，无论其顺序如何，变量的赋值会覆盖方法的赋值</p>
-<pre><code>var fn = 3;
-function fn(){}
+console.log(a.reduce(function(v1, v2){
+    return v1 + v2;
+})); // 21
 
-console.log(fn); // 3
-</code></pre><p>当函数执行有命名冲突的时候，函数执行时载入顺序是 <code>变量、函数、参数</code> 看个例子</p>
-<pre><code>function fn(fn){
-  console.log(fn);
-
-  var fn = 3;
-  console.log(fn);
-}
-
-fn(10); //10 3
-</code></pre><p>道理我们懂了，但是看个例子</p>
-<pre><code>var fn = 1;
-
-function fn(fn){
-    console.log(fn);
-}
-
-console.log(fn); // 1，竟然不是说好的函数
-</code></pre><h2 id="">作用域</h2>
-<p>在大多数语言中都是用花括号<code>{}</code>来形成一个作用域，俗称块作用域，举个C语言的例子</p>
-<pre><code>{
-    int a = 2;
-}
-
-a++; //报错，a不存在
-</code></pre><p>这也是我们大多数人能接受的理解方式，但是在JavaScript中<code>{}</code>并没有带来块作用域，JavaScript的作用域是靠函数来形成的，也就是说一个函数内定义的变量函数外不可以访问</p>
-<pre><code>function fn(){
-  var a =1;
-
-  if(a &gt; 2){
-    var b = 3;
-  }
-  console.log(b);
-}
-
-fn(); // undefined
-
-console.log(a); // &quot;ReferenceError: a is not defined
-</code></pre><h3 id="var">var</h3>
-<p>在声明变量的时候需要<code>var</code>，这样声明的变量作用域才符合我们上面提到的规则，那么不写var会怎么样呢</p>
-<pre><code>    function fn(){
-      a = 1;
-    }
-
-    fn();
-
-    console.log(a); // 1
-</code></pre><p>可以看到不写var会声明一个全局的变量，这是我们在编程中应该要避免的，即使真的需要全局变量，也应该在最外层作用域使用var声明</p>
-<h3 id="functionprototypebind">Function.prototype.bind</h3>
-<p>ES5 为Function新增<code>bind</code>方法</p>
-<p>Function.prototype.bind返回一个把内部this设为thisArg的方法，读起来很绕，其实就是，返回一个新方法，这个方法内部的this是参数thisArg</p>
-<pre><code>// DOM
-&lt;div id=&quot;test&quot;&gt;Click Here&lt;/div&gt;
-
-// js
-var handler = {
-    message: &#39;This is a test&#39;,
-    click: function () {
-        alert(this.message);
-    }
-};
-
-document.getElementById(&#39;test&#39;).onclick = handler.click;
-</code></pre><p>如果这样绑定div的click事件处理程序，大家都会看出来，点击的时候弹出来的对话框内容是undefined，因为执行的时候this是window，我们需要一定的技巧才可以处理此事，达到预期效果，但是使用新添的bind我们可以轻松改变this</p>
-<pre><code>document.getElementById(&#39;test&#39;).onclick = handler.click.bind(handler);
-</code></pre><p>这样就可以达到我们预期效果了。</p>
-
+console.log(a.reduceRight(function(v1, v2){
+    return v1 - v2;
+}, 100)); // 79
+</code></pre>
                     
                     </section>
                 
@@ -1953,10 +1864,10 @@ document.getElementById(&#39;test&#39;).onclick = handler.click;
         </div>
 
         
-        <a href="../js/语句.html" class="navigation navigation-prev " aria-label="Previous page: 流程控制语句"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/数组.html" class="navigation navigation-prev " aria-label="Previous page: Array"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../js/闭包.html" class="navigation navigation-next " aria-label="Next page: 闭包"><i class="fa fa-angle-right"></i></a>
+        <a href="../js/math.html" class="navigation navigation-next " aria-label="Next page: Math"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.5" data-basepath=".." data-revision="1428466276269">
+    <div class="book" data-level="4.5" data-basepath=".." data-revision="1428496872330">
     
 
 <div class="book-summary">
@@ -710,13 +710,29 @@
         </li>
     
         
-        <li class="chapter " data-level="4.9.3" data-path="js/math.html">
+        <li class="chapter " data-level="4.9.3" data-path="js/es5array.html">
+            
+                
+                    <a href="../js/es5array.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.3.</b>
+                        
+                         ES5 数组拓展
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9.4" data-path="js/math.html">
             
                 
                     <a href="../js/math.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>4.9.3.</b>
+                            <b>4.9.4.</b>
                         
                          Math
                     </a>
@@ -726,13 +742,13 @@
         </li>
     
         
-        <li class="chapter " data-level="4.9.4" data-path="js/date.html">
+        <li class="chapter " data-level="4.9.5" data-path="js/date.html">
             
                 
                     <a href="../js/date.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>4.9.4.</b>
+                            <b>4.9.5.</b>
                         
                          Date
                     </a>
@@ -742,13 +758,13 @@
         </li>
     
         
-        <li class="chapter " data-level="4.9.5" data-path="js/json.html">
+        <li class="chapter " data-level="4.9.6" data-path="js/json.html">
             
                 
                     <a href="../js/json.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>4.9.5.</b>
+                            <b>4.9.6.</b>
                         
                          JSON
                     </a>
@@ -758,13 +774,13 @@
         </li>
     
         
-        <li class="chapter " data-level="4.9.6" data-path="js/正则基本语法.html">
+        <li class="chapter " data-level="4.9.7" data-path="js/正则基本语法.html">
             
                 
                     <a href="../js/正则基本语法.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>4.9.6.</b>
+                            <b>4.9.7.</b>
                         
                          RegExp 基本语法
                     </a>
@@ -774,13 +790,13 @@
         </li>
     
         
-        <li class="chapter " data-level="4.9.7" data-path="js/正则相关方法.html">
+        <li class="chapter " data-level="4.9.8" data-path="js/正则相关方法.html">
             
                 
                     <a href="../js/正则相关方法.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>4.9.7.</b>
+                            <b>4.9.8.</b>
                         
                          RegExp 相关方法
                     </a>
@@ -1752,7 +1768,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="">函数和作用域</h1>
 <p>JavaScript函数是指一个特定代码块，可能包含多条语句，可以通过名字来供其它语句调用以执行函数包含的代码语句。</p>
@@ -1909,6 +1925,24 @@ console.log(a); // &quot;ReferenceError: a is not defined
 
     console.log(a); // 1
 </code></pre><p>可以看到不写var会声明一个全局的变量，这是我们在编程中应该要避免的，即使真的需要全局变量，也应该在最外层作用域使用var声明</p>
+<h3 id="functionprototypebind">Function.prototype.bind</h3>
+<p>ES5 为Function新增<code>bind</code>方法</p>
+<p>Function.prototype.bind返回一个把内部this设为thisArg的方法，读起来很绕，其实就是，返回一个新方法，这个方法内部的this是参数thisArg</p>
+<pre><code>// DOM
+&lt;div id=&quot;test&quot;&gt;Click Here&lt;/div&gt;
+
+// js
+var handler = {
+    message: &#39;This is a test&#39;,
+    click: function () {
+        alert(this.message);
+    }
+};
+
+document.getElementById(&#39;test&#39;).onclick = handler.click;
+</code></pre><p>如果这样绑定div的click事件处理程序，大家都会看出来，点击的时候弹出来的对话框内容是undefined，因为执行的时候this是window，我们需要一定的技巧才可以处理此事，达到预期效果，但是使用新添的bind我们可以轻松改变this</p>
+<pre><code>document.getElementById(&#39;test&#39;).onclick = handler.click.bind(handler);
+</code></pre><p>这样就可以达到我们预期效果了。</p>
 
                     
                     </section>
