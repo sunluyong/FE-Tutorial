@@ -19,8 +19,6 @@
         
     
     
-    <link rel="next" href="../js/dom.html" />
-    
     
     <link rel="prev" href="../js/正则相关方法.html" />
     
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.10" data-basepath=".." data-revision="1428412041365">
+    <div class="book" data-level="4.10" data-basepath=".." data-revision="1428466276269">
     
 
 <div class="book-summary">
@@ -811,25 +809,25 @@
         </li>
     
         
-        <li class="chapter " data-level="4.11" data-path="js/dom.html">
+        <li class="chapter " data-level="4.11" >
             
-                
-                    <a href="../js/dom.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.11.</b>
-                        
-                         DOM
-                    </a>
-                
+            <span><b>4.11.</b> BOM</span>
             
             
         </li>
     
         
-        <li class="chapter " data-level="4.12" >
+        <li class="chapter " data-level="4.12" data-path="js/dom.html">
             
-            <span><b>4.12.</b> BOM</span>
+                
+                    <a href="../js/dom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.12.</b>
+                        
+                         DOM
+                    </a>
+                
             
             
         </li>
@@ -1518,12 +1516,12 @@
         <li class="chapter " data-level="12.3" >
             
                 
-                    <a target="_blank" href="http://docs.emmet.io/cheat-sheet/">
+                    <a target="_blank" href="http://www.html-js.com/article/2812">
                         <i class="fa fa-check"></i>
                         
                             <b>12.3.</b>
                         
-                         Emmet
+                         Chrome DevTools的15个使用技巧
                     </a>
                 
             
@@ -1534,12 +1532,12 @@
         <li class="chapter " data-level="12.4" >
             
                 
-                    <a target="_blank" href="http://regexper.com/">
+                    <a target="_blank" href="http://docs.emmet.io/cheat-sheet/">
                         <i class="fa fa-check"></i>
                         
                             <b>12.4.</b>
                         
-                         正则表达式可视化
+                         Emmet
                     </a>
                 
             
@@ -1550,12 +1548,12 @@
         <li class="chapter " data-level="12.5" >
             
                 
-                    <a target="_blank" href="http://caniuse.com/">
+                    <a target="_blank" href="http://regexper.com/">
                         <i class="fa fa-check"></i>
                         
                             <b>12.5.</b>
                         
-                         Can I Use
+                         正则表达式可视化
                     </a>
                 
             
@@ -1566,12 +1564,12 @@
         <li class="chapter " data-level="12.6" >
             
                 
-                    <a target="_blank" href="http://browserhacks.com/">
+                    <a target="_blank" href="http://caniuse.com/">
                         <i class="fa fa-check"></i>
                         
                             <b>12.6.</b>
                         
-                         Browser Hacks
+                         Can I Use
                     </a>
                 
             
@@ -1582,12 +1580,12 @@
         <li class="chapter " data-level="12.7" >
             
                 
-                    <a target="_blank" href="http://www.mcqyy.com/RunCode/php/">
+                    <a target="_blank" href="http://browserhacks.com/">
                         <i class="fa fa-check"></i>
                         
                             <b>12.7.</b>
                         
-                         PHP在线执行
+                         Browser Hacks
                     </a>
                 
             
@@ -1598,12 +1596,12 @@
         <li class="chapter " data-level="12.8" >
             
                 
-                    <a target="_blank" href="http://sassmeister.com/">
+                    <a target="_blank" href="http://www.mcqyy.com/RunCode/php/">
                         <i class="fa fa-check"></i>
                         
                             <b>12.8.</b>
                         
-                         Sass在线编译
+                         PHP在线执行
                     </a>
                 
             
@@ -1614,12 +1612,12 @@
         <li class="chapter " data-level="12.9" >
             
                 
-                    <a target="_blank" href="http://git.oschina.net/progit/">
+                    <a target="_blank" href="http://sassmeister.com/">
                         <i class="fa fa-check"></i>
                         
                             <b>12.9.</b>
                         
-                         Pro Git
+                         Sass在线编译
                     </a>
                 
             
@@ -1630,10 +1628,26 @@
         <li class="chapter " data-level="12.10" >
             
                 
-                    <a target="_blank" href="http://rogerdudler.github.io/git-guide/index.zh.html">
+                    <a target="_blank" href="http://git.oschina.net/progit/">
                         <i class="fa fa-check"></i>
                         
                             <b>12.10.</b>
+                        
+                         Pro Git
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.11" >
+            
+                
+                    <a target="_blank" href="http://rogerdudler.github.io/git-guide/index.zh.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.11.</b>
                         
                          git 简明教程
                     </a>
@@ -1796,9 +1810,9 @@ console.log(x);
 };
 </code></pre><p>整条语句使赋值语句，右值部分十个表达式，通过直接量构造出一个对象</p>
 <p><strong>函数声明或者函数直接量</strong></p>
-<pre><code>function fn1(){    
+<pre><code>function fn1(){
     //....
-}  
+}
 var fn2=function(){
     //...
 };
@@ -1856,7 +1870,7 @@ var y={a:1,b:2};
 </code></pre><p>所以返回值是[0]，同样{a:1}+2变为</p>
 <pre><code>{a:1};
 +2
-</code></pre><p>但是！为什么2+{a:1}就不一样了呢？这时加法运算符导致的，加号是左结合的，{}被解析为表达式（得是表达式相加嘛），根据<a href="http://www.cnblogs.com/dolphinX/p/3521118.html" target="_blank">数据类型</a>中知识对象{a:1}转换为NaN</p>
+</code></pre><p>但是！为什么2+{a:1}就不一样了呢？这是加法运算符导致的，加号是左结合的，{}被解析为表达式（得是表达式相加嘛），这时候整个表达式理解为字符串拼接</p>
 <h3 id="">小括号</h3>
 <p>在JavaScript中小括号有几种用法</p>
 <p><strong>函数声明或调用表达式参数表</strong></p>
@@ -1886,7 +1900,10 @@ for(var i=0;i&lt;len;i++){
 var jsonObj=eval(&#39;(&#39; + jsonStr + &#39;)&#39;);
 </code></pre><p>很多同学会问，为什么还要加上个小括号呢？像我们上面解释的大括号的作用，json字符串 &quot;{a:1,b:2}&quot; 这样的格式会被理解为语句，也就是传说中的label statement，语法树是这样的</p>
 <blockquote>
-<p>{<br>  a:1,<br>  b:2<br>}</p>
+<p>{
+  a:1,
+  b:2
+}</p>
 </blockquote>
 <p>上面提到过逗号运算符不能在label statement后面，所以会报错，而加上括号后由于分组运算符只能包含表达式，所以{}变成直接量语法，这样就是我们希望的内容了。</p>
 <h3 id="">立即调用的函数表达式</h3>
@@ -1961,10 +1978,8 @@ b[&#39;name&#39;];
         </div>
 
         
-        <a href="../js/正则相关方法.html" class="navigation navigation-prev " aria-label="Previous page: RegExp 相关方法"><i class="fa fa-angle-left"></i></a>
+        <a href="../js/正则相关方法.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: RegExp 相关方法"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../js/dom.html" class="navigation navigation-next " aria-label="Next page: DOM"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
