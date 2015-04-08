@@ -33,7 +33,7 @@
 
 # 参考
 
-[JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
+文章内容大量参考阮一峰老师的 [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)，不再单独提及
 
 其它在具体章节末尾
 <script>

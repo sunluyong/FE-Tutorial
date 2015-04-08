@@ -38,6 +38,7 @@
 	* 内置对象
 		* [包装对象](js/包装对象.md)
 		* [Array](js/数组.md)
+		* [ES5 数组拓展](js/es5array.md)
 		* [Math](js/math.md)
 		* [Date](js/date.md)
 		* [JSON](js/json.md)
