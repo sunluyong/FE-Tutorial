@@ -48,7 +48,7 @@
 	* [BOM](js/bom.md)
 	* [DOM](js/dom.md)
 	* [事件](js/event.md)
-	* [定时器]()
+	* [定时器](js/定时器.md)
 	* [模块化](js/模块化.md)
 	* [Ajax](js/ajax.md)
 	* [性能优化]()
