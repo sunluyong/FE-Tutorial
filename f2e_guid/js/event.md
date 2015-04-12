@@ -14,7 +14,7 @@ JavaScript和HTML的交互是通过事件实现的。JavaScript采用异步事�
 
 ## 事件流
 
-事件流描述的是从页面中接收事件的顺序，比如有两个嵌套的div，点击了内层的div，这时候是内层的div先出发click事件还是外层先触发？目前主要有三种模型
+事件流描述的是从页面中接收事件的顺序，比如有两个嵌套的div，点击了内层的div，这时候是内层的div先触发click事件还是外层先触发？目前主要有三种模型
 
 1. IE的事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的元素
 
@@ -22,7 +22,7 @@ JavaScript和HTML的交互是通过事件实现的。JavaScript采用异步事�
 
 3. DOM事件流：DOM2级事件规定事件流包括三个阶段，事件捕获阶段，处于目标阶段，事件冒泡阶段，首先发生的是事件捕获，为截取事件提供机会，然后是实际目标接收事件，最后是冒泡阶段
 
-这种分歧在日常生活中也很常见，举个例子，某个地方除了抢劫事件，我们有多种处理方式
+这种分歧在日常生活中也很常见，举个例子，某个地方出了抢劫事件，我们有多种处理方式
 
 1. 村里先发现，报告给乡里，乡里报告到县城，县城报告给市里。。。。
 2. 市里先知道这事儿，然后交代给县城怎么处理，县城交给到乡里处理，乡里交给村里处理
@@ -60,7 +60,7 @@ Opera、Firefox、Chrome、Safari都支持DOM事件流，IE不支持事件流，
 
 ## 事件处理程序
 
-我们也称之为事件侦听器（listener），事件就是用户或浏览器自身执行的某种动作。比如click、load、moseover等，都是事件类型（俗称事件名称），而响应某个事件的方法就叫做事件处理程序或者事件监听器
+我们也称之为事件侦听器（listener），事件就是用户或浏览器自身执行的某种动作。比如click、load、mouseover等，都是事件类型（俗称事件名称），而响应某个事件的方法就叫做事件处理程序或者事件监听器
 
 也就是我们需要提前定义好某些事件发生了该怎么处理，这个过程叫做绑定事件处理程序，了解了这些，我们看看如何给元素添加事件处理程序
 
@@ -110,7 +110,7 @@ Opera、Firefox、Chrome、Safari都支持DOM事件流，IE不支持事件流，
 DOM2级事件定义了两个方法用于处理指定和删除事件处理程序的操作：
 
 1. addEventListener
-2。 removeEventListener
+2. removeEventListener
 
 所有的DOM节点都包含这两个方法，并且它们都接受三个参数：
 
@@ -217,7 +217,7 @@ IE并不支持addEventListener和removeEventListener方法，而是实现了两�
 
 2. **第一个参数意义不同**，addEventListener第一个参数是事件类型（比如click，load），而attachEvent第一个参数指明的是事件处理函数名称（onclick，onload）
 
-3. **事件处理程序的作用域不相同**，addEventListener得作用域是元素本身，this是指的触发元素，而attachEvent事件处理程序会在全局变量内运行，this是window，所以刚才例子才会返回undefined，而不是元素id
+3. **事件处理程序的作用域不相同**，addEventListener的作用域是元素本身，this是指的触发元素，而attachEvent事件处理程序会在全局变量内运行，this是window，所以刚才例子才会返回undefined，而不是元素id
 
 4. **为一个事件添加多个事件处理程序时，执行顺序不同**，addEventListener添加会按照添加顺序执行，而attachEvent添加多个事件处理程序时顺序无规律(添加的方法少的时候大多是按添加顺序的反顺序执行的，但是添加的多了就无规律了)，所以添加多个的时候，不依赖执行顺序的还好，若是依赖于函数执行顺序，最好自己处理，不要指望浏览器
 
@@ -242,7 +242,7 @@ IE并不支持addEventListener和removeEventListener方法，而是实现了两�
 
 第四个问题目前还没有解决方案，需要用户自己注意，一般情况下，大家也不会添加很多事件处理程序
 
-试试这个方法感觉很不错，但是我们没有解决第三个问题，由于处理程序作用域不同，如果handler内有this之类操作，那么就会出错在IE下，实际上大多数函数都会有this操作
+试试这个方法感觉很不错，但是我们没有解决第三个问题，由于处理程序作用域不同，如果handler内有this之类操作，那么就会出错。在IE下，实际上大多数函数都会有this操作
 
 	function addEvent(node, type, handler) {
 	    if (!node) return false;
@@ -295,14 +295,14 @@ John Resig很巧妙地利用了闭包，看起来很不错。
 
 ## 事件对象
 
-在触发DOM上的某个事件的时候会产生一个事件对象event，这个对象包含着所有与事件有关的信息，包括产生事件的元素、事件类型等相关信息。所有浏览都支持event对象，但支持方式不同。
+在触发DOM上的某个事件的时候会产生一个事件对象event，这个对象包含着所有与事件有关的信息，包括产生事件的元素、事件类型等相关信息。所有浏览器都支持event对象，但支持方式不同。
 
 ### DOM中的事件对象
 
 兼容DOM的浏览器会产生一个event对象传入事件处理程序中。应用一下刚才我们写的addEvent方法
 
 	var btnClick = document.getElementById('btnClick');
-  addEvent(btnClick, 'click', handler);
+  	addEvent(btnClick, 'click', handler);
 
 点击button的时候我们可以看到弹出内容是click的弹窗
 
@@ -446,7 +446,7 @@ event对象包含与创建它的特定事件有关的属性和方法，触发事
 </td>
 </tr>
 <tr>
-<td valign="top" width="100">cancelBulle</td>
+<td valign="top" width="100">cancelBubble</td>
 <td valign="top" width="100">Boolean</td>
 <td valign="top" width="100">读/写</td>
 <td valign="top" width="668">默认为false，设置为true后可以取消事件冒泡</td>
@@ -514,7 +514,7 @@ event对象包含与创建它的特定事件有关的属性和方法，触发事
 
 6. resize：窗口或框架大小变化的时候在window上触发
 
-7. scrool：用户滚动带滚动条的元素时，在该元素上触发
+7. scroll：用户滚动带滚动条的元素时，在该元素上触发
 
 8. focus：页面或元素获得焦点时在window及相应元素上触发
 
