@@ -10,7 +10,7 @@ DOM 提供了一种表述形式将文档作为一个结构化的节点组以及�
 
 ### document 对象
 
-每个载入浏览器的HTML文档都会成为`document`对象。document对象包含了文档大基本信息，我们可以通过JavaScript对HTML页面中的所有元素进行访问、修改。
+每个载入浏览器的HTML文档都会成为`document`对象。document对象包含了文档的基本信息，我们可以通过JavaScript对HTML页面中的所有元素进行访问、修改。
 
 ## document对象常用属性
 
@@ -285,7 +285,7 @@ DocumentFragment对象是一个存在于内存的DOM片段，但是不属于当�
 
 	var newDiv = document.createElement("div");
 	var newContent = document.createTextNode("Hello");
-	newDiv.appendChild(newContent, newDiv.firstChild);
+	newDiv.insertBefore(newContent, newDiv.firstChild);
 
 #### replaceChild()
 
@@ -301,7 +301,7 @@ replaceChild()接受两个参数：要插入的元素和要替换的元素
 
 ### clone元素
 
-cloneChild()方法用于克隆元素，方法有一个布尔值参数，传入true的时候会深复制，也就是会复制元素及其子元素（IE还会复制其事件），false的时候只复制元素本身
+cloneNode()方法用于克隆元素，方法有一个布尔值参数，传入true的时候会深复制，也就是会复制元素及其子元素（IE还会复制其事件），false的时候只复制元素本身
 
 	node.cloneNode(true);
 
@@ -337,9 +337,9 @@ setAttribute()方法用于设置元素属性
 
 ### romoveAttribute()
 
-romoveAttribute()用于删除元素属性
+removeAttribute()用于删除元素属性
 
-	node.romoveAttribute('id');
+	node.removeAttribute('id');
 
 ### element.attributes
 
