@@ -7,26 +7,35 @@
 	<link rel="stylesheet" type="text/css" href="./style/app.css">
 </head>
 <body>
-
 	<div class="todo-container">
 		<h1>todos</h1>
-		<div class="todo-items-wrap">
-			<div class="todo-items-wrap-before"></div>
-			<input id="new-todo" placeholder="What needs to be done?"/>
+		<div class="todo-banner"></div>
+		<div class="todo-content">
+			<div class="todo-input">
+				<label class="todo-toggle"></label>
+				<input type="text" placeholder="What needs to be done?"/>
+			</div>
 			<ul class="todo-items">
-				<li class="todo-item-wrap">
-					<div class="todo-item">Go Shopping</div>
-				</li>
-				<li class="todo-item-wrap">
-					<div class="todo-item done">F2E Class</div>
-				</li>
-				<li class="todo-item-wrap">
-					<div class="todo-item">Homework</div>
-				</li>
+				<li class="todo-item"><span>Go Shopping</span></li>
+				<li class="todo-item done"><span>Go Shopping</span></li>
+				<li class="todo-item"><span>Go Shopping</span></li>
 			</ul>
+			<div class="seperator"></div>
+		</div>
+		<div class="todo-summary">
+			<div class="todo-left">
+				<span>2</span> items left
+			</div>
+			<div class="todo-filters">
+				<span>All</span>
+				<span class="current">Active</span>
+				<span>Completed</span>
+			</div>
+			<div class="todo-clear">
+				Clear completed
+			</div>
 		</div>
 	</div>
-
 	<div class="footer">
 		<div>Double-click to edit a todo</div>
 		<div>
