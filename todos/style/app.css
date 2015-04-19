@@ -38,7 +38,6 @@ h1{
 
 .todo-banner{
 	height: 15px;
-  z-index: 2;
   border-bottom: 1px solid #6c615c;
   background: #8d7d77;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(132, 110, 100, 0.8)),to(rgba(101, 84, 76, 0.8)));
