@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.12" data-basepath=".." data-revision="1428828861549">
+    <div class="book" data-level="4.12" data-basepath=".." data-revision="1428890238999">
     
 
 <div class="book-summary">
@@ -1864,7 +1864,7 @@
 <p><img src="http://www.w3school.com.cn/i/ct_htmltree.gif" alt=""></p>
 <p>要改变页面的某个东西，JavaScript就需要获得对HTML文档中所有元素进行访问的入口。这个入口，连同对 HTML 元素进行添加、移动、改变或移除的方法和属性，都是通过DOM来获得的</p>
 <h3 id="document-">document 对象</h3>
-<p>每个载入浏览器的HTML文档都会成为<code>document</code>对象。document对象包含了文档大基本信息，我们可以通过JavaScript对HTML页面中的所有元素进行访问、修改。</p>
+<p>每个载入浏览器的HTML文档都会成为<code>document</code>对象。document对象包含了文档的基本信息，我们可以通过JavaScript对HTML页面中的所有元素进行访问、修改。</p>
 <h2 id="document">document对象常用属性</h2>
 <p>document对象有很多属性来描述文档信息，介绍几个常用的</p>
 <h3 id="doctype">doctype</h3>
@@ -2047,7 +2047,7 @@ newDiv.appendChild(newContent);
 <p>在某个元素之前插入元素</p>
 <pre><code>var newDiv = document.createElement(&quot;div&quot;);
 var newContent = document.createTextNode(&quot;Hello&quot;);
-newDiv.appendChild(newContent, newDiv.firstChild);
+newDiv.insertBefore(newContent, newDiv.firstChild);
 </code></pre><h4 id="replacechild">replaceChild()</h4>
 <p>replaceChild()接受两个参数：要插入的元素和要替换的元素</p>
 <pre><code>newDiv.replaceChild(newElement, oldElement);
@@ -2055,7 +2055,7 @@ newDiv.appendChild(newContent, newDiv.firstChild);
 <p>删除元素使用removeChild()方法即可</p>
 <pre><code>parentNode.removeChild(childNode);
 </code></pre><h3 id="clone">clone元素</h3>
-<p>cloneChild()方法用于克隆元素，方法有一个布尔值参数，传入true的时候会深复制，也就是会复制元素及其子元素（IE还会复制其事件），false的时候只复制元素本身</p>
+<p>cloneNode()方法用于克隆元素，方法有一个布尔值参数，传入true的时候会深复制，也就是会复制元素及其子元素（IE还会复制其事件），false的时候只复制元素本身</p>
 <pre><code>node.cloneNode(true);
 </code></pre><h2 id="">属性操作</h2>
 <h3 id="getattribute">getAttribute()</h3>
@@ -2075,8 +2075,8 @@ var a = document.createAttribute(&quot;my_attrib&quot;);
 a.value = &quot;newVal&quot;;
 node.setAttributeNode(a);
 </code></pre><h3 id="romoveattribute">romoveAttribute()</h3>
-<p>romoveAttribute()用于删除元素属性</p>
-<pre><code>node.romoveAttribute(&#39;id&#39;);
+<p>removeAttribute()用于删除元素属性</p>
+<pre><code>node.removeAttribute(&#39;id&#39;);
 </code></pre><h3 id="elementattributes">element.attributes</h3>
 <p>当然上面的方法做的事情也可以通过类操作数组属性element.attributes来实现</p>
 <h3 id="htmlcollectionnodelist">HTMLCollection和NodeList</h3>
