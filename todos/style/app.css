@@ -58,13 +58,18 @@ h1{
 	position: absolute;
 	left: 15px;
 	top: 10px;
+  color: #d9d9d9;
+  cursor: pointer;
 	transform: rotate(90deg);
+}
+
+.todo-toggle.complete{
+	color: #737373;
 }
 
 .todo-toggle::before{
 	content: '»';
   font-size: 28px;
-  color: #d9d9d9;
 }
 
 input{
@@ -85,22 +90,65 @@ input{
 }
 
 .todo-item{
-  padding: 15px 60px 15px 15px;
+	position: relative;
+  padding: 15px 60px 15px 55px;
   color: #a9a9a9;
   font-size: 20px;
   border-bottom: dashed 1px #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.todo-item::before{
+.todo-item .status{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 18px;
+  left: 13px;
+  cursor: pointer;
+}
+
+.todo-item .status::before{
 	content: '✔';
 	color: #d9d9d9;
 	font-size: 20px;
-	padding-right: 20px;
 }
 
-.todo-item.done::before{
+.todo-item.done .status::before{
 	color: #85ada7;
 	text-shadow: 0 1px 0 #669991;
+}
+
+.todo-item .delete{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 15px;
+	right: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #a88a8a;
+	cursor: pointer;
+	font-size: 22px;
+	opacity: 0;
+	transform: scale(0.5);
+	transition: 0.5s all;
+}
+
+.todo-item:hover .delete{
+	opacity: 1;
+	transform: scale(1);
+}
+
+.todo-item .delete:hover{
+	text-shadow: 0 0 1px #000, 0 0 10px rgba(199, 107, 107, 0.8);
+	transform: scale(1.3);
+}
+
+.todo-item .delete::after{
+	content: '✖';
 }
 
 .todo-item.done span{
@@ -119,7 +167,6 @@ input{
   bottom: -31px;
   left: 0;
   height: 20px;
-  z-index: -5;
   text-align: center;
 }
 
@@ -142,16 +189,21 @@ input{
 	font-weight: bold;
 }
 
-.todo-filters span{
-	padding: 0 3px;
-	cursor: pointer;
-}
-
 .todo-filters{
 	display: inline-block;
 }
 
-.todo-filters .current{
+.switch{
+	cursor: pointer;
+	padding: 0 3px;
+	opacity: 0.8;
+}
+
+.switch:hover{
+	opacity: 1;
+}
+
+.switch.current{
 	font-weight: bold;
 }
 
