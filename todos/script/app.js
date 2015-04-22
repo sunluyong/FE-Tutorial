@@ -97,6 +97,7 @@ Todo.prototype.init = function(){
 				_todo.remove(items[id].ref);
 			}
 		}
+		_todo.refresh();
 	}, false);
 };
 
