@@ -60,29 +60,15 @@ Todo.prototype.init = function(){
 			switches[i].className = switches[i].className.replace(' current', '');
 		}
 
-		var items = _todo.items;
+		var view = 'all';
 
-		if(className.indexOf('all') > -1){
-			for(id in items){
-				items[id].show();
-			}
-		}else if(className.indexOf('active') > -1){
-			for(var id in items){
-				if(items[id].isActive){
-					items[id].show();
-				}else{
-					items[id].hide();
-				}
-			}
-		}else{
-			for(var id in items){
-				if(!items[id].isActive){
-					items[id].show();
-				}else{
-					items[id].hide();
-				}
-			}
+		if(className.indexOf('active') > -1){
+			view = 'active';
+		}else if(className.indexOf('complete') > -1){
+			view = 'complete';
 		}
+
+		_todo.switchView(view);
 
 		if(e.target.className.indexOf('current') === -1){
 			e.target.className += ' current';
