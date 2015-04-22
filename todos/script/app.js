@@ -16,16 +16,16 @@ Todo.prototype.init = function(){
 
 	//绑定添加item事件处理程序
 	var input = this.ref.querySelector('input');
-	document.addEventListener('keydown', function(e){
+	input.addEventListener('keydown', function(e){
 		//不是回车键，直接返回
 		if(e.keyCode !== 13) return;
 
-		// 输入框没有获得焦点或者内容为空，直接返回
-		if(!input.focus || input.value.trim() === '') return;
+		// 输入框者内容为空，直接返回
+		if(this.value.trim() === '') return;
 
-		_todo.add(input.value);
+		_todo.add(this.value);
 
-		input.value = '';
+		this.value = '';
 	}, false);
 
 	// 切换所有item状态
