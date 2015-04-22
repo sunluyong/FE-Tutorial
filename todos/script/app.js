@@ -110,7 +110,7 @@ Todo.prototype.add = function(text){
 
 Todo.prototype.remove = function(item_dom){
 	this.itemsWrap.removeChild(item_dom);
-	delete this.items['item_dom.id'];
+	delete this.items[item_dom.id];
 	this.refresh();
 };
 
