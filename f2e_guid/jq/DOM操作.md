@@ -158,12 +158,13 @@ Wrap an HTML structure around all elements in the set of matched elements.
 	$( ".inner" ).wrapAll( "<div class='new' />");
 
 看看结果
-	<div class="container">
-	  <div class="new">
-	    <div class="inner">Hello</div>
-	    <div class="inner">Goodbye</div>
-	  </div>
-	</div>
+
+		<div class="container">
+		  <div class="new">
+		    <div class="inner">Hello</div>
+		    <div class="inner">Goodbye</div>
+		  </div>
+		</div>
 
 ### .wrapInner(wrappingElement) / .wrapInner(function(index))
 
