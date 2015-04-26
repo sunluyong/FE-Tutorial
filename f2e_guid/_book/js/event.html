@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.13" data-basepath=".." data-revision="1428828861549">
+    <div class="book" data-level="4.13" data-basepath=".." data-revision="1428890238999">
     
 
 <div class="book-summary">
@@ -1866,7 +1866,7 @@
 <p>大家用灭火器灭火</p>
 <p>这就是事件处理程序，也就是事件发生后的处理动作，对应到浏览器的交互模型中，用户点击了一个按钮，这就是一个事件，也就是发生了用户点击按钮这么件事，对应的做法就是我们提前写好的事件处理程序执行</p>
 <h2 id="">事件流</h2>
-<p>事件流描述的是从页面中接收事件的顺序，比如有两个嵌套的div，点击了内层的div，这时候是内层的div先出发click事件还是外层先触发？目前主要有三种模型</p>
+<p>事件流描述的是从页面中接收事件的顺序，比如有两个嵌套的div，点击了内层的div，这时候是内层的div先触发click事件还是外层先触发？目前主要有三种模型</p>
 <ol>
 <li><p>IE的事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的元素</p>
 </li>
@@ -1875,7 +1875,7 @@
 <li><p>DOM事件流：DOM2级事件规定事件流包括三个阶段，事件捕获阶段，处于目标阶段，事件冒泡阶段，首先发生的是事件捕获，为截取事件提供机会，然后是实际目标接收事件，最后是冒泡阶段</p>
 </li>
 </ol>
-<p>这种分歧在日常生活中也很常见，举个例子，某个地方除了抢劫事件，我们有多种处理方式</p>
+<p>这种分歧在日常生活中也很常见，举个例子，某个地方出了抢劫事件，我们有多种处理方式</p>
 <ol>
 <li>村里先发现，报告给乡里，乡里报告到县城，县城报告给市里。。。。</li>
 <li>市里先知道这事儿，然后交代给县城怎么处理，县城交给到乡里处理，乡里交给村里处理</li>
@@ -1908,7 +1908,7 @@
 </table>
 
 <h2 id="">事件处理程序</h2>
-<p>我们也称之为事件侦听器（listener），事件就是用户或浏览器自身执行的某种动作。比如click、load、moseover等，都是事件类型（俗称事件名称），而响应某个事件的方法就叫做事件处理程序或者事件监听器</p>
+<p>我们也称之为事件侦听器（listener），事件就是用户或浏览器自身执行的某种动作。比如click、load、mouseover等，都是事件类型（俗称事件名称），而响应某个事件的方法就叫做事件处理程序或者事件监听器</p>
 <p>也就是我们需要提前定义好某些事件发生了该怎么处理，这个过程叫做绑定事件处理程序，了解了这些，我们看看如何给元素添加事件处理程序</p>
 <h3 id="html">HTML内联方式</h3>
 <p>元素支持的每个事件都可以使用一个相应事件处理程序同名的HTML属性指定。这个属性的值应该是可以执行的JavaScript代码，我们可以为一个button添加<code>click</code>事件处理程序</p>
@@ -1944,8 +1944,8 @@
 <h3 id="dom2">DOM2事件处理程序</h3>
 <p>DOM2级事件定义了两个方法用于处理指定和删除事件处理程序的操作：</p>
 <ol>
-<li>addEventListener
-2。 removeEventListener</li>
+<li>addEventListener</li>
+<li>removeEventListener</li>
 </ol>
 <p>所有的DOM节点都包含这两个方法，并且它们都接受三个参数：</p>
 <ol>
@@ -2038,7 +2038,7 @@
 </li>
 <li><p><strong>第一个参数意义不同</strong>，addEventListener第一个参数是事件类型（比如click，load），而attachEvent第一个参数指明的是事件处理函数名称（onclick，onload）</p>
 </li>
-<li><p><strong>事件处理程序的作用域不相同</strong>，addEventListener得作用域是元素本身，this是指的触发元素，而attachEvent事件处理程序会在全局变量内运行，this是window，所以刚才例子才会返回undefined，而不是元素id</p>
+<li><p><strong>事件处理程序的作用域不相同</strong>，addEventListener的作用域是元素本身，this是指的触发元素，而attachEvent事件处理程序会在全局变量内运行，this是window，所以刚才例子才会返回undefined，而不是元素id</p>
 </li>
 <li><p><strong>为一个事件添加多个事件处理程序时，执行顺序不同</strong>，addEventListener添加会按照添加顺序执行，而attachEvent添加多个事件处理程序时顺序无规律(添加的方法少的时候大多是按添加顺序的反顺序执行的，但是添加的多了就无规律了)，所以添加多个的时候，不依赖执行顺序的还好，若是依赖于函数执行顺序，最好自己处理，不要指望浏览器</p>
 </li>
@@ -2059,7 +2059,7 @@
 </code></pre><p>这样，首先我们解决了第一个问题参数个数不同，现在三个参数，采用事件冒泡阶段触发</p>
 <p>第二个问题也得以解决，如果是IE，我们给type添加上on</p>
 <p>第四个问题目前还没有解决方案，需要用户自己注意，一般情况下，大家也不会添加很多事件处理程序</p>
-<p>试试这个方法感觉很不错，但是我们没有解决第三个问题，由于处理程序作用域不同，如果handler内有this之类操作，那么就会出错在IE下，实际上大多数函数都会有this操作</p>
+<p>试试这个方法感觉很不错，但是我们没有解决第三个问题，由于处理程序作用域不同，如果handler内有this之类操作，那么就会出错。在IE下，实际上大多数函数都会有this操作</p>
 <pre><code>function addEvent(node, type, handler) {
     if (!node) return false;
     if (node.addEventListener) {
@@ -2104,12 +2104,12 @@
 }
 </code></pre><p>John Resig很巧妙地利用了闭包，看起来很不错。</p>
 <h2 id="">事件对象</h2>
-<p>在触发DOM上的某个事件的时候会产生一个事件对象event，这个对象包含着所有与事件有关的信息，包括产生事件的元素、事件类型等相关信息。所有浏览都支持event对象，但支持方式不同。</p>
+<p>在触发DOM上的某个事件的时候会产生一个事件对象event，这个对象包含着所有与事件有关的信息，包括产生事件的元素、事件类型等相关信息。所有浏览器都支持event对象，但支持方式不同。</p>
 <h3 id="dom">DOM中的事件对象</h3>
 <p>兼容DOM的浏览器会产生一个event对象传入事件处理程序中。应用一下刚才我们写的addEvent方法</p>
 <pre><code>var btnClick = document.getElementById(&#39;btnClick&#39;);
-</code></pre><p>  addEvent(btnClick, &#39;click&#39;, handler);</p>
-<p>点击button的时候我们可以看到弹出内容是click的弹窗</p>
+  addEvent(btnClick, &#39;click&#39;, handler);
+</code></pre><p>点击button的时候我们可以看到弹出内容是click的弹窗</p>
 <p>event对象包含与创建它的特定事件有关的属性和方法，触发事件的类型不同，可用的属性和方法也不同，但是所有事件都会包含</p>
 <table border="1" cellspacing="0" cellpadding="5">
 <tbody>
@@ -2237,7 +2237,7 @@ attachEvent(btnClick, handler);
 </td>
 </tr>
 <tr>
-<td valign="top" width="100">cancelBulle</td>
+<td valign="top" width="100">cancelBubble</td>
 <td valign="top" width="100">Boolean</td>
 <td valign="top" width="100">读/写</td>
 <td valign="top" width="668">默认为false，设置为true后可以取消事件冒泡</td>
@@ -2301,7 +2301,7 @@ function stopPropagation(e) {
 </li>
 <li><p>resize：窗口或框架大小变化的时候在window上触发</p>
 </li>
-<li><p>scrool：用户滚动带滚动条的元素时，在该元素上触发</p>
+<li><p>scroll：用户滚动带滚动条的元素时，在该元素上触发</p>
 </li>
 <li><p>focus：页面或元素获得焦点时在window及相应元素上触发</p>
 </li>

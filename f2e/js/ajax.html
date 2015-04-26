@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.16" data-basepath=".." data-revision="1428828861549">
+    <div class="book" data-level="4.16" data-basepath=".." data-revision="1428890238999">
     
 
 <div class="book-summary">
@@ -1965,7 +1965,7 @@ xhr.send();
 <li>头部字段的名称</li>
 <li>头部字段的值</li>
 </ol>
-<p>要想成功发送头部信息，必须在<strong>调用open方法之后</strong>，<strong>调用send方法之前</strong>掉用setRequestHeader方法。</p>
+<p>要想成功发送头部信息，必须在<strong>调用open方法之后</strong>，<strong>调用send方法之前</strong>调用setRequestHeader方法。</p>
 <pre><code>function getTime() {
     var xhr = createXHR();
     xhr.onreadystatechange = function () {
@@ -1989,7 +1989,7 @@ xhr.send();
 </li>
 </ol>
 <h2 id="getpost">GET和POST请求</h2>
-<p>GET请求时最常见的请求类型，用于向服务器查询信息，必要时可以将查询字符串参数放在URL尾部发送给服务器，如果参数有特殊字符必须正确编码。我们上面使用的例子都是使用GET请求，非常简单，向服务器询问数据，然后处理数据。</p>
+<p>GET请求是最常见的请求类型，用于向服务器查询信息，必要时可以将查询字符串参数放在URL尾部发送给服务器，如果参数有特殊字符必须正确编码。我们上面使用的例子都是使用GET请求，非常简单，向服务器询问数据，然后处理数据。</p>
 <p>POST请求用于把数据作为主体向服务器提交，POST请求主体可以包含多种格式数据，在open方法第一个参数传入”POST”就可以初始化一个POST请求。发送POST请求第二步就是向send方法传输数据参数，参数可以是xml或者字符串，json等。</p>
 <h2 id="">最后</h2>
 <p>关于Ajax的总结就到这里，本文介绍的是纯JavaScript使用Ajax很是繁琐复杂，很多优秀JavaScript框架都对JavaScript操作Ajax做了很好封装处理，使用起来非常方便，最出名的是jQuery的ajax了，微软也对Ajax做了很好的封装处理，使其在ASP.NET页面中使用起来相当简单方便，相关知识可以看看<a href="http://www.cnblogs.com/dolphinX/p/3242408.html" target="_blank">ASP.NET中使用Ajax</a>。</p>
