@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery demo</title>
+</head>
+<body>
+<div class="container">
+
+	<input id="test" class="iiii" type="text" value="123" />
+	<input id="test2" class="iiii" type="text" value="435435s" />
+
+	<div class="wrap">
+		<ul>
+			<li class="test">1</li>
+			<li class="test">2</li>
+			<li class="test current">3</li>
+			<li class="test aaa">4</li>
+			<li class="test">5</li>
+			<li class="test aaa">6</li>
+		</ul>
+	</div>
+</div>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+
+	<script>
+		$('li').addClass(function(i, e){
+			return 'item' + i;
+		});
+	</script>
+</body>
+</html>

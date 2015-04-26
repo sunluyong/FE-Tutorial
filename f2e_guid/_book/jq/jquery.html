@@ -19,6 +19,8 @@
         
     
     
+    <link rel="next" href="../jq/获取元素.html" />
+    
     
 
         
@@ -30,7 +32,7 @@
 
 
         
-    <div class="book" data-level="5" data-basepath=".." data-revision="1428890238999">
+    <div class="book" data-level="5" data-basepath=".." data-revision="1429970601426">
     
 
 <div class="book-summary">
@@ -949,41 +951,81 @@
                 
     
         
-        <li class="chapter " data-level="5.1" >
+        <li class="chapter " data-level="5.1" data-path="jq/获取元素.html">
             
-            <span><b>5.1.</b> 选择器</span>
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.2" >
-            
-            <span><b>5.2.</b> DOM操作</span>
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.3" >
-            
-            <span><b>5.3.</b> 工具函数</span>
+                
+                    <a href="../jq/获取元素.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         选择器
+                    </a>
+                
             
             
         </li>
     
         
-        <li class="chapter " data-level="5.4" >
+        <li class="chapter " data-level="5.2" data-path="jq/DOM操作.html">
             
-            <span><b>5.4.</b> 动画</span>
+                
+                    <a href="../jq/DOM操作.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                         DOM操作
+                    </a>
+                
             
             
         </li>
     
         
-        <li class="chapter " data-level="5.5" >
+        <li class="chapter " data-level="5.3" data-path="jq/属性&amp;CSS.html">
             
-            <span><b>5.5.</b> 异步和Ajax</span>
+                
+                    <a href="../jq/属性&amp;CSS.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                         属性&amp;CSS
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.4" data-path="jq/核心方法.html">
+            
+                
+                    <a href="../jq/核心方法.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                         常用函数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.5" data-path="jq/事件.html">
+            
+                
+                    <a href="../jq/事件.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                         事件处理
+                    </a>
+                
             
             
         </li>
@@ -991,7 +1033,23 @@
         
         <li class="chapter " data-level="5.6" >
             
-            <span><b>5.6.</b> jQuery简单实现</span>
+            <span><b>5.6.</b> 动画</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.7" >
+            
+            <span><b>5.7.</b> 异步和Ajax</span>
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.8" >
+            
+            <span><b>5.8.</b> jQuery简单实现</span>
             
             
         </li>
@@ -1037,7 +1095,15 @@
         
         <li class="chapter " data-level="6.3" >
             
-            <span><b>6.3.</b> Dialog</span>
+                
+                    <a target="_blank" href="http://samaritan89.github.io/projects/dialog/demo.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                         Dialog
+                    </a>
+                
             
             
         </li>
@@ -1852,9 +1918,96 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_23">
+                    <section class="normal" id="section-gitbook_24">
                     
                         <h1 id="jquery">jquery</h1>
+<p>Jquery是继prototype之后又一个优秀的Javascript库。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器，但1.x继续维护。</p>
+<p>jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。</p>
+<p>jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需要定义id即可。</p>
+<p>jquery的流行造成了</p>
+<ol>
+<li><p>移动端常用的库zepto API完全兼容jquery，其实就是去掉了很多浏览器兼容处理、功能精简的jquery，动画库velocity.js API和jQuery兼容</p>
+</li>
+<li><p>jquery UI 提供了很多依托于jquery的组件</p>
+</li>
+<li><p>大名鼎鼎的BootStrap也是要求jquery的</p>
+</li>
+</ol>
+<h2 id="jquery-">jQuery 对象</h2>
+<p>jQuery对使用者仅仅暴露了一个对象<code>$</code>，该对象提供了很多方法供我们使用</p>
+<h2 id="">特点</h2>
+<ol>
+<li><p>强大的选择器</p>
+</li>
+<li><p>方便的操作DOM</p>
+</li>
+<li><p>较好的浏览器兼容性</p>
+</li>
+<li><p>方便的Ajax和事件操作</p>
+</li>
+<li><p>链式调用</p>
+</li>
+<li><p>方便的处理动画</p>
+</li>
+</ol>
+<p>&nbsp;</p>
+<pre><code>$(&#39;div .current&#39;);
+
+$(&#39;li&#39;).append(dom).css(&#39;opacity&#39;, &#39;0.2&#39;);
+
+$(&#39;span&#39;).css({
+    color: &#39;#333&#39;,
+    background: &#39;#fff&#39;,
+    border: &#39;solid 1px #333&#39;
+</code></pre><h2 id="jquerydom">jQuery对象与DOM对象</h2>
+<p>通过jQuery获取出来的对象有三个特点</p>
+<ol>
+<li><p>永远不可能为空对象，判断是否没有结果需要判断其<code>length</code>属性</p>
+</li>
+<li><p>即使是结果仅有一个，获取出的对象内组织仍为数组</p>
+</li>
+<li><p>使用jQuery获取的对象并不是DOM对象，而是对DOM对象的一层封装，并为其添加了jQuery的一些属性和方法，方便操作，我们称为jQuery对象</p>
+</li>
+</ol>
+<h3 id="jquerydom">jQuery对象转DOM对象</h3>
+<pre><code>var jqObj = $(&#39;div&#39;); //获取页面所有div元素，结果为jQuery对象结果集
+
+var dom = jqObj[index]; //得出的就是index索引值对应的DOM对象
+
+var dom = jqObj.get(index); //和上面写法结果一毛一样
+
+//想获取特定的jquery对象，又不想转换为DOM对象
+
+var jqObjSe = jqObj.eq(index);
+</code></pre><h3 id="domjquery">DOM对象转换为jQuery对象</h3>
+<pre><code>var dom = document.getElementById(&#39;test&#39;);
+
+var jqObj = $(dom);
+});
+
+$.ajax({
+    type: &#39;post&#39;,
+    url: url,
+    data: {
+        name: &#39;Byron&#39;,
+        age: 24
+    }
+}).done(function(data){
+    console.log(data);
+});
+
+$(&#39;div&#39;).on(&#39;click&#39;, function(e){
+    console.log(this);
+});
+</code></pre><h2 id="jquery">使用jquery</h2>
+<ol>
+<li><p>下载jquery文件</p>
+</li>
+<li><p>在页面通过<code>script</code>标签引入文件</p>
+</li>
+<li><p>开始使用<code>$</code>对象</p>
+</li>
+</ol>
 
                     
                     </section>
@@ -1865,6 +2018,8 @@
         </div>
 
         
+        
+        <a href="../jq/获取元素.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 选择器"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

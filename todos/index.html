@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="./style/app.css">
 </head>
 <body>
-	<div class="todo-container">
+	<div id="test" class="todo-container">
 		<h1>todos</h1>
 		<div class="todo-banner"></div>
 		<div class="todo-content">
@@ -16,23 +16,21 @@
 				<input type="text" placeholder="What needs to be done?"/>
 			</div>
 			<ul class="todo-items">
-				<li class="todo-item"><span>Go Shopping</span></li>
-				<li class="todo-item done"><span>Go Shopping</span></li>
-				<li class="todo-item"><span>Go Shopping</span></li>
+
 			</ul>
 			<div class="seperator"></div>
 		</div>
 		<div class="todo-summary">
 			<div class="todo-left">
-				<span>2</span> items left
+				<span class="active-num">0</span> items left
 			</div>
 			<div class="todo-filters">
-				<span>All</span>
-				<span class="current">Active</span>
-				<span>Completed</span>
+				<span class="switch switch-all current">All</span>
+				<span class="switch switch-active">Active</span>
+				<span class="switch switch-complete">Completed</span>
 			</div>
 			<div class="todo-clear">
-				Clear completed
+				Clear completed <span class="complete-wrap">(<label class="complete-num">0</label>)</span>
 			</div>
 		</div>
 	</div>
@@ -42,5 +40,12 @@
 			Created by <a href="https://github.com/Samaritan89">Samaritan89</a>
 		</div>
 	</div>
+
+	<script type="text/javascript" src="./script/app2.js"></script>
+	<script>
+		var todo = new Todo('test');
+		todo.add('test');
+		todo.add('test2');
+	</script>
 </body>
 </html>

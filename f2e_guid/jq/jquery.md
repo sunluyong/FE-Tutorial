@@ -16,7 +16,7 @@ jquery的流行造成了
 
 ## jQuery 对象
 
-jQuery对使用者仅仅暴露了一个对象`$`，改对象提供了很多方法供我们使用
+jQuery对使用者仅仅暴露了一个对象`$`，该对象提供了很多方法供我们使用
 
 ## 特点
 
@@ -42,6 +42,34 @@ jQuery对使用者仅仅暴露了一个对象`$`，改对象提供了很多方�
 		color: '#333',
 		background: '#fff',
 		border: 'solid 1px #333'
+
+## jQuery对象与DOM对象
+
+通过jQuery获取出来的对象有三个特点
+
+1. 永远不可能为空对象，判断是否没有结果需要判断其`length`属性
+
+2. 即使是结果仅有一个，获取出的对象内组织仍为数组
+
+3. 使用jQuery获取的对象并不是DOM对象，而是对DOM对象的一层封装，并为其添加了jQuery的一些属性和方法，方便操作，我们称为jQuery对象
+
+### jQuery对象转DOM对象
+
+	var jqObj = $('div'); //获取页面所有div元素，结果为jQuery对象结果集
+
+	var dom = jqObj[index]; //得出的就是index索引值对应的DOM对象
+
+	var dom = jqObj.get(index); //和上面写法结果一毛一样
+
+	//想获取特定的jquery对象，又不想转换为DOM对象
+
+	var jqObjSe = jqObj.eq(index);
+
+### DOM对象转换为jQuery对象
+
+	var dom = document.getElementById('test');
+
+	var jqObj = $(dom);
 	});
 
 	$.ajax({
