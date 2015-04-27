@@ -4,7 +4,7 @@
 
 ### .val([value])
 
-这是一个读写双用的方法，用来处理input的value，当方法没有参数的时候返回input的value值，当传递了一个参数的时候，方法修改input的value值位参数值
+这是一个读写双用的方法，用来处理input的value，当方法没有参数的时候返回input的value值，当传递了一个参数的时候，方法修改input的value值为参数值
 
 	$('input').val()
 
@@ -35,7 +35,7 @@ Set one or more attributes for the set of matched elements.
 
 	$( "#greatphoto" ).attr( "title", function( i, val ) {
 	  return val + " - photo by Kelly Clark";
-	});
+	});//这里用id选择符举例是不是function永远最多迭代一次？用类选择符是不是更好些？
 
 ### .removeAttr()
 

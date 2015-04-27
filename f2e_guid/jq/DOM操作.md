@@ -205,7 +205,7 @@ Remove the parents of the set of matched elements from the DOM, leaving the matc
 这是一个读写两用的方法，用于获取/修改元素的`innerHTML`
 
 1. 当没有传递参数的时候，返回元素的`innerHTML`
-2. 当传递了一个string参数的时候，修改元素的innerHTML位参数值
+2. 当传递了一个string参数的时候，修改元素的innerHTML为参数值
 
 看个例子
 
@@ -215,7 +215,7 @@ Remove the parents of the set of matched elements from the DOM, leaving the matc
 
 后续这种读写两用的方法很多，原理都类似
 
-1. 如果结果是多个进行赋值操作的时候会给没个结果都赋值
+1. 如果结果是多个进行赋值操作的时候会给每个结果都赋值
 2. 如果结果多个，获取值的时候，返回结果集中的第一个对象的相应值
 
 ## text()
