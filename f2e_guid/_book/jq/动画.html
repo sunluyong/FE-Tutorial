@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>CSS | 关于本书</title>
+        <title>动画 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../css/语法.html" />
     
-    
-    <link rel="prev" href="../http://wowubuntu.com/markdown/" />
+    <link rel="prev" href="../jq/事件.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="3" data-basepath=".." data-revision="1430464767305">
+    <div class="book" data-level="5.6" data-basepath=".." data-revision="1430464767305">
     
 
 <div class="book-summary">
@@ -248,7 +246,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3" data-path="css/css.html">
+        <li class="chapter " data-level="3" data-path="css/css.html">
             
                 
                     <a href="../css/css.html">
@@ -1033,7 +1031,7 @@
         </li>
     
         
-        <li class="chapter " data-level="5.6" data-path="jq/动画.html">
+        <li class="chapter active" data-level="5.6" data-path="jq/动画.html">
             
                 
                     <a href="../jq/动画.html">
@@ -1928,68 +1926,134 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_12">
+                    <section class="normal" id="section-gitbook_26">
                     
-                        <h1 id="css">CSS</h1>
-<p>CSS全称是 Cascading Style Sheets，翻译过来就是层叠样式表</p>
-<h2 id="">是什么</h2>
-<ol>
-<li><p>样式表
- 所谓样式就是我们看到的HTML长什么样子，比如你我他都是人，人就可以称为我们的结构，但是大家头发有长短，肤色有黑白，相貌有美丑，这就是外观，也就是样式，CSS用来描述HTML长什么样子</p>
-</li>
-<li><p>层叠
- 层叠指的是样式的优先级，当作用于相同元素的CSS规则产生冲突时以优先级高的为准</p>
+                        <h1 id="jquery-">jQuery 动画</h1>
+<h2 id="">基础</h2>
+<h3 id="hideduration--easing--complete-">.hide([duration ] [,easing ] [,complete ])</h3>
+<p>用于隐藏元素，没有参数的时候等同于直接设置<code>display</code>属性</p>
+<pre><code>.css(&#39;display&#39;, &#39;none&#39;)
+</code></pre><ol>
+<li>duration：动画持续多久</li>
+<li>easing：表示过渡使用哪种缓动函数，jQuery自身提供&quot;linear&quot; 和 &quot;swing&quot;</li>
+<li>complete：在动画完成时执行的函数</li>
+</ol>
+<p>看几个例子</p>
+<pre><code>$(&#39;.target&#39;).hide()；
+
+$(&#39;#book&#39;).hide(300, function() {
+alert(&#39;Animation complete.&#39;);
+</code></pre><p>  });</p>
+<p>  $(&#39;#book&#39;).hide(300, &#39;linear&#39;, function() {
+    alert(&#39;Animation complete.&#39;);
+  });</p>
+<h3 id="show-duration---easing---complete--">.show( [duration ] [, easing ] [, complete ] )</h3>
+<p>用于显示元素，用法和<code>hide</code>类似</p>
+<h3 id="toggle-duration---easing---complete--">.toggle( [duration ] [, easing ] [, complete ] )</h3>
 <blockquote>
-<p>CSS层叠是指CSS样式在针对同一元素配置同一属性时，依据层叠规则（权重）来处理冲突，选择应用权重高的CSS选择器所指定的属性，一般也被描述为权重高的覆盖权重低的，因此也称作层叠。每个CSS选择器都会有一个权重（行内1000，id100，class10，tag1、可以这样认为），当两个选择器同时配置同一元素的同一属性时（比如一个设置color：red，另一个color：black），就会产生冲突，而解决冲突的方案就是CSS选择器的权重，权重高的来覆盖权重低的。</p>
+<p>事件处理套件也有一个名为.toggle()方法。哪一个被调用取决于传递的参数的设置</p>
 </blockquote>
+<p>用来切换元素的隐藏、显示，类似于<code>toggleClass</code>，用法和<code>show</code>、<code>hide</code>类似</p>
+<h2 id="">渐变</h2>
+<h3 id="fadein-duration---easing---complete--">.fadeIn( [duration ] [, easing ] [, complete ] )</h3>
+<p>通过淡入的方式显示匹配元素，参数含义和上面相同</p>
+<pre><code>$(&#39;#book&#39;).fadeIn(&#39;slow&#39;, function() {
+// Animation complete
+</code></pre><p>  });</p>
+<h3 id="fadeout-duration---easing---complete--">.fadeOut( [duration ] [, easing ] [, complete ] )</h3>
+<p>通过淡出的方式隐藏匹配元素</p>
+<pre><code>$(&#39;#book&#39;).fadeOut(&#39;slow&#39;, function() {
+// Animation complete.
+</code></pre><p>  });</p>
+<h3 id="fadeto-duration-opacity--easing---complete--">.fadeTo( duration, opacity [, easing ] [, complete ] )</h3>
+<p>调整匹配元素的透明度，方法通过匹配元素的不透明度做动画效果</p>
+<pre><code>$(&#39;#book&#39;).fadeTo(&#39;slow&#39;, 0.5, function() {
+  // Animation complete.
+});
+</code></pre><h3 id="fadetoggle-duration---easing---complete--">.fadeToggle( [duration ] [, easing ] [, complete ] )</h3>
+<p>通过匹配的元素的不透明度动画，来显示或隐藏它们，方法执行匹配元素的不透明度动画。当被可见元素调用时，元素不透明度一旦达到0，display样式属性设置为none ，所以元素不再影响页面的布局。</p>
+<pre><code>$(&quot;button:first&quot;).click(function() {
+  $(&quot;p:first&quot;).fadeToggle(&quot;slow&quot;, &quot;linear&quot;);
+});
+</code></pre><h2 id="">滑动</h2>
+<h3 id="slidedown-duration---easing---complete--">.slideDown( [duration ] [, easing ] [, complete ] )</h3>
+<p>用滑动动画显示一个匹配元素，方法将给匹配元素的高度的动画，这会导致页面的下面部分滑下去，弥补了显示的方式</p>
+<pre><code>$(&#39;#book&#39;).slideDown(&#39;slow&#39;, function() {
+    // Animation complete.
+});
+</code></pre><h3 id="slideup-duration---easing---complete--">.slideUp( [duration ] [, easing ] [, complete ] )</h3>
+<p>用滑动动画隐藏一个匹配元素，方法将给匹配元素的高度的动画，这会导致页面的下面部分滑上去，当一个隐藏动画后，高度值达到0的时候，display 样式属性被设置为none，以确保该元素不再影响页面布局。 display 样式属性将被设置为none，以确保该元素不再影响页面布局。</p>
+<pre><code>$(&#39;#book&#39;).slideUp(&#39;slow&#39;, function() {
+    // Animation complete.
+});
+</code></pre><h3 id="slidetoggle-duration---easing---complete--">.slideToggle( [duration ] [, easing ] [, complete ] )</h3>
+<p>用滑动动画显示或隐藏一个匹配元素，方法将给匹配元素的高度的动画，这会导致页面中，在这个元素下面的内容往下或往上滑。display属性值保存在jQuery的数据缓存中，所以display可以方便以后可以恢复到其初始值。</p>
+<p>如果一个元素的display属性值为inline，然后是隐藏和显示，这个元素将再次显示inline。当一个隐藏动画后，高度值达到0的时候，display 样式属性被设置为none，以确保该元素不再影响页面布局。</p>
+<pre><code>$(&#39;#clickme&#39;).click(function() {
+ $(&#39;#book&#39;).slideToggle(&#39;slow&#39;, function() {
+ // Animation complete.
+ });
+});
+</code></pre><h2 id="">自定义</h2>
+<p>上面几个简单的动画不能满足需求的时候，jquery提供了自定义动画行为的方法</p>
+<h3 id="animate-properties--duration---easing---complete--">.animate( properties [, duration ] [, easing ] [, complete ] )</h3>
+<p>properties是一个CSS属性和值的对象,动画将根据这组对象移动。</p>
+<pre><code>$(&#39;#clickme&#39;).click(function() {
+  $(&#39;#book&#39;).animate({
+    opacity: 0.25,
+    left: &#39;+=50&#39;,
+    height: &#39;toggle&#39;
+  }, 5000, function() {
+    // Animation complete.
+  });
+});
+</code></pre><h3 id="animate-properties-options-">.animate( properties, options )</h3>
+<p>options是一组包含动画选项的值的集合。 常用的选项:</p>
+<ol>
+<li>duration (default: 400)：一个字符串或者数字决定动画将运行多久。默认值: &quot;normal&quot;， 三种预定速度的字符串(&quot;slow&quot;, &quot;normal&quot;, 或 &quot;fast&quot;或表示动画时长的毫秒数值(如：1000) ）</li>
+<li>easing (default: swing)：一个字符串，表示过渡使用哪种缓动函数。jQuery自身提供&quot;linear&quot; 和 &quot;swing&quot;，其他效果可以使用jQuery Easing Plugin插件</li>
+<li>step：每个动画元素的每个动画属性将调用的函数。这个函数为修改Tween 对象提供了一个机会来改变设置中得属性值。</li>
+<li><p>complete：在动画完成时执行的函数</p>
+<p> $(&#39;li&#39;).animate({
+   opacity: .5,
+   height: &#39;50%&#39;
+ },
+ {
+   step: function(now, fx) {</p>
+<pre><code> var data = fx.elem.id + &#39; &#39; + fx.prop + &#39;: &#39; + now;
+ $(&#39;body&#39;).append(&#39;&lt;div&gt;&#39; + data + &#39;&lt;/div&gt;&#39;);
+</code></pre><p>   }
+ });</p>
 </li>
 </ol>
-<h2 id="">意义</h2>
-<p>把页面的结构和样式分离</p>
-<p>以前的页面HTML和CSS是没有区分的，都是HTML，这样的后果是有甚多标签并没有任何语义，只是表示特殊的样式，同时标签为了样式的规定的属性层出不穷，这就是<strong>内容</strong>和<strong>表现</strong>的杂糅</p>
-<p>在新式的页面中HTML只表示结构和内容，样式部分交给CSS控制，做到了内容和表现分离，方便维护</p>
-<blockquote>
-<p>网页的读者和作者都可以使用CSS来决定文件的颜色、字体、排版等显示特性。CSS最主要的目的是将文件的内容与显示分隔开来。这有许多好处：</p>
-<ol>
-<li>文件的可读性加强</li>
-<li>文件的结构更加灵活</li>
-<li>作者和读者可以自己决定文件的显示</li>
-<li>文件的结构简化了</li>
-</ol>
-<p>另外，在HTML中：一个整个网站或其中一部分网页的显示信息被集中在一个地方，要改变它们很方便
-不同的读者可以有不同的样式，比如有的读者需要字体比较大
-HTML文件本身的范围变小了，它的结构简单了，它不需要包含显示的信息
-CSS还可以控制其他参数，例如声音（假如浏览器有阅读功能的话）或给视障者用的感受装置</p>
-</blockquote>
-<h2 id="">引入方式</h2>
-<p>CSS的引入一般有三种</p>
-<h3 id="">外部资源引入</h3>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;xxx.css&quot;&gt;
-</code></pre><h3 id="style">style标签</h3>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-</code></pre><p>   div{
-        color: red;
-        font-size:12px;
-     }
-    </style></p>
-<h3 id="style">内联style属性</h3>
-<pre><code>&lt;div style=&quot;color:red; font-size:12px;&quot;&gt;123&lt;/div&gt;
-</code></pre><h2 id="">分辨率和像素</h2>
-<p>像素即<code>px</code>，是屏幕中最小的点。像素不是物理长度，在不同分辨率的设备上物理长度不同</p>
-<pre><code>    分辨率 = 屏幕X轴上像素值 * Y轴上的像素值
-</code></pre><p> 屏幕如果是1024×768，也就是说水平方向上有1024个像素点，垂直方向上有768个像素点</p>
-<p>在同一台设备上，保证可视画面尺寸不变的情况下，像素点的大小，会随着分辨率的调整而改变。分辨率降低，像素点就变大，图片质量越低。分辨率降高，像素点就变小，图片也越清晰</p>
-<h2 id="">单位</h2>
-<ol>
-<li>px：像素</li>
-<li>pt：物理单位，1/72英寸，几乎没人用了</li>
-<li>em：即％，是相对单位，最初是指字母M的宽度，故名em，按照默认的字体大小16px，1em = 16px，0.5em = 8px</li>
-</ol>
-<p><a href="http://www.cnblogs.com/dolphinX/p/3237054.html" target="_blank">Html 字体大小单位 px em pt</a></p>
-<h2 id="">继承特性</h2>
-<p>CSS的一个主要特征就是继承，它是依赖于祖先-后代的关系的。继承是一种机制，它允许样式不仅可以应用于某个特定的元素，还可以应用于它的后代。例如一个BODY定义了的颜色值也会应用到段落的文本中</p>
-<p>首先，有些属性是不能继承的。这没有任何原因，只是因为它就是这么设置的。举个例子来说：border属性，大家都知道，border属性是用来设置元素的边框的，它就没有继承性。多数边框类属性，比如象Padding（补白），Margin（边界），背景和边框的属性都是不能继承的</p>
-<p><a href="http://www.cnphp.info/css-style-inheritance.html" target="_blank">CSS样式表继承详解</a></p>
+<h3 id="">高级用法</h3>
+<pre><code>$(&#39;#clickme&#39;).click(function() {
+  $(&#39;#book&#39;).animate({
+    width: &#39;toggle&#39;,
+    height: &#39;toggle&#39;
+  }, {
+    duration: 5000,
+    specialEasing: {
+      width: &#39;linear&#39;,
+      height: &#39;easeOutBounce&#39;
+    },
+    complete: function() {
+      $(this).after(&#39;&lt;div&gt;Animation complete.&lt;/div&gt;&#39;);
+    }
+  });
+});
+</code></pre><h3 id="stop-clearqueue---jumptoend--">.stop( [clearQueue ] [, jumpToEnd ] )</h3>
+<p>停止匹配元素当前正在运行的动画。</p>
+<p>当一个元素调用.stop()，当前正在运行的动画（如果有的话）立即停止。如果，例如，一个元素用.slideUp()隐藏的时候，调用.stop()，该元素依然会有一部分是处于显示状态的。由于元素上的动画尚未执行完成，所以动画完成时执行的回调函数是不会被调用的。</p>
+<p>如果同一元素调用多个动画方法，尚未被执行的动画被放置在元素的效果队列中。这些动画不会开始，直到第一个完成。当调用.stop()的时候，队列中的下一个动画立即开始。如果clearQueue参数提供true值,那么在队列中的动画其余被删除并永远不会运行。</p>
+<p>如果提供jumpToEnd参数，并且值为true时，当前动画将停止，但该元素上的 CSS 属性会被立刻修改成动画的目标值。用上面的.slideUp()为例子,该元素将立即隐藏。如果提供回调函数将立即被调用。</p>
+<pre><code>$(&#39;#hoverme-stop-2&#39;).hover(function() {
+  $(this).find(&#39;img&#39;).stop(true, true).fadeOut();
+}, function() {
+  $(this).find(&#39;img&#39;).stop(true, true).fadeIn();
+});
+</code></pre><h2 id="">参考</h2>
+<p><a href="http://www.css88.com/jqapi-1.9/" target="_blank">jQuery 中文API</a></p>
 
                     
                     </section>
@@ -2000,10 +2064,8 @@ CSS还可以控制其他参数，例如声音（假如浏览器有阅读功能�
         </div>
 
         
-        <a href="../http://wowubuntu.com/markdown/" class="navigation navigation-prev " aria-label="Previous page: Markdown"><i class="fa fa-angle-left"></i></a>
+        <a href="../jq/事件.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 事件处理"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../css/语法.html" class="navigation navigation-next " aria-label="Next page: 语法"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

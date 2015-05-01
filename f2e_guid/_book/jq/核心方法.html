@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.4" data-basepath=".." data-revision="1429970601426">
+    <div class="book" data-level="5.4" data-basepath=".." data-revision="1430464767305">
     
 
 <div class="book-summary">
@@ -1033,9 +1033,17 @@
         </li>
     
         
-        <li class="chapter " data-level="5.6" >
+        <li class="chapter " data-level="5.6" data-path="jq/动画.html">
             
-            <span><b>5.6.</b> 动画</span>
+                
+                    <a href="../jq/动画.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                         动画
+                    </a>
+                
             
             
         </li>
@@ -1920,7 +1928,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_27">
+                    <section class="normal" id="section-gitbook_28">
                     
                         <h1 id="">常用方法</h1>
 <h2 id="each-functionindex-element-">.each( function(index, Element) )</h2>
@@ -1994,7 +2002,7 @@ $.extend( object1, object2 );
 alert( &quot;Index: &quot; + $( &quot;li&quot; ).index( listItem ) );
 </code></pre><h2 id="ready-handler-">.ready( handler )</h2>
 <p>当DOM准备就绪时，指定一个函数来执行。</p>
-<p>虽然JavaScript提供了load事件，当页面执呈现时用来执行这个事件，直到所有的东西，如图像已被完全接收前，此事件不会被触发。</p>
+<p>虽然JavaScript提供了load事件，当页面呈现时用来执行这个事件，直到所有的东西，如图像已被完全接收前，此事件不会被触发。</p>
 <p>在大多数情况下，只要DOM结构已完全加载时，脚本就可以运行。传递处理函数给<code>.ready()</code>方法，能保证DOM准备好后就执行这个函数，因此，这里是进行所有其它事件绑定及运行其它 jQuery 代码的最佳地方。</p>
 <p>如果执行的代码需要在元素被加载之后才能使用时，（例如，取得图片的大小需要在图片被加载完后才能知道），就需要将这样的代码放到 load 事件中。</p>
 <p>下面两种语法全部是等价的：</p>

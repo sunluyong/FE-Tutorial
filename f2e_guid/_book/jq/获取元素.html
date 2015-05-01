@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.1" data-basepath=".." data-revision="1429970601426">
+    <div class="book" data-level="5.1" data-basepath=".." data-revision="1430464767305">
     
 
 <div class="book-summary">
@@ -1033,9 +1033,17 @@
         </li>
     
         
-        <li class="chapter " data-level="5.6" >
+        <li class="chapter " data-level="5.6" data-path="jq/动画.html">
             
-            <span><b>5.6.</b> 动画</span>
+                
+                    <a href="../jq/动画.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                         动画
+                    </a>
+                
             
             
         </li>
@@ -1920,7 +1928,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="jquery">使用jQuery获取元素</h1>
 <p>我们可以通过<code>document.getElementById</code>等方法获取DOM对象，但是方法名称长，使用不方便，而且功能有限，不能像CSS选择器那样灵活</p>
@@ -2081,11 +2089,11 @@
 <td valign="top" >属性attr以value结尾的E</td>
 </tr>
 <tr>
-<td valign="top" width="254">$(&#39;E[attr <em>=value]&#39;)</td>
+<td valign="top" width="254">$(&#39;E[attr *=value]&#39;)</td>
 <td valign="top" >属性attr包含value的E</td>
 </tr>
 <tr>
-<td valign="top" width="254">$(&#39;E[attr][attr </em>=value]&#39;)</td>
+<td valign="top" width="254">$(&#39;E[attr][attr *=value]&#39;)</td>
 <td valign="top" >可以连用</td>
 </tr>
 <tr>
@@ -2109,15 +2117,15 @@
 <td valign="top" >E的index为奇数的子节点</td>
 </tr>
 <tr>
-<td valign="top" width="254">$(&#39;E:first-clild&#39;)</td>
+<td valign="top" width="254">$(&#39;E:first-child&#39;)</td>
 <td valign="top" >所有E的第一个子节点</td>
 </tr>
 <tr>
-<td valign="top" width="254">$(&#39;E:last-clild&#39;)</td>
+<td valign="top" width="254">$(&#39;E:last-child&#39;)</td>
 <td valign="top" >所有E的最后一个子节点</td>
 </tr>
 <tr>
-<td valign="top" width="254">$(&#39;E:only-clild&#39;)</td>
+<td valign="top" width="254">$(&#39;E:only-child&#39;)</td>
 <td valign="top" >只有唯一子节点的E的子节点</td>
 </tr>
 <tr>
@@ -2155,7 +2163,7 @@ $(&#39;div&#39;).eq(2);
 <pre><code>$(&#39;.test&#39;).next();
 $(&#39;.test&#39;).prev(&#39;li&#39;);
 </code></pre><h3 id="nextallselector-prevallselector">.nextAll([selector]), .prevAll([selector])</h3>
-<p><code>nextAll</code>获得每个匹配元素集合中所有下面的同辈元素，选择性筛选的选择器，<code>prevAll</code>与之相反，获取元素上面同辈元素</p>
+<p><code>nextAll</code>获得每个匹配元素集合中每个元素所有后面的同辈元素，选择性筛选的选择器，<code>prevAll</code>与之相反，获取元素前面的同辈元素</p>
 <h3 id="siblingsselectors">.siblings([selectors])</h3>
 <p>获得匹配元素集合中每个元素的兄弟元素,可以提供一个可选的选择器</p>
 <pre><code>$(&#39;li.third-item&#39;).siblings()

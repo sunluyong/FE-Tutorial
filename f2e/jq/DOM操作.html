@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.2" data-basepath=".." data-revision="1429970601426">
+    <div class="book" data-level="5.2" data-basepath=".." data-revision="1430464767305">
     
 
 <div class="book-summary">
@@ -1033,9 +1033,17 @@
         </li>
     
         
-        <li class="chapter " data-level="5.6" >
+        <li class="chapter " data-level="5.6" data-path="jq/动画.html">
             
-            <span><b>5.6.</b> 动画</span>
+                
+                    <a href="../jq/动画.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                         动画
+                    </a>
+                
             
             
         </li>
@@ -2050,7 +2058,7 @@ $( &quot;p&quot; ).insertAfter( &quot;#foo&quot; );
 <p>这是一个读写两用的方法，用于获取/修改元素的<code>innerHTML</code></p>
 <ol>
 <li>当没有传递参数的时候，返回元素的<code>innerHTML</code></li>
-<li>当传递了一个string参数的时候，修改元素的innerHTML位参数值</li>
+<li>当传递了一个string参数的时候，修改元素的innerHTML为参数值</li>
 </ol>
 <p>看个例子</p>
 <pre><code>$(&#39;div&#39;).html()
@@ -2058,7 +2066,7 @@ $( &quot;p&quot; ).insertAfter( &quot;#foo&quot; );
 $(&#39;div&#39;).html(&#39;123&#39;)
 </code></pre><p>后续这种读写两用的方法很多，原理都类似</p>
 <ol>
-<li>如果结果是多个进行赋值操作的时候会给没个结果都赋值</li>
+<li>如果结果是多个进行赋值操作的时候会给每个结果都赋值</li>
 <li>如果结果多个，获取值的时候，返回结果集中的第一个对象的相应值</li>
 </ol>
 <h2 id="text">text()</h2>
