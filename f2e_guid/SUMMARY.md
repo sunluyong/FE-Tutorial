@@ -59,7 +59,8 @@
 	* [常用函数](jq/核心方法.md)
 	* [事件处理](jq/事件.md)
 	* [动画](jq/动画.md)
-	* [异步和Ajax]()
+	* [Ajax](jq/ajax.md)
+	* [jsonp]()
 	* [jQuery简单实现]()
 * 综合练习
 	* [获取元素位置和尺寸](practice/获取元素位置和尺寸.md)
@@ -109,7 +110,7 @@
 	* [Generator]()
 	* [Promise]()
 	* [Class和Module]()
-* [HTTP]()
+* HTTP
 	* [URL]()
 	* [方法]()
 	* [状态码]()
