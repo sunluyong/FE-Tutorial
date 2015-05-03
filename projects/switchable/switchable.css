@@ -1,0 +1,39 @@
+.switchable-wrap{
+	position: relative;
+	overflow: hidden;
+}
+
+.switchable-container{
+	position: absolute;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	width: 5000%;
+	overflow: hidden;
+}
+
+.switchable-item{
+	list-style-type: none;
+	float: left;
+}
+
+.switchable-indicators{
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	z-index: 20;
+}
+
+.switchable-indicator{
+	display: inline-block;
+	margin-left: 10px;
+	width: 12px;
+	height: 12px;
+	background: #fff;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.switchable-indicator.current{
+	background: orange;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播demo</title>
+	<link rel="stylesheet" type="text/css" href="switchable.css">
+	<style type="text/css">
+		.placeholder{
+			width: 600px;
+			margin: 100px auto;
+		}
+
+		li{
+			width: 600px;
+			height: 400px;
+			line-height: 400px;
+			text-align: center;
+			color: #fff;
+			font-size: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div class="placeholder">
+		<ul id="test">
+			<li style="background:#666;">0</li>
+			<li style="background:#777;">1</li>
+			<li style="background:#888;">2</li>
+			<li style="background:#999;">3</li>
+			<li style="background:#aaa;">4</li>
+		</ul>
+	</div>
+
+	<script src="../../javascripts/jquery-2.1.3.min.js"></script>
+	<script src="switchable.js"></script>
+
+	<script>
+		var switchable = new Switchable('test', {width: 600, duration: 300, autoplay: true});
+	</script>
+</body>
+</html>

@@ -64,7 +64,7 @@
 	* [jQuery简单实现]()
 * 综合练习
 	* [获取元素位置和尺寸](practice/获取元素位置和尺寸.md)
-	* [轮播]()
+	* [轮播](http://samaritan89.github.io/projects/switchable/demo.html)
 	* [Dialog](http://samaritan89.github.io/projects/dialog/demo.html)
 	* [懒加载]()
 	* [瀑布流]()
