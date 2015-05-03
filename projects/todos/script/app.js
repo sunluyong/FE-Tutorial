@@ -144,7 +144,6 @@ Todo.prototype.refresh = function(){
 function TodoItem(id, text, app){
 	this.ref = null;
 	this.app = app;
-
 	this.id = id;
 	this.text = text;
 	this.isActive = true;
