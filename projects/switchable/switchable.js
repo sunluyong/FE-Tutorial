@@ -14,7 +14,7 @@ function Switchable(container, conf){
 	this.currentItemIndex = this.conf.index;
 	this.timerId = null;
 
-	this.ref = typeof container === 'string' ? $('#' + container) : $(container);
+	this.ref = $(container);
 	this.items = this.ref.find('>li');
 	this.indicators = null;
 
@@ -64,7 +64,7 @@ Switchable.prototype.init = function(){
   if(this.conf.autoplay){
   	Switchable.autoTask(this);
 
-  	ref.parent().hover(function(){
+  	ref.hover(function(){
   		clearInterval(_switchable.timerId);
   		_switchable.timerId = null;
   	}, function(){
