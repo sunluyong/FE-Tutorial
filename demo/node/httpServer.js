@@ -1,4 +1,4 @@
-//安装晚node后，在本文件所在目录执行命令
+//安装node后，在本文件所在目录执行命令
 // node httpServer.js
 // 文件路径（/Users/byron/test.html）需要改成自己目录对应的路径
 
