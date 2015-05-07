@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>全局属性 | 关于本书</title>
+        <title>过渡和动画 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,6 @@
         
     
     
-    <link rel="next" href="../html/表单.html" />
-    
-    
-    <link rel="prev" href="../html/标签及属性.html" />
     
 
         
@@ -34,7 +30,7 @@
 
 
         
-    <div class="book" data-level="2.3" data-basepath=".." data-revision="1430995062332">
+    <div class="book" data-level="8.6" data-basepath=".." data-revision="1430995062332">
     
 
 <div class="book-summary">
@@ -131,7 +127,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="2.3" data-path="html/全局属性.html">
+        <li class="chapter " data-level="2.3" data-path="html/全局属性.html">
             
                 
                     <a href="../html/全局属性.html">
@@ -1403,7 +1399,7 @@
         </li>
     
         
-        <li class="chapter " data-level="8.6" data-path="css3/过渡和动画.html">
+        <li class="chapter active" data-level="8.6" data-path="css3/过渡和动画.html">
             
                 
                     <a href="../css3/过渡和动画.html">
@@ -1992,72 +1988,164 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_4">
+                    <section class="normal" id="section-gitbook_23">
                     
-                        <h1 id="html-">HTML 全局属性</h1>
-<p>HTML 定义了少量的属性，这些属性适用于所有的HTML elements，这些属性可以用在所有的element中，尽管有些属性对一些element没什么作用。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>accesskey</td>
-<td>规定激活元素的快捷键</td>
-</tr>
-<tr>
-<td>class</td>
-<td>规定元素的一个或多个类名（引用样式表中的类）</td>
-</tr>
-<tr>
-<td>contenteditable</td>
-<td>规定元素内容是否可编辑</td>
-</tr>
-<tr>
-<td>data-*</td>
-<td>自定义属性</td>
-</tr>
-<tr>
-<td>dir</td>
-<td>规定元素中内容的文本方向</td>
-</tr>
-<tr>
-<td>draggable</td>
-<td>规定元素是否可拖动</td>
-</tr>
-<tr>
-<td>id</td>
-<td>规定元素的唯一 id</td>
-</tr>
-<tr>
-<td>lang</td>
-<td>规定元素内容的语言</td>
-</tr>
-<tr>
-<td>spellcheck</td>
-<td>规定是否对元素进行拼写和语法检查</td>
-</tr>
-<tr>
-<td>style</td>
-<td>规定元素的行内 CSS 样式</td>
-</tr>
-<tr>
-<td>tabindex</td>
-<td>规定元素的 tab 键次序</td>
-</tr>
-<tr>
-<td>title</td>
-<td>规定有关元素的额外信息</td>
-</tr>
-<tr>
-<td>translate</td>
-<td>规定是否应该翻译元素内容</td>
-</tr>
-</tbody>
-</table>
+                        <h1 id="">过渡和动画</h1>
+<h2 id="">渐变</h2>
+<p>在CSS3引入<code>transition</code>之前css没有时间轴，所有的状态变化都是瞬间完成</p>
+<pre><code>div{
+height:15px;
+width:15px;
+}
+
+div:hover{
+height: 450px;
+width: 450px;
+}
+</code></pre><p>transition的作用在于，指定状态变化所需要的时间</p>
+<pre><code>div{
+  transition: 1s;
+}
+</code></pre><h3 id="">指定属性</h3>
+<p>我们还可以指定transition适用的属性，比如只适用于height</p>
+<pre><code>transition: 1s height;
+</code></pre><p>这样一来，只有height的变化需要1秒实现，其他变化（主要是width）依然瞬间实现，在同一行transition语句中，可以分别指定多个属性</p>
+<pre><code>transition: 1s height, 1s width;
+</code></pre><h3 id="delay">delay</h3>
+<p>但是，这样一来，height和width的变化是同时进行的，跟不指定它们没有差别，我们希望，让height先发生变化，等结束以后，再让width发生变化。实现这一点很容易，就是为width指定一个delay参数</p>
+<pre><code>transition: 1s height, 1s 1s width;
+</code></pre><p>上面代码指定，width在1秒之后，再开始变化，也就是延迟（delay）1秒</p>
+<p>delay的真正意义在于，它指定了动画发生的顺序，使得多个不同的transition可以连在一起，形成复杂效果</p>
+<h3 id="transition-timing-function">transition-timing-function</h3>
+<p>transition的状态变化速度（又称timing function），默认不是匀速的，而是逐渐放慢，这叫做ease</p>
+<pre><code>transition: 1s ease;
+</code></pre><p>除了ease以外，其他模式还包括</p>
+<ul>
+<li>linear：匀速</li>
+<li>ease-in：加速</li>
+<li>ease-out：减速</li>
+<li>cubic-bezier函数：自定义速度模式 <a href="http://cubic-bezier.com/" target="_blank">演示</a></li>
+</ul>
+<p>看个例子</p>
+<pre><code>transition: 1s height cubic-bezier(.83,.97,.05,1.44);
+</code></pre><h3 id="">语法</h3>
+<p>transition的完整写法如下</p>
+<pre><code>transition: 1s 1s height ease;
+</code></pre><p>这其实是一个简写形式，可以单独定义成各个属性</p>
+<pre><code>transition-property: height;
+transition-duration: 1s;
+transition-delay: 1s;
+transition-timing-function: ease;
+</code></pre><h3 id="">注意事项</h3>
+<ol>
+<li>目前，各大浏览器（包括IE 10）都已经支持无前缀的transition，所以transition已经可以很安全地不加浏览器前缀</li>
+<li>transition需要明确知道，开始状态和结束状态的具体<code>数值</code>，才能计算出中间状态，什么<code>none</code>到<code>block</code>之类的是不行的</li>
+<li>transition是一次性的，不能重复发生，除非一再触发</li>
+</ol>
+<h2 id="animation">animation</h2>
+<p>transition 比较简单，animation可以帮我们实现复杂的动画，使用animation我们首先需要定义动画过程，也就是关键帧</p>
+<pre><code>@keyframes rainbow {
+  0% { background: #c00; }
+  50% { background: orange; }
+  100% { background: yellowgreen; }
+}
+</code></pre><p>rainbow效果一共有三个状态，分别为起始（0%）、中点（50%）和结束（100%）。如果有需要，完全可以插入更多状态，值是每个状态下的属性值</p>
+<p>定义了关键帧之后就可以给DOM元素绑定动画了，和事件很像</p>
+<pre><code>div:hover {
+  animation: 1s rainbow;
+}
+</code></pre><p>当鼠标悬停在div元素上时，会产生名为rainbow的动画效果，持续时间为1秒，默认情况下，动画只播放一次。加入infinite关键字，可以让动画无限次播放</p>
+<pre><code>div:hover {
+  animation: 1s rainbow infinite;
+}
+</code></pre><p>也可以指定动画具体播放的次数，比如3次</p>
+<pre><code>div:hover {
+  animation: 1s rainbow 3;
+}
+</code></pre><p><a href="http://lea.verou.me/css-4d/#heart-demo" target="_blank">心跳demo</a></p>
+<h3 id="animation-fill-mode">animation-fill-mode</h3>
+<p>动画结束以后，会立即从结束状态跳回到起始状态。如果想让动画保持在结束状态，需要使用animation-fill-mode属性。</p>
+<pre><code>div:hover {
+  animation: 1s rainbow forwards;
+}
+</code></pre><p>animation-fill-mode可以使用下列值</p>
+<ul>
+<li>none：默认值，回到动画没开始时的状态</li>
+<li>forwards：让动画停留在结束状态</li>
+<li>backwards：让动画回到第一帧的状态</li>
+<li>both: 根据animation-direction（见后）轮流应用forwards和backwards规则</li>
+</ul>
+<h3 id="animation-direction">animation-direction</h3>
+<p>动画循环播放时，每次都是从结束状态跳回到起始状态，再开始播放。animation-direction属性，可以改变这种行为</p>
+<pre><code>@keyframes rainbow {
+  0% { background-color: yellow; }
+  100% { background: blue; }
+}
+</code></pre><p>默认情况是，animation-direction等于normal</p>
+<pre><code>div:hover {
+  animation: 1s rainbow 3 normal;
+}
+</code></pre><p>此外，还可以等于取alternate、reverse、alternate-reverse等值。它们的含义见下图（假定动画连续播放三次）。</p>
+<p><img src="http://image.beekka.com/blog/201402/bg2014021401.png" alt=""></p>
+<p>简单说，animation-direction指定了动画播放的方向，最常用的值是normal和reverse。浏览器对其他值的支持情况不佳，应该慎用</p>
+<h3 id="">语法</h3>
+<p>同transition一样，animation也是一个简写形式</p>
+<pre><code>div:hover {
+  animation: 1s 1s rainbow linear 3 forwards normal;
+}
+</code></pre><p>这是一个简写形式，可以分解成各个单独的属性</p>
+<pre><code>div:hover {
+  animation-name: rainbow;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-fill-mode:forwards;
+  animation-direction: normal;
+  animation-iteration-count: 3;
+}
+</code></pre><p>keyframes关键字用来定义动画的各个状态，它的写法相当自由</p>
+<pre><code>@keyframes rainbow {
+  0% { background: #c00 }
+  50% { background: orange }
+  100% { background: yellowgreen }
+}
+</code></pre><p>0%可以用from代表，100%可以用to代表，因此上面的代码等同于下面的形式</p>
+<pre><code>@keyframes rainbow {
+  from { background: #c00 }
+  50% { background: orange }
+  to { background: yellowgreen }
+}
+</code></pre><p>如果省略某个状态，浏览器会自动推算中间状态，所以下面都是合法的写法。</p>
+<pre><code>@keyframes rainbow {
+  50% { background: orange }
+  to { background: yellowgreen }
+}
+
+@keyframes rainbow {
+  to { background: yellowgreen }
+}
+</code></pre><p>甚至，可以把多个状态写在一行。</p>
+<pre><code>@keyframes pound {
+  from，to { transform: none; }
+  50% { transform: scale(1.2); }
+}
+</code></pre><p>另外一点需要注意的是，浏览器从一个状态向另一个状态过渡，是平滑过渡。steps函数可以实现分步过渡。</p>
+<pre><code>div:hover {
+  animation: 1s rainbow infinite steps(10);
+}
+</code></pre><p><a href="http://dabblet.com/gist/1745856" target="_blank">demo</a></p>
+<h3 id="animation-play-state">animation-play-state</h3>
+<p>有时，动画播放过程中，会突然停止。这时，默认行为是跳回到动画的开始状态，如果想让动画保持突然终止时的状态，就要使用animation-play-state属性。</p>
+<pre><code>div {
+    animation: spin 1s linear infinite;
+    animation-play-state: paused;
+}
+
+div:hover {
+  animation-play-state: running;
+}
+</code></pre><h2 id="">工具</h2>
+<p><a href="http://isux.tencent.com/css3/tools.html" target="_blank">CSS3 Tool</a></p>
 
                     
                     </section>
@@ -2068,10 +2156,6 @@
         </div>
 
         
-        <a href="../html/标签及属性.html" class="navigation navigation-prev " aria-label="Previous page: 常见标签及其属性"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../html/表单.html" class="navigation navigation-next " aria-label="Next page: 表单"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
