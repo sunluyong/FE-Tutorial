@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>事件处理 | 关于本书</title>
+        <title>3D | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../jq/动画.html" />
     
-    
-    <link rel="prev" href="../jq/核心方法.html" />
+    <link rel="prev" href="../css3/过渡和动画.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="5.5" data-basepath=".." data-revision="1431142994705">
+    <div class="book" data-level="8.7" data-basepath=".." data-revision="1431142994705">
     
 
 <div class="book-summary">
@@ -1017,7 +1015,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.5" data-path="jq/事件.html">
+        <li class="chapter " data-level="5.5" data-path="jq/事件.html">
             
                 
                     <a href="../jq/事件.html">
@@ -1427,7 +1425,7 @@
         </li>
     
         
-        <li class="chapter " data-level="8.7" data-path="css3/3d.html">
+        <li class="chapter active" data-level="8.7" data-path="css3/3d.html">
             
                 
                     <a href="../css3/3d.html">
@@ -2016,76 +2014,272 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_32">
+                    <section class="normal" id="section-gitbook_22">
                     
-                        <h1 id="">事件</h1>
-<p>事件处理中最头疼的就是浏览器兼容问题，jQuery封装了很好的API，可以方便的进行事件处理</p>
-<p>在1.7之前的版本中jQuery处理事件有多个方法，作用各不相同，后来统一的使用<code>on</code>/<code>off</code>方法</p>
-<h2 id="on-events-selector--data--handlereventobject-">.on( events [,selector ] [,data ], handler(eventObject) )</h2>
-<p>看起来参数及其复杂，我们看一下各个参数的意思</p>
+                        <h1 id="3d">3D</h1>
+<p>CSS3带来了DOM的3D效果，元素需要设置需要设置perspective来激活3D效果，可以通过两种方式实现</p>
 <ol>
-<li><p>events：一个或多个空格分隔的事件类型和可选的命名空间，或仅仅是命名空间，比如&quot;click&quot;, &quot;keydown.myPlugin&quot;, 或者 &quot;.myPlugin&quot;</p>
-</li>
-<li><p>selector：一个选择器字符串，用于过滤出被选中的元素中能触发事件的后代元素。如果选择器是 null 或者忽略了该选择器，那么被选中的元素总是能触发事件</p>
-</li>
-<li><p>data：当一个事件被触发时，要传递给事件处理函数的event.data</p>
-</li>
-<li><p>handler(eventObject)：事件被触发时，执行的函数。若该函数只是要执行return false的话，那么该参数位置可以直接简写成 false</p>
-</li>
+<li><p>在transform属性中使用<code>perspective</code>方法</p>
+<pre><code> transform: perspective( 600px );
+</code></pre></li>
+<li><p>直接使用<code>perspective</code>属性</p>
+<pre><code> perspective: 600px;
+</code></pre></li>
 </ol>
-<p>看几个例子</p>
-<pre><code>// 普通事件绑定，最简单的用法
-$(&#39;div&#39;).on(&#39;click&#39;, function(e){
-    console.log(this);
-    console.log(e);
-});
+<p>perspective属性的值决定了3D效果的强烈程度，可以认为是观察者到页面的距离。值越大距离越远，视觉上的3D效果就会相应的减弱。perspective: 2000px; 会产生一个好像我们使用望远镜看远方物体的3D效果，perspective: 100px;会产生一个小昆虫看大象的效果。</p>
+<p>看个例子</p>
+<pre><code>&lt;style&gt;
+    .container {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #CCC;
+        margin: 0 auto 40px;
+    }
+    .box {
+        width: 100%;
+        height: 100%;
+    }
+    #red1 .box {
+      background-color: red;
+      transform: perspective( 600px ) rotateY( 45deg );
+    }
+&lt;/style&gt;
+&lt;section id=&quot;red1&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;box red&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+</code></pre><p><img src="http://lsly1989.qiniudn.com/QQ20150509-1@2x.png" alt=""></p>
+<pre><code>&lt;style&gt;
+    #blue1{
+        perspective: 600px;
+    }
+    #blue1 .box {
+      background-color: blue;
+      transform: rotateY( 45deg );
+    }
+&lt;/style&gt;
 
-// 事件委托或者事件代理，想让div 下面所有的span绑定事件，可以把事件绑定到div上
-$(&#39;div&#39;).on(&#39;click&#39;, &#39;span&#39;, function(e){
-    console.log(this);
-    console.log(e);
-});
+&lt;section id=&quot;blue1&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;box blue1&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+</code></pre><p><img src="http://lsly1989.qiniudn.com/QQ20150509-2@2x.png" alt=""></p>
+<p>这两种方式都会触发3D效果，但是有一点不同：第一种方式直接在一个元素上触发3D变形，但是当多个元素的时候变形效果和预期会有所不同，如果使用同样的方法作用于不同位置的元素的时候，每个元素会有自己的轴心，为了解决这个问题，需要在父元素使用perspective属性，这样每个子元素都共享相同的3D空间</p>
+<pre><code>&lt;style&gt;
+    #red2 figure {
+      background: red;
+      transform: perspective( 400px ) rotateY(45deg);
+    }
+    .container figure {
+        display: block;
+        width: 55px;
+        height: 55px;
+        float: left;
+        margin: 5px;
+    }
 
-// 可以在绑定的时候给事件处理程序传递一些参数
-$(&#39;div&#39;).on(&#39;click&#39;, {name: &#39;Byron&#39;, age: 24}, function(e){
-    console.log(e.data);
-});
-</code></pre><h2 id="">事件委托的意义</h2>
-<p>委托事件有一个优势，他们能在后代元素添加到文档后，可以处理这些事件。在确保所选择的元素已经存在的情况下，进行事件绑定时，可以使用委派的事件，以避免频繁的绑定事件及解除绑定事件。</p>
-<p>例如，这个已经存在的元素可以是 Model-View-Controller（模型 - 视图 - 控制器）模式中 View（视图） 的一个容器元素，或document，如果想监视所有文档中的冒泡事件的话，在加载任何其它 HTML 之前，document 元素在 head 中就是有效的，所以您可以安全的在 head 中进行事件绑定，而不需要等待文档加载完。</p>
-<p>除了可以给未创建的后代元素绑定事件外（即上面提到的优势），代理事件的另一个好处就是，当需要监视很多元素的时候，代理事件的开销更小。例如，在一个表格的 tbody 中含有 1,000 行，下面这个例子会为这 1,000 元素绑定事件：</p>
-<pre><code>$( &quot;#dataTable tbody tr&quot; ).on( &quot;click&quot;, function() {
-  console.log( $( this ).text() );
-});
-</code></pre><p>一个委派事件的方法只在一个元素上绑定一个事件处理程序，下面的代码是绑定在tbody元素上，并且事件只会向上冒泡一层（从被点击的tr 到 tbody ）:</p>
-<pre><code>$( &quot;#dataTable tbody&quot; ).on( &quot;click&quot;, &quot;tr&quot;, function() {
-  console.log( $( this ).text() );
-});
-</code></pre><p>jQuery事件委托一点儿都不神奇，就是利用事件触发后判断事件源是不是符合选择器参数来决定是否执行事件处理程序</p>
-<h2 id="off-events--selector---handler--">.off( events [, selector ] [, handler ] )</h2>
-<p>移除一个事件处理函数</p>
-<pre><code>function aClick() {
-  $(&quot;div&quot;).show().fadeOut(&quot;slow&quot;);
+    #red2 figure {
+        background: #F00;
+        -webkit-transform: perspective( 400px ) rotateY( 45deg );
+        -moz-transform: perspective( 400px ) rotateY( 45deg );
+        -o-transform: perspective( 400px ) rotateY( 45deg );
+        transform: perspective( 400px ) rotateY( 45deg );
+    }
+&lt;/style&gt;
+&lt;section id=&quot;red2&quot; class=&quot;container&quot;&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+&lt;/section&gt;
+</code></pre><p><img src="http://lsly1989.qiniudn.com/20150509QQ20150509-3@2x.png" alt=""></p>
+<pre><code>&lt;style&gt;
+    #blue2 {
+      perspective: 400px;
+    }
+
+    #blue2 figure {
+      background: blue;
+      transform: rotateY( 45deg );
+    }
+&lt;/style&gt;
+&lt;section id=&quot;blue2&quot; class=&quot;container&quot;&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;/figure&gt;
+&lt;/section&gt;
+</code></pre><p><img src="http://lsly1989.qiniudn.com/20150509QQ20150509-4@2x.png" alt=""></p>
+<p>3D效果默认轴心是元素中央，可以通过<code>perspective-origin</code>来修改轴心</p>
+<pre><code>perspective-origin: 25% 75%;
+</code></pre><p><a href="http://desandro.github.io/3dtransforms/examples/perspective-03.html" target="_blank">点击</a>看一下一个有意思的立方体旋转页面</p>
+<h2 id="3d">3D变形方法</h2>
+<p>作为一个web者，可能很熟悉两个方向：X &amp; Y，表示元素的水平方向和垂直方向，在perspective激活的3D空间中我们可以在X、Y、Z三个坐标轴上对元素进行变形处理。3D变形使用的变形方法和2D变形一样，如果熟悉2D变形方法很容易掌握3D变形</p>
+<ul>
+<li>rotateX( angle )</li>
+<li>rotateY( angle )</li>
+<li>rotateZ( angle )</li>
+<li>translateZ( tz )</li>
+<li>scaleZ( sz )</li>
+</ul>
+<p>translateX()方法使元素延X轴移动，translateZ()使元素延Z轴（在3D空间中方向从前到后）移动。正值使元素离观察者更近，负值使元素变远。</p>
+<p><img src="http://lsly1989.qiniudn.com/20150509QQ20150509-5@2x.png" alt=""></p>
+<p><img src="http://lsly1989.qiniudn.com/20150509QQ20150509-6@2x.png" alt=""></p>
+<p>有几个变形方法的缩写，这些方法需要把三个参数写全</p>
+<ul>
+<li>translate3d( tx, ty, tz )</li>
+<li>scale3d( sx, sy, sz )</li>
+<li>rotate3d( rx, ry, rz, angle )</li>
+</ul>
+<p>fn3d()变形方法可以触发硬件加速<a href="http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/" target="_blank">HTML5 buzzwords in action</a></p>
+<blockquote>
+<p>任意3D操作会触发硬件加速，甚至可能变形只用到了2D的，或者没有做任何事情（比如translate3d(0,0,0)）。需要注意的是这只是当前的表现，未来可能变化（这也是为什么我们没有写文档或者鼓励这么做），但是这在很多场景下非常有用，可以显著的提高渲染性能</p>
+</blockquote>
+<h2 id="">立方体</h2>
+<p>创建六个面</p>
+<pre><code>&lt;section class=&quot;container&quot;&gt;
+  &lt;div id=&quot;cube&quot;&gt;
+    &lt;figure class=&quot;front&quot;&gt;1&lt;/figure&gt;
+    &lt;figure class=&quot;back&quot;&gt;2&lt;/figure&gt;
+    &lt;figure class=&quot;right&quot;&gt;3&lt;/figure&gt;
+    &lt;figure class=&quot;left&quot;&gt;4&lt;/figure&gt;
+    &lt;figure class=&quot;top&quot;&gt;5&lt;/figure&gt;
+    &lt;figure class=&quot;bottom&quot;&gt;6&lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre><p>为6个面设置基本的位置和尺寸样式</p>
+<pre><code>.container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px;
 }
 
-$(&quot;#bind&quot;).click(function () {
-  $(&quot;body&quot;).on(&quot;click&quot;, &quot;#theone&quot;, aClick)
-    .find(&quot;#theone&quot;).text(&quot;Can Click!&quot;);
-});
+#cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
 
-$(&quot;#unbind&quot;).click(function () {
-  $(&quot;body&quot;).off(&quot;click&quot;, &quot;#theone&quot;, aClick)
-    .find(&quot;#theone&quot;).text(&quot;Does nothing...&quot;);
-});
-</code></pre><h2 id="trigger-eventtype--extraparameters--">.trigger( eventType [, extraParameters ] )</h2>
-<p>根据绑定到匹配元素的给定的事件类型执行所有的处理程序和行为</p>
-<pre><code>$(&#39;#foo&#39;).on(&#39;click&#39;, function() {
-  alert($(this).text());
-});
-$(&#39;#foo&#39;).trigger(&#39;click&#39;);
-</code></pre><h2 id="">其它</h2>
-<p>jQuery还提供了一些常见事件的快捷方式</p>
-<p><img src="http://lsly1989.qiniudn.com/20150425QQ20150425-2@2x.png" alt=""></p>
+#cube figure {
+  width: 196px;
+  height: 196px;
+  display: block;
+  position: absolute;
+  border: 2px solid black;
+}
+</code></pre><p>1、2是前后面，3、4是左右，5、6是上下</p>
+<pre><code>#cube .front  { transform: rotateY(   0deg ); }
+#cube .back   { transform: rotateX( 180deg ); }
+#cube .right  { transform: rotateY(  90deg ); }
+#cube .left   { transform: rotateY( -90deg ); }
+#cube .top    { transform: rotateX(  90deg ); }
+#cube .bottom { transform: rotateX( -90deg ); }
+</code></pre><p>我们可以移除#cube .front样式声明，只用前面是可见的，上、下、左、右面与视角平行，所以看不到。需要从中心位置移动它们才可以看得到，每个面都是200px宽，每个面都需要从立方体中心移动100px；</p>
+<pre><code>#cube .front  { transform: rotateY(   0deg ) translateZ( 100px ); }
+#cube .back   { transform: rotateX( 180deg ) translateZ( 100px ); }
+#cube .right  { transform: rotateY(  90deg ) translateZ( 100px ); }
+#cube .left   { transform: rotateY( -90deg ) translateZ( 100px ); }
+#cube .top    { transform: rotateX(  90deg ) translateZ( 100px ); }
+#cube .bottom { transform: rotateX( -90deg ) translateZ( 100px ); }
+</code></pre><p>需要注意的是translateZ方法在rotate方法之后，变形方法的顺序很重要，每面都先按自己的方向旋转，然后向外移动一个向量。</p>
+<p>为了用户看清楚，我们的3D变形不应该在扭曲不是active的面，但是我们延Z轴移动的时候，这种情况就难以避免。为了保持3D变形的瞬间，Safari先组合元素，然后再应用变形，因此文本会保持变形之前的样式，在3D变形中经常会出现显著的像素变化</p>
+<p>无论perspective的值多小，或者变形的轴心在哪里，面1永远回到初始位置，好像3D变形对它没影响，为了解决变形和像素保留问题，我们可以向后推一下3D对象，这样前面就会Z轴后移</p>
+<pre><code>#cube { transform: translateZ( -100px ); }
+</code></pre><p>为了显示每个面，我们需要一个旋转立方体的样式，变形和当前面的方向相反，我们在#box 上切换必要的类来应用变形</p>
+<pre><code>#cube.show-front  { transform: translateZ( -100px ) rotateY(    0deg ); }
+#cube.show-back   { transform: translateZ( -100px ) rotateX( -180deg ); }
+#cube.show-right  { transform: translateZ( -100px ) rotateY(  -90deg ); }
+#cube.show-left   { transform: translateZ( -100px ) rotateY(   90deg ); }
+#cube.show-top    { transform: translateZ( -100px ) rotateX(  -90deg ); }
+#cube.show-bottom { transform: translateZ( -100px ) rotateX(   90deg ); }
+</code></pre><p>需要注意变形方法的顺序变了，我们先向后推元素，然后再旋转，再添加transition属性就完成了</p>
+<pre><code>#cube { transition: transform 1s; }
+</code></pre><p><a href="http://desandro.github.io/3dtransforms/examples/cube-02-show-sides.html" target="_blank">demo</a></p>
+<h2 id="">旋转木马</h2>
+<p>和创建立方体类似，我们创建一个9个面的旋转木马</p>
+<pre><code>&lt;section class=&quot;container&quot;&gt;
+  &lt;div id=&quot;carousel&quot;&gt;
+    &lt;figure&gt;1&lt;/figure&gt;
+    &lt;figure&gt;2&lt;/figure&gt;
+    &lt;figure&gt;3&lt;/figure&gt;
+    &lt;figure&gt;4&lt;/figure&gt;
+    &lt;figure&gt;5&lt;/figure&gt;
+    &lt;figure&gt;6&lt;/figure&gt;
+    &lt;figure&gt;7&lt;/figure&gt;
+    &lt;figure&gt;8&lt;/figure&gt;
+    &lt;figure&gt;9&lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre><p>现在应用一下基本的布局样式，给每个#carousel子元素面板20px的间距，这样每个面板的空间为210px</p>
+<pre><code>.container {
+  width: 210px;
+  height: 140px;
+  position: relative;
+  perspective: 1000px;
+}
+
+#carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+#carousel figure {
+  display: block;
+  position: absolute;
+  width: 186px;
+  height: 116px;
+  left: 10px;
+  top: 10px;
+  border: 2px solid black;
+}
+</code></pre><p>下一步需要旋转每个面，9个面板，如果等分的话每个面板需要旋转40deg相对下一个</p>
+<pre><code>#carousel figure:nth-child(1) { transform: rotateY(   0deg ); }
+#carousel figure:nth-child(2) { transform: rotateY(  40deg ); }
+#carousel figure:nth-child(3) { transform: rotateY(  80deg ); }
+#carousel figure:nth-child(4) { transform: rotateY( 120deg ); }
+#carousel figure:nth-child(5) { transform: rotateY( 160deg ); }
+#carousel figure:nth-child(6) { transform: rotateY( 200deg ); }
+#carousel figure:nth-child(7) { transform: rotateY( 240deg ); }
+#carousel figure:nth-child(8) { transform: rotateY( 280deg ); }
+#carousel figure:nth-child(9) { transform: rotateY( 320deg ); }
+</code></pre><p>现在外移元素，我们需要计算外移的距离，画一个草图，我们发现只有两个已知数：每个面板的宽度是210px，每个面板相对下一个旋转了40deg。拿出任意一个三角形都是右边的样子</p>
+<p><img src="http://lsly1989.qiniudn.com/cssdiagram.png" alt=""></p>
+<p>我们可以通过正切函数算出r</p>
+<p><img src="http://lsly1989.qiniudn.com/csscalc.png" alt=""></p>
+<p>这样我们就知道知道需要移动288px</p>
+<pre><code>#carousel figure:nth-child(1) { transform: rotateY(   0deg ) translateZ( 288px ); }
+#carousel figure:nth-child(2) { transform: rotateY(  40deg ) translateZ( 288px ); }
+#carousel figure:nth-child(3) { transform: rotateY(  80deg ) translateZ( 288px ); }
+#carousel figure:nth-child(4) { transform: rotateY( 120deg ) translateZ( 288px ); }
+#carousel figure:nth-child(5) { transform: rotateY( 160deg ) translateZ( 288px ); }
+#carousel figure:nth-child(6) { transform: rotateY( 200deg ) translateZ( 288px ); }
+#carousel figure:nth-child(7) { transform: rotateY( 240deg ) translateZ( 288px ); }
+#carousel figure:nth-child(8) { transform: rotateY( 280deg ) translateZ( 288px ); }
+#carousel figure:nth-child(9) { transform: rotateY( 320deg ) translateZ( 288px ); }
+</code></pre><p>如果需要改变面板的宽度或者数量，我们只需要应用一下公式就可以了，在JavaScript中</p>
+<pre><code>var tz = Math.round( ( panelSize / 2 ) /
+Math.tan( ( ( Math.PI * 2 ) / numberOfPanels ) / 2 ) );
+
+// 或者
+
+var tz = Math.round( ( panelSize / 2 ) /
+  Math.tan( Math.PI / numberOfPanels ) );
+</code></pre><p>最后我们需要再旋转木马上应用些变形</p>
+<pre><code>transform: translateZ( -288px ) rotateY( -160deg );
+</code></pre><p><a class="jsbin-embed" href="http://jsbin.com/monavodopaxa/1/embed?output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+<p>自己动手看看效果怎么样吧</p>
 
                     
                     </section>
@@ -2096,10 +2290,8 @@ $(&#39;#foo&#39;).trigger(&#39;click&#39;);
         </div>
 
         
-        <a href="../jq/核心方法.html" class="navigation navigation-prev " aria-label="Previous page: 常用函数"><i class="fa fa-angle-left"></i></a>
+        <a href="../css3/过渡和动画.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 过渡和动画"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../jq/动画.html" class="navigation navigation-next " aria-label="Next page: 动画"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
