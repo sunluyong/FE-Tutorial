@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-var rs = fs.createReadStream();
-var ws = fs.createWriteStream();
+var rs = fs.createReadStream(res);
+var ws = fs.createWriteStream(dis);
 
 rs.on('data', function(chunk){
   if (ws.write(chunk) === false){
