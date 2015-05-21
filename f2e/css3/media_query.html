@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="8.8" data-basepath=".." data-revision="1432179035392">
+    <div class="book" data-level="8.8" data-basepath=".." data-revision="1432179471020">
     
 
 <div class="book-summary">
@@ -2179,14 +2179,18 @@ For iPad
 &lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:landscape)&quot; href=&quot;landscape.css&quot;&gt;
 </code></pre><p>移动设备iPad上的Safari和在iPhone上的是相同的，只是他们不同之处是iPad声明了不同的方向，比如说上面的例子，在纵向(portrait)时采用portrait.css来，在横向（landscape）时采用landscape.css。</p>
 <p>For Android</p>
-<pre><code>/*240px的宽度*/
-</code></pre>  <link rel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" type="text/css" />
+<pre><code>    /*240px的宽度*/
 
-<p>  /<em>360px的宽度</em>/
-  <link rel="stylesheet" media="only screen and (min-device-width:241px) and (max-device-width:360px)" href="android360.css" type="text/css" /></p>
-<p>  /<em>480px的宽度</em>/
-  <link rel="stylesheet" media="only screen and (min-device-width:361px) and (max-device-width:480px)" href="android480.css" type="text/css" /></p>
-<h2 id="">参考</h2>
+  &lt;link rel=&quot;stylesheet&quot; media=&quot;only screen and (max-device-width:240px)&quot; href=&quot;android240.css&quot; type=&quot;text/css&quot; /&gt;
+
+  /*360px的宽度*/
+
+  &lt;link rel=&quot;stylesheet&quot; media=&quot;only screen and (min-device-width:241px) and (max-device-width:360px)&quot; href=&quot;android360.css&quot; type=&quot;text/css&quot; /&gt;
+
+  /*480px的宽度*/
+
+  &lt;link rel=&quot;stylesheet&quot; media=&quot;only screen and (min-device-width:361px) and (max-device-width:480px)&quot; href=&quot;android480.css&quot; type=&quot;text/css&quot; /&gt;
+</code></pre><h2 id="">参考</h2>
 <p><a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank">http://www.w3cplus.com/content/css3-media-queries</a></p>
 <p><a href="http://www.w3cplus.com/css3/css3-media-queries-for-iPhone-and-iPads" target="_blank">http://www.w3cplus.com/css3/css3-media-queries-for-iPhone-and-iPads</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries</a></p>
