@@ -219,14 +219,17 @@ For iPhone 4
 
 For Android
 
-	/*240px的宽度*/
-  <link rel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" type="text/css" />
+		/*240px的宽度*/
 
-  /*360px的宽度*/
-  <link rel="stylesheet" media="only screen and (min-device-width:241px) and (max-device-width:360px)" href="android360.css" type="text/css" />
+	  <link rel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" type="text/css" />
 
-  /*480px的宽度*/
-  <link rel="stylesheet" media="only screen and (min-device-width:361px) and (max-device-width:480px)" href="android480.css" type="text/css" />
+	  /*360px的宽度*/
+
+	  <link rel="stylesheet" media="only screen and (min-device-width:241px) and (max-device-width:360px)" href="android360.css" type="text/css" />
+
+	  /*480px的宽度*/
+
+	  <link rel="stylesheet" media="only screen and (min-device-width:361px) and (max-device-width:480px)" href="android480.css" type="text/css" />
 
 ## 参考
 
