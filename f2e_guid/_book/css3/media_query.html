@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>流程控制语句 | 关于本书</title>
+        <title>媒体查询 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../js/函数和作用域.html" />
     
-    
-    <link rel="prev" href="../js/运算符.html" />
+    <link rel="prev" href="../css3/3d.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.4" data-basepath=".." data-revision="1432179035392">
+    <div class="book" data-level="8.8" data-basepath=".." data-revision="1432179035392">
     
 
 <div class="book-summary">
@@ -527,7 +525,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.4" data-path="js/语句.html">
+        <li class="chapter " data-level="4.4" data-path="js/语句.html">
             
                 
                     <a href="../js/语句.html">
@@ -1443,7 +1441,7 @@
         </li>
     
         
-        <li class="chapter " data-level="8.8" data-path="css3/media_query.html">
+        <li class="chapter active" data-level="8.8" data-path="css3/media_query.html">
             
                 
                     <a href="../css3/media_query.html">
@@ -2024,155 +2022,175 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_61">
+                    <section class="normal" id="section-gitbook_24">
                     
-                        <h1 id="">流程控制语句</h1>
-<h2 id="if">if</h2>
-<p>if语句是编程语言最常用的语句，语法</p>
-<pre><code>if(condition){
-    //true statement
-}else {
-    //false statement
+                        <h1 id="media-queries">Media Queries</h1>
+<h2 id="">自适应阶段</h2>
+<p>自从有了不同屏幕的尺寸，我们就开始尝试自适应了</p>
+<h3 id="">居中</h3>
+<p>虽然不能让所有屏幕都自适应，但是可以利用居中让元素看起来在同一位置</p>
+<pre><code>.center{
+    width: 990px;
+    margin: 0 auto;
+    height: 200px;
+    line-height: 200px;
 }
-</code></pre><p>其中<code>condition</code>可以是任意表达式，结果不一定是布尔值，JavaScript解释器会自动调用<code>Boolean()</code>将表达式结果转为布尔值，如果表达式为真执行第一个代码块内语句，如果为假执行第二个代码块内语句</p>
-<p>只有一条语句的时候代码块不是必需的，出于维护性考虑我们建议添加</p>
-<p>if语句可以单独使用，也可以和多个else连续使用</p>
-<pre><code>if(a &gt; 2){
-    // statement
+</code></pre><h3 id="">百分比</h3>
+<p>同样可以利用百分比让DOM结构适应屏幕</p>
+<pre><code>.container{
+    border-top: solid 1px #666;
+    border-left: solid 1px #666;;
 }
 
-
-if( a == 1){
-
-}else if(a == 2){
-
-}else if(a == 3 ){
-
-}else{
-
+.item{
+    display: inline-block;
+    width: 33%;
+    height: 200px;
+    border-right: solid 1px #666;
+    border-bottom: solid 1px #666;
+    background: orange;
+    box-sizing: border-box;
 }
-</code></pre><h2 id="label">label</h2>
-<p>label语句是很多熟练的jser都会忽略的知识，我们可以为代码添加标签，方便后续使用，语法：</p>
-<pre><code>labelname: statement;
-</code></pre><p>label语句单独使用的时候没有什么作用几乎，经常和其它语句结合使用，但是一些面试题会针对这个提问</p>
-<pre><code>var a = 1,
-    b = 2,
-    c = 3,
-    d = 4,
-    e = 5,
-    f = 6;
-
-a:b:c:d:e:f:7;
-</code></pre><h2 id="switch">switch</h2>
-<p>switch 语句和if语句关系密切，语法</p>
-<pre><code>switch(expresstion){
-    case value1:
-        statement;
-        break;
-
-    case value2:
-        statement;
-        break;
-
-    case value3:
-        statement;
-        break;
-
-    default:
-        statement;
+</code></pre><h3 id="">浮动</h3>
+<p>对于宽度不一的，我们可以利用浮动做到一定程度的自适应</p>
+<pre><code>.container{
+    overflow: hidden;
+    padding: 20px;
 }
-</code></pre><p>我们可以看到<code>if</code>语句使用多个<code>else</code>的时候写法很繁琐，可读性也下降，switch语句可以轻松解决</p>
-<pre><code>switch(a){
-    case 1:
-        statement;
-        break;
 
-    case 2:
-        statement;
-        break;
-
-    case 3:
-        statement;
-        break;
-
-    default:
-        statement;
+.item{
+    float: left;
+    padding: 8px 12px;
+    border: solid 1px #1686cc;
 }
-</code></pre><p>如果表达式等于case的值，对应的语句就会执行，<code>break</code>关键字会使程序跳出switch语句，很多编程规范强调必须添加break，不添加不会有语法错误，程序会多次判断case，进入相应流程</p>
-<p>没有一个值符合case，流程进入<code>default</code>子句，很多规范也强调必须添加default部分</p>
-<p>JavaScript switch语句虽然参考的C语言的写法，但是有特殊性</p>
+</code></pre><h2 id="">响应式</h2>
+<p>终于等来了CSS3的Media Queries，可以让我们针对不同的设备场景使用不同的CSS</p>
+<h3 id="css-2">CSS 2</h3>
+<p>实际上在很早之前，CSS就支持媒体查询了</p>
+<p>  <link href="css/reset.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/print.css" rel="stylesheet" type="text/css" media="print" /></p>
+<p>页面有些部分需要在打印的时候隐藏或者变大，这时候可以使用media使某些style只在打印的时候生效</p>
+<pre><code>@media print {
+   /* 适用于印刷的样式 */
+}
+</code></pre><p>常用的媒体类型有</p>
+<pre><code>1. all（所有），适用于所有设备。
+2. handheld（手持），用于手持设备。
+3. print（印刷），用于分页材料以及打印预览模式下在屏幕上的文档视图。
+4. projection（投影），用于投影演示文稿，例如投影仪。
+5. screen（屏幕） ，主要用于计算机屏幕。
+</code></pre><p>在使用的时候可以在样式表直接书写 <code>@media指令+空格+媒体类型</code>（多个逗号隔开）</p>
+<pre><code>@media print {
+   body { font-size: 10pt }
+ }
+ @media screen {
+   body { font-size: 13px }parsing-errors
+ }
+ @media screen, print {
+   body { line-height: 1.2 }
+ }
+</code></pre><h3 id="css-3">CSS 3</h3>
+<p>但是CSS 2的媒体类型应用场景极为有限，CSS3大大拓展了这一能力</p>
+<pre><code>@media screen and (max-width: 990px){
+    .container{
+        background: orange;
+    }
+}
+</code></pre><p>当媒体类型匹配且表达式为真的时候，对应style就会其作用，除非使用not或者only操作符，否则媒体类型不是必需的，默认代表所有媒体类型。</p>
+<h3 id="">操作符</h3>
+<h4 id="and">and</h4>
+<p>and操作符用于将多个media feature组合成一个查询，同时用于组合media type 和media feature，一个基本的media query类似这样，一个meidia feature作用于所有media type</p>
+<pre><code>@media (min-width: 700px) { ... }
+</code></pre><p>但是如果只想在横向显示时应用就可以使用and操作符把media type和media feature结合起来</p>
+<pre><code>@media (min-width: 700px) and (orientation: landscape) { ... }
+</code></pre><p>这样上面的media query只有在可视窗口（viewport）最小是700px并且是横向显示的时候才返回true，如果还想进一步限制设备为tv可以这样</p>
+<pre><code>@media tv and (min-width: 700px) and (orientation: landscape) { ... }
+</code></pre><h4 id="">逗号分隔的列表</h4>
+<p>在使用逗号分隔的查询列表中每个查询都被视为一个独立的查询，任何本查询中的作用符不影响其他查询，只要有一个查询返回true，style就会被作用。</p>
+<p>举例来说，如果希望特定style在viewport最小宽度为700px或手持式设备上生效，可以这么写：</p>
+<pre><code>@media (min-width: 700px), handheld and (orientation: landscape) { ... }
+</code></pre><h4 id="not">not</h4>
+<p>not操作符作用域整个查询，所以只有在整个查询返回<code>false</code>的情况下使用not后才会返回<code>true</code>。当使用逗号分隔的列表的时候not作用于邻近的查询，而不会作用于每个查询</p>
+<pre><code>@media not all and (monochrome) { ... }
+</code></pre><p>查询其实会这样起作用</p>
+<pre><code>@media not (all and (monochrome)) { ... }
+</code></pre><p>而不是这样</p>
+<pre><code>@media (not all) and (monochrome) { ... }
+</code></pre><p>对于逗号分隔的列表</p>
+<pre><code>@media not screen and (color), print and (color)
+</code></pre><p>查询是这样子的</p>
+<pre><code>@media (not (screen and (color))), print and (color)
+</code></pre><h4 id="only">only</h4>
+<p>only操作符用于阻止不支持带有media feature的media queries的浏览器应用特定style</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;only screen and (color)&quot; href=&quot;example.css&quot; /&gt;
+</code></pre><h3 id="media-features">media features</h3>
+<p>有以下常用的media feature</p>
 <ol>
-<li>switch和case可以使用任意表达式，不一定是常量</li>
-<li>switch语句进行比较的时候是全等于（<code>===</code>）操作，不会发生类型转换</li>
+<li><p>width：浏览器宽度</p>
+</li>
+<li><p>height：浏览器高度</p>
+</li>
+<li><p>device-width：设备屏幕分辨率的宽度值</p>
+</li>
+<li><p>device-height：设备屏幕分辨率的高度值</p>
+</li>
+<li><p>orientation：浏览器窗口的方向纵向还是横向，当窗口的高度值大于等于宽度时该特性值为portrait，否则为landscape</p>
+</li>
+<li><p>aspect-ratio：比例值，浏览器的纵横比</p>
+</li>
+<li><p>device-aspect-ratio：比例值，屏幕的纵横比</p>
+</li>
+<li><p>color：设备使用多少位的颜色值，如果不是彩色设备，值为0</p>
+</li>
+<li><p>color-index：色彩表的色彩数</p>
+</li>
+<li><p>monochrome：单色帧缓冲器每个像素的字节</p>
+</li>
+<li><p>resolution：分辨率值，设备分辨率值</p>
+</li>
+<li><p>scan：电视机类型设备扫描方式，progressive或interlace</p>
+</li>
+<li><p>grid：只能指定两个值0或1，是否基于栅格的设备</p>
+</li>
 </ol>
-<h2 id="whiledo-while">while和do-while</h2>
-<h3 id="while">while</h3>
-<p>while语句属于前测试循环语句，也就是在循环体内的代码被执行之前，就会对条件求值，不符合的话就不会执行</p>
-<pre><code>while(expression){
-    statement;
-}
-</code></pre><p>看个例子</p>
-<pre><code>var i = 10;
-while(i &gt; 0){
-    console.log(i);
-    i--;
-}
-</code></pre><h3 id="do-while">do-while</h3>
-<p>do-while是后测试循环语句，在出口条件判断之前就会执行一次代码</p>
-<pre><code>do{
-    statement;
-}while(expression);
-</code></pre><p>看个例子</p>
-<pre><code>var i = 4;
-do{
-    console.log(i);
-    i--;
-}while(i &gt; 5);
-</code></pre><h2 id="for">for</h2>
-<p>for语句也是前测试循环语句，但具备在执行循环代码以前初始化变量和定义循环后要执行代码的能力，改造一下while语句</p>
-<pre><code>for(var i = 10; i &gt; 0; i--){
-    console.log(i);
-}
-</code></pre><h2 id="for-in">for-in</h2>
-<p>for-in是一种迭代语句，用于枚举对象的属性</p>
-<pre><code>for(property in object){
-    statement
-}
-</code></pre><p>看个例子</p>
-<pre><code>for(var prop in window){
-    console.log(prop);
-}
-</code></pre><p>因为ECMAScript规定对象中的属性没有顺序，所以for-in遍历出来的属性的顺序也不是固定的（虽然大部分浏览器是按属性名称排序，我们不能依赖这个）</p>
-<h2 id="breakcontinue">break和continue</h2>
-<p>break关键字在switch语句中已经见过，这两个关键字多用在循环语句中</p>
-<ul>
-<li>break 用于强制退出循环体，执行循环后面的语句</li>
-<li>continue 用于退出本次循环，执行下次循环</li>
-</ul>
-<p>看个例子对比一下</p>
-<pre><code>for(var i = 1; i&lt; 10; i++){
-    if(i % 4 === 0){
-        break;
+<h3 id="media">如何引入media</h3>
+<p>有两种常用的引入方式</p>
+<h4 id="link">link方法引入</h4>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styleB.css&quot;  media=&quot;screen and (min-width: 600px) and (max-width: 800px)&quot;&gt;
+</code></pre><h4 id="media">@media引入</h4>
+<pre><code>@media screen and (min-width: 600px) and (max-width: 800px){
+
+    选择器{
+
+        属性：属性值；
+
     }
 
-    console.log(i);
 }
+</code></pre><h3 id="">浏览器兼容性</h3>
+<p><img src="http://cdn.w3cplus.com/cdn/farfuture/lB--vhekXm-09KiMA_Ys992SDRmmmnFH2O9csmfgtxo/mtime:1341237753/sites/default/files/media-query-browers.png" alt=""></p>
+<h2 id="">应用</h2>
+<p>For iPhone 4</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;only screen and (-webkit-min-device-pixel-ratio: 2)&quot; type=&quot;text/css&quot; href=&quot;iphone4.css&quot; /&gt;
+For iPad
 
-for(var i = 1; i&lt; 10; i++){
-    if(i % 4 === 0){
-        continue;
-    }
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:portrait)&quot; href=&quot;portrait.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:landscape)&quot; href=&quot;landscape.css&quot;&gt;
+</code></pre><p>移动设备iPad上的Safari和在iPhone上的是相同的，只是他们不同之处是iPad声明了不同的方向，比如说上面的例子，在纵向(portrait)时采用portrait.css来，在横向（landscape）时采用landscape.css。</p>
+<p>For Android</p>
+<pre><code>/*240px的宽度*/
+</code></pre>  <link rel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" type="text/css" />
 
-    console.log(i);
-}
-</code></pre><p>这是break和continue最常规的用法，其实这两个关键字后面可以跟上我们之前提到的<code>label</code>，退出指定位置的代码，对于多层循环是个有用的技巧，但是难以理解，一般不推荐使用（如同C语言中被误解的goto）</p>
-<h2 id="with">with</h2>
-<p>with语句同样很少用到，作用是把代码的作用域设置到一个特定对象里，由于其带来性能的严重副作用和可读性的困难，几乎不被使用</p>
-<pre><code>with(location){
-    console.log(hostname);
-    console.log(href);
-}
-</code></pre>
+<p>  /<em>360px的宽度</em>/
+  <link rel="stylesheet" media="only screen and (min-device-width:241px) and (max-device-width:360px)" href="android360.css" type="text/css" /></p>
+<p>  /<em>480px的宽度</em>/
+  <link rel="stylesheet" media="only screen and (min-device-width:361px) and (max-device-width:480px)" href="android480.css" type="text/css" /></p>
+<h2 id="">参考</h2>
+<p><a href="http://www.w3cplus.com/content/css3-media-queries" target="_blank">http://www.w3cplus.com/content/css3-media-queries</a></p>
+<p><a href="http://www.w3cplus.com/css3/css3-media-queries-for-iPhone-and-iPads" target="_blank">http://www.w3cplus.com/css3/css3-media-queries-for-iPhone-and-iPads</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries</a></p>
+
                     
                     </section>
                 
@@ -2182,10 +2200,8 @@ for(var i = 1; i&lt; 10; i++){
         </div>
 
         
-        <a href="../js/运算符.html" class="navigation navigation-prev " aria-label="Previous page: 运算符"><i class="fa fa-angle-left"></i></a>
+        <a href="../css3/3d.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3D"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../js/函数和作用域.html" class="navigation navigation-next " aria-label="Next page: 函数和作用域"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
