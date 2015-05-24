@@ -10,18 +10,6 @@
 4. NodeJS
 5. HTTP
 
-# 建议学习时间
-
-* HTML 4课时
-* CSS 13课时
-* JavaScript 18课时
-* jQuery 7课时
-* HTTP 5课时
-* 综合练习 20课时
-* HTML5 5课时
-* CSS3 10课时
-* ES6 10课时
-
 
 # 关于作者
 
