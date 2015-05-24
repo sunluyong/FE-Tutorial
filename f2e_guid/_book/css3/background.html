@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>CSS查缺补漏 | 关于本书</title>
+        <title>背景 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../css/CSS性能优化.html" />
+    <link rel="next" href="../css3/gradient.html" />
     
     
-    <link rel="prev" href="../css/条件注释和CSS hack.html" />
+    <link rel="prev" href="../css3/text.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.11" data-basepath=".." data-revision="1432449746087">
+    <div class="book" data-level="8.3" data-basepath=".." data-revision="1432449746087">
     
 
 <div class="book-summary">
@@ -425,7 +425,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.11" data-path="css/css查缺补漏.html">
+        <li class="chapter " data-level="3.11" data-path="css/css查缺补漏.html">
             
                 
                     <a href="../css/css查缺补漏.html">
@@ -1451,7 +1451,7 @@
         </li>
     
         
-        <li class="chapter " data-level="8.3" data-path="css3/background.html">
+        <li class="chapter active" data-level="8.3" data-path="css3/background.html">
             
                 
                     <a href="../css3/background.html">
@@ -2120,75 +2120,49 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_13">
+                    <section class="normal" id="section-gitbook_23">
                     
-                        <h1 id="css">css查缺补漏</h1>
-<h2 id="">半透明</h2>
-<p>CSS规定了一个专门负责透明的属性<code>opacity</code>，其含义为<strong>不透明度</strong>，值是<code>0～1</code>的值，0表示完全透明，1表示完全不透明</p>
-<pre><code>div{
-    opacity: 0.2;
-    background: #000;
-    color: red;
-}
-</code></pre><div style="opacity: 0.2;background:#000;color:red;width:100px;height:100px;font-size:50px;">123</div>
-
-
-<p>效果还不错，但是有个问题，低版本的IE不支持这个属性，有一套自己的写法</p>
-<pre><code>filter:alpha(opacity=50);
-</code></pre><p>我们在书写的时候要注意浏览器兼容性问题，并且先写非标准属性，再写标准属性</p>
-<pre><code>div{
-    filter:alpha(opacity=20);
-    opacity: 0.2;
-    background: #000;
-    color: red;
-}
-</code></pre><p>这样看起来很完美了，浏览器兼容性问题也得到了解决，但是有一个附加的坏处，就是一旦对元素设置了透明，其子元素也全部变为透明，对比一下没有设置的</p>
-<div style="background:#000;color:red;width:100px;height:100px;font-size:50px;">123</div>
-
-<p>我们可以注意到，文字都变成透明的了，我们只是想背景半透明</p>
-<h3 id="">解决办法</h3>
+                        <h1 id="background">Background</h1>
+<p>在CSS3之前我们对背景图片的控制极为有限，只能决定其来源、位置、重复，CSS3开辟了一篇新天地</p>
+<h2 id="background-size">background-size</h2>
+<p>在 CSS3中，可以规定背景图片的尺寸，这就允许我们在不同的环境中重复使用背景图片，以像素或百分比规定尺寸。如果以百分比规定尺寸，那么尺寸相对于父元素的宽度和高度</p>
 <ol>
-<li><p>为元素添加一个绝对定位的子元素，设置大小和该元素一样，把半透明加在绝对定位元素上作为遮罩，<code>z-index</code>设置到最底部，达到背景半透明效果</p>
+<li><p>length:设置背景图像的高度和宽度，第一个值设置宽度，第二个值设置高度，如果只设置一个值，则第二个值会被设置为<code>auto</code></p>
 </li>
-<li><p>使用CSS3新属性<code>rgba</code></p>
+<li><p>percentage: 以父元素的百分比来设置背景图像的宽度和高度，第一个值设置宽度，第二个值设置高度，如果只设置一个值，则第二个值会被设置为<code>auto</code></p>
+</li>
+<li><p>cover: 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域，背景图像的某些部分也许无法显示在背景定位区域中</p>
+</li>
+<li><p>contain: 把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域</p>
 </li>
 </ol>
-<p>RGB对于大家来说一点不陌生，就是红色R+绿色G+蓝色B，RGBA就是在RGB的基础上加进了一个透明通道Alpha，这个属性不会有刚才那种对子元素及文字造成影响</p>
-<pre><code>div{
-    background: rgba(0, 0, 0, 0.2);
-    color: red;
-}
-</code></pre><div style="background:rgba(0, 0, 0, 0.2);color:red;width:100px;height:100px;font-size:50px;">123</div>
-
-
-
-<h2 id="display-none--visibility-hidden">display: none 与 visibility: hidden</h2>
-<p>这两个属性看起来都是让元素隐藏，有什么区别呢？</p>
-<p>从文档角度而言，<code>display:none</code>表示把该元素从文档中删除，当作其不存在，自然“隐藏”了，实际上是删除了</p>
-<p><code>visibility: hidden</code>意思是元素本来在文档哪里就放在哪里，浏览器一样去渲染，但是视觉上不表现出来</p>
-<p>这样我们就知道两个的浏览器层面的区别了，前者根本不渲染，后者还会渲染，只不过不可见。也就是说前者不占据空间，后者虽然不可见，但仍然占据空间</p>
-<pre><code>AAA&lt;span style=&quot;display:none;&quot;&gt;BBB&lt;/span&gt;CCC
-  &lt;br/&gt;
-  AAA&lt;span&gt;BBB&lt;/span&gt;CCC
-  &lt;br/&gt;
-  AAA&lt;span style=&quot;visibility:hidden;&quot;&gt;BBB&lt;/span&gt;CCC
-</code></pre><p>AAA<span style="display:none;">BBB</span>CCC
-<br/>
-AAA<span>BBB</span>CCC
-<br/>
-AAA<span style="visibility:hidden;">BBB</span>CCC</p>
-<h2 id="display">display</h2>
-<p>display除了控制隐藏显示，还可以控制元素类型</p>
+<h2 id="background-origin">background-origin</h2>
+<p><code>background-origin</code> 属性规定 <strong>background-position</strong> 属性相对于什么位置来定位</p>
 <ol>
-<li>inline：行内元素</li>
-<li>block：块元素</li>
-<li>inline-block，表现上和行内元素一样，但是支持height、width等属性的设置</li>
-<li>table、table-cell</li>
+<li><p>padding-box:    背景图像相对于内边距框来定位</p>
+</li>
+<li><p>border-box:    背景图像相对于边框盒来定位</p>
+</li>
+<li><p>content-box:    背景图像相对于内容框来定位</p>
+</li>
 </ol>
-<p>我们可以通过改变元素的display属性，改变其表现</p>
-<pre><code>&lt;span style=&quot;display: block;&quot;&gt;123&lt;/span&gt;
-</code></pre><p>这时候span表现的就和块元素一样了</p>
-
+<p>如果背景图像的 background-attachment 属性为<code>fixed</code>，则该属性没有效果</p>
+<h2 id="background-clip">background-clip</h2>
+<p>background-clip 属性规定背景的绘制区域</p>
+<ol>
+<li><p>padding-box:    背景被裁剪到边框盒</p>
+</li>
+<li><p>border-box:    背景被裁剪到内边距框</p>
+</li>
+<li><p>content-box:    背景被裁剪到内容框</p>
+</li>
+</ol>
+<h2 id="">多背景</h2>
+<p>在之前的CSS中只能使用一张背景图片，CSS3可以使用多张背景图片</p>
+<pre><code>background:url(&quot;haoroomsCSS1_s.jpg&quot;) 0 0 no-repeat,
+         url(&quot;haoroomsCSS2_s.jpg&quot;) 200px 0 no-repeat,
+         url(&quot;haorooms.jpg&quot;) 400px 201px no-repeat;
+</code></pre>
                     
                     </section>
                 
@@ -2198,10 +2172,10 @@ AAA<span style="visibility:hidden;">BBB</span>CCC</p>
         </div>
 
         
-        <a href="../css/条件注释和CSS hack.html" class="navigation navigation-prev " aria-label="Previous page: CSS hack与条件注释"><i class="fa fa-angle-left"></i></a>
+        <a href="../css3/text.html" class="navigation navigation-prev " aria-label="Previous page: 文本"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../css/CSS性能优化.html" class="navigation navigation-next " aria-label="Next page: 性能优化"><i class="fa fa-angle-right"></i></a>
+        <a href="../css3/gradient.html" class="navigation navigation-next " aria-label="Next page: 渐变"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
