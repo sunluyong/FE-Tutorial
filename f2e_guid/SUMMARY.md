@@ -91,7 +91,7 @@
 	* [Application Cache]()
 * [CSS3](css3/css3.md)
 	* [边框](css3/border.md)
-	* [文本]()
+	* [文本](css3/text.md)
 	* [背景]()
 	* [渐变]()
 	* [变形](css3/变形.md)

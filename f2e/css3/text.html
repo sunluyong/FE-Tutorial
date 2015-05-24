@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>ES5 数组拓展 | 关于本书</title>
+        <title>文本 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../js/math.html" />
     
-    
-    <link rel="prev" href="../js/数组.html" />
+    <link rel="prev" href="../css3/border.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.9.3" data-basepath=".." data-revision="1432448273363">
+    <div class="book" data-level="8.2" data-basepath=".." data-revision="1432448273363">
     
 
 <div class="book-summary">
@@ -710,7 +708,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.9.3" data-path="js/es5array.html">
+        <li class="chapter " data-level="4.9.3" data-path="js/es5array.html">
             
                 
                     <a href="../js/es5array.html">
@@ -1411,7 +1409,7 @@
         </li>
     
         
-        <li class="chapter " data-level="8.2" data-path="css3/text.html">
+        <li class="chapter active" data-level="8.2" data-path="css3/text.html">
             
                 
                     <a href="../css3/text.html">
@@ -2072,93 +2070,69 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_44">
+                    <section class="normal" id="section-gitbook_27">
                     
-                        <h1 id="es5-">ES5 数组拓展</h1>
-<p>ES5为Array对象做了大幅拓展</p>
-<h2 id="arrayisarrayobj">Array.isArray(obj)</h2>
-<p>这是Array对象的一个静态函数，用来判断一个对象是不是数组</p>
-<pre><code>var a = new Array(123);
-var b = new Date();
-console.log(Array.isArray(a)); //true
-console.log(Array.isArray(b)); //false
-</code></pre><h2 id="indexofelement--lastindexofelement">.indexOf(element) / .lastIndexOf(element)</h2>
-<p>盼了好久的indexOf也来了</p>
-<p>顾名思义，这两个方法用于查找数组内指定元素位置，查找到第一个后返回其索引，没有查找到返回-1，indexOf从头至尾搜索，lastIndexOf反向搜索。</p>
-<pre><code>var a = new Array(1,2,3,3,2,1);
-console.log(a.indexOf(2)); //1
-console.log(a.lastIndexOf(2)); //4
-</code></pre><h2 id="foreachelement-index-array">.forEach(element, index, array)</h2>
-<p>遍历数组，参数为一个回调函数，回调函数有三个参数：</p>
+                        <h1 id="">文本</h1>
+<h2 id="text-overflow">text-overflow</h2>
 <ol>
-<li>当前元素</li>
-<li>当前元素索引值</li>
-<li>整个数组</li>
-</ol>
-<p>&nbsp;</p>
-<pre><code>var a = new Array(1,2,3,4,5,6);
-
-a.forEach(function(e,i,array){
-    array[i]= e + 1;
-});
-
-console.log(a); //[2, 3, 4, 5, 6, 7]
-</code></pre><h2 id="everyfunctionelement-index-array--somefunctionelement-index-array">.every(function(element, index, array)) / .some(function(element, index, array))</h2>
-<p>这两个函数类似于离散数学中的逻辑判定，回调函数返回一个<strong>布尔值</strong></p>
-<ol>
-<li><p>every是<code>所有</code>函数的每个回调函数都返回true的时候才会返回true，当遇到false的时候终止执行，返回false</p>
+<li><p>clip: 隐藏超出文本</p>
 </li>
-<li><p>some函数是“存在”有一个回调函数返回true的时候终止执行并返回true，否则返回false</p>
+<li><p>ellipsis: 超出部分使用省略号</p>
 </li>
 </ol>
-<p>在空数组上调用every返回true，some返回false</p>
-<pre><code>var a=new Array(1,2,3,4,5,6);
-
-console.log(a.every(function(e, i, arr){
-return e &lt; 5;
-}));
-
-console.log(a.some(function(e,i,arr){
-  return e &gt; 4;
-</code></pre><p>  }));</p>
-<h2 id="mapfunctionelement">.map(function(element))</h2>
-<p> 与forEach类似，遍历数组，回调函数返回值组成一个新数组返回，新数组索引结构和原数组一致，原数组不变</p>
-<pre><code>var a = new Array(1,2,3,4,5,6);
-
-console.log(a.map(function(e){
-  return e * e;
-}));  // [1, 4, 9, 16, 25, 36]
-
-console.log(a); //[1, 2, 3, 4, 5, 6]
-</code></pre><h2 id="filterfunctionelement">.filter(function(element))</h2>
-<p>返回数组的一个子集，回调函数用于逻辑判断是否返回，返回true则把当前元素加入到返回数组中，false则不加</p>
-<p>新数组只包含返回true的值，索引缺失的不包括，原数组保持不变</p>
-<pre><code>var a = new Array(1,2,3,4,5,6);
-
-console.log(a.filter(function(e){
-  return e % 2 == 0;
-})); // [2, 4, 6]
-
-console.log(a); //[1, 2, 3, 4, 5, 6]
-</code></pre><h2 id="reducefunctionv1-v2-value--reducerightfunctionv1-v2-value">.reduce(function(v1, v2), value) / .reduceRight(function(v1, v2), value)</h2>
-<p>遍历数组，调用回调函数，将数组元素组合成一个值，reduce从索引最小值开始，reduceRight反向，方法有两个参数</p>
+<p>看个例子</p>
+<pre><code>overflow:hidden;
+text-overflow:clip;
+</code></pre><p>对于省略号效果还需要其它属性配合</p>
+<pre><code>overflow:hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+</code></pre><h2 id="">文本换行</h2>
+<h3 id="word-wrap">word-wrap</h3>
+<p>word-wrap 属性允许长单词或 URL 地址换行到下一行</p>
 <ol>
-<li><p>回调函数：把两个值合为一个，返回结果</p>
+<li><p>normal: 只在允许的断字点换行</p>
 </li>
-<li><p>value，一个初始值,可选</p>
+<li><p>break-word: 在长单词或 URL 地址内部进行换行</p>
 </li>
 </ol>
-<p>&nbsp;</p>
-<pre><code>var a = new Array(1,2,3,4,5,6);
+<h2 id="word-break">word-break</h2>
+<p>word-break 属性规定自动换行的处理方法</p>
+<ol>
+<li>normal    使用浏览器默认的换行规则。</li>
+<li>break-all    允许在单词内换行</li>
+<li>keep-all    只能在半角空格或连字符处换行</li>
+</ol>
+<h2 id="white-space">white-space</h2>
+<p>white-space 属性设置如何处理元素内的空白</p>
+<ol>
+<li><p>normal    默认。连续空白会被浏览器忽略</p>
+</li>
+<li><p>pre    空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签</p>
+</li>
+<li><p>nowrap    文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止</p>
+</li>
+<li><p>pre-wrap    保留空白符序列，但是正常地进行换行</p>
+</li>
+<li><p>pre-line    合并空白符序列，但是保留换行符</p>
+</li>
+<li><p>inherit    规定应该从父元素继承 white-space 属性的值</p>
+</li>
+</ol>
+<h2 id="text-shadow">text-shadow</h2>
+<pre><code>text-shadow: 颜色(Color)  x轴(X Offset) y轴(Y Offset) 模糊半径(Blur)
+text-shadow: x轴(X Offset) y轴(Y Offset)  模糊半径(Blur)  颜色(Color)
+</code></pre><p>和box-shdow很像</p>
+<p>可以设置偏移、颜色、阴影大小</p>
+<pre><code>text-shdow: 2px 2px 3px #333;
+</code></pre><p>可以写多个，<code>,</code>隔开</p>
+<pre><code> text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;
+</code></pre><p>结合背景颜色，通过偏移距离负数或者颜色，可以做出各种效果</p>
+<pre><code>color: #ccc;
+</code></pre><p>  text-shadow: -1px -1px 0 #fff,1px 1px 0 #333,1px 1px 0 #444;</p>
+<p>  color: #fff;
+  text-shadow: 1px 1px rgba(197, 223, 248,0.8),2px 2px rgba(197, 223, 248,0.8),3px 3px rgba(197, 223, 248,0.8),4px 4px rgba(197, 223, 248,0.8),5px 5px rgba(197, 223, 248,0.8),6px 6px rgba(197, 223, 248,0.8);</p>
 
-console.log(a.reduce(function(v1, v2){
-    return v1 + v2;
-})); // 21
-
-console.log(a.reduceRight(function(v1, v2){
-    return v1 - v2;
-}, 100)); // 79
-</code></pre>
                     
                     </section>
                 
@@ -2168,10 +2142,8 @@ console.log(a.reduceRight(function(v1, v2){
         </div>
 
         
-        <a href="../js/数组.html" class="navigation navigation-prev " aria-label="Previous page: Array"><i class="fa fa-angle-left"></i></a>
+        <a href="../css3/border.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 边框"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../js/math.html" class="navigation navigation-next " aria-label="Next page: Math"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
