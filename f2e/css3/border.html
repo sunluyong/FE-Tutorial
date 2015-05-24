@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>语法 | 关于本书</title>
+        <title>边框 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../css/常用属性.html" />
     
-    
-    <link rel="prev" href="../css/css.html" />
+    <link rel="prev" href="../css3/css3.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="3.1" data-basepath=".." data-revision="1432441850239">
+    <div class="book" data-level="8.1" data-basepath=".." data-revision="1432441850239">
     
 
 <div class="book-summary">
@@ -265,7 +263,7 @@
                 
     
         
-        <li class="chapter active" data-level="3.1" data-path="css/语法.html">
+        <li class="chapter " data-level="3.1" data-path="css/语法.html">
             
                 
                     <a href="../css/语法.html">
@@ -1395,7 +1393,7 @@
                 
     
         
-        <li class="chapter " data-level="8.1" data-path="css3/border.html">
+        <li class="chapter active" data-level="8.1" data-path="css3/border.html">
             
                 
                     <a href="../css3/border.html">
@@ -2064,88 +2062,107 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_19">
+                    <section class="normal" id="section-gitbook_22">
                     
-                        <h1 id="css">CSS语法</h1>
-<p>CSS由多组<code>规则</code>组成，每个规则由“选择器”（selector）、“属性”（property）和“值”（value）组成：</p>
+                        <h1 id="border">border</h1>
+<p>CSS在很大程度上拓展了border的样式，让我们可以做出更加丰富的效果</p>
+<h2 id="border-radius">border-radius</h2>
+<p>圆角是做网页永远绕不过的话题，以前基本是通过背景图片做的，有了CSS3后简单属性搞定，我们可以通过<code>border-radius</code>设置元素的圆角半径</p>
+<pre><code>border-radius: 5px;
+</code></pre><p>对于正方形<code>border-radius</code>设置为边长的一半，就变成圆了</p>
+<pre><code>width: 100px;
+height: 100px;
+border-radius: 50px;
+</code></pre><p><code>border-radius</code>是缩写格式，其实border-radius和border属性一样，还可以把各个角单独拆分出来，也就是以下四种写法</p>
+<pre><code>border-top-left-radius: &lt;length&gt;  &lt;length&gt;
+border-top-right-radius: &lt;length&gt;  &lt;length&gt;
+border-bottom-right-radius:&lt;length&gt;  &lt;length&gt;
+border-bottom-left-radius:&lt;length&gt;  &lt;length&gt;
+</code></pre><p><length> <length>中第一个值是圆角水平半径，第二个值是垂直半径,如果第二个值省略，那么其等于第一个值，这时这个角就是一个四分之一的圆角，如果任意一个值为0，那么这个角就不是圆角</p>
+<h2 id="border-image">border-image</h2>
+<p>边框都是线条略显单调，使用CSS3可以用图片作为边框的修饰</p>
+<h3 id="source">source</h3>
+<pre><code>border-image-source:url(image url);
+</code></pre><p>这个和background类似，指定想使用的图片来源</p>
+<h3 id="width">width</h3>
+<pre><code>border-image-width: 1;
+</code></pre><p>指定border的宽度</p>
+<p><img src="http://image.zhangxinxu.com/image/blog/201001/border-image-nine.png" alt=""></p>
+<h3 id="repeat">repeat</h3>
+<p>三种repeat方式</p>
 <ol>
-<li><code>选择器</code>（Selector）:多个选择器可以半角逗号（,）隔开。</li>
-<li><code>属性</code>（property）:CSS1、CSS2、CSS3规定了许多的属性，目的在控制选择器的样式。</li>
-<li><code>值</code>（value）:指属性接受的设置值，多个关键字时大都以空格隔开。</li>
-</ol>
-<p>属性和值之间用半角冒号<code>：</code>隔开，属性和值合称为“特性”。多个特性间用<code>；</code>隔开，前后用<code>{}</code>括起来</p>
-<p>对于重复属性设置，优先级高的覆盖优先级低的，相同的优先级后面的覆盖前面的</p>
-<h2 id="">前缀</h2>
-<pre><code>有些新式的CSS样式并不是所有的浏览器都支持，一些浏览器率先支持了，或者不是所有的浏览器支持情况都一样，我们需要前缀写法
-
-* Firefox: -moz-
-* Safari/Chrome: -webkit-
-* Opera: -o-
-* IE: -ms-
-</code></pre><p>书写顺序要注意，先写私有的CSS3属性，再写标准的CSS3属性，这样以后不需要前缀了，能保证我们使用标准的</p>
-<pre><code>    -webkit-transform:rotate(-3deg);
-    -moz-transform:rotate(-3deg);
-    -ms-transform:rotate(-3deg);
-    -o-transform:rotate(-3deg);
-    transform:rotate(-3deg);
-</code></pre><p>当一个属性成为标准，并且被Firefox、Chrome等浏览器的最新版普遍兼容的时候。</p>
-<h2 id="">注释语句</h2>
-<pre><code>/*
-
-color: red;
-font-size: 12px;
-
-*/
-</code></pre><h2 id="">缩写</h2>
-<p>使用CSS缩写可以减少CSS文件的大小，并使其更为易读[5]，例如：</p>
-<ol>
-<li><p>颜色缩写：16进制的色彩值，如果每两位的值相同，可以进行缩写，例如：</p>
-<p> <code>＃000000</code>可以缩写为<code>#000</code>，<code>#336699</code>可以缩写为<code>#369</code>;</p>
+<li><p>stretch 压缩或伸展border-image的背景图片以其刚好适应border-width的宽度</p>
 </li>
-<li><p>盒尺寸缩写：Property: Value1 Value2 Value3 Value4；四个值依次表示Top，Right，Bottom，Left</p>
+<li><p>repeat 简单的重复</p>
 </li>
-<li><p>边框缩写</p>
-<p> 边框的属性如下：</p>
-<pre><code>  border-width: 1px;
-  border-style: solid;
-  border-color: #000;
-</code></pre><p> 可以缩写为一句：</p>
-<pre><code>  border: 1px solid #000;
-</code></pre></li>
-<li><p>背景缩写</p>
-<pre><code>  background-color: #F00;
-  background-image: url(background.gif);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 0 0;
-</code></pre></li>
+<li><p>round 压缩或伸展border-image的背景图片以图片最小单元刚好适应border-width的宽度，在此基础上重复</p>
+</li>
 </ol>
-<p>可以缩写为一句：</p>
-<pre><code>     background: #F00 url(background.gif) no-repeat fixed 0 0;
-</code></pre><ol>
-<li><p>文字缩写</p>
-<pre><code> font-weight: bold;
- font-size: 12px;
- line-height: 1.8em;
- font-family: Arial;
-</code></pre><p> 可以缩写为一句： 但文字缩写一定要具有字号、字体样式这两个属性。行高用/分隔</p>
-<pre><code>  font:bold 12px/1.8em Arial;
-</code></pre></li>
-</ol>
-<h2 id="">书写风格</h2>
+<h3 id="outset">outset</h3>
+<p>边框图像区域超出边框的量</p>
+<h3 id="slice">slice</h3>
+<pre><code>border-image-slice: number|%|fill;
+</code></pre><p>此属性指定顶部，右，底部，左边缘的图像向内偏移，分为九个区域：四个角，四边和中间。图像中间部分将被丢弃（完全透明的处理），除非填写关键字。如果省略第四个数字/百分比，它和第二个相同的。如果也省略了第三个，它和第一个是相同的。如果也省略了第二个，它和第一个是相同的。</p>
 <ol>
-<li>语法不区分大小写，但建议统一使用小写</li>
-<li>不使用内联的style属性定义样式</li>
-<li>id和class使用有意义的单词，分隔符建议使用<code>-</code></li>
-<li>有可能就是用缩写</li>
-<li>属性值是<code>0</code>的省略单位</li>
-<li>块内容缩进</li>
-<li>属性名冒号后面添加一个空格</li>
+<li><p>数字：数字表示图像的像素（位图图像）或向量的坐标（如果图像是矢量图像）</p>
+</li>
+<li><p>百分比：百分比图像的大小是相对的：水平偏移图像的宽度，垂直偏移图像的高度</p>
+</li>
+<li><p>fill：保留图像中间部分</p>
+</li>
 </ol>
-<h1 id="">参考</h1>
+<p><a href="http://segmentfault.com/a/1190000002550108" target="_blank">理解几个属性</a></p>
+<p>看个好玩的例子</p>
+<pre><code>.bordered {
+  width: 500px;
+  border-width: 20px;
+  border-image: url(http://i.imgur.com/gP414jh.png) 20 stretch;
+}
+
+&lt;div class=&quot;bordered&quot;&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.&lt;br&gt;
+  This is a div with some content.
+&lt;/div&gt;
+</code></pre><p>感觉困难有工具帮忙生成 <a href="http://border-image.com/#%7B%22src%22%3A%22http%3A%2F%2Fwww.w3.org%2FTR%2Fcss3-background%2Fborder.png%22%2C%22linkBorder%22%3Atrue%2C%22borderWidth%22%3A%5B0%2C0%2C0%2C0%5D%2C%22imageOffset%22%3A%5B27%2C27%2C27%2C27%5D%2C%22fill%22%3Atrue%2C%22setRepat%22%3Afalse%2C%22repeat%22%3A%5B%22repeat%22%2C%22repeat%22%5D%2C%22scaleFactor%22%3A3%2C%22setRepeat%22%3Atrue%7D" target="_blank">border-image-generator</a></p>
+<h2 id="box-shadow">box-shadow</h2>
+<p>比格甚高的阴影效果也被CSS3原生支持了</p>
+<pre><code>box-shadow:inset x-offset y-offset blur-radius spread-radius color
+</code></pre><p>box-shadow属性至多有6个参数设置</p>
 <ol>
-<li><a href="http://docs.kissyui.com/1.4/docs/html/tutorials/style-guide/css-coding-style.html" target="_blank">CSS 编码规范-kissy</a></li>
-<li><a href="https://github.com/fex-team/styleguide/blob/master/css.md" target="_blank">CSS编码规范</a></li>
+<li><p>阴影类型：此参数是一个可选值，如果不设值，其默认的投影方式是外阴影；如果取其唯一值<code>inset</code>,就是将外阴影变成内阴影</p>
+</li>
+<li><p>X-offset:是指阴影水平偏移量其值可以是正负值可以取正负值，如果值为正值，则阴影在对象的右边，反之其值为负值时，阴影在对象的左边</p>
+</li>
+<li><p>Y-offset:是指阴影的垂直偏移量，其值也可以是正负值，如果为正值，阴影在对象的底部，反之其值为负值时，阴影在对象的顶部</p>
+</li>
+<li><p>阴影模糊半径：此参数是可选，，但其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊</p>
+</li>
+<li><p>阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值是，则缩小</p>
+</li>
+<li><p>阴影颜色：此参数可选，如果不设定任何颜色时，浏览器会取默认色，但各浏览器默认色不一样</p>
+</li>
+</ol>
+<p>看个例子</p>
+<pre><code>box-shadow: 3px 3px 3px orange;
+</code></pre><p>box-shadow可以使用一个或多个投影，如果使用多个投影时必须需要用逗号<code>,</code>分开</p>
+<pre><code>box-shadow: 3px 3px 3px orange, 3px 3px 3px red;
+</code></pre><h2 id="box-sizing">box-sizing</h2>
+<p>这个属性多少和边框也相关，传统的盒模型width就是指内容区域宽度，和padding、border没有关系，但是这在布局上带来一定的困难</p>
+<p><code>box-sizing</code>可以改变盒模型</p>
+<ol>
+<li>content-box：标准盒模型</li>
+<li>border-box：width = content width + paddingLeft + borderLeft + paddingRight + borderRight</li>
 </ol>
 
                     
@@ -2157,10 +2174,8 @@ font-size: 12px;
         </div>
 
         
-        <a href="../css/css.html" class="navigation navigation-prev " aria-label="Previous page: CSS"><i class="fa fa-angle-left"></i></a>
+        <a href="../css3/css3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: CSS3"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../css/常用属性.html" class="navigation navigation-next " aria-label="Next page: 常用属性"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
