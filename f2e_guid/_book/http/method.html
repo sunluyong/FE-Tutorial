@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>盒模型 | 关于本书</title>
+        <title>方法 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,6 @@
         
     
     
-    <link rel="next" href="../css/CSS选择器.html" />
-    
-    
-    <link rel="prev" href="../css/常用属性.html" />
     
 
         
@@ -34,7 +30,7 @@
 
 
         
-    <div class="book" data-level="3.3" data-basepath=".." data-revision="1432968870024">
+    <div class="book" data-level="10.3" data-basepath=".." data-revision="1432968870024">
     
 
 <div class="book-summary">
@@ -297,7 +293,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.3" data-path="css/盒模型.html">
+        <li class="chapter " data-level="3.3" data-path="css/盒模型.html">
             
                 
                     <a href="../css/盒模型.html">
@@ -1751,7 +1747,7 @@
         </li>
     
         
-        <li class="chapter " data-level="10.3" data-path="http/method.html">
+        <li class="chapter active" data-level="10.3" data-path="http/method.html">
             
                 
                     <a href="../http/method.html">
@@ -2168,34 +2164,36 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_19">
+                    <section class="normal" id="section-gitbook_32">
                     
-                        <h1 id="">盒模型</h1>
-<p><img src="http://lsly1989.qiniudn.com/201503151.JPG" alt=""></p>
-<p><br/></p>
-<p><img src="http://lsly1989.qiniudn.com/201503152.JPG" alt=""></p>
-<h2 id="">区别</h2>
-<p>W3C标准中<code>padding</code>、<code>border</code>所占的空间不在width、height范围内，大家俗称的IE的盒模型width包括<code>content尺寸</code>＋<code>padding</code>＋<code>border</code></p>
-<h2 id="ieie">并不是所有的IE都使用IE盒模型</h2>
+                        <h1 id="">方法</h1>
+<p>HTTP最大的作用就是客户端发送请求，服务器给出响应，客户端想服务器发送请求的方式有很多</p>
+<h2 id="get">GET</h2>
+<p>GET是最常用的方法，通常用于请求服务器发送某个资源</p>
+<p>我们平时在浏览器输入网页地址，就是给服务器发送了一个get请求，希望得到这个网页</p>
+<h2 id="head">HEAD</h2>
+<p>HEAD方法和GET类似，但是在服务器的响应中没有资源的内容，只有资源的一些基本信息，主要用于</p>
 <ol>
-<li>早期IE6、IE7使用“IE盒模型”，后来更新了一次，更新后的IE6、IE7使用标准盒模型IE8及以上版本使用标准盒模型</li>
-<li>没有<code>DOCTYPE</code>的情况下使用怪异模式，IE也使用“IE盒模型”</li>
+<li><p>在不获取资源的情况下获取资源信息（类型、大小等）</p>
+</li>
+<li><p>通过状态码产看资源是否存在</p>
+</li>
+<li><p>通过查看首部，测试资源是否被修改了</p>
+</li>
 </ol>
-<h2 id="">兼容方案</h2>
-<h3 id="css3box-sizing">使用css3新样式box-sizing</h3>
-<p>box-sizing有两个值</p>
-<ol>
-<li>content-box：w3c标准盒模型</li>
-<li><p>border-box：“IE盒模型”</p>
-<pre><code>&lt;div style=&quot;height:200px;width:200px;border:solid 10px #333;padding:100px;box-sizing: border-box;&quot;&gt;
-&lt;/div&gt;
-</code></pre></li>
-</ol>
-<h2 id="">两层容器</h2>
-<pre><code>&lt;div style=&quot;height:200px;width:200px;&quot;&gt;
-    &lt;div style=&quot;border:solid 10px #333;padding:100px;&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<h2 id="put">PUT</h2>
+<p>和GET从服务器获取资源相反，PUT用于想服务器写入资源。PUT的语义就是让服务器用请求的主体部分创建一个请求URL命名的文档，如果存在就替换</p>
+<p>当然处于安全原因，并不是所有的服务器都实现，当然最近大热的<a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank">RESTful API</a>使它有了用武之地</p>
+<h2 id="post">POST</h2>
+<p>POST用于想服务器发送数据，通常用来支持HTML的表单（input、select、textarea），表单中的数据会被发送到服务器</p>
+<h2 id="trace">TRACE</h2>
+<p>客户端发送一个请求的时候，这个请求可能会穿过防火墙、代理、网关和一些其它应用程序，没个中间节点都可能修改HTTP请求，TRACE方法允许客户端在最终请求发往服务器的时候，看看它变成了什么样子</p>
+<p>TRACE请求会在目的服务器端发送一个“闭环”诊断，行程最后一站服务器会弹回一条TRACE响应，并在响应主题中携带它收到的原始请求报文</p>
+<h2 id="delete">DELETE</h2>
+<p>DELETE方法用于要求服务器删除请求的URL，和PUT一样，服务器可能会不支持</p>
+<h2 id="options">OPTIONS</h2>
+<p>OPTIONS方法用于请求 web服务器告知其支持的各种功能</p>
+
                     
                     </section>
                 
@@ -2205,10 +2203,6 @@
         </div>
 
         
-        <a href="../css/常用属性.html" class="navigation navigation-prev " aria-label="Previous page: 常用属性"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../css/CSS选择器.html" class="navigation navigation-next " aria-label="Next page: 选择器"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
