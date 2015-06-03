@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>事件 | 关于本书</title>
+        <title>icon font | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../js/定时器.html" />
     
-    
-    <link rel="prev" href="../js/dom.html" />
+    <link rel="prev" href="../css3/font-face.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.13" data-basepath=".." data-revision="1433333182873">
+    <div class="book" data-level="8.10" data-basepath=".." data-revision="1433333182873">
     
 
 <div class="book-summary">
@@ -859,7 +857,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.13" data-path="js/event.html">
+        <li class="chapter " data-level="4.13" data-path="js/event.html">
             
                 
                     <a href="../js/event.html">
@@ -1587,7 +1585,7 @@
         </li>
     
         
-        <li class="chapter " data-level="8.10" data-path="css3/icon font.html">
+        <li class="chapter active" data-level="8.10" data-path="css3/icon font.html">
             
                 
                     <a href="../css3/icon font.html">
@@ -2200,462 +2198,65 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_51">
+                    <section class="normal" id="section-gitbook_28">
                     
-                        <h1 id="">事件</h1>
-<p>JavaScript和HTML的交互是通过事件实现的。JavaScript采用异步事件驱动编程模型，当文档、浏览器、元素或与之相关对象发生特定事情时，浏览器会产生事件。如果JavaScript关注特定类型事件，那么它可以注册当这类事件发生时要调用的句柄</p>
-<p>看起来很拗口，其实事件是一个很生活的术语，举个例子</p>
-<p>老张家着火了</p>
-<p>这就是一个事件，这个事件出现后怎么办呢？</p>
-<p>大家用灭火器灭火</p>
-<p>这就是事件处理程序，也就是事件发生后的处理动作，对应到浏览器的交互模型中，用户点击了一个按钮，这就是一个事件，也就是发生了用户点击按钮这么件事，对应的做法就是我们提前写好的事件处理程序执行</p>
-<h2 id="">事件流</h2>
-<p>事件流描述的是从页面中接收事件的顺序，比如有两个嵌套的div，点击了内层的div，这时候是内层的div先触发click事件还是外层先触发？目前主要有三种模型</p>
+                        <h1 id="icon-font">icon font</h1>
+<p>在很多网站项目中，我们常常会用到各种透明小图标，然后网站要兼容各个浏览器，也可能会有多个尺寸，甚至还要考虑换肤等需求。那么我们就要将这些小图标输出为多种尺寸、颜色和文件格式</p>
+<p>icon font指的是像使用文字一样使用图标，利用<code>@font-face</code>做个特殊的字体，不同的图标使用特殊的字体+文字就可以表达</p>
+<p>那么为什么要利用字体来表示图标呢</p>
+<p>使用字体来实现图标有很多优势：</p>
 <ol>
-<li><p>IE的事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的元素</p>
+<li><p>字体文件小，一般20-50kb</p>
 </li>
-<li><p>Netscape的事件捕获：不太具体的节点更早接收事件，而最具体的元素最后接收事件，和事件冒泡相反</p>
+<li><p>容易编辑和维护，尺寸和颜色可以用css来控制</p>
 </li>
-<li><p>DOM事件流：DOM2级事件规定事件流包括三个阶段，事件捕获阶段，处于目标阶段，事件冒泡阶段，首先发生的是事件捕获，为截取事件提供机会，然后是实际目标接收事件，最后是冒泡阶段</p>
+<li><p>透明完全兼容IE6</p>
 </li>
 </ol>
-<p>这种分歧在日常生活中也很常见，举个例子，某个地方出了抢劫事件，我们有多种处理方式</p>
+<h2 id="">做法</h2>
 <ol>
-<li>村里先发现，报告给乡里，乡里报告到县城，县城报告给市里。。。。</li>
-<li>市里先知道这事儿，然后交代给县城怎么处理，县城交给到乡里处理，乡里交给村里处理</li>
-</ol>
-<p>Opera、Firefox、Chrome、Safari都支持DOM事件流，IE不支持事件流，只支持事件冒泡</p>
-<p>如有以下html</p>
-<pre><code>&lt;!DOCTYPE html &gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
-    &lt;title&gt;Test Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div&gt;
-        Click Here&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>点击div区域</p>
-<table border="1" cellpadding="20" cellspacing="0">
-    <tr>
-        <td><img src="http://images.cnblogs.com/cnblogs_com/dolphinX/201211/201211230945536798.png"></td>
-        <td><img src="http://images.cnblogs.com/cnblogs_com/dolphinX/201211/201211230945581230.png"></td>
-        <td><img src="http://images.cnblogs.com/cnblogs_com/dolphinX/201211/201211230946053626.png"></td>
-    </tr>
-    <tr>
-        <td>事件冒泡模型</td>
-        <td>事件捕获模型</td>
-        <td>DOM事件流</td>
-    </tr>
-</table>
-
-<h2 id="">事件处理程序</h2>
-<p>我们也称之为事件侦听器（listener），事件就是用户或浏览器自身执行的某种动作。比如click、load、mouseover等，都是事件类型（俗称事件名称），而响应某个事件的方法就叫做事件处理程序或者事件监听器</p>
-<p>也就是我们需要提前定义好某些事件发生了该怎么处理，这个过程叫做绑定事件处理程序，了解了这些，我们看看如何给元素添加事件处理程序</p>
-<h3 id="html">HTML内联方式</h3>
-<p>元素支持的每个事件都可以使用一个相应事件处理程序同名的HTML属性指定。这个属性的值应该是可以执行的JavaScript代码，我们可以为一个button添加<code>click</code>事件处理程序</p>
-<pre><code>&lt;input type=&quot;button&quot; value=&quot;Click Here&quot; onclick=&quot;alert(&#39;Clicked!&#39;);&quot; /&gt;
-</code></pre><p>在HTML事件处理程序中可以包含要执行的具体动作，也可以调用在页面其它地方定义的脚本,刚才的例子可以写成这样</p>
-<pre><code>&lt;input type=&quot;button&quot; value=&quot;Click Here&quot; onclick=&quot;showMessage();&quot; /&gt;
-</code></pre>  <script type="text/javascript">
-      function showMessage() {
-          alert('Clicked!');
-      }
-  </script>
-
-<p>在HTML中指定事件处理程序书写很方便，但是有两个缺点。</p>
-<ol>
-<li><p>存在加载顺序问题，如果事件处理程序在html代码之后加载，用户可能在事件处理程序还未加载完成时就点击按钮之类的触发事件，存在时间差问题</p>
+<li><p>复习 <code>font-face</code>知识</p>
 </li>
-<li><p>这样书写html代码和JavaScript代码紧密耦合，维护不方便</p>
+<li><p>自己制作或者查找免费icon font文件</p>
+</li>
+<li><p>使用CSS伪元素</p>
 </li>
 </ol>
-<h3 id="javascript">JavaScript指定事件处理程序</h3>
-<p>通过JavaScript指定事件处理程序就是把一个方法赋值给一个元素的事件处理程序属性。</p>
-<p>每个元素都有自己的事件处理程序属性，这些属性名称通常为小写，如<code>onclick</code>等，将这些属性的值设置为一个函数，就可以指定事件处理程序，如下</p>
-<pre><code>&lt;input id=&quot;btnClick&quot; type=&quot;button&quot; value=&quot;Click Here&quot; /&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var btnClick = document.getElementById(&#39;btnClick&#39;);
-    btnClick.onclick = function showMessage() {
-        alert(this.id);
-    };
-&lt;/script&gt;
-</code></pre><p>这样处理，事件处理程序被认为是元素的方法，事件处理程序在元素的作用域下运行，this就是当前元素，所以点击button结果是：btnClick</p>
-<p>这样还有一个好处，我们可以删除事件处理程序，只需把元素的onclick属性赋为null即可</p>
-<h3 id="dom2">DOM2事件处理程序</h3>
-<p>DOM2级事件定义了两个方法用于处理指定和删除事件处理程序的操作：</p>
-<ol>
-<li>addEventListener</li>
-<li>removeEventListener</li>
-</ol>
-<p>所有的DOM节点都包含这两个方法，并且它们都接受三个参数：</p>
-<ol>
-<li>事件类型</li>
-<li>事件处理方法</li>
-<li>布尔参数，如果是true表示在捕获阶段调用事件处理程序，如果是false，则是在事件冒泡阶段处理</li>
-</ol>
-<p>刚才的例子我们可以这样写</p>
-<pre><code>&lt;input id=&quot;btnClick&quot; type=&quot;button&quot; value=&quot;Click Here&quot; /&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var btnClick = document.getElementById(&#39;btnClick&#39;);
-    btnClick.addEventListener(&#39;click&#39;, function() {
-        alert(this.id);
-    }, false);
-&lt;/script&gt;
-</code></pre><p>上面代码为button添加了click事件的处理程序，在冒泡阶段触发，与上一种方法一样，这个程序也是在元素的作用域下运行，不过有一个好处，我们可以为click事件添加多个处理程序</p>
-<pre><code>&lt;input id=&quot;btnClick&quot; type=&quot;button&quot; value=&quot;Click Here&quot; /&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var btnClick = document.getElementById(&#39;btnClick&#39;);
-
-    btnClick.addEventListener(&#39;click&#39;, function() {
-        alert(this.id);
-    }, false);
-
-    btnClick.addEventListener(&#39;click&#39;, function() {
-        alert(&#39;Hello!&#39;);
-    }, false);
-&lt;/script&gt;
-</code></pre><p>这样两个事件处理程序会在用户点击button后按照添加顺序依次执行。</p>
-<p>通过addEventListener添加的事件处理程序只能通过removeEventListener移除，移除时参数与添加的时候相同，这就意味着刚才我们添加的匿名函数无法移除，因为匿名函数虽然方法体一样，但是句柄却不相同，所以当我们有移除事件处理程序的时候可以这样写</p>
-<pre><code>&lt;input id=&quot;btnClick&quot; type=&quot;button&quot; value=&quot;Click Here&quot; /&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var btnClick = document.getElementById(&#39;btnClick&#39;);
-
-    var handler=function() {
-        alert(this.id);
-    }
-
-    btnClick.addEventListener(&#39;click&#39;, handler, false);
-    btnClick.removeEventListener(&#39;click&#39;, handler, false);
-&lt;/script&gt;
-</code></pre><h2 id="ie">IE兼容性</h2>
-<p>下面就是老生常谈的IE兼容性问题了。。。</p>
-<p>IE并不支持addEventListener和removeEventListener方法，而是实现了两个类似的方法</p>
-<ol>
-<li><p>attachEvent</p>
-</li>
-<li><p>detachEvent</p>
-</li>
-</ol>
-<p>这两个方法都接收两个相同的参数</p>
-<ol>
-<li><p>事件处理程序名称</p>
-</li>
-<li><p>事件处理程序方法</p>
-</li>
-</ol>
-<p>由于IE指支持事件冒泡，所以添加的程序会被添加到冒泡阶段，使用attachEvent添加事件处理程序可以如下</p>
-<pre><code>&lt;input id=&quot;btnClick&quot; type=&quot;button&quot; value=&quot;Click Here&quot; /&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var btnClick = document.getElementById(&#39;btnClick&#39;);
-    var handler=function() {
-        alert(this.id);
-    }
-    btnClick.attachEvent(&#39;onclick&#39;, handler);
-&lt;/script&gt;
-</code></pre><p>结果是undefined，很奇怪，一会儿我们会介绍到</p>
-<p>使用attachEvent添加的事件处理程序可以通过detachEvent移除，条件也是相同的参数，匿名函数不能被移除。</p>
-<pre><code>&lt;input id=&quot;btnClick&quot; type=&quot;button&quot; value=&quot;Click Here&quot; /&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var btnClick = document.getElementById(&#39;btnClick&#39;);
-
-    var handler=function() {
-        alert(this.id);
-    }
-
-    btnClick.attachEvent(&#39;onclick&#39;, handler);
-    btnClick.detachEvent(&#39;onclick&#39;, handler);
-&lt;/script&gt;
-</code></pre><h2 id="">跨浏览器的事件处理程序</h2>
-<p>前面内容我们可以看到，在不同的浏览器下，添加和移除事件处理程序方式不相同，要想写出跨浏览器的事件处理程序，首先我们要了解不同的浏览器下处理事件处理程序的区别</p>
-<p>在添加事件处理程序事addEventListener和attachEvent主要有几个区别</p>
-<ol>
-<li><p><strong>参数个数不相同</strong>，这个最直观，addEventListener有三个参数，attachEvent只有两个，attachEvent添加的事件处理程序只能发生在冒泡阶段，addEventListener第三个参数可以决定添加的事件处理程序是在捕获阶段还是冒泡阶段处理（我们一般为了浏览器兼容性都设置为冒泡阶段）</p>
-</li>
-<li><p><strong>第一个参数意义不同</strong>，addEventListener第一个参数是事件类型（比如click，load），而attachEvent第一个参数指明的是事件处理函数名称（onclick，onload）</p>
-</li>
-<li><p><strong>事件处理程序的作用域不相同</strong>，addEventListener的作用域是元素本身，this是指的触发元素，而attachEvent事件处理程序会在全局变量内运行，this是window，所以刚才例子才会返回undefined，而不是元素id</p>
-</li>
-<li><p><strong>为一个事件添加多个事件处理程序时，执行顺序不同</strong>，addEventListener添加会按照添加顺序执行，而attachEvent添加多个事件处理程序时顺序无规律(添加的方法少的时候大多是按添加顺序的反顺序执行的，但是添加的多了就无规律了)，所以添加多个的时候，不依赖执行顺序的还好，若是依赖于函数执行顺序，最好自己处理，不要指望浏览器</p>
-</li>
-</ol>
-<p>了解了这四点区别后我们可以尝试写一个浏览器兼容性比较好的添加事件处理程序方法</p>
-<pre><code>function addEvent(node, type, handler) {
-    if (!node) return false;
-    if (node.addEventListener) {
-        node.addEventListener(type, handler, false);
-        return true;
-    }
-    else if (node.attachEvent) {
-        node.attachEvent(&#39;on&#39; + type, handler, );
-        return true;
-    }
-    return false;
+<h2 id="">实践</h2>
+<p>网上免费的icon font很多，随便</p>
+<p><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a></p>
+<p><a href="http://www.iconfont.cn/" target="_blank">阿里巴巴矢量图标库</a></p>
+<p><a href="http://foundation.zurb.com/icon-fonts.html" target="_blank">foundation Icon Fonts</a></p>
+<p>先使用font-face声明字体：</p>
+<pre><code>@font-face {
+    font-family: &#39;emotion&#39;;
+    src: url(&#39;emotion.eot&#39;); /* IE9*/
+    src: url(&#39;emotion.eot?#iefix&#39;) format(&#39;embedded-opentype&#39;), /* IE6-IE8 */
+        url(&#39;emotion.woff&#39;) format(&#39;woff&#39;), /* chrome、firefox */
+        url(&#39;emotion.ttf&#39;) format(&#39;truetype&#39;), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url(&#39;emotion.svg#svgFontName&#39;) format(&#39;svg&#39;); /* iOS 4.1- */ }
+</code></pre><p>然后，在icon元素上使用该字体就好了</p>
+<pre><code>.icon{font-family:&quot;emotion&quot; Tahoma; ... }
+</code></pre><p>最后，在页面中使用这个字体</p>
+<pre><code>&lt;span class=&quot;icon&quot;&gt;i&lt;/span&gt;
+</code></pre><p>支持CSS3的浏览器可以更上流一点儿，我们每次修改html可能没那么方便，如果要改变某个icon，则可能需要修改相关字符，比如将i修改为e等。如果使用css3的伪元素，可以方便很多</p>
+<pre><code>.icon{
+    display:inline-block;
+    width:16px;
+    height:16px;
+    /*占个位**/ ...
 }
-</code></pre><p>这样，首先我们解决了第一个问题参数个数不同，现在三个参数，采用事件冒泡阶段触发</p>
-<p>第二个问题也得以解决，如果是IE，我们给type添加上on</p>
-<p>第四个问题目前还没有解决方案，需要用户自己注意，一般情况下，大家也不会添加很多事件处理程序</p>
-<p>试试这个方法感觉很不错，但是我们没有解决第三个问题，由于处理程序作用域不同，如果handler内有this之类操作，那么就会出错。在IE下，实际上大多数函数都会有this操作</p>
-<pre><code>function addEvent(node, type, handler) {
-    if (!node) return false;
-    if (node.addEventListener) {
-        node.addEventListener(type, handler, false);
-        return true;
-    }
-    else if (node.attachEvent) {
-        node.attachEvent(&#39;on&#39; + type, function() { handler.apply(node); });
-        return true;
-    }
-    return false;
+.icon:after, .icon::after{
+    font-family:&quot;emotion&quot; Tahoma;
+    display:inline-block;
+    content:&quot;i&quot;;/*在这里调用字符*/
+    width:16px;
+    height:16px;
+    margin-left:-16px;/*position:absolute什么的也可以，看具体情况*/
 }
-</code></pre><p>这样处理就可以解决this的问题了，但是新的问题又来了，我们这样等于添加了一个匿名的事件处理程序，无法用detachEvent取消事件处理程序，有很多解决方案，我们可以借鉴大师的处理方式，jQuery创始人John Resig是这样做的</p>
-<pre><code>function addEvent(node, type, handler) {
-    if (!node) return false;
-    if (node.addEventListener) {
-        node.addEventListener(type, handler, false);
-        return true;
-    }
-    else if (node.attachEvent) {
-        node[&#39;e&#39; + type + handler] = handler;
-        node[type + handler] = function() {
-            node[&#39;e&#39; + type + handler](window.event);
-        };
-        node.attachEvent(&#39;on&#39; + type, node[type + handler]);
-        return true;
-    }
-    return false;
-}
-</code></pre><p>在取消事件处理程序的时候</p>
-<pre><code>function removeEvent(node, type, handler) {
-    if (!node) return false;
-    if (node.removeEventListener) {
-        node.removeEventListener(type, handler, false);
-        return true;
-    }
-    else if (node.detachEvent) {
-        node.detachEvent(&#39;on&#39; + type, node[type + handler]);
-        node[type + handler] = null;
-    }
-    return false;
-}
-</code></pre><p>John Resig很巧妙地利用了闭包，看起来很不错。</p>
-<h2 id="">事件对象</h2>
-<p>在触发DOM上的某个事件的时候会产生一个事件对象event，这个对象包含着所有与事件有关的信息，包括产生事件的元素、事件类型等相关信息。所有浏览器都支持event对象，但支持方式不同。</p>
-<h3 id="dom">DOM中的事件对象</h3>
-<p>兼容DOM的浏览器会产生一个event对象传入事件处理程序中。应用一下刚才我们写的addEvent方法</p>
-<pre><code>var btnClick = document.getElementById(&#39;btnClick&#39;);
-  addEvent(btnClick, &#39;click&#39;, handler);
-</code></pre><p>点击button的时候我们可以看到弹出内容是click的弹窗</p>
-<p>event对象包含与创建它的特定事件有关的属性和方法，触发事件的类型不同，可用的属性和方法也不同，但是所有事件都会包含</p>
-<table border="1" cellspacing="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top" width="130">
-<p align="center"><strong>属性/方法</strong></p>
-</td>
-<td valign="top" width="91">
-<p align="center"><strong>类型</strong></p>
-</td>
-<td valign="top" width="79">
-<p align="center"><strong>读/写</strong></p>
-</td>
-<td valign="top" width="681">
-<p align="center"><strong>说明</strong></p>
-</td>
-</tr>
-<tr>
-<td valign="top" width="130">bubbles</td>
-<td valign="top" width="91">Boolean</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">事件是否冒泡</td>
-</tr>
-<tr>
-<td valign="top" width="130">cancelable</td>
-<td valign="top" width="91">Boolean</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">是否可以取消事件的默认行为</td>
-</tr>
-<tr>
-<td valign="top" width="130">currentTarget</td>
-<td valign="top" width="91">Element</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">事件处理程序当前处理元素</td>
-</tr>
-<tr>
-<td valign="top" width="130">detail</td>
-<td valign="top" width="91">Integer</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">与事件相关细节信息</td>
-</tr>
-<tr>
-<td valign="top" width="130">eventPhase</td>
-<td valign="top" width="91">Integer</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">事件处理程序阶段：1 捕获阶段，2 处于目标阶段，3 冒泡阶段</td>
-</tr>
-<tr>
-<td valign="top" width="130">preventDefault()</td>
-<td valign="top" width="91">Function</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">取消事件默认行为</td>
-</tr>
-<tr>
-<td valign="top" width="130">stopPropagation()</td>
-<td valign="top" width="91">Function</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">取消事件进一步捕获或冒泡</td>
-</tr>
-<tr>
-<td valign="top" width="130">target</td>
-<td valign="top" width="91">Element</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">事件的目标元素</td>
-</tr>
-<tr>
-<td valign="top" width="130">type</td>
-<td valign="top" width="91">String</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">被触发的事件类型</td>
-</tr>
-<tr>
-<td valign="top" width="130">view</td>
-<td valign="top" width="91">AbstractView</td>
-<td valign="top" width="79">只读</td>
-<td valign="top" width="681">与事件关联的抽象视图，等同于发生事件的window对象</td>
-</tr>
-</tbody>
-</table>
-
-<p>在事件处理程序内部，<code>this</code>始终等同于<code>currentTarget</code>，而target是事件的实际目标。</p>
-<p>要阻止事件的默认行为，可以使用<code>preventDefault()</code>方法，前提是cancelable值为true，比如我们可以阻止链接导航这一默认行为</p>
-<pre><code>document.getElementsByTagName(&#39;a&#39;).onclick = function (e) {
-    e.preventDefault();
-}
-</code></pre><p><code>stopPaopagation()</code>方法可以停止事件在DOM层次的传播，即取消进一步的事件捕获或冒泡。我们可以在button的事件处理程序中调用stopPropagation()从而避免注册在body上的事件发生</p>
-<pre><code>var handler = function (e) {
-    alert(e.type);
-    e.stopPropagation();
-}
-
-addEvent(document.body, &#39;click&#39;, function () { alert(&#39;Clicked body&#39;)});
-var btnClick = document.getElementById(&#39;btnClick&#39;);
-addEvent(btnClick, &#39;click&#39;, handler);
-</code></pre><p>若是注释掉e.stopPropagation(); 在点击button的时候，由于事件冒泡，body的click事件也会触发，但是调用这句后，事件会停止传播</p>
-<h3 id="ie">IE中的事件对象</h3>
-<p>访问IE中的event对象有几种不同的方式，取决于指定事件处理程序的方法。直接为DOM元素添加事件处理程序时，event对象作为window对象的一个属性存在</p>
-<pre><code>var handler = function () {
-    var e = window.event;
-    alert(e.type);
-}
-var btnClick = document.getElementById(&#39;btnClick&#39;);
-btnClick.onclick = handler;
-</code></pre><p>我们通过window.event取得了event对象，并检测到了其类型，可是如果事件处理程序是通过attachEvent添加的，那么就会有一个event对象被传入事件处理程序中</p>
-<pre><code>var handler = function (e) {
-    alert(e.type);
-}
-var btnClick = document.getElementById(&#39;btnClick&#39;);
-attachEvent(btnClick, handler);
-</code></pre><p>当然这时候也可以通过window对象访问event，方便起见，我们一般会传入event对象，IE中所有的事件都包含以下属性方法</p>
-<table border="1" cellspacing="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top" width="100">
-<p align="center"><strong>属性/方法</strong></p>
-</td>
-<td valign="top" width="100">
-<p align="center"><strong>类型</strong></p>
-</td>
-<td valign="top" width="100">
-<p align="center"><strong>读/写</strong></p>
-</td>
-<td valign="top" width="668">
-<p align="center"><strong>说明</strong></p>
-</td>
-</tr>
-<tr>
-<td valign="top" width="100">cancelBubble</td>
-<td valign="top" width="100">Boolean</td>
-<td valign="top" width="100">读/写</td>
-<td valign="top" width="668">默认为false，设置为true后可以取消事件冒泡</td>
-</tr>
-<tr>
-<td valign="top" width="100">returnValue</td>
-<td valign="top" width="100">Boolean</td>
-<td valign="top" width="100">读/写</td>
-<td valign="top" width="668">默认为true，设为false可以取消事件默认行为</td>
-</tr>
-<tr>
-<td valign="top" width="100">srcElement</td>
-<td valign="top" width="100">Element</td>
-<td valign="top" width="100">只读</td>
-<td valign="top" width="668">事件的目标元素</td>
-</tr>
-<tr>
-<td valign="top" width="100">type</td>
-<td valign="top" width="100">String</td>
-<td valign="top" width="100">只读</td>
-<td valign="top" width="668">被触发的事件类型</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="">跨浏览器的事件对象</h3>
-<p>虽然DOM和IE的event对象不同，但基于它们的相似性，我们还是可以写出跨浏览器的事件对象方案</p>
-<pre><code>function getEvent(e) {
-    return e || window.event;
-}
-
-function getTarget(e) {
-    return e.target || e.scrElement;
-}
-
-function preventDefault(e) {
-    if (e.preventDefault)
-        e.preventDefault();
-    else
-        e.returnValue = false;
-}
-
-function stopPropagation(e) {
-    if (e.stopPropagation)
-        e.stopPropagation();
-    else
-        e.cancelBubble = true;
-}
-</code></pre><h2 id="html">常用HTML事件</h2>
-<p>有一些HTML事件我们会经常用到，这些事件不一定与用户操作有关，这里只是简单提及，详细用法大家就得百度谷歌了</p>
-<ol>
-<li><p>load：当页面完全加载后在window上触发，当图像加载完成后在img元素上触发，或当嵌入内容加载完成时，在object元素上触发</p>
-</li>
-<li><p>unload：页面完全卸载后在window上触发，或嵌入内容卸载后在object元素触发</p>
-</li>
-<li><p>select：用户选择文本框中的字符时触发</p>
-</li>
-<li><p>change：文本框焦点变化后其值改变时触发</p>
-</li>
-<li><p>submit：用户提交表单的时候触发</p>
-</li>
-<li><p>resize：窗口或框架大小变化的时候在window上触发</p>
-</li>
-<li><p>scroll：用户滚动带滚动条的元素时，在该元素上触发</p>
-</li>
-<li><p>focus：页面或元素获得焦点时在window及相应元素上触发</p>
-</li>
-<li><p>blur：页面或元素失去焦点时在window及相应元素上触发</p>
-</li>
-<li><p>beforeunload：页面卸载前在window上触发</p>
-</li>
-<li><p>mousewheel：不算HTML的，当用户通过鼠标滚轮与页面交互，在垂直方向滚动页面时触发</p>
-</li>
-</ol>
+</code></pre><h2 id="">工具、参考</h2>
+<p><a href="https://css-tricks.com/examples/IconFont/" target="_blank">CSS tricks</a></p>
+<p><a href="http://www.qianduan.net/css3-icon-font-guide/" target="_blank">CSS3 icon font完全指南</a></p>
 
                     
                     </section>
@@ -2666,10 +2267,8 @@ function stopPropagation(e) {
         </div>
 
         
-        <a href="../js/dom.html" class="navigation navigation-prev " aria-label="Previous page: DOM"><i class="fa fa-angle-left"></i></a>
+        <a href="../css3/font-face.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: font-face"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../js/定时器.html" class="navigation navigation-next " aria-label="Next page: 定时器"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
