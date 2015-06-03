@@ -52,7 +52,18 @@
 		};
 		loading();
 		conf.container.on('scroll', loading);
+		return this;
 	};
 })(jQuery);
 
-$('.item img').lazyLoad();
+var cb = function(){
+	console.log(this);
+};
+
+$('.item img').lazyLoad({callback: cb});
+
+/* todo
+1. debounce
+
+2. 解除事件绑定
+*/
