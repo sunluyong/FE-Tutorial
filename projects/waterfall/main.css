@@ -1,0 +1,32 @@
+.wrap{
+	position: relative;
+}
+
+.box{
+	position: absolute;
+	border: solid 1px #ccc;
+	box-shadow: 0 0 5px #ccc;
+	padding: 10px;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.wrap-120 img{
+	width: 120px;
+}
+
+.wrap-150 img{
+	width: 150px;
+}
+
+.wrap-180 img{
+	width: 180px;
+}
+
+.wrap-200 img{
+	width: 200px;
+}
+
+.wrap-250 img{
+	width: 250px;
+}

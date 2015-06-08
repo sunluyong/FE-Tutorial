@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Waterfall</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<style>
+		.container{
+			width: 1200px;
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="wrap"></div>
+	</div>
+	<script src="../../javascripts/jquery-2.1.3.min.js"></script>
+	<script>
+		var wrap = $('.wrap');
+
+		for(var i = 0; i < 32; i++){
+			var height = getRandomInt(180, 320);
+			var src= 'http://www.sinaimg.cn/dy/slidenews/4_img/2015_11/704_1575962_849639.jpg';
+			wrap.append('<div class="box"><img style="height:'+height+'px;" src="'+src+'"></div>');
+		}
+
+		function getRandomInt(min, max) {
+		  return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+	</script>
+	<script src="waterfall.js"></script>
+	<script>
+		$('.container').waterfall();
+	</script>
+
+</body>
+</html>
