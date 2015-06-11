@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="6.1" data-basepath=".." data-revision="1433725641345">
+    <div class="book" data-level="6.1" data-basepath=".." data-revision="1434023646724">
     
 
 <div class="book-summary">
@@ -1330,9 +1330,17 @@
         </li>
     
         
-        <li class="chapter " data-level="7" >
+        <li class="chapter " data-level="7" data-path="h5/h5.html">
             
-            <span><b>7.</b> HTML5</span>
+                
+                    <a href="../h5/h5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         HTML5
+                    </a>
+                
             
             
             <ul class="articles">
@@ -2262,13 +2270,13 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_75">
+                    <section class="normal" id="section-gitbook_76">
                     
                         <h1 id="">获取元素位置和尺寸</h1>
 <p>在一些复杂的页面中经常会用JavaScript处理一些DOM元素的动态效果，这种时候我们经常会用到一些元素位置和尺寸的计算，浏览器兼容性问题也是不可忽略的一部分，要想写出预想效果的JavaScript代码，我们需要了解一些基本知识。</p>
 <h2 id="">基础属性</h2>
 <p>为了方便理解，我们需要了解几个基础属性，每个HTML元素都有下列属性</p>
-<table border="1" cellpadding="10" cellspacing="0">
+<table border="1" cellpadding="10" cellspacing="0" style="display:table;width:auto;">
     <tr>
         <td>offsetWidth</td>
         <td>clientWidth</td>
@@ -2311,30 +2319,30 @@
   &lt;/div&gt;
 </code></pre><p>  </div></p>
 <p>script</p>
-<pre><code>var div = document.getElementById(&#39;divDisplay&#39;);
+<pre><code>    var div = document.getElementById(&#39;divDisplay&#39;);
 
-var clientHeight = div.clientHeight;
-var clientWidth = div.clientWidth;
-div.innerHTML += &#39;clientHeight: &#39; + clientHeight + &#39;&lt;br/&gt;&#39;;
-div.innerHTML += &#39;clientWidth: &#39; + clientWidth + &#39;&lt;br/&gt;&#39;;
+    var clientHeight = div.clientHeight;
+    var clientWidth = div.clientWidth;
+    div.innerHTML += &#39;clientHeight: &#39; + clientHeight + &#39;&lt;br/&gt;&#39;;
+    div.innerHTML += &#39;clientWidth: &#39; + clientWidth + &#39;&lt;br/&gt;&#39;;
 
-var clientLeft = div.clientLeft;
-var clientTop = div.clientTop;
-div.innerHTML += &#39;clientLeft: &#39; + clientLeft + &#39;&lt;br/&gt;&#39;;
-div.innerHTML += &#39;clientTop: &#39; + clientTop + &#39;&lt;br/&gt;&#39;;
+    var clientLeft = div.clientLeft;
+    var clientTop = div.clientTop;
+    div.innerHTML += &#39;clientLeft: &#39; + clientLeft + &#39;&lt;br/&gt;&#39;;
+    div.innerHTML += &#39;clientTop: &#39; + clientTop + &#39;&lt;br/&gt;&#39;;
 
-var offsetHeight = div.offsetHeight;
-var offsetWidth = div.offsetWidth;
-div.innerHTML += &#39;offsetHeight: &#39; + offsetHeight + &#39;&lt;br/&gt;&#39;;
-div.innerHTML += &#39;offsetWidth: &#39; + offsetWidth + &#39;&lt;br/&gt;&#39;;
+    var offsetHeight = div.offsetHeight;
+    var offsetWidth = div.offsetWidth;
+    div.innerHTML += &#39;offsetHeight: &#39; + offsetHeight + &#39;&lt;br/&gt;&#39;;
+    div.innerHTML += &#39;offsetWidth: &#39; + offsetWidth + &#39;&lt;br/&gt;&#39;;
 
-var offsetLeft = div.offsetLeft;
-var offsetTop = div.offsetTop;
-div.innerHTML += &#39;offsetLeft: &#39; + offsetLeft + &#39;&lt;br/&gt;&#39;;
-div.innerHTML += &#39;offsetTop: &#39; + offsetTop + &#39;&lt;br/&gt;&#39;;
+    var offsetLeft = div.offsetLeft;
+    var offsetTop = div.offsetTop;
+    div.innerHTML += &#39;offsetLeft: &#39; + offsetLeft + &#39;&lt;br/&gt;&#39;;
+    div.innerHTML += &#39;offsetTop: &#39; + offsetTop + &#39;&lt;br/&gt;&#39;;
 
-var offsetParent = div.offsetParent;
-div.innerHTML += &#39;offsetParent: &#39; + offsetParent.id + &#39;&lt;br/&gt;&#39;;
+    var offsetParent = div.offsetParent;
+    div.innerHTML += &#39;offsetParent: &#39; + offsetParent.id + &#39;&lt;br/&gt;&#39;;
 </code></pre><p><img src="http://images.cnblogs.com/cnblogs_com/dolphinX/201211/201211191754268710.png" alt=""> <img src="http://images.cnblogs.com/cnblogs_com/dolphinX/201211/201211191754284481.png" alt=""></p>
 <p>从图中我们可以看到，clientHeight就是div的高度+上下各10px的padding，clientWidth同理</p>
 <p>而clientLeft和ClientTop即为div左、上边框宽度</p>
@@ -2353,13 +2361,14 @@ div.innerHTML += &#39;offsetParent: &#39; + offsetParent.id + &#39;&lt;br/&gt;&#
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre><p>script</p>
-<p>  var divP = document.getElementById(&#39;divParent&#39;);
-  var divD = document.getElementById(&#39;divDisplay&#39;);</p>
-<p>  var scrollHeight = divP.scrollHeight;
+<pre><code>  var divP = document.getElementById(&#39;divParent&#39;);
+  var divD = document.getElementById(&#39;divDisplay&#39;);
+
+  var scrollHeight = divP.scrollHeight;
   var scrollWidth = divP.scrollWidth;
-  divD.innerHTML += &#39;scrollHeight: &#39; + scrollHeight + &#39;<br/>&#39;;
-  divD.innerHTML += &#39;scrollWidth: &#39; + scrollWidth + &#39;<br/>&#39;;</p>
-<p>在FireFox和高版本IE（低版本IE兼容性问题下面会介绍到）下得到结果<code>scrollHeight: 494</code>，而在Chrome和Safari下得到结果<code>scrollHeight: 502</code>，差了<strong>8px</strong>，根据8可以简单推测是divParent的padding，来算一下是不是</p>
+  divD.innerHTML += &#39;scrollHeight: &#39; + scrollHeight + &#39;&lt;br/&gt;&#39;;
+  divD.innerHTML += &#39;scrollWidth: &#39; + scrollWidth + &#39;&lt;br/&gt;&#39;;
+</code></pre><p>在FireFox和高版本IE（低版本IE兼容性问题下面会介绍到）下得到结果<code>scrollHeight: 494</code>，而在Chrome和Safari下得到结果<code>scrollHeight: 502</code>，差了<strong>8px</strong>，根据8可以简单推测是divParent的padding，来算一下是不是</p>
 <p>我们可以看看它们的结果是怎么来的，首先scrollHeight肯定包含了divDisplay所需的高度</p>
 <p>400px的高度+上下各10px的padding+上下各3px的border+上下各30px的margin，这样 <code>400+10*2+3*2+30*2=486</code></p>
 <p><code>486+8 = 494</code>， <code>486+8*2 = 502</code>果真是这样，在FireFox和高版本IE下没有计算下padding</p>
@@ -2374,37 +2383,37 @@ div.innerHTML += &#39;offsetParent: &#39; + offsetParent.id + &#39;&lt;br/&gt;&#
 </ol>
 <p>如果文档比视口小，说明没有出现滚动，文档左上角和视口左上角相同，一般来讲在两种坐标系之间进行切换，需要加上或减去滚动的偏移量（scroll offset）。</p>
 <p>为了在坐标系之间进行转换，我们需要判定浏览器窗口的滚动条位置。window对象的pageXoffset和pageYoffset提供这些值，IE 8及更早版本除外。也可以通过scrollLeft和scrollTop属性获得滚动条位置，正常情况下通过查询文档根节点（document.documentElement）来获得这些属性值，但在怪异模式下必须通过文档的body上查询。</p>
-<pre><code>function getScrollOffsets(w) {
-    var w = w || window;
-    if (w.pageXoffset != null) {
-        return { x: w.pageXoffset, y: pageYoffset };
+<pre><code>    function getScrollOffsets(w) {
+        var w = w || window;
+        if (w.pageXoffset != null) {
+            return { x: w.pageXoffset, y: pageYoffset };
+        }
+        var d = w.document;
+        if (document.compatMode == &quot;CSS1Compat&quot;)
+            return { x: d.documentElement.scrollLeft, y: d.documentElement.scrollTop };
+        return { x: d.body.scrollLeft, y: d.body.scrollTop };
     }
-    var d = w.document;
-    if (document.compatMode == &quot;CSS1Compat&quot;)
-        return { x: d.documentElement.scrollLeft, y: d.documentElement.scrollTop };
-    return { x: d.body.scrollLeft, y: d.body.scrollTop };
-}
 </code></pre><p>有时候能够判断视口的尺寸也是非常有用的</p>
-<pre><code>function getViewPortSize(w) {
-    var w = w || window;
-    if (w.innerWidth != null)
-        return { w: w.innerWidth, h: w.innerHeight };
-    var d = w.document;
-    if (document.compatMode == &quot;CSS1Compat&quot;)
-        return { w: d.documentElement.clientWidth, h: d.documentElement.clientHeight };
-    return { w: d.body.clientWidth, h: d.body.clientHeight };
-}
+<pre><code>    function getViewPortSize(w) {
+        var w = w || window;
+        if (w.innerWidth != null)
+            return { w: w.innerWidth, h: w.innerHeight };
+        var d = w.document;
+        if (document.compatMode == &quot;CSS1Compat&quot;)
+            return { w: d.documentElement.clientWidth, h: d.documentElement.clientHeight };
+        return { w: d.body.clientWidth, h: d.body.clientHeight };
+    }
 </code></pre><h2 id="">文档坐标</h2>
 <p>任何HTML元素都拥有offectLeft和offectTop属性返回元素的X和Y坐标，对于很多元素，这些值是文档坐标，但是对于以定位元素后代及一些其他元素（表格单元），返回相对于祖先的坐标。我们可以通过简单的递归上溯累加计算</p>
-<pre><code>function getElementPosition(e) {
-  var x = 0, y = 0;
-  while (e != null) {
-      x += e.offsetLeft;
-      y += e.offsetTop;
-      e = e.offsetParent;
-  }
-  return { x: x, y: y };
-}
+<pre><code>    function getElementPosition(e) {
+      var x = 0, y = 0;
+      while (e != null) {
+          x += e.offsetLeft;
+          y += e.offsetTop;
+          e = e.offsetParent;
+      }
+      return { x: x, y: y };
+    }
 </code></pre><p>尽管如此，这个函数也不总是计算正确的值，当文档中含有滚动条的时候这个方法就不能正常工作了，我们只能在没有滚动条的情况下使用这个方法，不过我们用这个原理算出一些元素相对于某个父元素的坐标。</p>
 <h2 id="">视口坐标</h2>
 <p>计算视口坐标就相对简单了很多，可以通过调用元素的<code>getBoundingClientRect</code>方法。方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用</p>
