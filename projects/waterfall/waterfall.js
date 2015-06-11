@@ -41,10 +41,9 @@
 
 		function getMinIndex(){
 			var l = base.length;
-			var min = base[l-1], index = l-1;
-
+			var index = l-1;
 			for(var i = l-2; i>= 0; i--){
-				if(base[i] <= min){
+				if(base[i] <= base[index]){
 					index = i;
 				}
 			}

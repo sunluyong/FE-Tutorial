@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<style>
 		.container{
-			width: 1200px;
 			margin: 20px auto;
 		}
 	</style>
@@ -19,7 +18,7 @@
 	<script>
 		var wrap = $('.wrap');
 
-		for(var i = 0; i < 32; i++){
+		for(var i = 0; i < 100; i++){
 			var height = getRandomInt(180, 320);
 			var src= 'http://www.sinaimg.cn/dy/slidenews/4_img/2015_11/704_1575962_849639.jpg';
 			wrap.append('<div class="box"><img style="height:'+height+'px;" src="'+src+'"></div>');
@@ -31,7 +30,7 @@
 	</script>
 	<script src="waterfall.js"></script>
 	<script>
-		$('.container').waterfall();
+		$('.container').waterfall({marginBottom: 30});
 	</script>
 
 </body>
