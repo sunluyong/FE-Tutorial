@@ -14,18 +14,22 @@
 
 		conf.imgWidth += 22;
 
-		var cols = Math.floor(container.width() / conf.imgWidth);
-		var marginRight = (container.width() - conf.imgWidth*cols) / (cols-1);
+		var cols;
+		var marginRight;
 
-		wrap.css('margin-right', -1*marginRight);
 		var boxes = wrap.find('.box');
 
 		var base = [];
-		for(var i = 0; i < cols; i++){
-			base[i] = 0;
-		}
 
-		$(window).on('load', function(){
+		function doRepos(){
+			cols = Math.floor(container.width() / conf.imgWidth);
+			marginRight = (container.width() - conf.imgWidth*cols) / (cols-1);
+			wrap.css('margin-right', -1*marginRight);
+
+			for(var i = 0; i < cols; i++){
+				base[i] = 0;
+			}
+
 			boxes.each(function(){
 				var box = $(this);
 				var index = getMinIndex();
@@ -37,7 +41,11 @@
 
 				base[index] += box.height() + 22 + conf.marginBottom;
 			});
-		});
+		}
+
+		$(window).on('load', doRepos);
+
+		$(window).resize(doRepos); //记得做节流
 
 		function getMinIndex(){
 			var l = base.length;
@@ -49,5 +57,7 @@
 			}
 			return index;
 		}
+
+		return this;
 	};
 })(jQuery);
