@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Template</title>
+</head>
+<body>
+
+	<div id="wrap"></div>
+
+	<script type="text/html" id="user_tmpl">
+		<h1><%=title%></h1>
+    <ul>
+      <% for ( var i = 0; i < users.length; i++ ) { %>
+        <li>
+            <a href="<%=users[i].url%>">
+                <%=users[i].name%>
+            </a>
+        </li>
+      <% } %>
+    </ul>
+	</script>
+
+	<script src="./template.js"></script>
+
+	<script>
+		var data = [
+		  {"name":"Byron", "url":"http://localhost"},
+		  {"name":"Casper", "url":"http://localhost"},
+		  {"name":"Frank", "url":"http://localhost"}
+		];
+
+		var html = tmpl2('user_tmpl', {
+			title: 'Simple Tmplate',
+			users: data
+		});
+
+		document.getElementById('wrap').innerHTML += html;
+
+	</script>
+</body>
+</html>

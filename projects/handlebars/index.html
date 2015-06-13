@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板引擎</title>
+</head>
+<body>
+	<div class="container"></div>
+
+	<script id="entry-template" type="text/x-handlebars-template">
+	  <div class="entry">
+	   	{{!-- only output this author names if an author exists --}}
+	   	{{! This comment will not be in the output }}
+	    {{#list people}}{{firstName}} {{lastName}}{{/list}}
+	  </div>
+	</script>
+
+	<script src="../../javascripts/jquery-2.1.3.min.js"></script>
+	<script src="./handlebars-v3.0.3.js"></script>
+
+	<script type="text/javascript">
+		var context = {
+		  people: [
+		    {firstName: "Yehuda", lastName: "Katz" },
+		    {firstName: "Carl", lastName: "Lerche"},
+		    {firstName: "Alan", lastName: "Johnson"}
+		  ]
+		};
+
+		Handlebars.registerHelper('list', function(items, options) {
+		  var out = "<ul>";
+		  for(var i=0, l=items.length; i<l; i++) {
+		    out = out + "<li>" + items[i].firstName + ' ' + items[i].lastName + "</li>";
+		  }
+		  return out + "</ul>";
+		});
+
+		var source  = $("#entry-template").html();
+		var template = Handlebars.compile(source);
+
+		var html = template(context);
+
+		$('.container').append(html);
+	</script>
+</body>
+</html>
