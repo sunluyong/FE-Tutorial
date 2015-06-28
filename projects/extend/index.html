@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>extend</title>
+</head>
+<body>
+	<script>
+		function inherit(superType, subType){
+	    var _prototype  = Object.create(superType.prototype);
+	    _prototype.constructor = subType;
+	    subType.prototype = _prototype;
+		}
+
+		function Person(name, sex){
+	    this.name = name;
+	    this.sex = sex;
+		}
+
+		Person.prototype.printName = function(){
+	    console.log(this.name);
+		};
+
+		Person.prototype.printName2 = function(){
+	    console.log(this.name);
+		};
+
+		function Male(name, sex, age){
+			Person.call(this, name, sex);
+	    this.age = age;
+		}
+
+		// var obj = Object.create(Person.prototype);
+		// obj.constructor = Male;
+		// Male.prototype = obj;
+
+		inherit(Person, Male);
+
+		Male.prototype.printAge = function(){
+	    console.log(this.age);
+		};
+
+		var m = new Male('Byron', 'Male', 20);
+	</script>
+</body>
+</html>
