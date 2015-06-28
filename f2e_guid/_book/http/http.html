@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>表单 | 关于本书</title>
+        <title>HTTP | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../html/外部资源.html" />
+    <link rel="next" href="../http/url.html" />
     
     
-    <link rel="prev" href="../html/全局属性.html" />
+    <link rel="prev" href="../css3/flex.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="2.4" data-basepath=".." data-revision="1435488644086">
+    <div class="book" data-level="9" data-basepath=".." data-revision="1435488644086">
     
 
 <div class="book-summary">
@@ -147,7 +147,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="2.4" data-path="html/表单.html">
+        <li class="chapter " data-level="2.4" data-path="html/表单.html">
             
                 
                     <a href="../html/表单.html">
@@ -1704,7 +1704,7 @@
         </li>
     
         
-        <li class="chapter " data-level="9" data-path="http/http.html">
+        <li class="chapter active" data-level="9" data-path="http/http.html">
             
                 
                     <a href="../http/http.html">
@@ -2076,102 +2076,35 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_7">
+                    <section class="normal" id="section-gitbook_38">
                     
-                        <h1 id="html-">HTML 表单</h1>
-<p>我们平时填写的纸质表单一样，HTML 表单用于搜集不同类型的用户输入</p>
-<p>表单是一个包含表单元素的区域
-表单元素是允许用户在表单中（比如：文本域、下拉列表、单选框、复选框等等）输入信息的元素</p>
-<p><a href="/demo/form.html">demo</a></p>
-<pre><code>&lt;form action=&quot;xxx.php&quot; method=&quot;post&quot;&gt;
-            &lt;h3&gt;输入框&lt;/h3&gt;
-            &lt;label for=&quot;input_username&quot;&gt;用户名：&lt;/label&gt; &lt;input id=&quot;input_username&quot; name=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;输入用户名&quot; autofocus/&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;input_pass&quot;&gt;密码：&lt;/label&gt; &lt;input id=&quot;input_pass&quot; name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;输入密码&quot;/&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;单选框&lt;/h3&gt;
-            &lt;label for=&quot;ck1&quot;&gt;ra1：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra1&quot; name=&quot;ra&quot; value=&quot;1&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra2&quot;&gt;ra2：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra2&quot; name=&quot;ra&quot; value=&quot;2&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra3&quot;&gt;ra3：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra3&quot; name=&quot;ra&quot; value=&quot;3&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra4&quot;&gt;ra4：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra4&quot; name=&quot;ra&quot; value=&quot;4&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-            &lt;label for=&quot;ck5&quot;&gt;ra5：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra5&quot; name=&quot;radio&quot; value=&quot;1&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra6&quot;&gt;ra6：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra6&quot; name=&quot;radio&quot; value=&quot;2&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra7&quot;&gt;ra7：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra7&quot; name=&quot;radio&quot; value=&quot;3&quot; checked=&quot;checked&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra8&quot;&gt;ra8：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra8&quot; name=&quot;radio&quot; value=&quot;4&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-
-            &lt;h3&gt;复选框&lt;/h3&gt;
-            &lt;label for=&quot;ck1&quot;&gt;CK1：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck1&quot; name=&quot;ck&quot; value=&quot;1&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ck2&quot;&gt;CK2：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck2&quot; name=&quot;ck&quot; value=&quot;2&quot; checked /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ck3&quot;&gt;CK3：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck3&quot; name=&quot;ck&quot; value=&quot;3&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ck4&quot;&gt;CK4：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck4&quot; name=&quot;ck&quot; value=&quot;4&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;File&lt;/h3&gt;
-            &lt;input type=&quot;file&quot; accept=&quot;image/gif, image/jpeg&quot;/&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;image 按钮&lt;/h3&gt;
-            &lt;input type=&quot;image&quot; src=&quot;xxx.jpg&quot; alt=&quot;Submit Form&quot;/&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;隐藏域&lt;/h3&gt;
-            &lt;input type=&quot;hidden&quot; value=&quot;xxx&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-
-            &lt;h3&gt;下拉菜单&lt;/h3&gt;
-            &lt;select id=&quot;input_select&quot;&gt;
-                &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
-                &lt;option value=&quot;2&quot; selected=&quot;selected&quot;&gt;2&lt;/option&gt;
-                &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
-                &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
-            &lt;/select&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;多行文本&lt;/h3&gt;
-            &lt;textarea cols=&quot;60&quot; rows=&quot;5&quot;&gt;123&lt;/textarea&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;input type=&quot;button&quot; value=&quot;Buttom&quot; /&gt; &amp;nbsp;&amp;nbsp;
-            &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;  &amp;nbsp;&amp;nbsp;
-            &lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;
-
-        &lt;/form&gt;
-</code></pre><h2 id="form">form</h2>
-<p>form标签是表单的外壳，主要有四个属性</p>
+                        <h1 id="http">HTTP</h1>
+<p>超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络协议。所有的WWW文件都必须遵守这个标准。</p>
+<p>设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法。1960年美国人Ted Nelson构思了一种通过计算机处理文本信息的方法，并称之为超文本（hypertext）,这成为了HTTP超文本传输协议标准架构的发展根基。</p>
+<h2 id="">技术架构</h2>
+<p>HTTP是一个客户端和服务器端请求和应答的标准（TCP）。客户端是终端用户，服务器端是网站。</p>
+<p>通过使用Web浏览器、网络爬虫或者其它的工具，客户端发起一个到服务器上指定端口（默认端口为80）的HTTP请求。（我们称这个客户端）叫用户代理（user agent）。应答的服务器上存储着（一些）资源，比如HTML文件和图像。（我们称）这个应答服务器为源服务器（origin server）。</p>
+<p>在用户代理和源服务器中间可能存在多个中间层，比如代理，网关，或者隧道（tunnels）。尽管TCP/IP协议是互联网上最流行的应用，HTTP协议并没有规定必须使用它和（基于）它支持的层。</p>
+<p>事实上，HTTP可以在任何其他互联网协议上，或者在其他网络上实现。HTTP只假定（其下层协议提供）可靠的传输，任何能够提供这种保证的协议都可以被其使用。</p>
+<p>通常，由HTTP客户端发起一个请求，建立一个到服务器指定端口（默认是80端口）的TCP连接。HTTP服务器则在那个端口监听客户端发送过来的请求。一旦收到请求，服务器（向客户端）发回一个状态行，比如&quot;HTTP/1.1 200 OK&quot;，和（响应的）消息，消息的消息体可能是请求的文件、错误消息、或者其它一些信息。</p>
+<p>HTTP使用TCP而不是UDP的原因在于（打开）一个网页必须传送很多数据，而TCP协议提供传输控制，按顺序组织数据，和错误纠正。
+通过HTTP或者HTTPS协议请求的资源由统一资源标示符（Uniform Resource Identifiers）（或者，更准确一些，URLs）来标识。</p>
+<h2 id="">工作原理</h2>
+<p>一次HTTP操作称为一个事务，其工作过程可分为四步：</p>
 <ol>
-<li>action： 表单提交的地址</li>
-<li>method：提交保单的方法</li>
-<li>target：在何处打开action</li>
-<li>enctype:<ul>
-<li>application/x-www-form-urlencoded：在发送前编码所有字符（默认）</li>
-<li>text/plain：空格转换为 &quot;+&quot; 加号，但不对特殊字符编码</li>
-<li>multipart/form-data：使用包含文件上传控件的表单时，必须使用该值</li>
-</ul>
+<li><p>客户机与服务器需要建立连接。只要单击某个超级链接，HTTP的工作就开始了。</p>
+</li>
+<li><p>建立连接后，客户机发送一个请求给服务器，请求方式的格式为：统一资源标识符（URL）、协议版本号，后边是MIME信息包括请求修饰符、客户机信息和可能的内容。</p>
+</li>
+<li><p>服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功或错误的代码，后边是MIME信息包括服务器信息、实体信息和可能的内容。</p>
+</li>
+<li><p>客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接。</p>
 </li>
 </ol>
-<h2 id="password">password</h2>
-<p>输入内容自动变成圆点</p>
-<h2 id="checkbox">checkbox</h2>
-<p>靠<code>name</code>属性分组，提交到后端的时候被选中的value是以<code>,</code>分割的一个字符串，通过name属性获得</p>
-<h2 id="file">file</h2>
-<p>accept：mime 类型，多个以<code>,</code>分割</p>
-<p><a href="http://www.w3school.com.cn/media/media_mimeref.asp" target="_blank">MIME</a></p>
-<h2 id="select">select</h2>
-<p>后端以select标签的name获取选中的option的value</p>
+<p>如果在以上过程中的某一步出现错误，那么产生错误的信息将返回到客户端，由显示屏输出。对于用户来说，这些过程是由HTTP自己完成的，用户只要用鼠标点击，等待信息显示就可以了。</p>
+<p>这个过程就好像我们打电话订货一样，我们可以打电话给商家，告诉他我们需要什么规格的商品，然后商家再告诉我们什么商品有货，什么商品缺货。这些，我们是通过电话线用电话联系（HTTP是通过TCP/IP），当然我们也可以通过传真，只要商家那边也有传真。</p>
+<h2 id="">参考</h2>
+<p><a href="http://baike.baidu.com/link?url=qwE3SFugbPf6zKVpMEFgDx03MIBVhB9gfKgyNL3D7ZZyiDEhu09XDfddadLTVmT_kjMREDDsWHgL8EdwA54tcq" target="_blank">百度百科</a></p>
 
                     
                     </section>
@@ -2182,10 +2115,10 @@
         </div>
 
         
-        <a href="../html/全局属性.html" class="navigation navigation-prev " aria-label="Previous page: 全局属性"><i class="fa fa-angle-left"></i></a>
+        <a href="../css3/flex.html" class="navigation navigation-prev " aria-label="Previous page: Flexbox"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../html/外部资源.html" class="navigation navigation-next " aria-label="Next page: 外部资源引入"><i class="fa fa-angle-right"></i></a>
+        <a href="../http/url.html" class="navigation navigation-next " aria-label="Next page: URI和URL"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

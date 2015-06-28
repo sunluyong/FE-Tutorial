@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>表单 | 关于本书</title>
+        <title>报文 | 关于本书</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../html/外部资源.html" />
+    <link rel="next" href="../http/method.html" />
     
     
-    <link rel="prev" href="../html/全局属性.html" />
+    <link rel="prev" href="../http/url.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="2.4" data-basepath=".." data-revision="1435488644086">
+    <div class="book" data-level="9.2" data-basepath=".." data-revision="1435488644086">
     
 
 <div class="book-summary">
@@ -147,7 +147,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="2.4" data-path="html/表单.html">
+        <li class="chapter " data-level="2.4" data-path="html/表单.html">
             
                 
                     <a href="../html/表单.html">
@@ -1737,7 +1737,7 @@
         </li>
     
         
-        <li class="chapter " data-level="9.2" data-path="http/message.html">
+        <li class="chapter active" data-level="9.2" data-path="http/message.html">
             
                 
                     <a href="../http/message.html">
@@ -2076,102 +2076,229 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_7">
+                    <section class="normal" id="section-gitbook_39">
                     
-                        <h1 id="html-">HTML 表单</h1>
-<p>我们平时填写的纸质表单一样，HTML 表单用于搜集不同类型的用户输入</p>
-<p>表单是一个包含表单元素的区域
-表单元素是允许用户在表单中（比如：文本域、下拉列表、单选框、复选框等等）输入信息的元素</p>
-<p><a href="/demo/form.html">demo</a></p>
-<pre><code>&lt;form action=&quot;xxx.php&quot; method=&quot;post&quot;&gt;
-            &lt;h3&gt;输入框&lt;/h3&gt;
-            &lt;label for=&quot;input_username&quot;&gt;用户名：&lt;/label&gt; &lt;input id=&quot;input_username&quot; name=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;输入用户名&quot; autofocus/&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;input_pass&quot;&gt;密码：&lt;/label&gt; &lt;input id=&quot;input_pass&quot; name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;输入密码&quot;/&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;单选框&lt;/h3&gt;
-            &lt;label for=&quot;ck1&quot;&gt;ra1：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra1&quot; name=&quot;ra&quot; value=&quot;1&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra2&quot;&gt;ra2：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra2&quot; name=&quot;ra&quot; value=&quot;2&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra3&quot;&gt;ra3：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra3&quot; name=&quot;ra&quot; value=&quot;3&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra4&quot;&gt;ra4：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra4&quot; name=&quot;ra&quot; value=&quot;4&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-            &lt;label for=&quot;ck5&quot;&gt;ra5：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra5&quot; name=&quot;radio&quot; value=&quot;1&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra6&quot;&gt;ra6：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra6&quot; name=&quot;radio&quot; value=&quot;2&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra7&quot;&gt;ra7：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra7&quot; name=&quot;radio&quot; value=&quot;3&quot; checked=&quot;checked&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ra8&quot;&gt;ra8：&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;ra8&quot; name=&quot;radio&quot; value=&quot;4&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-
-            &lt;h3&gt;复选框&lt;/h3&gt;
-            &lt;label for=&quot;ck1&quot;&gt;CK1：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck1&quot; name=&quot;ck&quot; value=&quot;1&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ck2&quot;&gt;CK2：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck2&quot; name=&quot;ck&quot; value=&quot;2&quot; checked /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ck3&quot;&gt;CK3：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck3&quot; name=&quot;ck&quot; value=&quot;3&quot; /&gt;
-            &lt;br/&gt;
-            &lt;label for=&quot;ck4&quot;&gt;CK4：&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ck4&quot; name=&quot;ck&quot; value=&quot;4&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;File&lt;/h3&gt;
-            &lt;input type=&quot;file&quot; accept=&quot;image/gif, image/jpeg&quot;/&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;image 按钮&lt;/h3&gt;
-            &lt;input type=&quot;image&quot; src=&quot;xxx.jpg&quot; alt=&quot;Submit Form&quot;/&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;隐藏域&lt;/h3&gt;
-            &lt;input type=&quot;hidden&quot; value=&quot;xxx&quot; /&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-
-            &lt;h3&gt;下拉菜单&lt;/h3&gt;
-            &lt;select id=&quot;input_select&quot;&gt;
-                &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
-                &lt;option value=&quot;2&quot; selected=&quot;selected&quot;&gt;2&lt;/option&gt;
-                &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
-                &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
-            &lt;/select&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;h3&gt;多行文本&lt;/h3&gt;
-            &lt;textarea cols=&quot;60&quot; rows=&quot;5&quot;&gt;123&lt;/textarea&gt;
-            &lt;br/&gt;&lt;br/&gt;
-
-            &lt;input type=&quot;button&quot; value=&quot;Buttom&quot; /&gt; &amp;nbsp;&amp;nbsp;
-            &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;  &amp;nbsp;&amp;nbsp;
-            &lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;
-
-        &lt;/form&gt;
-</code></pre><h2 id="form">form</h2>
-<p>form标签是表单的外壳，主要有四个属性</p>
+                        <h1 id="">报文</h1>
+<p>HTTP报文是在HTTP应用程序之间发送的数据块。这些数据块以一些文本形式的<code>元信息</code>开头，描述报文的内容及含义，后面跟着可选的数据部分</p>
+<h2 id="">组成</h2>
+<p>HTTP报文是简单的格式化数据块，没个报文都包含一条来自客户端的请求或者一条来自服务器的响应，由3个部分组成</p>
 <ol>
-<li>action： 表单提交的地址</li>
-<li>method：提交保单的方法</li>
-<li>target：在何处打开action</li>
-<li>enctype:<ul>
-<li>application/x-www-form-urlencoded：在发送前编码所有字符（默认）</li>
-<li>text/plain：空格转换为 &quot;+&quot; 加号，但不对特殊字符编码</li>
-<li>multipart/form-data：使用包含文件上传控件的表单时，必须使用该值</li>
-</ul>
-</li>
+<li>对报文进行描述的起始行 —— start line</li>
+<li>包含属性的首部块 —— header</li>
+<li>可选的包含数据的主体部分 —— body</li>
 </ol>
-<h2 id="password">password</h2>
-<p>输入内容自动变成圆点</p>
-<h2 id="checkbox">checkbox</h2>
-<p>靠<code>name</code>属性分组，提交到后端的时候被选中的value是以<code>,</code>分割的一个字符串，通过name属性获得</p>
-<h2 id="file">file</h2>
-<p>accept：mime 类型，多个以<code>,</code>分割</p>
-<p><a href="http://www.w3school.com.cn/media/media_mimeref.asp" target="_blank">MIME</a></p>
-<h2 id="select">select</h2>
-<p>后端以select标签的name获取选中的option的value</p>
+<p>&nbsp;</p>
+<pre><code>HTTP/1.0 200 OK
+content-type: text/plain
+content-length: 19
+
+Hi, I&#39;m a message
+</code></pre><p>起始行和首部就是由行分隔的ASCII文本，主题是一个可选的数据块，可能是文本、二进制或者空</p>
+<h2 id="">语法</h2>
+<p>HTTP报文分为两类</p>
+<h3 id="">请求报文：</h3>
+<p>向web服务器请求一个动作</p>
+<pre><code>&lt;method&gt;&lt;request-URL&gt;&lt;version&gt;
+&lt;headers&gt;
+
+&lt;entity-body&gt;
+</code></pre><h3 id="">响应报文</h3>
+<p>讲请求结果返回给客户端</p>
+<pre><code>&lt;version&gt;&lt;status&gt;&lt;reason-phrase&gt;
+&lt;headers&gt;
+
+&lt;entity-body&gt;
+</code></pre><p>首部和方法配合，共同决定了服务器和客户端能做什么</p>
+<h2 id="">通用首部</h2>
+<p>客户端和服务器都可以实用的就是通用首部</p>
+<table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection</td>
+<td>客户端和服务器是否保持连接</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>日期，报文创建时间</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>给出了发送端可能想要升级使用新版本或协议</td>
+</tr>
+<tr>
+<td>Via</td>
+<td>显示了报文经过的中间节点（代理、网关）</td>
+</tr>
+<tr>
+<td>Trailer</td>
+<td>如果报文采用分块传输编码方式，可以利用这个首部列出位于报文trailer部分的首部集合</td>
+</tr>
+<tr>
+<td>Trailer-Encoding</td>
+<td>告诉接收端对报文采用什么编码格式</td>
+</tr>
+<tr>
+<td>Cache-Control</td>
+<td>随报文传送缓存指示</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>早期的随报文传送指示方式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="">请求首部</h2>
+<table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client-IP</td>
+<td>客户端IP</td>
+</tr>
+<tr>
+<td>From</td>
+<td>客户端邮件地址</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>接收请求的服务器的主机名和端口号</td>
+</tr>
+<tr>
+<td>Referer</td>
+<td>提供了包含当前请求URI的文档的URL，告诉服务器自己来源</td>
+</tr>
+<tr>
+<td>User—Agent</td>
+<td>发起请求的客户端应用程序</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>告诉服务器能够发送那些媒体类型</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>告诉服务器能够发送那些字符集</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>告诉服务器能够发送那些编码</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>告诉服务器能够发送那些语言</td>
+</tr>
+<tr>
+<td>Expect</td>
+<td>允许客户端列出请求所要求的服务器行为</td>
+</tr>
+<tr>
+<td>If-Match</td>
+<td>如果ETag和文档当前ETag匹配，就获取文档</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>除非在某个指定日期之后修改过，否则限制这个请求</td>
+</tr>
+<tr>
+<td>If-None-Match</td>
+<td>如果ETag和当前文档ETag不符合，获取资源</td>
+</tr>
+<tr>
+<td>If-Range</td>
+<td>允许对文档否个范围内的条件请求</td>
+</tr>
+<tr>
+<td>If-Unmodified-Since</td>
+<td>在某个指定日期之后没有修改过，否则现在请求</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>客户端字符串</td>
+</tr>
+</tbody>
+</table>
+<h2 id="">响应首部</h2>
+<table>
+<thead>
+<tr>
+<th>首部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Age</td>
+<td>响应持续时间</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>服务器应用软件名称和版本</td>
+</tr>
+<tr>
+<td>Allow</td>
+<td>列出了可用的请求方法</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>告诉客户端实在在哪里，用于定向</td>
+</tr>
+<tr>
+<td>Content-Base</td>
+<td>解析主体中相对URL的基础URL</td>
+</tr>
+<tr>
+<td>Content-Encoding</td>
+<td>主体编码格式</td>
+</tr>
+<tr>
+<td>Content-Language</td>
+<td>解析主体时适用的语言</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>主体的长度或尺寸</td>
+</tr>
+<tr>
+<td>Content-Location</td>
+<td>资源实际位置</td>
+</tr>
+<tr>
+<td>Content-MD5</td>
+<td>主体的MD5校验和</td>
+</tr>
+<tr>
+<td>Content-Range</td>
+<td>在整个资源中此实体部分的字节范围</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>主体的MIME</td>
+</tr>
+<tr>
+<td>ETag</td>
+<td>主体的实体标记</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>过期时间</td>
+</tr>
+<tr>
+<td>Last-Modified</td>
+<td>实体最后一次修改时间</td>
+</tr>
+</tbody>
+</table>
 
                     
                     </section>
@@ -2182,10 +2309,10 @@
         </div>
 
         
-        <a href="../html/全局属性.html" class="navigation navigation-prev " aria-label="Previous page: 全局属性"><i class="fa fa-angle-left"></i></a>
+        <a href="../http/url.html" class="navigation navigation-prev " aria-label="Previous page: URI和URL"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../html/外部资源.html" class="navigation navigation-next " aria-label="Next page: 外部资源引入"><i class="fa fa-angle-right"></i></a>
+        <a href="../http/method.html" class="navigation navigation-next " aria-label="Next page: 方法"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
