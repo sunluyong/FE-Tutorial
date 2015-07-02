@@ -1,0 +1,52 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<p>This is my first App</p>
+<div id="container"></div>
+
+<script>
+	function appendPerson(Person){
+		document.getElementById('container').innerHTML = Person.name;
+	}
+
+	function getPerson(id){
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState === 4){
+				var result = JSON.parse(xhr.responseText);
+				appendPerson(result);
+			}
+		}
+		xhr.open('get', '/json/3?a=123&id='+id, true);
+		xhr.send();
+	}
+</script>
+
+<script type="text/javascript">
+	//getPerson(4);
+</script>
+
+<script src="/javascripts/jquery-2.1.3.min.js"></script>
+
+<script>
+	$.ajax({
+		method: 'GET',
+		url: '/json/3',
+		cache: false,
+		headers: {
+			aaa: 123,
+			bbb: 456
+		},
+		data: {
+			id: 4,
+			a: 'This is a test string'
+		}
+	}).done(function(data){
+		appendPerson(data);
+		console.log(101212);
+	});
+	console.log('xxxxxx');
+
+	$.getJSON('/json/3', {id: 2}, function(data){
+		console.log(data);
+	});
+</script>
