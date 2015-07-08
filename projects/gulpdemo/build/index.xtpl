@@ -1,0 +1,7 @@
+<style>.module .title{font-size:14px}.module .content{color:#666}</style>
+<div>
+	<h2>{{title}}</h2>
+	<p>{{content}}</p>
+</div>
+
+<script>function fn(n){console.log(n)}</script>
