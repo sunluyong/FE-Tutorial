@@ -43,33 +43,3 @@
 		</tr>
 	</table>
 </form>
-
-<script src="/javascripts/jquery-2.1.3.min.js"></script>
-<script>
-	// $.ajax({
-	// 	method: 'POST',
-	// 	url: '/login',
-	// 	data: {
-	// 		username: 'byron',
-	// 		password: '111',
-	// 		ck: '1,3,5',
-	// 		se: '2'
-	// 	}
-	// }).done(function(data){
-	// 	console.log(data);
-	// });
-
-	$('#un').on('keyup', function(e){
-		$.ajax({
-			method: 'get',
-			url: '/login/repeat',
-			data:{
-				un: $('#un').val()
-			}
-		}).done(function(data){
-			if(data.repeat){
-				alert('Change a name');
-			}
-		});
-	});
-</script>

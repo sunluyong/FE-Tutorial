@@ -1,0 +1,70 @@
+<h1>{{title}}</h1>
+
+<form method="POST" action="/register">
+	<table align="center" cellpadding="10" cellspacing="0">
+		<tr>
+			<th>用户名：</th>
+			<td><input id="username" type="text" name="username" /></td>
+		</tr>
+		<tr>
+			<th>密码：</th>
+			<td><input id="password" type="password" name="password"/></td>
+		</tr>
+		<tr>
+			<th>重复密码：</th>
+			<td><input id="repassword" type="password" name="repassword"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">
+				<input type="submit" value="注册" />
+			</td>
+		</tr>
+	</table>
+</form>
+
+<script src="/javascripts/jquery-2.1.3.min.js"></script>
+
+<script type="text/javascript">
+	$('form').on('submit', function(){
+		if($('#password').val() != $('#repassword').val()){
+			alert('密码两次输入不一致');
+			return false;
+		}
+	});
+
+	function checkUserNameValid(username){
+		$.ajax({
+			url: '/register/getUser',
+			data: {
+				username: username
+			}
+		}).done(function(result){
+			if(!result.isValid){
+				console.log('用户名重复！');
+			}else{
+				console.log('OK');
+			}
+		});
+	}
+
+	function debounce (fn) {
+		var timer = null;
+
+		return function () {
+			var context = this,
+					args = arguments;
+
+			clearTimeout(timer);
+
+			timer = setTimeout(function(){
+				fn.apply(context, args);
+			}, 300);
+		}
+	}
+
+	$('#username').on('keyup', debounce(function (e) {
+		var username = this.value;
+
+		checkUserNameValid(username);
+	}));
+</script>

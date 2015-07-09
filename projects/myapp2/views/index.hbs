@@ -3,6 +3,12 @@
 <p>This is my first App</p>
 <div id="container"></div>
 
+<ul>
+{{#each list}}
+	<li>{{name}}</li>
+{{/each}}
+</ul>
+
 <script>
 	function appendPerson(Person){
 		document.getElementById('container').innerHTML = Person.name;
@@ -48,5 +54,24 @@
 
 	$.getJSON('/json/3', {id: 2}, function(data){
 		console.log(data);
+	});
+
+	$('ul').on('click', 'li', function(e){
+		// 1. 客户端删除DOM
+		// 2. 服务器删除数据库数据
+
+		var name = $(this).text();
+
+		$(this).remove();
+
+		$.ajax({
+			method: 'POST',
+			url: '/delete',
+			data: {
+				username: name
+			}
+		}).done(function(result){
+			alert('deleted from server');
+		});
 	});
 </script>
