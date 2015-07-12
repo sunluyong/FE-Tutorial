@@ -75,3 +75,25 @@
 		});
 	});
 </script>
+
+<script>
+	// function getBooks(){
+ //    var script = document.createElement('script');
+ //    script.setAttribute('type','text/javascript');
+ //    script.setAttribute('src','http://localhost:3001?callback=showBookss');
+ //    document.body.appendChild(script);
+	// }
+
+	// getBooks();
+
+	// function showBookss(books){
+	// 	console.log(books[0]);
+	// }
+
+	$.ajax({
+		url: 'http://localhost:3001',
+		dataType: 'jsonp'
+	}).done(function(result){
+		console.log(result);
+	});
+</script>
