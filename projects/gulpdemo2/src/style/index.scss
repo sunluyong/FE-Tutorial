@@ -1,0 +1,18 @@
+$baseColor: #666;
+
+a{
+  color: $baseColor;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+p{
+  @extend a;
+  background: $baseColor;
+
+  img{
+    width: 50%;
+    height: 20px;
+  }
+}
