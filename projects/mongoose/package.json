@@ -4,5 +4,8 @@
   "author": "Samaritan",
   "dependencies": {
     "mongoose": "~4.0.7"
+  },
+  "devDependencies": {
+    "mongo-express": "~0.21.0"
   }
 }

@@ -11,8 +11,6 @@ var personSchema = new Schema({
 	sex: String
 });
 
-personSchema.index({id:1});
-
 personSchema.statics.getById = function (id, cb) {
 	return this.find({id: id}, cb);
 };
