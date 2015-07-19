@@ -1,0 +1,8 @@
+{
+  "name": "mongoosedemo",
+  "version": "0.0.1",
+  "author": "Samaritan",
+  "dependencies": {
+    "mongoose": "~4.0.7"
+  }
+}
