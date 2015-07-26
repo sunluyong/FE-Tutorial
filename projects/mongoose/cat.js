@@ -30,7 +30,7 @@ catSchema.statics.update = function (opt, obj, cb) {
 };
 
 catSchema.statics.updateAll = function (opt, obj, cb) {
-	this.update(opt, obj, cb);
+	this.update(opt, obj, {multi: true}, cb);
 };
 
 var Cat = mongoose.model('Cat', catSchema);

@@ -16,3 +16,12 @@ p{
     height: 20px;
   }
 }
+
+
+.container{
+  margin: 20px auto;
+  width: 400px;
+  border: solid 1px orange;
+  height: 150px;
+  column-count: 3;
+}

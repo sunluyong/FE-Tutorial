@@ -1,1 +1,19 @@
-a,p{color:#666}a:hover,p:hover{text-decoration:underline}p{background:#666}p img{width:50%;height:20px}
+a, p {
+  color: #666; }
+  a:hover, p:hover {
+    text-decoration: underline; }
+
+p {
+  background: #666; }
+  p img {
+    width: 50%;
+    height: 20px; }
+
+.container {
+  margin: 20px auto;
+  width: 400px;
+  border: solid 1px orange;
+  height: 150px;
+  -webkit-column-count: 3;
+     -moz-column-count: 3;
+          column-count: 3; }

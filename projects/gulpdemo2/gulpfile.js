@@ -3,6 +3,8 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minify = require('gulp-uglifycss');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer-core');
 
 // 1. 压缩js到build目录
 // 2. 编译sass文件为css文件，并复制到build
@@ -20,7 +22,8 @@ gulp.task('css', function(){
 
 	gulp.src('src/style/**/*.scss')
 			.pipe(sass())
-			.pipe(minify())
+			.pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+			//.pipe(minify())
 			.pipe(gulp.dest('build/style'));
 
 });
