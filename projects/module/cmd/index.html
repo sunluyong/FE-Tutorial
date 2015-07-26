@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>AMD</title>
-	<script src="js/require.js"></script>
+	<title>CMD</title>
+	<script src="js/sea.js"></script>
 </head>
 <body>
 	<script>
-		require(['js/mod3'], function (mod3) {
+		seajs.use(['mod3'], function(mod3){
 			mod3.print(24);
 		});
-
-		console.log('========');
-
+		console.log('=====');
 	</script>
 </body>
 </html>

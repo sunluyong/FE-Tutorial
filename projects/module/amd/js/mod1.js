@@ -7,6 +7,7 @@ define([], function(){
 	return {
 		print: function(){
 			console.log(name);
+			return name;
 		}
 	};
 
