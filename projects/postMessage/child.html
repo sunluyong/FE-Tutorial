@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Child</title>
+</head>
+<body>
+    123
+
+    <script>
+        window.addEventListener('message', function(e){
+            if(e.source != window.parent) return;
+
+            var color = 'red';
+
+            window.parent.postMessage(color, '*');
+
+        }, false);
+    </script>
+</body>
+</html>

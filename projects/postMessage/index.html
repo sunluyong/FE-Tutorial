@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postMessage</title>
+    <style type="text/css">
+        body{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    AAA
+    <iframe name="aaa" style="border:0;" src="child.html"></iframe>
+    BBB
+
+    <script>
+        window.onload = function(){
+            window.frames[0].postMessage('getcolor','http://10.18.213.52:7000');
+        }
+
+        window.addEventListener('message', function(e){
+            console.log(e);
+        }, false);
+    </script>
+</body>
+</html>
