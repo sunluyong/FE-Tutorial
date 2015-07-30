@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebWorkers</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var worker = new Worker('worker.js');
+
+        worker.postMessage({n: 69});
+
+        worker.onmessage = function(e){
+            console.log(e);
+            document.write(e.data);
+        };
+
+        document.write('<p style="color:red;">TTT</p>');
+    </script>
+</body>
+</html>
