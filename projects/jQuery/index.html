@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="./jquery-2.1.4.js"></script>
+</head>
+<body>
+    <script>
+
+        function Publisher(){
+            this.clients = [];
+            this.paper = '123';
+        }
+
+        Publisher.prototype.addClient = function (client){
+            this.clients.push(client);
+        };
+
+        Publisher.prototype.diliver = function(){
+            var _publisher = this;
+            this.clients.forEach(function(client){
+                client.recieve(client.name + '\t' + _publisher.paper);
+            });
+        };
+
+        function Client(name){
+            this.name = name;
+        }
+
+        Client.prototype.Subscribe = function (publisher){
+            publisher.addClient(this);
+        };
+
+        Client.prototype.recieve = function(paper){
+            console.log(paper);
+        };
+
+        var publisher = new Publisher();
+
+        var client1 = new Client('Byron', publisher);
+        client1.Subscribe(publisher);
+
+        var client2 = new Client('Casper', publisher);
+        client2.Subscribe(publisher);
+
+        var client3 = new Client('Vincent', publisher);
+        client3.Subscribe(publisher);
+
+
+        publisher.diliver();
+
+    </script>
+
+
+    <script>
+
+        var wait = function(){
+            var dtd = $.Deferred();
+
+            var tasks = function(){
+                console.log("执行完毕！");
+                dtd.resolve();
+            };
+
+            setTimeout(tasks, 1000);
+
+            return dtd.promise();
+        };
+
+       $.when(wait())
+        .done(function(){
+            console.log('回调');
+        })
+        .fail(function(){
+            console.log('失败');
+        })
+        .always(function(){
+            console.log('always');
+        });
+
+    </script>
+</body>
+</html>
