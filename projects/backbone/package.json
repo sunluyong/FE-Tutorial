@@ -1,0 +1,11 @@
+{
+  "name": "backbone",
+  "version": "1.0.0",
+  "description": "backbone demo",
+  "main": "app.js",
+  "author": "Samaritan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.13.3"
+  }
+}
