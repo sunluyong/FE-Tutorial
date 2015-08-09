@@ -14,18 +14,23 @@ var Todo = Backbone.Model.extend({
 
 var TodoList = Backbone.Collection.extend({
     model: Todo,
+
     localStorage: new Backbone.LocalStorage("todos-backbone"),
+
     getDone: function(){
         return this.where({done: true});
     },
+
     getRemaining: function(){
         return this.where({done: false});
     },
+
     nextOrder: function(){
         if(!this.length) return 1;
 
         return this.last().get('order') + 1;
     },
+
     comparator: 'order'
 });
 
@@ -38,7 +43,7 @@ var TodoView = Backbone.View.extend({
 
     events: {
         'click .toggle': 'toggleDone',
-        'dblClick .view': 'edit',
+        'dblclick .view': 'edit',
         'click a.destroy': 'clear',
         'keypress .edit': 'updateOnEnter',
         'blur .edit': 'close'
@@ -70,7 +75,7 @@ var TodoView = Backbone.View.extend({
         if(!value){
             this.clear();
         }else{
-            this.model.save({title: vlue});
+            this.model.save({title: value});
             this.$el.removeClass('editing');
         }
     },
@@ -136,14 +141,6 @@ var AppView = Backbone.View.extend({
 
     addAll: function(){
         todos.each(this.addOne, this);
-    },
-
-    newAttributes: function(){
-        return {
-            title: this.input.val(),
-            order: todos.nextOrder(),
-            done: false
-        };
     },
 
     createOnEnter: function(e){

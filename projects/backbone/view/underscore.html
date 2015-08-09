@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Underscore</title>
+    <script src="/js/lib/underscore.js"></script>
+</head>
+<body>
+    <div id="container">
+    </div>
+
+    <script id="tmpl" type="text/template">
+        <ul>
+        <%for(var i = 0; i < list.length; i++){%>
+            <li><a href="#"><%=list[i].name%>-<%=list[i].age%></a></li>
+        <%}%>
+        </ul>
+    </script>
+
+    <script>
+        var list = [
+            {
+                name: 'Byron',
+                age: 23
+            },
+            {
+                name: 'Vincent',
+                age: 24
+            },
+            {
+                name: 'Casper',
+                age: 25
+            }
+        ];
+
+        var container = document.getElementById('container');
+
+        // var html = '<ul>';
+        // for(var i = 0; i < list.length; i++){
+        //     html += '<li><a href="#">' + list[i].name + ' -' + list[i].age + '</a></li>';
+        // }
+        // html += '</ul>';
+
+        var source = document.getElementById('tmpl').innerHTML;
+        var template = _.template(source);
+
+        container.innerHTML = template({list: list});
+    </script>
+</body>
+</html>

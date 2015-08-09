@@ -20,7 +20,7 @@ bookShelf.add(book1);
 bookShelf.add(book2);
 bookShelf.add(book3);
 
-// bookShelf.remove(book3);
+bookShelf.remove(book2);
 
 bookShelf.each(function(book){
     console.log(book.get('title'));
