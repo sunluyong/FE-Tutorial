@@ -1,0 +1,14 @@
+{
+  "name": "mocha-demo",
+  "version": "1.0.0",
+  "description": "mocha demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Samaritan",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "~3.2.0"
+  }
+}
